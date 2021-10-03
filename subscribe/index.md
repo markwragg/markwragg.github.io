@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Subscribe
-date: '2016-05-01 12:30:00'
 ---
 
 If you would like to subscribe to posts from this blog use one of the following options.

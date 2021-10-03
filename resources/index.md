@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Resources
-date: '2016-05-01 12:00:00'
 ---
 
 This page lists various media, websites and other resources that I've found interesting and useful.
