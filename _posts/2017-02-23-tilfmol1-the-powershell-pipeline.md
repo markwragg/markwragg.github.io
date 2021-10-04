@@ -1,6 +1,7 @@
 ---
 title: 'TILFMOL #1 - The PowerShell Pipeline'
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2017/02/pipes-1.jpg"
 date: '2017-02-23 15:35:52'
 tags:

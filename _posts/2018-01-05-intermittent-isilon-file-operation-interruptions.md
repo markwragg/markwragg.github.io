@@ -1,6 +1,7 @@
 ---
 title: Intermittent Isilon write failures due to SMB3 Multichannel setting
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2018/01/dell-emc-isilon.png"
 date: '2018-01-05 22:08:15'
 tags:

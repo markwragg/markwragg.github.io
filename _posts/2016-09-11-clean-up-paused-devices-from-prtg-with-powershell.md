@@ -1,6 +1,7 @@
 ---
 title: Cleaning up paused devices from PRTG with Powershell
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2016/09/isometricBG_5.jpg"
 date: '2016-09-11 18:50:00'
 tags:

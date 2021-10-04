@@ -1,6 +1,7 @@
 ---
 title: Getting started with Pester (for operational testing)
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2016/09/maze.jpg"
 date: '2016-09-28 10:39:20'
 ---

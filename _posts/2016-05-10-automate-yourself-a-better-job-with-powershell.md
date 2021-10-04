@@ -1,6 +1,7 @@
 ---
 title: Automate yourself a better job with Powershell
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2016/05/Robot-Hands-Keyboard.jpg"
 date: '2016-05-10 00:00:06'
 tags:

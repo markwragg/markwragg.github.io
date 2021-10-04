@@ -1,6 +1,7 @@
 ---
 title: 'TILFMOL #3 - PowerShell Remoting'
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2017/02/global-network-1.jpg"
 date: '2017-03-16 21:29:50'
 tags:

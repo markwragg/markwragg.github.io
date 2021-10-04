@@ -1,6 +1,7 @@
 ---
 title: PowerShell Core 6.0
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2018/01/PowerShell-6-Core-1.jpg"
 date: '2018-01-09 00:01:03'
 tags:

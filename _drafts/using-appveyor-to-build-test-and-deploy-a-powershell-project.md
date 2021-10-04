@@ -1,6 +1,7 @@
 ---
 title: Using AppVeyor to build, test and deploy a PowerShell project
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2017/01/Continuous-Narrow.jpg"
 ---
 I have wanted to explore the topic of Continuous Integration (and particularly how it might apply to PowerShell) since reading the excellent [Release Pipeline Model Whitepaper](http://download.microsoft.com/download/C/4/A/C4A14099-FEA4-4CB3-8A8F-A0C2BE5A1219/The%20Release%20Pipeline%20Model.pdf) by Michael Greene and Steven Murawski.

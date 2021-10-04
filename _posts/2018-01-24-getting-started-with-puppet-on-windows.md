@@ -1,6 +1,7 @@
 ---
 title: Getting started with Puppet on Windows
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2018/01/wallpaper-puppet-in-the-rain-2.jpg"
 date: '2018-01-24 12:37:35'
 tags:

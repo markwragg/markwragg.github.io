@@ -1,6 +1,7 @@
 ---
 title: Get uptime from multiple servers with Powershell
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2016/05/flip-clock.jpg"
 date: '2016-08-29 10:00:11'
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Containers in Windows Server 2016 TP5
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2016/05/inception-1024-wallpaper-829789-1.jpg"
 date: '2016-05-07 17:57:12'
 tags:

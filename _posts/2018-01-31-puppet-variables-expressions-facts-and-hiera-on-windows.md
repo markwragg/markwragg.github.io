@@ -1,6 +1,7 @@
 ---
 title: Puppet Variables, Expressions, Facts and Hiera on Windows
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2018/01/Cat-Expressions.jpg"
 date: '2018-01-31 12:27:49'
 tags:

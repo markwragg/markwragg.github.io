@@ -1,6 +1,7 @@
 ---
 title: Using Test-NetConnection to diagnose network connectivity
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2016/06/connectivity.png"
 date: '2016-09-08 20:53:00'
 tags:

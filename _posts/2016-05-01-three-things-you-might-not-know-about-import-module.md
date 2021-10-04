@@ -1,6 +1,7 @@
 ---
 title: Three things you might not know about Import-module
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2016/05/media-20160429-1.jpg"
 date: '2016-05-01 15:00:00'
 tags:

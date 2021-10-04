@@ -1,6 +1,7 @@
 ---
 title: Using Terraform to create Failover records in Route53
 header:
+  show_overlay_excerpt: false
   overlay_image: "/content/images/2018/11/nasa-53884-unsplash.jpg"
 ---
 I was recently tasked with creating some DNS records in AWS's Route53 service using Terraform. These records were to use a Failover Routing policy so that traffic would be routed to a secondary site if the first was unavailable. While working on this I found the Terraform documentation around configuring failover in Route53 was a bit brief, so am documenting my code via this blog post.
