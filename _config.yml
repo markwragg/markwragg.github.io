@@ -71,8 +71,8 @@ footer:
 permalink: /:categories/:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate: 10
-paginate_path: /:num/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
 
 plugins:
   - jekyll-paginate
