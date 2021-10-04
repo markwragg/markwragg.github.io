@@ -1,6 +1,4 @@
 ---
-layout: list
-title:  Blog
-slug:   blog
-cover: true
+layout: home
+author_profile: true
 ---
