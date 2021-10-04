@@ -2,7 +2,7 @@ remote_theme: mmistakes/minimal-mistakes@4.24.0
 
 minimal_mistakes_skin: "dark"
 
-title: Mark Wragg - Blob | wragg.io
+title: Mark Wragg - Blog | wragg.io
 masthead_title: wragg.io | blog
 subtitle: Windows, Automation, Powershell, Pester, Chef, AWS, Azure
 name: Mark Wragg
