@@ -37,7 +37,10 @@ include: ["_pages"]
 author:
   name             : Mark Wragg
   avatar           : /content/images/MarkWragg.png
-  bio              : "Windows DevOps Engineer and PowerShell fanatic."
+  bio              : > 
+    Windows DevOps Engineer and PowerShell fanatic.
+
+    Director @ MPFE.uk
   location         : "Basingstoke, UK"
   email            : mark@wragg.io
   links:
@@ -54,6 +57,9 @@ author:
 # Site Footer
 footer:
   links:
+    - label: "MPFE"
+      icon: "fas fa-fw fa-building"
+      url: "https://mpfe.uk"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:mark@wragg.io"
