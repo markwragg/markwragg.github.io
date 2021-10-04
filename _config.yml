@@ -1,9 +1,12 @@
 remote_theme: mmistakes/minimal-mistakes@4.24.0
 
-title: Mark Wragg
+minimal_mistakes_skin: "default"
 
-accent_image: /content/images/bg-windows.jpg
-accent_color: rgb(64,64,64)
+title: Mark Wragg
+subtitle: Windows, Automation, Powershell, Pester, Chef, AWS, Azure
+name: Mark Wragg
+
+description: UK based DevOps blogger.
 
 menu:
   - title: Blog
@@ -14,28 +17,7 @@ menu:
     url:   /resources/
   - title: Subscribe
     url:   /subscribe/
-    
-collections:
-  featured_categories:
-    permalink:         /:name/
-    output:            true
-  featured_tags:
-    permalink:         /tag-:name/
-    output:            true
 
-lang: en
-description:  >
-  UK based DevOps blogger.
-
-# A shorter description for the sidebar.
-tagline: Windows, Automation, Powershell, Pester, Chef, AWS, Azure
-
-# A list of keywords for your blog
-keywords: [DevOps, Microsoft, Cloud, Azure, AWS, PowerShell, Infrastructure, Windows, Server]
-
-# A (square) logo for your site.
-# If provided, it will be shown at the top of the sidebar.
-# It also used by the `jekyll-seo-tag` plugin.
 logo: /content/images/MarkWragg.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
@@ -43,17 +25,12 @@ author:
   name: Mark Wragg
   email: mark@wragg.io
 
-copyright:             © 2021. All rights reserved.
-
 # Format of the permalinks
 permalink:             /:categories/:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
 paginate_path:         /:num/
-
-favicon: /content/images/favicon.ico
-apple_touch_icon: /content/images/favicon.ico
 
 defaults:
   - scope:
