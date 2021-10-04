@@ -59,4 +59,4 @@ plugins:
   - jekyll-feed
 
 feed:
-  path: /rss/
+  path: /rss
