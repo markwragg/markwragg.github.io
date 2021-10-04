@@ -3,7 +3,7 @@ main:
     url:   /
   - title: About Me
     url:   /about-me/
-  - title: Categories
-    url:   /categories/
+  - title: Archive
+    url:   /archive/
   - title: Tags
     url:   /tags/
