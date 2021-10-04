@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Learn PowerShell in a Month of Lunches
 image: "/content/images/2017/02/book-med.jpg"
 date: '2017-02-23 15:07:00'
 tags:
 - powershell
 ---
-
 I got started with PowerShell thanks to the encouragement and enthusiasm of a [friend and former colleague](http://sammart.in). Following that, I've largely developed my knowledge through the standard combinations of trial + error + googling and more recently (as is evident) by doing my best to engage with and give back to the community.
 
 [![XKCD: Code Quality](https://imgs.xkcd.com/comics/code_quality.png)](https://xkcd.com/1513/)
@@ -38,5 +36,4 @@ Without further ado, here are some things I learnt from reading Learn PowerShell
   - Scheduled jobs
 
 ---
-
 Happily, I can now confidently and personally recommend [Learn PowerShell in a Month of Lunches](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition), not only for beginners but to anyone looking to validate and further their knowledge of PowerShell.

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Testing Active Directory with Pester and Powershell
 image: "/content/images/2016/06/Compliance-Checkbox.jpg"
 date: '2016-06-13 08:53:56'
@@ -7,7 +6,6 @@ tags:
 - pester
 - powershell
 ---
-
 [Irwin Strachan](https://twitter.com/IrwinStrachan) published a Pester script for [Operational Testing of Active Directory](https://pshirwin.wordpress.com/2016/04/08/active-directory-operations-test/) back in April which I was keen to try out. Afterwards I extended the script to add some additional health checks of Active Directory and this post explains how the resultant combination of our work can be used to validate your Active Directory.
 
 You can find my version of this tool here: 

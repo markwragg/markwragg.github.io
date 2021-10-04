@@ -1,5 +1,4 @@
 ---
-layout: post
 title: ARM template error "Operation PutLoadBalancerOperation was canceled and superseded
   by operation InternalOperation"
 image: "/content/images/2020/08/dropped-icecream-1.jpg"
@@ -11,7 +10,6 @@ tags:
 - iac
 - infrastructure
 ---
-
 Last week I spent a day troubleshooting an ARM (Azure Resource Manager) template deployment error that was frustratingly vague. A Load Balancer resource in the template was returning a result of "conflict" and the following error:
 
 > Note: I've blanked out the operation IDs in the example error below as these were unique to my deployment.

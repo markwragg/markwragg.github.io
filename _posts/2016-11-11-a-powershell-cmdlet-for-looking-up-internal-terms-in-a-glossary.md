@@ -1,12 +1,10 @@
 ---
-layout: post
 title: A Powershell cmdlet for looking up internal terms in a glossary
 image: "/content/images/2016/11/Glossary.jpg"
 date: '2016-11-11 20:05:19'
 tags:
 - powershell
 ---
-
 I've recently started a new role and as a result I have a lot of new business terms and acronyms to get to grips with. A list of about 50 of these were handed to me on my first day which was really helpful, but when I searched around the intranet and various other sources of documentation I found there were many more.
 
 In an effort to reduce the amount of searching I might have to do in the future, I decided to see if I could compile these sources together. This was generally pretty easy to do, because the various lists were already in a tabular format, or laid out in a consistent way where I could use things like Excel's Text to Columns function to get them consistent. At first I had a simple 2 column spreadsheet of "Term" and "Description" but then it also started to make sense to broadly categorise them (based on their various sources) which was simple to do with an additional "Category" column. Finally some of the definitions had web links to more informaton so I added a "Link" column too to optionally include this.

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Keep PowerShell Core updated on Windows with Chocolatey
 image: "/content/images/2018/02/brownie-dessert-cake-sweet-45202.jpeg"
 date: '2018-02-28 15:01:22'
@@ -7,7 +6,6 @@ tags:
 - powershell
 - chocolatey
 ---
-
 PowerShell Core is the cross-platform version of PowerShell that runs on Windows, Mac and Linux. If you are not familar with it, [check out my previous blog post on the topic](http://wragg.io/powershell-core/). It's likely that PowerShell Core will see more regular releases than we've had historically with Windows PowerShell. While you will be able to download the .msi installer for these releases to update your version, this blog post covers how can use the Windows package management tool [Chocolatey](https://chocolatey.org) to manage your upgrades instead.
 
 Since [February 2017](https://blogs.msdn.microsoft.com/powershell/2017/02/01/installing-latest-powershell-core-6-0-release-on-linux-just-got-easier/) its been possible on Linux to install and upgrade PowerShell via the package management tools `apt-get` and `yum`. Windows doesn't natively have a package management tool and Chocolatey exists to fill that void. Package managers greatly simplify the task of installing and managing software packages.

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Three things you might not know about Import-module
 image: "/content/images/2016/05/media-20160429-1.jpg"
 date: '2016-05-01 15:00:00'
 tags:
 - powershell
 ---
-
 In Powershell the Import-Module cmdlet allows you to extend the cmdlets available to you within your script or console. This can be official extensions, such as the activedirectory module that is included with AD Tools, or custom modules you have written yourself to group together a useful set of functions or commands. This post briefly covers a few tricks i've discovered about import-module that i've found repeatedly useful.
 
 If you want to see which modules are available to you (and where they are located on the system) execute `Get-Module -ListAvailable`.

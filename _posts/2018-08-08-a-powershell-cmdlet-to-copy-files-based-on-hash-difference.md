@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Copy files with hash difference via PowerShell
 image: "/content/images/2018/08/apple-1868383_1920.jpg"
 date: '2018-08-08 13:23:43'
 tags:
 - powershell
 ---
-
 This blog post details a PowerShell Core compatible cmdlet that I have authored named `Copy-FileHash` that you can use to copy modified files from one path tree to another. The cmdlet determines which files have different contents by calculating their hash values through the `Get-FileHash` cmdlet. This might be useful if you need to copy just files that have been modified between two paths and aren't able to rely on the modified date of those files to determine which have changed. 
 
 > **What is a hash value?**

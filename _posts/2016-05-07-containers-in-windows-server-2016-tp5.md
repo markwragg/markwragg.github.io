@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Containers in Windows Server 2016 TP5
 image: "/content/images/2016/05/inception-1024-wallpaper-829789-1.jpg"
 date: '2016-05-07 17:57:12'
@@ -9,7 +8,6 @@ tags:
 - docker
 - server2016
 ---
-
 I'm just starting to get my head around the concept of Containers and as such decided to take Windows Server 2016 Technical Preview 5 for a spin, which includes Docker Containers as a feature. It's potentially worth being more explicit here (for anyone not aware) that this isn't Microsoft's version of Containers, this is [actually Docker baked in to Server 2016](https://www.docker.com/microsoft). That's a pretty cool move on Microsoft's part.
 
 Things were already getting pretty meta in trying to run a Container inside a Virtual Machine on my desktop, but an early challenge I experienced in testing this out was getting the Hyper-V feature to install within a VM running under VirtualBox. The short answer seems to be you can't, due to a lack of support for Nested Virtualisation [despite someone asking for the feature seven years ago](https://www.virtualbox.org/ticket/4032).

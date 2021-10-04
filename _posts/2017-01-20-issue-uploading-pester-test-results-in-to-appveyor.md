@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Issue uploading Pester test results in to AppVeyor
 image: "/content/images/2017/01/bug.jpg"
 date: '2017-01-20 13:46:28'
@@ -8,7 +7,6 @@ tags:
 - pester
 - appveyor
 ---
-
 While experimenting with [AppVeyor](https://www.appveyor.com) to add Continuous Integration to my PowerShell projects (more detailed blog post to follow) I encountered a bug that meant that the [Pester](https://github.com/pester/Pester) test results (uploaded via the NUnit formatted results file) were not appearing in the "Tests" tab of my AppVeyor project.
 
 *-- **Update**: The [issue has now been closed](https://github.com/appveyor/ci/issues/1271) by the AppVeyor dev team and I've confirmed that the workaround described below is no longer necessary.*

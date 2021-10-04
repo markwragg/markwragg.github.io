@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to create a Grafana metrics dashboard via Influx and PowerShell
 image: "/content/images/2018/02/Control-Center-L.jpg"
 date: '2018-02-21 14:01:56'
@@ -10,7 +9,6 @@ tags:
 - grafana
 - devops
 ---
-
 This blog post describes how you can use the open source tools Influx and Grafana along with a [PowerShell module I've authored](https://github.com/markwragg/PowerShell-Influx) on Windows to create and populate interactive metric and monitoring dashboards like this one:
 
 ![](/content/images/2018/02/Grafana-Example-2.png)

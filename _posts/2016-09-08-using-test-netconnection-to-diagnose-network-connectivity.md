@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Using Test-NetConnection to diagnose network connectivity
 image: "/content/images/2016/06/connectivity.png"
 date: '2016-09-08 20:53:00'
 tags:
 - powershell
 ---
-
 Powershell version 4 and Windows 8.1 / 2012 R2 introduced the `Test-NetConnection` command as a tool for performing network connectivity tests with Powershell. `Test-NetConnection` allows you to perform ping, traceroute and TCP port tests and from Windows 10 and Server 2016 onward introduces the ability to do "Diagnose Routing" tests with the same cmdlet.
 
 > The Test-NetConnection cmdlet displays diagnostic information for a connection. It supports ping test, TCP test, route tracing, and route selection diagnostics. Depending on the input parameters, the output can include the DNS lookup results, a list of IP interfaces, IPsec rules, route/source address selection results, and/or confirmation of connection establishment.

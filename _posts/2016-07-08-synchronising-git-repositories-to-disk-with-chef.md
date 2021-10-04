@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Synchronising Git repositories to disk with Chef
 image: "/content/images/2016/06/Chef-Git-Logo-6-1.png"
 date: '2016-07-08 12:49:29'
 tags:
 - chef
 ---
-
 My team has an ever-growing collection of administration scripts and tools which are organised and maintained within a number of Git repositories. In order to ensure that the copies of these scripts in production always reflect the Master branch in Source Control we set up a Chef cookbook to synchronise the repositories to a network share in the environment. This post details how this functionality was developed and deployed.
 
 **What is Git?**
@@ -154,5 +152,4 @@ If a Git Client is not already installed, one will be installed. Git is an obvio
 
 Finally it will go through each listed repository and use Git to synchronise them to the local folder.
 
-----
-For my team this is a first small step towards a release pipeline in our environment, which has otherwise been largely governed by business processes. Ultimately this was simple to implement, particularly as we had a pre-existing Source Control to use and because it was possible to access that from our hosting environment. With this in place, we can ensure that any future changes to our automation scripts are only made via Source Control and that those changes are automatically promoted to Production once approved.
+----For my team this is a first small step towards a release pipeline in our environment, which has otherwise been largely governed by business processes. Ultimately this was simple to implement, particularly as we had a pre-existing Source Control to use and because it was possible to access that from our hosting environment. With this in place, we can ensure that any future changes to our automation scripts are only made via Source Control and that those changes are automatically promoted to Production once approved.

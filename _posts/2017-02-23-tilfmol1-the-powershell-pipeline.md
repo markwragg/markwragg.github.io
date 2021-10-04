@@ -1,12 +1,10 @@
 ---
-layout: post
 title: 'TILFMOL #1 - The PowerShell Pipeline'
 image: "/content/images/2017/02/pipes-1.jpg"
 date: '2017-02-23 15:35:52'
 tags:
 - powershell
 ---
-
 As introduced in my [previous post](http://wragg.io/tilfmol-things-i-learnt-from-learn-powershell-in-a-month-of-lunches/), this is part one of a four part series that documents some things I discovered or had clarified by reading the excellent [Learn PowerShell in a Month of Lunches](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition) book (recently released in 3rd edition).
 
 This post covers some things I learnt about the PowerShell pipeline, which include:
@@ -96,5 +94,4 @@ Interestingly, you can cause the same issue at the console by entering `Get-Serv
 
 The point is, when writing scripts/functions it's important (for this reason as well as others) to only return one kind of result.
 
----
-This concludes part one. [In part two I cover some things I learnt about the PowerShell help system](http://wragg.io/tilfmol-2-powershell-help/) `get-help`.
+---This concludes part one. [In part two I cover some things I learnt about the PowerShell help system](http://wragg.io/tilfmol-2-powershell-help/) `get-help`.

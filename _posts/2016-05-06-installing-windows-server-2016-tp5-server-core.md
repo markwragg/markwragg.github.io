@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Installing Windows Server 2016 TP5 Server Core
 image: "/content/images/2016/05/you_are_likely_to_be_eaten_by_a_grue_by_nmajmani-d4qbkrg-3.png"
 date: '2016-05-06 16:39:57'
@@ -7,7 +6,6 @@ tags:
 - windows
 - server2016
 ---
-
 Previously I covered [performing the installation of Windows Server 2016 Technical Preview 5](http://wragg.io/installing-windows-2016-technical-preview-5-tp5/) in to a desktop VM with the Desktop Experience (GUI) mode enabled. This post covers the installation of the GUI-less Server Core mode and subsequently how to manage and maintain it.
 
 > Beware that since TP3 they have [removed the ability to turn the Windows GUI on and off after installation](https://technet.microsoft.com/en-us/library/mt427865.aspx) that was possible in previous versions, so like Indiana Jones, [choose wisely](https://www.youtube.com/watch?v=0H3rdfI28s0).

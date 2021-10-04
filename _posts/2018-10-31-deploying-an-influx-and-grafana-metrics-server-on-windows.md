@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Deploying Influx and Grafana on Windows with Terraform
 image: "/content/images/2018/10/kate-rowe-240285-unsplash-1.jpg"
 date: '2018-10-31 16:40:41'
@@ -13,7 +12,6 @@ tags:
 - automation
 - server2016
 ---
-
 I have previously [blogged about how you can use Influx, Grafana and PowerShell to build and populate metrics dashboards](http://wragg.io/windows-based-grafana-analytics-platform-via-influxdb-and-powershell/) for visualising data from multiple sources. This blog post details how you can use Terraform to quickly and easily deploy Grafana and Influx on a Windows instance in AWS as a proof of concept implementation of these tools. 
 
 If you'd like to go directly to the code, you can find it here: https://github.com/markwragg/Terraform-MetricStack

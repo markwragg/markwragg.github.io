@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Cleaning up paused devices from PRTG with Powershell
 image: "/content/images/2016/09/isometricBG_5.jpg"
 date: '2016-09-11 18:50:00'
@@ -7,7 +6,6 @@ tags:
 - powershell
 - prtg
 ---
-
 One of our AWS based products uses auto-scaling and when new instances are deployed a script automatically creates sensors for them in PRTG (our monitoring tool). When the instances are scaled down/terminated there is not a script that automatically removes them from PRTG (in part so that we can temporarily retain the monitoring history). As a result, our monitoring over time can become cluttered with redundant paused devices, so a script was needed to automate the process of clearing those down.
 
 As covered previously, PRTG has a HTTP based API that provides a way to query the configuration and return results as JSON (my preference) or XML or to manipulate objects by passing parameters through the querystring.

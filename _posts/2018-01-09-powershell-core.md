@@ -1,5 +1,4 @@
 ---
-layout: post
 title: PowerShell Core 6.0
 image: "/content/images/2018/01/PowerShell-6-Core-1.jpg"
 date: '2018-01-09 00:01:03'
@@ -7,7 +6,6 @@ tags:
 - powershell
 - windows
 ---
-
 PowerShell now comes in two flavours, (Vanilla) Windows PowerShell and PowerShell Core (..Rocky Road? ice cream flavour TBD). PowerShell Core is a version of PowerShell built on top of [.NET Core](https://github.com/dotnet/core). The GA version of PowerShell Core is due to be released on the 10th January and Release Candidate versions have been available for some time.
 
 Despite being a new version of PowerShell, its release continues the existing versioning history and also marks the next major release of PowerShell. As such the release will be numbered 6.0 (even though it's effectively 1.0 for Core). The [PowerShell dev team have decided to continue the existing version numbering](https://github.com/PowerShell/PowerShell/issues/5165) on the basis that:

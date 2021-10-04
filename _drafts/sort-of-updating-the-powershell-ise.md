@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "(sort of) Updating the Powershell ISE"
 ---
-
 The Powershell ISE is now being developed independently of the Windows Management Framework. What does this mean?
 
 **1. Install Windows Management Framework 5.**

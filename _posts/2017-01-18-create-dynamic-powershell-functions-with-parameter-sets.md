@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Create dynamic PowerShell functions with Parameter Sets
 image: "/content/images/2017/01/xkcd-print-crop.jpg"
 date: '2017-01-18 20:00:33'
 tags:
 - powershell
 ---
-
 While developing a PowerShell function to query the API of the webcomic [XKCD](http://xkcd.com) I decided to explore and implement Parameter Sets. These allow you to provide your users with different sets of parameters based on different use cases (assuming you have multiple use cases), which as a result provides a more dynamic set of functionality from a single cmdlet. 
 
 You don't have to use parameter sets to support multiple functionality (your function could just ignore the use of parameters that do not apply) but doing so makes your function more explicit to the user as it ensures that it outright rejects the use of invalid parameter combinations:

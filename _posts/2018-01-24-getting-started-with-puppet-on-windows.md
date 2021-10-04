@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting started with Puppet on Windows
 image: "/content/images/2018/01/wallpaper-puppet-in-the-rain-2.jpg"
 date: '2018-01-24 12:37:35'
@@ -7,7 +6,6 @@ tags:
 - puppet
 - windows
 ---
-
 This blog post describes some initial steps you can take to learn Puppet, particularly to control Windows machines. I'm currently learning Puppet via the [Puppet 5 Beginners Guide (Third Edition)](https://www.amazon.co.uk/gp/product/178847290X/ref=as_li_tl?ie=UTF8&tag=exsite0a-21&camp=1634&creative=6738&linkCode=as2&creativeASIN=178847290X&linkId=17c0eba83d12b8e7b213b6899d3b5207) book by John Arundel. 
 
 The book provides you with a Vagrant Ubuntu VM in order to experiment with Puppet. Below I have recreated some of the examples from the book but with minor changes necessary for them to work under Windows. It should therefore (hopefully) serve as a good initial guide to getting started with Puppet for controlling Windows machines. That being said I strongly recommend you also get the book, which is excellent and goes much further than I will cover below.

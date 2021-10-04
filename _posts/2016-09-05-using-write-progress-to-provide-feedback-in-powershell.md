@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Using Write-Progress to provide feedback in Powershell
 image: "/content/images/2016/09/time-passing.jpg"
 date: '2016-09-05 19:48:07'
 tags:
 - powershell
 ---
-
 I like my scripts to give feedback to the console to demonstrate progress where possible and Powershell provides a number of cmdlets to do this, one of which is `Write-Progress`.
 
 > The Write-Progress cmdlet displays a progress bar in a Windows PowerShell command window that depicts the status of a running command or script. You can select the indicators that the bar reflects and the text that appears above and below the progress bar.

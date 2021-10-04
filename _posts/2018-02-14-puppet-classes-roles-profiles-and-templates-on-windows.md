@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using Puppet Classes, Roles, Profiles and Templates
 image: "/content/images/2018/01/Matryoshka-Red-Riding-Hood-Line-Up.jpg"
 date: '2018-02-14 12:26:47'
@@ -7,7 +6,6 @@ tags:
 - puppet
 - windows
 ---
-
 This post explores the Puppet topics of Classes, Roles and Profiles as well as how to utilise Puppet Template files. The `class` keyword is a key Puppet building block. There are various different ways to utilise the `class` keyword and these are explored below.
 
 This is a continuation of a series of posts on Puppet, with a focus on its use with Windows. If you are new Puppet, I suggest reviewing the following posts first:

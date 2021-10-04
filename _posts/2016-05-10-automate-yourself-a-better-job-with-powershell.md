@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Automate yourself a better job with Powershell
 image: "/content/images/2016/05/Robot-Hands-Keyboard.jpg"
 date: '2016-05-10 00:00:06'
@@ -7,7 +6,6 @@ tags:
 - powershell
 - automation
 ---
-
 The phrase "automate yourself out of a job" is too easily misinterpreted as a negative. Without any context it's possible to view it as to mean *you shouldn't automate things. If you do you'll end up unemployed or could make others unemployed.* In IT at least, this is unlikely to be true. Powershell is 10 years old later this year and if you're not using it, here's why you should.
 
 I've never met anyone that has told me they scripted themselves redundant. Instead automation should free you from mundane tasks and give you time back to focus on other improvement activities and projects. But many people still prefer to perform tasks manually and (in the Windows space at least) I've encountered a lot of people that do not script on a regular basis as part of their role and are getting along just fine (for now) with little to no Powershell ability.

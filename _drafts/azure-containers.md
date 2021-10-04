@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Azure Containers
 ---
-
 Microsoft Azure has two container services:
 
 - [Azure Container Service](https://azure.microsoft.com/en-gb/overview/containers/) (generally available [since April 2016](https://azure.microsoft.com/en-us/blog/azure-container-service-is-now-generally-available/)  – you can also use Kubernetes as an orchestrator)

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Get uptime from multiple servers with Powershell
 image: "/content/images/2016/05/flip-clock.jpg"
 date: '2016-08-29 10:00:11'
 tags:
 - powershell
 ---
-
 The following script can be used to get the current uptime from a collection of servers in Active Directory using WMI. I used it as a way to audit our estate, keen to understand how long servers have been operational for, in part to identify those which were potentially not routinely receiving Windows Updates.
 
 ![](/content/images/2016/08/20130306-005558.jpg)

@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Powershell 101
 ---
-
 Built-in commands to discover cmdlets and how they work:
 
 - `Get-Help` 

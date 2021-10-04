@@ -1,5 +1,4 @@
 ---
-layout: post
 title: ARM Deployment "JToken type is not valid" error
 image: "/content/images/2020/09/windows-keyboard-black.jpg"
 date: '2020-09-29 10:56:49'
@@ -8,7 +7,6 @@ tags:
 - arm
 - troubleshooting
 ---
-
 I have recently added tasks in to our Azure DevOps ARM template deployment pipeline to run the new `-WhatIf` parameter on the `New-AzResourceGroupDeployment` to preview the changes an ARM deployment will make, per this guide:
 
 - https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell

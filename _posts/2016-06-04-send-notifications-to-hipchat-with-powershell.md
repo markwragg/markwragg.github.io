@@ -1,10 +1,8 @@
 ---
-layout: post
 title: 'Send notifications to Hipchat with Powershell #ChatOps'
 image: "/content/images/2016/06/hc.jpg"
 date: '2016-06-04 13:32:51'
 ---
-
 I recently implemented a Powershell module to send notifications in to our Hipchat rooms. This post explains how that script works and why this was an important shift for how we handle notifications.
 
 A number of our administrative scripts were historically configured to send emails when they performed key activities to ensure these automations were visible. As with most teams, we receive a lot of email so I suspect (like me) most of the team eventually configured rules to have these emails auto-filed, hiding them and negating the intended effect. 

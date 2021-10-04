@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Using JIRA and Agile Project Management
 ---
-
 > https://www.youtube.com/watch?v=NrHpXvDXVrw
 
 ### Why Agile?

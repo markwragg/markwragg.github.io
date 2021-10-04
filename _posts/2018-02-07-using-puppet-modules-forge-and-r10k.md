@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using Puppet Modules, Forge and r10k on Windows
 image: "/content/images/2018/01/Lego-Brick-Yellow-L.jpg"
 date: '2018-02-07 12:11:58'
@@ -7,7 +6,6 @@ tags:
 - puppet
 - windows
 ---
-
 This blog post explores the topic of Puppet Modules for packaging and sharing code. It also looks at how you can use Puppet's public module repository [Forge](https://forge.puppet.com/) to find existing modules and how you can use the [r10k](https://github.com/puppetlabs/r10k) module management tool to update, manage and maintain them on your machines.
 
 >This is a continuation of a series of blog posts on Puppet inspired by the [Puppet 5 Beginner's Guide](https://www.amazon.co.uk/gp/product/178847290X/ref=as_li_tl?ie=UTF8&tag=exsite0a-21&camp=1634&creative=6738&linkCode=as2&creativeASIN=178847290X&linkId=17c0eba83d12b8e7b213b6899d3b5207) by [John Arundel](http://bitfieldconsulting.com/). If you are new to Puppet you might be interested in the previous two posts:

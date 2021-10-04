@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Watch for changes with PowerShell
 image: "/content/images/2018/03/waiting_cat.jpg"
 date: '2018-03-21 19:46:47'
 tags:
 - powershell
 ---
-
 I recently needed to make a change to the membership of an Active Directory group which was enforced via Puppet. While waiting for the Puppet manifest to apply I used `Get-ADGroupMember` in PowerShell to check if the change had taken effect. Finding that it had not, I then wrote a crude loop to continually check the group membership until it changed. It occurred to me that this kind of functionality might be useful as a cmdlet and as such I have created `Watch-Command`. This blog post details how it works as well as some inventive but controversial design decisions I made.
 
 ![The cats of the nights watch](/content/images/2018/03/Nights-watch-cats.png)

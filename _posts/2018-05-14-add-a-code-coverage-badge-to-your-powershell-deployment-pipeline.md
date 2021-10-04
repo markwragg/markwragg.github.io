@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Adding a code coverage badge to a PowerShell project
 image: "/content/images/2018/04/code-coverage.jpg"
 date: '2018-05-14 10:46:11'
@@ -9,7 +8,6 @@ tags:
 - appveyor
 - automation
 ---
-
 This blog post describes how you can add a code coverage badge to the readme.md of your PowerShell projects in Github as well as have them automatically updated with the current coverage percentage via your Continuous Integration pipeline (if you've implemented one).
 
 > "Code coverage" (or test coverage) is the concept of reporting how much of your code is executed by your tests. A program with high test coverage is likely to have a lower chance of containing undetected bugs, compared to a program with low test coverage.
@@ -120,8 +118,7 @@ For this to work you also need to configure a personal access token within Githu
 
 You might also have noticed in the code above that I am using Git to commit any modified `*.md` and `*.psd1` files. The .md files are of course to capture the updated `readme.md`. I commit changed .psd1 files because my CI pipeline also publishes my module to the PowerShell Gallery and when doing so it increments the module version in the .psd1 file. I simply check this back in to Github so that the Git repo is consistent with what is in the gallery.
 
----
-If you've followed the steps above, you should now have a completely automated way to indicate code coverage results on your PowerShell projects, just like this:
+---If you've followed the steps above, you should now have a completely automated way to indicate code coverage results on your PowerShell projects, just like this:
 
 ![Code coverage badge example](/content/images/2018/05/Code-Coverage-Badge-Example.png)
 

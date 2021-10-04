@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Puppet Variables, Expressions, Facts and Hiera on Windows
 image: "/content/images/2018/01/Cat-Expressions.jpg"
 date: '2018-01-31 12:27:49'
@@ -7,7 +6,6 @@ tags:
 - puppet
 - windows
 ---
-
 This post is a continuation of my earlier [Getting Started with Puppet on Windows](http://wragg.io/getting-started-with-puppet-on-windows/) post (although most of the information in this post is OS agnostic). This post explores how you can make your Puppet manifests more dynamic via the typical programming constructs of variables, expressions, conditions and iteration. It also covers Puppet's `Facter` tool (for simplifying the interrogation of system info) and `Hiera` mechanism (for separating configuration data from your code).
 
 > As with my previous post, my primary source of information was the excellent [Puppet 5 Beginners Guide (Third Edition)](https://www.amazon.co.uk/gp/product/178847290X/ref=as_li_tl?ie=UTF8&tag=exsite0a-21&camp=1634&creative=6738&linkCode=as2&creativeASIN=178847290X&linkId=17c0eba83d12b8e7b213b6899d3b5207) book by [John Arundel](https://twitter.com/bitfield) which I highly recommend.
@@ -183,8 +181,7 @@ file { lookup('temp_dir', String):
 
 Hiera looks up data by following a heirarchy - an ordered list of your data sources. You configure hierarchies in `hiera.yaml`. Here is an example:
 ```
----
-version: 5
+---version: 5
 
 defaults:
   datadir: data
@@ -200,8 +197,7 @@ Puppet will check for these (under the folder defined by `datadir:` which is `\d
 
 A YAML hiera data file might look like this:
 ```
----
-monitoring_server: '1.2.3.4'
+---monitoring_server: '1.2.3.4'
 monitoring_ips:
   - '10.20.30.40'
   - '10.20.30.41'

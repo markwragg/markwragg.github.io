@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Automating ITIL Change
 ---
-
 ITIL is a standard set of IT service definitions and best practices that have been adopted by many organisations. How an organisation implements ITIL processes is up to them and this can vary significantly. ITIL is generally considered the antithesis  of Agile, which prefers speed above all else, but in theory (from my perspective currently) there are ways to continue to utilise the and conform with ITIL processes while working in an Agile way and permitting a culture of Continuous Deployment. The most significant process that we need to consider is how we manage Change.
 
 Change Management is attractive because it offers to bring order to what is typically an anarchic IT organisation. Prior to implementing Change Management, many organisations suffer with rampant uncontrolled change which brings with it the risk of long periods of disruption. Change Management provides a somewhat solution to this by insisting all changes are tracked and reviewed. This has one excellent benefit if adhered to by all participants which is that all changes are at least recorded. As such when disruption occurs its at least simple to determine why and downtime as a result is generally reduced.

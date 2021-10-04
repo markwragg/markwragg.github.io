@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Operational Testing for Antivirus: Validating Symantec Endpoint Protection
   with Pester'
 image: "/content/images/2016/10/ThinkstockPhotos-158695294.jpg"
@@ -8,7 +7,6 @@ tags:
 - powershell
 - pester
 ---
-
 This post contains an operational validation test for Symantec Endpoint Protection (SEP) using the [Pester testing framework module](https://github.com/pester/Pester) with Powershell. It performs a few basic checks to ensure SEP is running and healthy. It is intended as a starting point and could be developed further. Your individual requirements will likely vary depending on how you have SEP configured and deployed in your environment.
 
 This test script came as a result of a training session I ran last week to encourage my team to continue to use Pester and Powershell to build on our set of automated operational tests. We don't make changes to SEP very often, but having a way to validate the product after changes as well as to check consistency across our environment seemed useful.

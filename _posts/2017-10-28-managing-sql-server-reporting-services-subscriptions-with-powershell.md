@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Managing SSRS Subscriptions with PowerShell
 image: "/content/images/2017/10/BusinessAutomation.jpg"
 date: '2017-10-28 07:41:09'
@@ -8,7 +7,6 @@ tags:
 - automation
 - ssrs
 ---
-
 I was recently tasked with investigating how we could store the configuration of our SQL Server Reporting Services report subscriptions  in a source control and then automate the process of (later) configuring them in one or more new SSRS servers.
 
 My first instinct was to look for a PowerShell module and I discovered a [Microsoft maintained module named ReportingServicesTools](https://github.com/Microsoft/ReportingServicesTools) in Github and published to the Powershell Gallery.
@@ -33,7 +31,6 @@ These cmdlets were written to allow someone to clone reports or copy them betwee
 However unfortunately they only work if the action is done in a single session, exporting the result of `Get-RsSubscription` to disk via `Export-CliXML` (per my need) and then reimporting it with `Import-CliXML` made the resultant object invalid for the `Set-RsSubscription` cmdlet due to the object being deserialized and the SOAP API requiring strongly typed inputs.
 
 ---
-
 **TL;DR:** As a result, I have [updated the ReportingServicesTools module](https://github.com/Microsoft/ReportingServicesTools/pull/79) to add cmdlets which enable subscriptions to be stored on disk:
 
 - `Export-RsSubscriptionXml` -- exports subscriptions to disk using Export-CliXML with `-Depth` set to 3.
@@ -63,7 +60,6 @@ Read on below for more in depth information about how these work.
 > It's also great that Microsoft are maintaining things like this as open source and are supportive in helping new contributors understand how to meet the standards for the project.
 
 ---
-
 SSRS uses a SOAP based API for interacting with the system config. It also has a REST API, but that is for interacting with SSRS setup/config. 
 
 These new cmdlets (where applicable) interact with the SOAP API.
@@ -197,8 +193,7 @@ Create an XML string to schedule a subscription to run every 5 days starting at 
 ```
 New-RsScheduleXml -Weekly -Interval 2 -DaysOfWeek Monday,Tuesday,Wednesday,Thursday,Friday
 ```
----
-## Limitations
+---## Limitations
 
 There are a few limitations to the cmdlets at the moment to be aware of:
 

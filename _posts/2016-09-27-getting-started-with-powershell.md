@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Getting started with Powershell
 image: "/content/images/2016/09/getting-started-crop.jpg"
 date: '2016-09-27 09:21:39'
 tags:
 - powershell
 ---
-
 This post is a list of resources and tips to help anyone new to Windows Powershell in getting started with the language. If Powershell is completely new to you, I recommend you review all of the listed resources. If you find other great resources along the way, please feel free to comment below and i'll contribute them to this list.
 
 # Getting Started
@@ -63,8 +61,7 @@ PS C:\Users\mwragg> get-service | get-member
    TypeName: System.ServiceProcess.ServiceController
 
 Name                      MemberType    Definition
-----                      ----------    ----------
-Name                      AliasProperty Name = ServiceName
+----                      ----------    ----------Name                      AliasProperty Name = ServiceName
 RequiredServices          AliasProperty RequiredServices = ServicesDependedOn
 Disposed                  Event         System.EventHandler Disposed(System.Object, System.EventArgs)
 Close                     Method        void Close()
@@ -104,16 +101,14 @@ PS C:\Users\mwragg> get-service | where-object {$_.displayname -like "Windows*"}
 $_.status -eq "Running"} | measure-object | select count
 
 Count
------
-   11
+-----   11
 
 
 PS C:\Users\mwragg> get-service | where-object {$_.displayname -like "Windows*"} | select-object status | where-object {
 $_.status -eq "Running"}
 
  Status
- ------
-Running
+ ------Running
 Running
 Running
 Running
@@ -129,8 +124,7 @@ Running
 PS C:\Users\mwragg> get-service | where-object {$_.displayname -like "Windows*"}
 
 Status   Name               DisplayName
-------   ----               -----------
-Running  AudioEndpointBu... Windows Audio Endpoint Builder
+------   ----               -----------Running  AudioEndpointBu... Windows Audio Endpoint Builder
 Running  Audiosrv           Windows Audio
 Running  EventLog           Windows Event Log
 Running  FontCache          Windows Font Cache Service

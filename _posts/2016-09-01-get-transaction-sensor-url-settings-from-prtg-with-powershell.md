@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Get Transaction Sensor URL settings from PRTG with Powershell
 image: "/content/images/2016/09/PRTG-logo.jpg"
 date: '2016-09-01 21:31:39'
@@ -7,7 +6,6 @@ tags:
 - powershell
 - prtg
 ---
-
 If you're looking for a way to interrogate multiple HTTP Transaction Sensors in your PRTG monitoring installation using a script then this blog post is for you.
 
 I was interested in auditing our monitoring sensors to check they were correctly configured, in particular our Transaction Sensors which visit a series of URLs in turn to simulate a login and check for keyword values on certain pages. We had an issue where (due to sensor cloning) some of these sensors were pointing to the wrong URLs and we needed to understand how extensive this problem was.

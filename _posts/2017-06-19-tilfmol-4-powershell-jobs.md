@@ -1,12 +1,10 @@
 ---
-layout: post
 title: 'TILFMOL #4 - PowerShell Jobs'
 image: "/content/images/2017/10/Automation.jpg"
 date: '2017-06-19 22:57:21'
 tags:
 - powershell
 ---
-
 This is the fourth and final part of a [short series of posts about things I discovered by reading the excellent Learn PowerShell in a Month of Lunches](http://wragg.io/tilfmol-things-i-learnt-from-learn-powershell-in-a-month-of-lunches/) book (recently released in 3rd edition) as a not quite beginner.
 
 This post focuses on things I learnt about PowerShell jobs, which is a feature I'd never used but could see being very useful. PowerShell is by nature, single threaded. However jobs allow you to multitask by pushing one or more commands in to the background thereby allowing them to run sequentially. 

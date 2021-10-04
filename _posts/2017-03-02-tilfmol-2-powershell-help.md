@@ -1,12 +1,10 @@
 ---
-layout: post
 title: 'TILFMOL #2 - PowerShell Help'
 image: "/content/images/2017/02/help-keyboard-2.png"
 date: '2017-03-02 08:00:00'
 tags:
 - powershell
 ---
-
 This is part two of a short series of posts about things I discovered or had clarified by reading the excellent [Learn PowerShell in a Month of Lunches book](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition) (recently released in 3rd edition).
 
 This post focuses on things I learnt about the PowerShell help function, including:
@@ -112,8 +110,7 @@ Also you can open the help information in a pop up window (a way of keeping the 
 
 Also if a help file has an online resource you can open that in a web browser by using the `-online` parameter with `get-help`.
 
----
-This concludes part two. There's a lot more to the PowerShell help system not covered here, as well as other commands you should be aware of such as `get-command` and (the very important) `get-member` which contribute greatly to the discoverability of PowerShell. These are covered in Month of Lunches, or give them a google.
+---This concludes part two. There's a lot more to the PowerShell help system not covered here, as well as other commands you should be aware of such as `get-command` and (the very important) `get-member` which contribute greatly to the discoverability of PowerShell. These are covered in Month of Lunches, or give them a google.
 
 In part three of this series I cover some [things I learnt about PowerShell Remoting](http://wragg.io/tilfmol-3-powershell-remoting/), which is something that I hadn't had a need to experiment with previously.
 

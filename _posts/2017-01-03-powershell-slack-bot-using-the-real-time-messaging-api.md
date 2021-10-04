@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Powershell Slack Bot using the Real Time Messaging API
 image: "/content/images/2017/01/chat-bot-1.jpg"
 date: '2017-01-03 16:13:34'
@@ -7,7 +6,6 @@ tags:
 - powershell
 - slack
 ---
-
 This post details how PowerShell can be used to run a custom Slack Bot that utilises the Slack RTM (Real Time Messaging) API. 
 
 Following on from my previous post where I set up a [Slack Slash Command using Azure Functions](http://wragg.io/a-slack-slash-command-using-powershell-azure-functions/), I wanted to provide more functionality to my team via a single multi function Slack Bot. Slack has three APIs: The Web API, The Events API and the RTM API. There are lots of [community frameworks](https://api.slack.com/community) for working with the Slack APIs in a variety of languages, but for PowerShell existing options seemed to be limited to the Web API.

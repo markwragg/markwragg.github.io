@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Handling Powershell exceptions with Try..Catch..Finally
 image: "/content/images/2016/05/yoda-do_or_do_not.jpg"
 date: '2016-05-25 21:58:44'
 tags:
 - powershell
 ---
-
 Recently while writing a script I expected two commands I was calling to throw exceptions because I expected my script to be unable to remotely connect to some of my servers. Initially I handled the result of these exceptions with `If..Else` blocks, but it felt like a `Try..Catch` might be more appropriate.
 
 *-- Spoiler alert: On this occasion it actually turned out it wasn't, but it's a useful technique regardless.*

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Installing Windows Server 2016 TP5 (Technical Preview 5)
 image: "/content/images/2016/05/windows_10__hero__background__correct_scale__by_gamerverise-d903d5f.png"
 date: '2016-05-05 21:57:16'
@@ -7,7 +6,6 @@ tags:
 - windows
 - server2016
 ---
-
 On the 27th of April 2016 Microsoft released [Technical Preview 5 of Windows Server 2016](https://www.microsoft.com/en-gb/evalcenter/evaluate-windows-server-technical-preview). I was keen to see the new version in action, particularly since attending a talk recently on Windows Containers, which have been a feature available for testing since TP3. I am going to explore Containers in a later post, but here i'm going to cover how I chose to get the OS up and running, as when I came to do it I struggled to find a recommendation on where to test it.
  
 **1. Choose a Hypervisor**

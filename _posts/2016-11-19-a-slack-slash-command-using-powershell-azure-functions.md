@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A Slack Slash Command using Powershell Azure Functions
 image: "/content/images/2016/11/buildazure_slack-1.png"
 date: '2016-11-19 16:27:23'
@@ -8,7 +7,6 @@ tags:
 - powershell
 - slack
 ---
-
 In my previous post I talked about [creating a Powershell function to lookup terms in a large internal glossary](http://wragg.io/a-powershell-cmdlet-for-looking-up-internal-terms-in-a-glossary/) I had collated. This post takes this a step further and creates a custom slash command integration in a Slack chatroom that calls out to a Powershell-based Azure Function to query my (now) Azure hosted glossary.
 
 > [Azure Functions](https://azure.microsoft.com/en-gb/services/functions/) is currently in Preview. It's also [open source](https://github.com/azure/azure-webjobs-sdk-script) which is awesome. If you're familiar with AWS, Azure Functions are Microsoft's answer to Lambda, i.e [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing).

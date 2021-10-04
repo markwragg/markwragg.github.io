@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Auto Scaling across multiple Availability Zones with CloudFormation
 image: "/content/images/2016/05/Autoscaling_MultiAZ_s.png"
 date: '2016-05-02 14:00:00'
 tags:
 - aws
 ---
-
 A colleague and I recently implemented an improvement to our CloudFormation scripts which enabled the Auto Scaling Group to launch instances across more than one Availability Zone. This blog post documents the changes we made.
 
 If you're not using CloudFormation, its likely a simple case of defining the Availability Zones when you manually create your Auto Scaling Group. As far as I know, you do this at point of creation and cannot change this later (without creating a new ASG) as well as ensuring you have subnets within your VPC for each AZ.

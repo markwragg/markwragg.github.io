@@ -1,12 +1,10 @@
 ---
-layout: post
 title: A PowerShell Tool Scorecard
 image: "/content/images/2017/03/CheckList.jpg"
 date: '2018-01-17 13:38:30'
 tags:
 - powershell
 ---
-
 This post contains a PowerShell tool-making scorecard: a series of short questions to assess whether your custom cmdlet/function/tool is following some (generally considered) best practice design choices.
 
 > By "tool-making" I am referring the concept of creating one or more PowerShell functions that are intended to be used by end users in the same way as any other built-in (or 3rd party) cmdlet that you might use. Some of the questions below don't necessarily apply for private/helper type functions that can (and often should) be much more simplistic.
@@ -56,11 +54,9 @@ I also recently read the excellent [PowerShell Toolmaking in a Month of Lunches]
 > Score: __ / -25
 
 ---
-
 > **Final Score: __ / 50**
 
----
-In case any of the concepts above are unfamiliar to you below are explanations of them and why they are considered important:
+---In case any of the concepts above are unfamiliar to you below are explanations of them and why they are considered important:
 
 **1. Have you declared `[cmdletbinding()]`?**
 
@@ -208,7 +204,6 @@ The return keyword is generally not needed and probably doesn't do what you thin
 You ideally shouldn't suppress the standard error output of the cmdlets you use in your function. By all means handle them via `Try..Catch` but its generally considered a bad idea to hide error states from end users.
 
 ---
-
 If you disagree with any of the above (or spot any inaccuracies) please let me know via the comments below.
 
 

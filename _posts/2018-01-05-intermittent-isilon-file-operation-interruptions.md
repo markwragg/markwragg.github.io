@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Intermittent Isilon write failures due to SMB3 Multichannel setting
 image: "/content/images/2018/01/dell-emc-isilon.png"
 date: '2018-01-05 22:08:15'
@@ -8,7 +7,6 @@ tags:
 - troubleshooting
 - windows
 ---
-
 I recently resolved an issue with our Isilon storage cluster that was causing file writes to be interrupted and fail. While diagnosing the issue I discovered that (intriguingly) the disruption was occurring at (almost) exact 10 minute intervals. Any in progress write operation occurring at that interval would fail.
 
 *TL;DR: In case you want to skip straight to the resolution, the cause of my issue turned out to be the `support-multichannel` setting on the Isilon, which when enabled caused the issue to occur.*
@@ -26,8 +24,7 @@ isi smb settings global modify --support-multichannel=no
 ```
 *Immediately after which the disruptions no longer occurred.*
 
----
-I wanted to Blog this issue for two reasons:
+---I wanted to Blog this issue for two reasons:
 
 1. When googling, I found nothing like this on the internet, at least related specifically to an Isilon. It took me several days of solid work to resolve, so I hope to save someone else at least some of that time.
 2. In a job interview recently I was asked to describe a complex problem I solved and how I went about solving it. I completely blanked on the question (which is annoying because as a former manager I used to ask this classic question all the time so really should have expected it). It occurred to me that what I describe here would (perhaps) now be a good example to use in the future. However I found even just a few weeks later I was already struggling to recall it. This blog post will hopefully rectify that.
@@ -128,5 +125,4 @@ I found another Microsoft Blog post from 2012 that I think explains the 10 minut
 This also explains why it correlated with the server startup as (I assume) the interval starts from the point SMBv3 is initialised.
 
 ---
-
 If you've suffered with this issue or anything similar and/or know any more detail about the root cause, please let me know in the comments below.

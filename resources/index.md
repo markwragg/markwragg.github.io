@@ -1,8 +1,6 @@
 ---
-layout: default
 title: Resources
 ---
-
 This page lists various media, websites and other resources that I've found interesting and useful.
 
 ## Blogs

@@ -1,10 +1,8 @@
 ---
-layout: post
 title: Getting started with Pester (for operational testing)
 image: "/content/images/2016/09/maze.jpg"
 date: '2016-09-28 10:39:20'
 ---
-
 This is a guide for anyone new to the Pester testing framework module for Powershell who would like to learn how Pester works in order to maintain or create Pester test scripts that are used for operational testing.
 
 # What is Pester?
@@ -31,8 +29,7 @@ If you are running Windows 10 or Windows Server 2016 you already have it install
 get-command invoke-pester
 
 CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Function        Invoke-Pester                                      3.3.5      Pester
+-----------     ----                                               -------    ------Function        Invoke-Pester                                      3.3.5      Pester
 ```
 
 If not, you simply need to download and load the module as follows:

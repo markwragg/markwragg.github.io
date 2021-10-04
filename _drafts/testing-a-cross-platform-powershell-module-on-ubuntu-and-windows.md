@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Testing a PowerShell Core module on Ubuntu and Windows with AppVeyor
 image: "/content/images/2018/08/ubuntu_windows_7_style-widescreen_wallpapers.jpg"
 ---
-
 This blog post details how you can configure the Continuous Integration tool AppVeyor to test one of your PowerShell projects on both a Windows and Ubuntu VM each time you make a commit. This is obviously particularly useful if you're authoring a cross-platform PowerShell Core module and want to be certain that the module functions successfully across multiple platforms each time you make a commit.
 
 I recently authored a module called HashCopy, which I talked about in my previous blog post. As part of authoring the module, I realised that there was very little in the code that would stop it from working under PowerShell Core and on any of the supported operating systems. My module primarily interacts with the file system, so the only thing I had to do was make sure that the module handled file paths in a generic way. Doing this meant using the `Resolve-Path`, `Split-Path` and `Join-Path` cmdlets as part of handling file paths so that responsibility for constructing those paths correctly was left to PowerShell (vs me hard-coding in a backslash into a path that would be invalid on a non-Windows system, for example).

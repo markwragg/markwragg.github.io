@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Operational metrics
 ---
-
 How should we measure success in Operations? Why is it important to track metrics? What metrics are informative and what metrics are not? What are traps/pitfalls? We need to be careful not to assume doing more with less is necessarily an indicator of success. How do you measure quality?
 
 Number of 24x7 paging alerts is a good starting point, per recent tweet from John Arundel https://twitter.com/bitfield/status/726344907741401088

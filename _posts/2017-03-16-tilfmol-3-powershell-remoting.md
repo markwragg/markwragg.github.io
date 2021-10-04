@@ -1,12 +1,10 @@
 ---
-layout: post
 title: 'TILFMOL #3 - PowerShell Remoting'
 image: "/content/images/2017/02/global-network-1.jpg"
 date: '2017-03-16 21:29:50'
 tags:
 - powershell
 ---
-
 This is part three of a short series of posts about things I discovered from reading [Learn PowerShell in a Month of Lunches](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition) (recently released in 3rd edition).
 
 This post focuses on things I learnt about PowerShell remoting, including:
@@ -84,7 +82,6 @@ MOL points out that is likely most useful for delegated administration, where yo
 In an increasingly security sensitive world, this is a growing topic and Microsoft have more recently been building on this with a project titled [Just Enough Administration](https://msdn.microsoft.com/en-us/powershell/jea/overview) which is also an [open source project in GitHub](https://github.com/PowerShell/JEA).
 
 ---
-
 This has obviously been a very high-level overview of some of the remoting features of PowerShell and I hope it inspires you to read further. 
 
 In my next and final chapter for this series I to look at [PowerShell Jobs](http://wragg.io/tilfmol-4-powershell-jobs/), the background task engine of PowerShell.

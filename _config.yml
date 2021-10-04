@@ -8,15 +8,25 @@ name: Mark Wragg
 
 description: UK based DevOps blogger.
 
-menu:
-  - title: Blog
-    url:   /
-  - title: About Me
-    url:   /about-me/
-  - title: Resources
-    url:   /resources/
-  - title: Subscribe
-    url:   /subscribe/
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
 
 logo: /content/images/MarkWragg.png
 
