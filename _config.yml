@@ -83,3 +83,8 @@ plugins:
   - jekyll-include-cache
 
 search: true
+
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "wragg"
