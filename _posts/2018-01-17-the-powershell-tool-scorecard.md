@@ -1,6 +1,7 @@
 ---
 title: A PowerShell Tool Scorecard
-image: "/content/images/2017/03/CheckList.jpg"
+header:
+  image: "/content/images/2017/03/CheckList.jpg"
 date: '2018-01-17 13:38:30'
 tags:
 - powershell

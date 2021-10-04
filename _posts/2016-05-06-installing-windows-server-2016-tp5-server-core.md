@@ -1,6 +1,7 @@
 ---
 title: Installing Windows Server 2016 TP5 Server Core
-image: "/content/images/2016/05/you_are_likely_to_be_eaten_by_a_grue_by_nmajmani-d4qbkrg-3.png"
+header:
+  image: "/content/images/2016/05/you_are_likely_to_be_eaten_by_a_grue_by_nmajmani-d4qbkrg-3.png"
 date: '2016-05-06 16:39:57'
 tags:
 - windows

@@ -1,6 +1,7 @@
 ---
 title: Adding a code coverage badge to a PowerShell project
-image: "/content/images/2018/04/code-coverage.jpg"
+header:
+  image: "/content/images/2018/04/code-coverage.jpg"
 date: '2018-05-14 10:46:11'
 tags:
 - powershell

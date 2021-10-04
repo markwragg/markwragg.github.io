@@ -1,6 +1,7 @@
 ---
 title: Auto Scaling across multiple Availability Zones with CloudFormation
-image: "/content/images/2016/05/Autoscaling_MultiAZ_s.png"
+header:
+  image: "/content/images/2016/05/Autoscaling_MultiAZ_s.png"
 date: '2016-05-02 14:00:00'
 tags:
 - aws

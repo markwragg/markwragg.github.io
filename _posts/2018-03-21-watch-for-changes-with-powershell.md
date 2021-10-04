@@ -1,6 +1,7 @@
 ---
 title: Watch for changes with PowerShell
-image: "/content/images/2018/03/waiting_cat.jpg"
+header:
+  image: "/content/images/2018/03/waiting_cat.jpg"
 date: '2018-03-21 19:46:47'
 tags:
 - powershell

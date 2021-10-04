@@ -1,6 +1,7 @@
 ---
 title: Getting started with Powershell
-image: "/content/images/2016/09/getting-started-crop.jpg"
+header:
+  image: "/content/images/2016/09/getting-started-crop.jpg"
 date: '2016-09-27 09:21:39'
 tags:
 - powershell

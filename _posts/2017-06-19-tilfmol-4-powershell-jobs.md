@@ -1,6 +1,7 @@
 ---
 title: 'TILFMOL #4 - PowerShell Jobs'
-image: "/content/images/2017/10/Automation.jpg"
+header:
+  image: "/content/images/2017/10/Automation.jpg"
 date: '2017-06-19 22:57:21'
 tags:
 - powershell

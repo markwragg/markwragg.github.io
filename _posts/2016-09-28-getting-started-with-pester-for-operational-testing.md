@@ -1,6 +1,7 @@
 ---
 title: Getting started with Pester (for operational testing)
-image: "/content/images/2016/09/maze.jpg"
+header:
+  image: "/content/images/2016/09/maze.jpg"
 date: '2016-09-28 10:39:20'
 ---
 This is a guide for anyone new to the Pester testing framework module for Powershell who would like to learn how Pester works in order to maintain or create Pester test scripts that are used for operational testing.

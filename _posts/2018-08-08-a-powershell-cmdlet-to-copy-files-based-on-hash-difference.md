@@ -1,6 +1,7 @@
 ---
 title: Copy files with hash difference via PowerShell
-image: "/content/images/2018/08/apple-1868383_1920.jpg"
+header:
+  image: "/content/images/2018/08/apple-1868383_1920.jpg"
 date: '2018-08-08 13:23:43'
 tags:
 - powershell

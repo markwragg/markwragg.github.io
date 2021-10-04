@@ -1,6 +1,7 @@
 ---
 title: Learn PowerShell in a Month of Lunches
-image: "/content/images/2017/02/book-med.jpg"
+header:
+  image: "/content/images/2017/02/book-med.jpg"
 date: '2017-02-23 15:07:00'
 tags:
 - powershell

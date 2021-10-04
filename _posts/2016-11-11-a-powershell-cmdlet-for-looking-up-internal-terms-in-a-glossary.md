@@ -1,6 +1,7 @@
 ---
 title: A Powershell cmdlet for looking up internal terms in a glossary
-image: "/content/images/2016/11/Glossary.jpg"
+header:
+  image: "/content/images/2016/11/Glossary.jpg"
 date: '2016-11-11 20:05:19'
 tags:
 - powershell

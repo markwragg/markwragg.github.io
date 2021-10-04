@@ -1,6 +1,7 @@
 ---
 title: MCSA Server 2012
-image: "/content/images/2016/10/mcsa-course-training.jpg"
+header:
+  image: "/content/images/2016/10/mcsa-course-training.jpg"
 ---
 The MCSA course catalogue has been broken down into smaller training videos and the whole thing is available on YouTube.
 

@@ -1,6 +1,7 @@
 ---
 title: Testing a PowerShell Core module on Ubuntu and Windows with AppVeyor
-image: "/content/images/2018/08/ubuntu_windows_7_style-widescreen_wallpapers.jpg"
+header:
+  image: "/content/images/2018/08/ubuntu_windows_7_style-widescreen_wallpapers.jpg"
 ---
 This blog post details how you can configure the Continuous Integration tool AppVeyor to test one of your PowerShell projects on both a Windows and Ubuntu VM each time you make a commit. This is obviously particularly useful if you're authoring a cross-platform PowerShell Core module and want to be certain that the module functions successfully across multiple platforms each time you make a commit.
 

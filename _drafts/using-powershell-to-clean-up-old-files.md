@@ -1,6 +1,7 @@
 ---
 title: Using Powershell to find and clean up old files
-image: "/content/images/2016/10/file-system.jpg"
+header:
+  image: "/content/images/2016/10/file-system.jpg"
 ---
 I was previously responsible for supporting a number of file servers that have a large number of very small files archived to them. These files are occasionally referenced from their source systems but I had long suspected that there were a number of orphaned/redundant files on these servers (e.g where we had decommissioned the source system and not cleaned up the archive) and wanted Powershell to help verify this. 
 

@@ -1,6 +1,7 @@
 ---
 title: Get Transaction Sensor URL settings from PRTG with Powershell
-image: "/content/images/2016/09/PRTG-logo.jpg"
+header:
+  image: "/content/images/2016/09/PRTG-logo.jpg"
 date: '2016-09-01 21:31:39'
 tags:
 - powershell

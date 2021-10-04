@@ -1,6 +1,7 @@
 ---
 title: Using Puppet Modules, Forge and r10k on Windows
-image: "/content/images/2018/01/Lego-Brick-Yellow-L.jpg"
+header:
+  image: "/content/images/2018/01/Lego-Brick-Yellow-L.jpg"
 date: '2018-02-07 12:11:58'
 tags:
 - puppet

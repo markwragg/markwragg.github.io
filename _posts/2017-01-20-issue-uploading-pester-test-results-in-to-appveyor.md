@@ -1,6 +1,7 @@
 ---
 title: Issue uploading Pester test results in to AppVeyor
-image: "/content/images/2017/01/bug.jpg"
+header:
+  image: "/content/images/2017/01/bug.jpg"
 date: '2017-01-20 13:46:28'
 tags:
 - powershell

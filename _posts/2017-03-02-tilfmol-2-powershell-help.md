@@ -1,6 +1,7 @@
 ---
 title: 'TILFMOL #2 - PowerShell Help'
-image: "/content/images/2017/02/help-keyboard-2.png"
+header:
+  image: "/content/images/2017/02/help-keyboard-2.png"
 date: '2017-03-02 08:00:00'
 tags:
 - powershell

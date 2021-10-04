@@ -1,6 +1,7 @@
 ---
 title: Implementing a release pipeline for Windows-based infrastructure
-image: "/content/images/2016/06/Continuous-Narrow.jpg"
+header:
+  image: "/content/images/2016/06/Continuous-Narrow.jpg"
 ---
 Article to summarise the Release Pipeline Model whitepaper and to create a plan of action for how to start to implement.
 

@@ -1,6 +1,7 @@
 ---
 title: Random
-image: "/content/images/2017/06/dice_game_black_background_close_up__u_2560x1600.jpg"
+header:
+  image: "/content/images/2017/06/dice_game_black_background_close_up__u_2560x1600.jpg"
 ---
 Getting a single random item is easy
 

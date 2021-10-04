@@ -1,6 +1,7 @@
 ---
 title: Using Puppet Classes, Roles, Profiles and Templates
-image: "/content/images/2018/01/Matryoshka-Red-Riding-Hood-Line-Up.jpg"
+header:
+  image: "/content/images/2018/01/Matryoshka-Red-Riding-Hood-Line-Up.jpg"
 date: '2018-02-14 12:26:47'
 tags:
 - puppet

@@ -1,7 +1,8 @@
 ---
 permalink: /about-me/
 title: About me
-image: "/content/images/2020/08/markwragg-psdayuk-2019.JPG"
+header:
+  image: "/content/images/2020/08/markwragg-psdayuk-2019.JPG"
 ---
 I live in the South East of the UK with my wife, three children, Labrador and two cats. I have been working in IT Engineering roles since graduating with a Degree in Computing in 2003. Much of my initial career was working in front-line operations roles, supporting infrastructure and SaaS applications hosted in private datacentres and the cloud. For the past 3 years I've been working as a DevOps Engineer and more recently via the contract market. My experience is predominantly with Microsoft technologies but I can generally turn a quick hand to any new tool and I have worked previously with both AWS and Azure as well as a variety of DevOps toolsets.
 

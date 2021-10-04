@@ -1,6 +1,7 @@
 ---
 title: Containers in Windows Server 2016 TP5
-image: "/content/images/2016/05/inception-1024-wallpaper-829789-1.jpg"
+header:
+  image: "/content/images/2016/05/inception-1024-wallpaper-829789-1.jpg"
 date: '2016-05-07 17:57:12'
 tags:
 - windows
