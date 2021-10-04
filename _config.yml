@@ -15,7 +15,7 @@ defaults:
       type: posts
     values:
       layout: single
-      show_overlay_excerpt: false
+      header.show_overlay_excerpt: false
       author_profile: true
       read_time: true
       comments: true
