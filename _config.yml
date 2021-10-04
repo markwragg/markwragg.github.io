@@ -42,9 +42,6 @@ author:
   location         : "Basingstoke, UK"
   email            : mark@wragg.io
   links:
-    - label: ""
-      icon: ""
-      url: ""
     - label: "MPFE"
       icon: "fas fa-fw fa-building"
       url: "https://mpfe.uk"
