@@ -41,7 +41,7 @@ author:
   location         : "Basingstoke, UK"
   email            : mark@wragg.io
   links:
-     - label: "Twitter"
+    - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/markwragg"
     - label: "GitHub"
