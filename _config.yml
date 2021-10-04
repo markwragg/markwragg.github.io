@@ -2,11 +2,11 @@ remote_theme: mmistakes/minimal-mistakes@4.24.0
 
 minimal_mistakes_skin: "default"
 
-title: wragg.io | mark wragg
+title: wragg.io | Blog
 subtitle: Windows, Automation, Powershell, Pester, Chef, AWS, Azure
 name: Mark Wragg
 
-description: UK based DevOps blogger.
+description: "The personal IT blog of Mark Wragg, a Windows DevOps Engineer in the UK."
 
 defaults:
   # _posts
@@ -36,7 +36,7 @@ include: ["_pages"]
 author:
   name             : Mark Wragg
   avatar           : /content/images/MarkWragg.png
-  bio              : "UK based DevOps Engineer."
+  bio              : "Windows DevOps Engineer and PowerShell fanatic."
   location         : "Basingstoke, UK"
   email            : mark@wragg.io
   links:
