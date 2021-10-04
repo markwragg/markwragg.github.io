@@ -3,9 +3,12 @@ permalink: /about-me/
 title: About me
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2020/08/markwragg-psdayuk-2019.JPG"
+  overlay_image: "/content/images/mark-wragg-pester-presentation.jpg"
 ---
-I live in the South East of the UK with my wife, three children, Labrador and two cats. I have been working in IT Engineering roles since graduating with a Degree in Computing in 2003. Much of my initial career was working in front-line operations roles, supporting infrastructure and SaaS applications hosted in private datacentres and the cloud. For the past 3 years I've been working as a DevOps Engineer and more recently via the contract market. My experience is predominantly with Microsoft technologies but I can generally turn a quick hand to any new tool and I have worked previously with both AWS and Azure as well as a variety of DevOps toolsets.
+
+👋 Hi! I am a Windows DevOps Engineer from the UK. I live in Basingstoke with my wife and three small humans. 
+
+I've worked full-time in IT since graduating with a Degree in Computing in 2003, with the exception of a year out to give Teacher Training a whirl. Much of my initial IT career experience was working in front-line operations roles, supporting infrastructure and SaaS applications hosted in private data centres and the cloud. Since 2017 I've worked as a DevOps Engineer and for the last few years as a contractor. My experience is predominantly with Microsoft technologies but I can generally turn a quick hand to any tool and I have experience with AWS and Azure as well as a variety of DevOps toolsets.
 
 You can follow me on Twitter [@markwragg](https://twitter.com/markwragg).
 
@@ -19,7 +22,7 @@ I am particularly passionate about PowerShell and have spoken twice at [PSDay.UK
 
 #### Books
 
-I have also made contributions to the following books:
+I also made voluntary contributions to the following books, which raised funds for the DevOps Collective OnRamp scholarship:
 
 - [The PowerShell Conference Book volume 1](https://leanpub.com/powershell-conference-book) *-- contributed a chapter on PowerShell code testing with Pester*
 - [The PowerShell Conference Book volume 2](https://leanpub.com/psconfbook2) *-- contributed a chapter on monitoring with Influx, Grafana and PowerShell*
@@ -32,7 +35,7 @@ I maintain a number of Open Source code repositories for tools that I've develop
 - [Test-ActiveDirectory](https://github.com/markwragg/Test-ActiveDirectory) *-- a set of Pester tests for validating the health of a deployment of Active Directory.*
 - [PowerShell-SlackBot](https://github.com/markwragg/Powershell-SlackBot) *-- a PowerShell module for hosting a chat bot for Slack using PowerShell and TCP Sockets. The chat bot can then be configured to listen to and respond to specific messages and run PowerShell commands that are initiated from within a chat window.*
 
-
+If you have any other burning questions about me, feel free to get in touch! :)
 
 
 
