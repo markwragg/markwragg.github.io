@@ -33,10 +33,37 @@ include: ["_pages"]
 
 logo: /content/images/MarkWragg.png
 
-# This should be the same author as first entry in `_data/authors.yml`.
+# Site Author
 author:
-  name: Mark Wragg
-  email: mark@wragg.io
+  name             : Mark Wragg
+  avatar           : /content/images/MarkWragg.png
+  bio              : "UK based DevOps Engineer."
+  location         : "Basingstoke, UK"
+  email            : mark@wragg.io
+  links:
+     - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/markwragg"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/markwragg"
+    - label: "StackOverflow"
+      icon: "fab fa-fw fa-stack-overflow"
+      url: "https://stackoverflow.com/users/2796058/mark-wragg"
+
+# Site Footer
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/markwragg"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/markwragg"
+    - label: "StackOverflow"
+      icon: "fab fa-fw fa-stack-overflow"
+      url: "https://stackoverflow.com/users/2796058/mark-wragg"
+      # url:
 
 # Format of the permalinks
 permalink: /:categories/:title/
@@ -52,3 +79,5 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+
+favicon: /content/images/favicon.ico
