@@ -54,3 +54,9 @@ paginate_path:         /:num/
 
 favicon: /content/images/favicon.ico
 apple_touch_icon: /content/images/favicon.ico
+
+plugins:
+  - jekyll-feed
+
+feed:
+  path: /rss/
