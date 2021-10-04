@@ -28,6 +28,8 @@ defaults:
       layout: single
       author_profile: true
 
+include: ["_pages"]
+
 logo: /content/images/MarkWragg.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
@@ -36,17 +38,11 @@ author:
   email: mark@wragg.io
 
 # Format of the permalinks
-permalink:             /:categories/:title/
+permalink: /:categories/:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
-paginate_path:         /:num/
-
-defaults:
-  - scope:
-      type: posts
-    values:
-      comments: true
+paginate: 10
+paginate_path: /:num/
 
 plugins:
   - jekyll-paginate

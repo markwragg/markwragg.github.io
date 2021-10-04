@@ -1,4 +1,5 @@
 ---
+permalink: /about-me/
 title: About me
 image: "/content/images/2020/08/markwragg-psdayuk-2019.JPG"
 ---

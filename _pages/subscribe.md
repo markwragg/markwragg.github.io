@@ -1,4 +1,5 @@
 ---
+permalink: /subscribe/
 title: Subscribe
 ---
 If you would like to subscribe to posts from this blog use one of the following options.
