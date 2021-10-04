@@ -38,12 +38,13 @@ author:
   name             : Mark Wragg
   avatar           : /content/images/MarkWragg.png
   bio              : > 
-    Windows DevOps Engineer and PowerShell fanatic.
-
-    Director @ MPFE.uk
+    Windows DevOps Engineer and PowerShell fanatic. Director @ MPFE Consultancy Ltd.
   location         : "Basingstoke, UK"
   email            : mark@wragg.io
   links:
+    - label: "MPFE"
+      icon: "fas fa-fw fa-building"
+      url: "https://mpfe.uk"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/markwragg"
@@ -60,9 +61,6 @@ footer:
     - label: "MPFE"
       icon: "fas fa-fw fa-building"
       url: "https://mpfe.uk"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:mark@wragg.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/markwragg"
@@ -72,7 +70,9 @@ footer:
     - label: "StackOverflow"
       icon: "fab fa-fw fa-stack-overflow"
       url: "https://stackoverflow.com/users/2796058/mark-wragg"
-      # url:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:mark@wragg.io"
 
 # Format of the permalinks
 permalink: /:categories/:title/
