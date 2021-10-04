@@ -27,11 +27,10 @@ defaults:
       type: pages
     values:
       layout: single
+      classes: wide
       author_profile: true
 
 include: ["_pages"]
-
-logo: /content/images/MarkWragg.png
 
 # Site Author
 author:
