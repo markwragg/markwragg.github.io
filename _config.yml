@@ -8,8 +8,8 @@ accent_color: rgb(64,64,64)
 menu:
   - title: Blog
     url:   /
-  - title: About
-    url:   /about/
+  - title: About Me
+    url:   /about-me/
   - title: Resources
     url:   /resources/
   - title: Subscribe
