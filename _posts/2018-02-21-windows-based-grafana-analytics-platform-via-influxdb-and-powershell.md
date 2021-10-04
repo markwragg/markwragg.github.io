@@ -1,7 +1,7 @@
 ---
 title: How to create a Grafana metrics dashboard via Influx and PowerShell
 header:
-  image: "/content/images/2018/02/Control-Center-L.jpg"
+  overlay_image: "/content/images/2018/02/Control-Center-L.jpg"
 date: '2018-02-21 14:01:56'
 tags:
 - windows

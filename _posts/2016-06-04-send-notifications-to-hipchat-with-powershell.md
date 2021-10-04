@@ -1,7 +1,7 @@
 ---
 title: 'Send notifications to Hipchat with Powershell #ChatOps'
 header:
-  image: "/content/images/2016/06/hc.jpg"
+  overlay_image: "/content/images/2016/06/hc.jpg"
 date: '2016-06-04 13:32:51'
 ---
 I recently implemented a Powershell module to send notifications in to our Hipchat rooms. This post explains how that script works and why this was an important shift for how we handle notifications.

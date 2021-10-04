@@ -1,7 +1,7 @@
 ---
 title: Keep PowerShell Core updated on Windows with Chocolatey
 header:
-  image: "/content/images/2018/02/brownie-dessert-cake-sweet-45202.jpeg"
+  overlay_image: "/content/images/2018/02/brownie-dessert-cake-sweet-45202.jpeg"
 date: '2018-02-28 15:01:22'
 tags:
 - powershell

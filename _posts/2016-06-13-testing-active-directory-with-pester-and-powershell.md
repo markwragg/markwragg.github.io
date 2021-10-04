@@ -1,7 +1,7 @@
 ---
 title: Testing Active Directory with Pester and Powershell
 header:
-  image: "/content/images/2016/06/Compliance-Checkbox.jpg"
+  overlay_image: "/content/images/2016/06/Compliance-Checkbox.jpg"
 date: '2016-06-13 08:53:56'
 tags:
 - pester

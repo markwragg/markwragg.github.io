@@ -2,7 +2,7 @@
 title: 'Operational Testing for Antivirus: Validating Symantec Endpoint Protection
   with Pester'
 header:
-  image: "/content/images/2016/10/ThinkstockPhotos-158695294.jpg"
+  overlay_image: "/content/images/2016/10/ThinkstockPhotos-158695294.jpg"
 date: '2016-10-19 14:01:00'
 tags:
 - powershell

@@ -1,7 +1,7 @@
 ---
 title: Handling Powershell exceptions with Try..Catch..Finally
 header:
-  image: "/content/images/2016/05/yoda-do_or_do_not.jpg"
+  overlay_image: "/content/images/2016/05/yoda-do_or_do_not.jpg"
 date: '2016-05-25 21:58:44'
 tags:
 - powershell

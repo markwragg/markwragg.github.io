@@ -1,7 +1,7 @@
 ---
 title: Managing SSRS Subscriptions with PowerShell
 header:
-  image: "/content/images/2017/10/BusinessAutomation.jpg"
+  overlay_image: "/content/images/2017/10/BusinessAutomation.jpg"
 date: '2017-10-28 07:41:09'
 tags:
 - powershell

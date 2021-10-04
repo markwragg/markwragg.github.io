@@ -1,7 +1,7 @@
 ---
 title: Adding a code coverage badge to a PowerShell project
 header:
-  image: "/content/images/2018/04/code-coverage.jpg"
+  overlay_image: "/content/images/2018/04/code-coverage.jpg"
 date: '2018-05-14 10:46:11'
 tags:
 - powershell

@@ -1,7 +1,7 @@
 ---
 title: Using Write-Progress to provide feedback in Powershell
 header:
-  image: "/content/images/2016/09/time-passing.jpg"
+  overlay_image: "/content/images/2016/09/time-passing.jpg"
 date: '2016-09-05 19:48:07'
 tags:
 - powershell

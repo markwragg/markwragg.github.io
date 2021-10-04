@@ -1,7 +1,7 @@
 ---
 title: Deploying Influx and Grafana on Windows with Terraform
 header:
-  image: "/content/images/2018/10/kate-rowe-240285-unsplash-1.jpg"
+  overlay_image: "/content/images/2018/10/kate-rowe-240285-unsplash-1.jpg"
 date: '2018-10-31 16:40:41'
 tags:
 - influx

@@ -1,7 +1,7 @@
 ---
 title: Powershell Slack Bot using the Real Time Messaging API
 header:
-  image: "/content/images/2017/01/chat-bot-1.jpg"
+  overlay_image: "/content/images/2017/01/chat-bot-1.jpg"
 date: '2017-01-03 16:13:34'
 tags:
 - powershell

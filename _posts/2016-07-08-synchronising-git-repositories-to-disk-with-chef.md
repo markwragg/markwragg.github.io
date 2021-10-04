@@ -1,7 +1,7 @@
 ---
 title: Synchronising Git repositories to disk with Chef
 header:
-  image: "/content/images/2016/06/Chef-Git-Logo-6-1.png"
+  overlay_image: "/content/images/2016/06/Chef-Git-Logo-6-1.png"
 date: '2016-07-08 12:49:29'
 tags:
 - chef

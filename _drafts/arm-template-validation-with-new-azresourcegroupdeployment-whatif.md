@@ -1,7 +1,7 @@
 ---
 title: Validating ARM Templates with New-AzResourceGroupDeployment -WhatIf
 header:
-  image: "/content/images/2020/08/Grumpy-Cat.jpg"
+  overlay_image: "/content/images/2020/08/Grumpy-Cat.jpg"
 ---
 Microsoft have recently released a `WhatIf` operation feature for ARM (Azure Resource Manager) deployments. The feature is still in "preview" but its now freely available for anyone to try. While the results of the tool aren't perfect, its a game changer for developing ARM templates and introduces a Terraform-like preview of changes without needing to maintain a local state file.
 
