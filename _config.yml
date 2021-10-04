@@ -57,4 +57,3 @@ apple_touch_icon: /content/images/favicon.ico
 
 plugins:
   - jekyll-feed
-  - jekyll-redirect-from
