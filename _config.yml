@@ -95,3 +95,9 @@ comments:
   provider: "disqus"
   disqus:
     shortname: "wragg"
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-77304125-1"
+    anonymize_ip: false # default
