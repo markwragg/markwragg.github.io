@@ -12,9 +12,9 @@ a:active { text-decoration: none; }
 @import "minimal-mistakes"; // main partials
 
 .archive__item-teaser {
+    height: 30vw;
     img {
-        height: 30vw;
-        object-fit: contain;
+        object-fit: cover;
         object-position: 100% 100%;
     }
 }
