@@ -101,3 +101,8 @@ analytics:
   google:
     tracking_id: "UA-77304125-1"
     anonymize_ip: false # default
+
+collections:
+  posts:
+    output: true
+    permalink: /:path/
