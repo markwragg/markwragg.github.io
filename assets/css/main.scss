@@ -12,8 +12,8 @@ a:active { text-decoration: none; }
 @import "minimal-mistakes"; // main partials
 
 .archive__item-teaser {
-    height: 20em;
     img {
+        height: 30vw;
         object-fit: scale-down;
         object-position: 100% 100%;
     }
