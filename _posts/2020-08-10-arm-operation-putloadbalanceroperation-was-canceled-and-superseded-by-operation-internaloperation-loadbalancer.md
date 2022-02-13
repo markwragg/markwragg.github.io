@@ -1,6 +1,5 @@
 ---
-title: ARM template error "Operation PutLoadBalancerOperation was canceled and superseded
-  by operation InternalOperation"
+title: ARM deployment error Operation PutLoadBalancerOperation was canceled
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2020/08/dropped-icecream-1.jpg"
