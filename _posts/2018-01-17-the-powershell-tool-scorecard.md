@@ -3,6 +3,7 @@ title: A PowerShell Tool Scorecard
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2017/03/CheckList.jpg"
+  teaser: "/content/images/2017/03/CheckList.jpg"
 date: '2018-01-17 13:38:30'
 tags:
 - powershell

@@ -3,6 +3,7 @@ title: A PowerShell stopwatch for your Profile.ps1
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2016/05/stopwatch-3.png"
+  teaser: "/content/images/2016/05/stopwatch-3.png"
 date: '2016-05-03 20:14:13'
 tags:
 - powershell

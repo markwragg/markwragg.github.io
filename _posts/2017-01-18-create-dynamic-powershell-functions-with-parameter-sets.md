@@ -3,6 +3,7 @@ title: Create dynamic PowerShell functions with Parameter Sets
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2017/01/xkcd-print-crop.jpg"
+  teaser: "/content/images/2017/01/xkcd-print-crop.jpg"
 date: '2017-01-18 20:00:33'
 tags:
 - powershell

@@ -3,6 +3,7 @@ title: A Slack Slash Command using Powershell Azure Functions
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2016/11/buildazure_slack-1.png"
+  teaser: "/content/images/2016/11/buildazure_slack-1.png"
 date: '2016-11-19 16:27:23'
 tags:
 - azure

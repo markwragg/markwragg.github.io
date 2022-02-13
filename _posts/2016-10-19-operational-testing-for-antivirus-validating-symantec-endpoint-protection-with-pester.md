@@ -4,6 +4,7 @@ title: 'Operational Testing for Antivirus: Validating Symantec Endpoint Protecti
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2016/10/ThinkstockPhotos-158695294.jpg"
+  teaser: "/content/images/2016/10/ThinkstockPhotos-158695294.jpg"
 date: '2016-10-19 14:01:00'
 tags:
 - powershell

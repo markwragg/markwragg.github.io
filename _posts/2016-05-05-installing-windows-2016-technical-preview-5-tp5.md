@@ -3,6 +3,7 @@ title: Installing Windows Server 2016 TP5 (Technical Preview 5)
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2016/05/windows_10__hero__background__correct_scale__by_gamerverise-d903d5f.png"
+  teaser: "/content/images/2016/05/windows_10__hero__background__correct_scale__by_gamerverise-d903d5f.png"
 date: '2016-05-05 21:57:16'
 tags:
 - windows
