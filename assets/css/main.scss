@@ -7,7 +7,10 @@ a:visited { text-decoration: none; }
 a:active { text-decoration: none; }
 
 .archive__item-teaser {
-    object-fit: contain;
+    img {
+        height: 300px;
+        object-fit: contain;
+    }
 }
 
 @charset "utf-8";
