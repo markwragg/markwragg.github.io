@@ -78,7 +78,7 @@ footer:
 permalink: /:categories/:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate: 5 # amount of posts to show
+paginate: 8 # amount of posts to show
 paginate_path: /page:num/
 
 plugins:
@@ -101,9 +101,3 @@ analytics:
   google:
     tracking_id: "UA-77304125-1"
     anonymize_ip: false # default
-
-collections:
-  posts:
-    output: true
-    permalink: /:path/
-    paginate: 5
