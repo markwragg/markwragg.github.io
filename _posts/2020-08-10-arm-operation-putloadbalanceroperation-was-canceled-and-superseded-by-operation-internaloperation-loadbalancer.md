@@ -4,6 +4,7 @@ title: ARM template error "Operation PutLoadBalancerOperation was canceled and s
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2020/08/dropped-icecream-1.jpg"
+  teaser: "/content/images/2020/08/dropped-icecream-1.jpg"
 date: '2020-08-10 10:02:25'
 tags:
 - azure

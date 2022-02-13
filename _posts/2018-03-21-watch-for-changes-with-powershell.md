@@ -3,6 +3,7 @@ title: Watch for changes with PowerShell
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2018/03/waiting_cat.jpg"
+  teaser: "/content/images/2018/03/waiting_cat.jpg"
 date: '2018-03-21 19:46:47'
 tags:
 - powershell
