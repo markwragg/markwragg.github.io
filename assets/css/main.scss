@@ -14,7 +14,7 @@ a:active { text-decoration: none; }
 .archive__item-teaser {
     img {
         height: 30vw;
-        object-fit: scale-down;
+        object-fit: contain;
         object-position: 100% 100%;
     }
 }
