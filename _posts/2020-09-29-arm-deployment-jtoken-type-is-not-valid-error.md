@@ -1,9 +1,9 @@
 ---
 title: ARM Deployment "JToken type is not valid" error
-teaser: "/content/images/2020/09/windows-keyboard-black.jpg"
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2020/09/windows-keyboard-black.jpg"
+  teaser: "/content/images/2020/09/windows-keyboard-black.jpg"
 date: '2020-09-29 10:56:49'
 tags:
 - azure
