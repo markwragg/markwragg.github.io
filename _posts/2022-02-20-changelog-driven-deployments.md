@@ -35,28 +35,28 @@ Making the `CHANGELOG.md` part of the deployment logic has been achieved by addi
 ```powershell
 if (Get-Item "$ProjectRoot/CHANGELOG.md") {
         
-    $ChangeLog = Get-Content "$ProjectRoot/CHANGELOG.md"
+  $ChangeLog = Get-Content "$ProjectRoot/CHANGELOG.md"
 
-    if ($ChangeLog -contains '## !Deploy') {
+  if ($ChangeLog -contains '## !Deploy') {
 
-        $Params = @{
-            Path    = "$ProjectRoot/Build/deploy.psdeploy.ps1"
-            Force   = $true
-            Recurse = $false
-        }
-
-        Invoke-PSDeploy @Verbose @Params
-
-        # Update ChangeLog with deployment version and date
-        $ChangeLog = $ChangeLog -replace '## !Deploy', "## [$Version] - $(Get-Date -Format 'yyyy-MM-dd')"
-        Set-Content -Path "$ProjectRoot/CHANGELOG.md" -Value $ChangeLog
+    $Params = @{
+      Path    = "$ProjectRoot/Build/deploy.psdeploy.ps1"
+      Force   = $true
+      Recurse = $false
     }
-    else {
-        Write-Host 'CHANGELOG.md did not contain ## !Deploy. Skipping deployment.'
-    }
+
+    Invoke-PSDeploy @Verbose @Params
+
+    # Update ChangeLog with deployment version and date
+    $ChangeLog = $ChangeLog -replace '## !Deploy', "## [$Version] - $(Get-Date -F 'yyyy-MM-dd')"
+    Set-Content -Path "$ProjectRoot/CHANGELOG.md" -Value $ChangeLog
+  }
+  else {
+      Write-Host 'CHANGELOG.md did not contain ## !Deploy. Skipping deployment.'
+  }
 }
 else {
-    Write-Host "$ProjectRoot/CHANGELOG.md not found. Skipping deployment."
+  Write-Host "$ProjectRoot/CHANGELOG.md not found. Skipping deployment."
 }
 ```
 
@@ -65,18 +65,18 @@ You can see that this is also where the `CHANGELOG.md` file is updated with the 
 To allow the source file changes to be committed back to the repo you need to grant Azure DevOps permissions to write to your code repositories. This can be done by using [GitHub App authentication](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#github-app-authentication). In my build pipeline committing the changes back to the repo is completed in the **Commit** build task as follows:
 
 ```powershell
-  Set-Location $ProjectRoot
-  $Module = $env:BHProjectName
+Set-Location $ProjectRoot
+$Module = $env:BHProjectName
 
-  git --version
-  git config --global user.email "build@azuredevops.com"
-  git config --global user.name "AzureDevOps"
-  git checkout $env:BUILD_SOURCEBRANCHNAME
-  git add Documentation/*.md
-  git add README.md
-  git add CHANGELOG.md
-  git commit -m "[skip ci] AzureDevOps Build $($env:BUILD_BUILDID)"
-  git push
+git --version
+git config --global user.email "build@azuredevops.com"
+git config --global user.name "AzureDevOps"
+git checkout $env:BUILD_SOURCEBRANCHNAME
+git add Documentation/*.md
+git add README.md
+git add CHANGELOG.md
+git commit -m "[skip ci] AzureDevOps Build $($env:BUILD_BUILDID)"
+git push
 ```
 
 It is important to include `[skip ci]` in the commit message otherwise you risk creating an infinite loop of builds and check ins. The `[skip ci]` tag is a built in way to tell Azure DevOps not to build something you've committed.
