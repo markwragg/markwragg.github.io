@@ -93,7 +93,7 @@ And here's how the final ChangeLog looks:
 
 ![changelog deployment example commit](/content/images/2022/02/changelog-deploy-example-3.png)
 
-If you implement this technique its a good idea to also include a `CONTRIBUTING.md` file in your project to let people know that updating the ChangeLog is a mandatory part of the deployment process:
+If you decided to implement this technique it's a good idea to also include a `CONTRIBUTING.md` file in your project to let people know that updating the ChangeLog is a mandatory part of the deployment process:
 
 ![changelog deployment example commit](/content/images/2022/02/contributing-example.png)
 
