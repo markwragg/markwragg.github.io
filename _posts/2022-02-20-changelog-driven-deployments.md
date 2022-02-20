@@ -12,11 +12,9 @@ tags:
 - github
 ---
 
-A [changelog](https://keepachangelog.com/en/1.0.0/) is a useful addition to any project, as it provides users and contributors with a summary of notable changes between each release. One way to ensure you always update your changelog as part of any new release is by making it part of the the automated deployment process. This blog post describes how I've implemented that for the PowerShell modules I maintain in GitHub.
+A [changelog](https://keepachangelog.com/en/1.0.0/) is a useful addition to any project, as it provides users and contributors with a summary of notable changes between each release. One way to ensure you always update your changelog as part of any new release is by making it part of the the automated deployment process. This blog post describes how I've implemented changelog driven deployments for the PowerShell modules I maintain in GitHub.
 
-My PowerShell modules are built and deployed using scripts that perform the following tasks whenever a PR or commit is made to the Master branch:
-
-> Note: The basis of these tasks/scripts have been lifted and modified from other PowerShell community members, but I can't recall who specifically to give them credit.
+My PowerShell modules are built and deployed using a set of scripts that perform the following tasks whenever a PR is raised or a commit is made to the Master branch:
 
 1. Combine the individual PowerShell functions into a single module file. This improves performance when the module is loaded.
 
@@ -30,7 +28,9 @@ My PowerShell modules are built and deployed using scripts that perform the foll
 
 You can look at these tasks in more detail by looking at the /Build folder under any of [my PowerShell projects in GitHub](https://github.com/markwragg/PowerShell-Influx/blob/master/Build).
 
-Making the `CHANGELOG.md` part of the deployment logic is achieved by adding the following to the Deploy task:
+> Note: The basis of my tasks/scripts have been lifted and modified from other PowerShell community members, but unfortunately I can't recall who specifically to give them credit.
+
+Making the `CHANGELOG.md` part of the deployment logic has been achieved by adding the following to the Deploy task:
 
 ```powershell
 if (Get-Item "$ProjectRoot/CHANGELOG.md") {
@@ -60,7 +60,9 @@ else {
 }
 ```
 
-Granting Azure DevOps permissions to write to your code repositories can be done by using [GitHub App authentication](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#github-app-authentication). In my build pipeline committing the changes back to the repo is completed as follows:
+You can see that this is also where the `CHANGELOG.md` file is updated with the release version and date.
+
+To allow the source file changes to be committed back to the repo you need to grant Azure DevOps permissions to write to your code repositories. This can be done by using [GitHub App authentication](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#github-app-authentication). In my build pipeline committing the changes back to the repo is completed in the **Commit** build task as follows:
 
 ```powershell
   Set-Location $ProjectRoot
