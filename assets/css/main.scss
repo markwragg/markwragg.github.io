@@ -18,3 +18,15 @@ a:active { text-decoration: none; }
         object-position: 50% 50%;
     }
 }
+
+.archive__item-title no_toc {
+    h2 {
+        margin: 0.5em 0em 0.5em;
+    }
+}
+
+.archive__item-excerpt {
+    p {
+        margin-bottom: 2em;
+    }
+}
