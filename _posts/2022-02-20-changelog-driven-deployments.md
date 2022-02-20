@@ -14,9 +14,9 @@ tags:
 
 A [changelog](https://keepachangelog.com/en/1.0.0/) is a useful addition to any project, as it provides users and contributors with a summary of notable changes between each release. One way to ensure you always update your changelog as part of any new release is by making it part of the the automated deployment process. This blog post describes how I've implemented that for the PowerShell modules I maintain in GitHub.
 
-My PowerShell modules are built and deployed using the a scripts that perform the following tasks whenever a PR or commit is made to the Master branch:
+My PowerShell modules are built and deployed using scripts that perform the following tasks whenever a PR or commit is made to the Master branch:
 
-> Note: The basis of these tasks/scripts were lifted from other PowerShell community members, but I can't recall who specifically to give them credit.
+> Note: The basis of these tasks/scripts have been lifted and modified from other PowerShell community members, but I can't recall who specifically to give them credit.
 
 1. Combine the individual PowerShell functions into a single module file. This improves performance when the module is loaded.
 
