@@ -85,7 +85,7 @@ Here's an example of the ChangeLog being updated for a recent deployment of my P
 
 ![changelog deployment example commit](/content/images/2022/02/changelog-deploy-example.png)
 
-Here's the CI pupeline updating the `CHANGELOG.md` to include the new version number and date as the title:
+Here's the CI pipeline updating the `CHANGELOG.md` to include the new version number and date as the title:
 
 ![changelog deployment example commit](/content/images/2022/02/changelog-deploy-example-2.png)
 
