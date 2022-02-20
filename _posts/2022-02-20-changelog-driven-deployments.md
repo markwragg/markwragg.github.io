@@ -30,7 +30,7 @@ My PowerShell modules are built and deployed using scripts that perform the foll
 
 You can look at these tasks in more detail by looking at the /Build folder under any of [my PowerShell projects in GitHub](https://github.com/markwragg/PowerShell-Influx/blob/master/Build).
 
-Making the `CHANGELOG.md` part of the deployment logic achieved by adding the following to the Deploy task:
+Making the `CHANGELOG.md` part of the deployment logic is achieved by adding the following to the Deploy task:
 
 ```powershell
 if (Get-Item "$ProjectRoot/CHANGELOG.md") {
@@ -60,7 +60,7 @@ else {
 }
 ```
 
-Granting Azure DevOps permissions to write  to your code repositories can be done by using [GitHub App authentication](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#github-app-authentication). In my build pipeline committing the changes back to the repo is completed as follows:
+Granting Azure DevOps permissions to write to your code repositories can be done by using [GitHub App authentication](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#github-app-authentication). In my build pipeline committing the changes back to the repo is completed as follows:
 
 ```powershell
   Set-Location $ProjectRoot
