@@ -10,6 +10,7 @@ tags:
 - azuredevops
 - ARM
 - deployment
+draft: true
 ---
 
 When working with ARM templates its good practice to use deployment pipelines to deliver the changes into your environments. However when developing your changes, testing via a pipeline can be slow because it requires the creation of builds and releases. Instead you want to be able to trigger the deployment of your changes to a test environment from your local machine.
