@@ -2,8 +2,8 @@
 title: Local ARM template deployments using Azure DevOps variables
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2022/02/keyboard-code-lg.jpg"
-  teaser: "/content/images/2022/02/keyboard-code-sm.jpg"
+  overlay_image: "/content/images/2022/03/keyboard-code-lg.jpg"
+  teaser: "/content/images/2022/03/keyboard-code-sm.jpg"
 date: '2022-03-01 14:00:00'
 tags:
 - powershell
