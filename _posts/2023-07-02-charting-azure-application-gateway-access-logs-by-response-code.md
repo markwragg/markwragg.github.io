@@ -4,7 +4,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2023/07/website-graph-photo.jpg"
   teaser: "/content/images/2023/02/website-graph-photo.jpg"
-date: '2023-07-02 13:00:00'
+date: '2023-07-02 12:00:00'
 tags:
 - azure
 - loganalytics
