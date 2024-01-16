@@ -12,7 +12,7 @@ tags:
 
 Microsoft Azure is a powerful cloud computing platform that enables businesses to get started quickly, however as organizations embrace the cloud, managing costs becomes a critical aspect of optimizing resources and ensuring fiscal responsibility. I've been managing the costs of a number of Azure subscriptions for several years. While the built-in cost management tools are useful (and I strongly recommend you use them), I also turned to PowerShell so that I could extract consumption data and perform comparisons of how costs changed month to month.
 
-I've recently developed that script into a public tool with additional functionality and it is now available on GitHub and the PowerShell Gallery as a module called [AzCostTools](https://github.com/markwragg/PowerShell-AzCostTools). Continuing reading if you're interested in some of the ways it can empower you to understand your costs.
+I've recently developed that script into a public tool with additional functionality and it is now available on GitHub and the PowerShell Gallery as a module called [AzCostTools](https://github.com/markwragg/PowerShell-AzCostTools). Continue reading if you're interested in some of the ways it can empower you to understand your costs.
 
 > If you're interested in some general advice regarding managing costs in Azure, I've blogged about this previously on my company website here: [Azure Cost Management](https://mpfe.uk/blog/2023-03-31-azure-cost-management/), 
 
