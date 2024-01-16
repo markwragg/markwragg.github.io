@@ -1,5 +1,5 @@
 ---
-title: Unleashing Azure Cost Management - Introducing AzCostTools PowerShell Module
+title: Unleashing Azure Cost Management with the AzCostTools PowerShell Module
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/Cloud-Computing-Cost-Management4.jpeg"
