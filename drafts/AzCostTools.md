@@ -10,6 +10,33 @@ tags:
 - azure
 ---
 
+Microsoft Azure is a powerful cloud computing platform that enables businesses to get started quickly, however as organizations embrace the cloud, managing costs becomes a critical aspect of optimizing resources and ensuring fiscal responsibility. I've been managing the costs of a number of Azure subscriptions for several years. While the built-in cost management tools are useful (and I strongly recommend you use them), I also turned to PowerShell so that I could extract consumption data and perform comparisons of how costs changed month to month.
+
+I've recently developed that script into a public tool with additional functionality and it is now available on GitHub and the PowerShell Gallery as a module called [AzCostTools](https://github.com/markwragg/PowerShell-AzCostTools). Continuing reading if you're interested in some of the ways it can empower you to understand your costs.
+
+> If you're interested in some general advice regarding managing costs in Azure, I've blogged about this previously on my company website here: [Azure Cost Management](https://mpfe.uk/blog/2023-03-31-azure-cost-management/), 
+
+
+## Installation
+
+You can install AzCostTools from the PowerShell Gallery as follows:
+
+```powershell
+Install-Module AzCostTools
+```
+
+You will also need to ensure you have the AZ PowerShell module installed. If you don't have it, also grab it from the PowerShell Gallery:
+
+```powershell
+Install-Module AzCostTools
+```
+
+Finally I also recommend that you install the PSparklines module. While AzCostTools will work without it, PSparklines allows the generation of some simplistic visualisations by the way of SparkLine charts. You can also install PSparklines from the PowerShell Gallery:
+
+```powershell
+Install-Module PSparklines
+```
+
 In the dynamic realm of cloud computing, Microsoft Azure stands tall as a frontrunner, empowering businesses with unparalleled scalability and flexibility. However, as organizations embrace the cloud, managing costs becomes a critical aspect of optimizing resources and ensuring fiscal responsibility.
 
 To address this imperative need, we are thrilled to introduce the **AzCostTools PowerShell module** – a powerful utility designed to transform your Azure cost data into insightful charts and comprehensive analyses. This cutting-edge module promises to revolutionize the way you approach cost management, providing a streamlined and efficient solution for gaining valuable insights into your Azure expenditure.
