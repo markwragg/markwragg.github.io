@@ -10,36 +10,66 @@ tags:
 - azure
 ---
 
-Microsoft Azure is a powerful cloud computing platform that enables businesses to get started quickly, however as organizations embrace the cloud, managing costs becomes a critical aspect of optimizing resources and ensuring fiscal responsibility. I've been managing the costs of a number of Azure subscriptions for several years. While the built-in cost management tools are useful (and I strongly recommend you use them), I also turned to PowerShell so that I could extract consumption data and perform comparisons of how costs changed month to month.
+Microsoft Azure is a powerful cloud computing platform that enables businesses to get started quickly, however as organizations embrace the cloud, managing costs becomes a critical aspect of optimizing resources and ensuring fiscal responsibility. I've been responsible for the costs of a number of Azure subscriptions for several years. While the built-in cost management tools are useful (and I strongly recommend you use them), I also turned to PowerShell so that I could extract consumption data and perform comparisons of how costs changed month to month.
 
-I've recently developed that script into a public tool with additional functionality and it is now available on GitHub and the PowerShell Gallery as a module called [AzCostTools](https://github.com/markwragg/PowerShell-AzCostTools). Continue reading if you're interested in some of the ways it can empower you to understand your costs.
+I've recently developed that script into a public tool with additional functionality and it is now available on GitHub and the PowerShell Gallery within a module called [AzCostTools](https://github.com/markwragg/PowerShell-AzCostTools). See below for some examples of what it can do.
 
-> If you're interested in some general advice regarding managing costs in Azure, I've blogged about this previously on my company website here: [Azure Cost Management](https://mpfe.uk/blog/2023-03-31-azure-cost-management/), 
+> If you're interested in some general advice regarding how to approach managing costs in Azure, see my [Azure Cost Management](https://mpfe.uk/blog/2023-03-31-azure-cost-management/) company blog post. 
 
+## Source Code
+ 
+If you'd like to review the source code, you can find it on GitHub:
+
+- https://github.com/markwragg/PowerShell-AzCostTools/
 
 ## Installation
 
-You can install AzCostTools from the PowerShell Gallery as follows:
+To get started, install the AzCostTools module from the PowerShell Gallery:
 
 ```powershell
 Install-Module AzCostTools
 ```
 
-You will also need to ensure you have the AZ PowerShell module installed. If you don't have it, also grab it from the PowerShell Gallery:
+You will also need to ensure you have the [AZ PowerShell module](https://learn.microsoft.com/en-us/powershell/azure/new-azureps-module-az) installed (which can also be installed via the PS Gallery):
 
 ```powershell
-Install-Module AzCostTools
+Install-Module AZ
 ```
 
-Finally I also recommend that you install the PSparklines module. While AzCostTools will work without it, PSparklines allows the generation of some simplistic visualisations by the way of SparkLine charts. You can also install PSparklines from the PowerShell Gallery:
+ Next, I recommend that you install the PSparklines module. While AzCostTools will work without it, PSparklines allows the generation of some simplistic but informative visualisations by the way of SparkLine charts:
 
 ```powershell
 Install-Module PSparklines
 ```
 
-In the dynamic realm of cloud computing, Microsoft Azure stands tall as a frontrunner, empowering businesses with unparalleled scalability and flexibility. However, as organizations embrace the cloud, managing costs becomes a critical aspect of optimizing resources and ensuring fiscal responsibility.
+Finally ensure you're logged in to Azure via the AZ PowerShell module, and that your current Azure context has access to the subscriptions you wish to query:
 
-To address this imperative need, we are thrilled to introduce the **AzCostTools PowerShell module** – a powerful utility designed to transform your Azure cost data into insightful charts and comprehensive analyses. This cutting-edge module promises to revolutionize the way you approach cost management, providing a streamlined and efficient solution for gaining valuable insights into your Azure expenditure.
+```powershell
+Connect-AzAccount
+Get-AzContext
+```
+
+> The module assumes you have access to return cost data for the subscriptions you specify. An error will be returned if you do not.
+>
+> Some subscriptions have costs managed elsewhere, for example if your Azure tenant or subscription is provided via a Cloud Solutions Provider (CSP) this module cannot currently access your costs.
+
+There's just two public cmdlets in the module currently:
+
+- `Get-SubscriptionCost`
+- `Show-CostAnalysis`
+
+## Get-SubscriptionCost
+
+This is cmdlet retrieves cost data from Azure, by using the `Get-AzConsumptionUsageDetail` cmdlet. You can run it without any parameters:
+
+```powershell
+Get-SubscriptionCost
+```
+
+This will execute `Get-AzSubscription` to return all subscriptions you currently have access to in your current Azure context, and then it will query them one by one for cost data for the current billing month.
+
+There's a default table view returned with the 
+
 
 ## Understanding the Need for AzCostTools
 
