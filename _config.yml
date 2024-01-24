@@ -99,5 +99,5 @@ comments:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "UA-77304125-1"
+    tracking_id: "G-HPWJ8KCWJG"
     anonymize_ip: false # default
