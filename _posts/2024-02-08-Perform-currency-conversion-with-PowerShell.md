@@ -53,11 +53,19 @@ You can alternatively provide the value to be converted via the pipeline:
 ```powershell
 100 | Convert-Currency -From EUR -To CAD
 ```
+```plaintext
+79.201100
+```
 
 And this means that you can pipe multiple values in to perform a series of conversions:
 
 ```powershell
 100,200,250 | Convert-Currency -From USD -To JPY
+```
+```plaintext
+14805.315400
+29610.630800
+37013.288500
 ```
 
 ### Format-Currency
@@ -114,8 +122,24 @@ The currency code inputs for the previous two cmdlets have a `validateset` attri
 ```powershell
 Get-Currency
 ```
+```plaintext
+Code Name                          Country
+---- ----                          -------
+AED  UAE Dirham                    United Arab Emirates
+AFN  Afghan Afghani                Afghanistan
+ALL  Albanian Lek                  Albania
+AMD  Armenian Dram                 Armenia
+ANG  Netherlands Antillian Guilder Netherlands Antilles
+AOA  Angolan Kwanza                Angola
+ARS  Argentine Peso                Argentina
+AUD  Australian Dollar             Australia
+AWG  Aruban Florin                 Aruba
+AZN  Azerbaijani Manat             Azerbaijan
+BAM  Bosnia and Herzegovina Mark   Bosnia and Herzegovina
+...
+```
 
-> Note that for all European Countries that use the Euro, "European Union" is listed as the country. I appreciate this isn't entirely accurate and possible politically controversial :).
+> Note that for all European Countries that use the Euro, "European Union" is listed as the country. I appreciate this isn't entirely accurate and possibly politically controversial :).
 
 With `Get-Currency` you can also specify a specific code (this requires an exact match):
 
