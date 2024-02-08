@@ -13,13 +13,13 @@ tags:
 - currency
 ---
 
-I've recently been working on a PowerShell module for exploring Azure costs (which I plan to blog about soon) and while doing so added some functionality to allow the costs to be converted between different currencies. It occurred to me that the functionality would make sense as a module of its own, and when I searched around I didn't find too many recent examples for the same. As such I've now developed and published a module in the PowerShell Gallery and on GitHub called [CurrencyConverter](https://github.com/markwragg/PowerShell-CurrencyConverter/tree/main).
+I've recently been working on a PowerShell module for exploring Azure costs (which I plan to blog about soon) and while doing so added some functionality to allow the costs to be converted between different currencies. It occurred to me that this functionality would be useful as a module of its own, and when I searched around I didn't find too many recent examples for the same. As such I've now developed and published a module in the PowerShell Gallery and on GitHub called [CurrencyConverter](https://github.com/markwragg/PowerShell-CurrencyConverter/tree/main).
 
 > https://github.com/markwragg/PowerShell-CurrencyConverter/
 
-The module is essentially a PowerShell wrapper for the currency conversion API that is provided by [ExchangeRate-API](https://www.exchangerate-api.com/). They helpfully provide an open API, which requires no registration or API key be provided. This was helpful for my other module as I didn't want to the user to have to take a dependency on registering for a service. I've continued to use the open API in the Currency Converter module, but I plan to also extend its functionality so that you can use their alternative API that requires registration and a key. You can still use this for free, but doing so allows you to make more queries and the conversion rates refresh more frequently. With the open API, the rates refresh once every 24 hours. For most casual uses this is probably fine.
+The module is essentially a PowerShell wrapper for the currency conversion API that is provided by [ExchangeRate-API](https://www.exchangerate-api.com/). They provide an open API, which requires no registration or API key to use. This was helpful for my other module as I didn't want the user to have to take a dependency on registering for a service for it to work. By default the Currency Converter module uses the open API, but if you have registered and wish to use an API key, you can provide one via the `-APIKey` parameters of `Convert-Currency` and `Get-ExchangeRate`. Note that with the open API, the rates refresh once every 24 hours. This is also true for the free tier of the registered API, but you are less likely to be rate limited. If you take one of their paid plans then the currency conversion rates refresh more frequently.
 
-The module is published in the PowerShell Gallery, so can be installed by running:
+The Currency Converter module is published in the [PowerShell Gallery](https://www.powershellgallery.com/packages/CurrencyConverter/), so can be installed by running:
 
 ```powershell
 Install-Module CurrencyConverter
@@ -42,6 +42,12 @@ To perform a simple currency conversion, execute:
 
 ```powershell
 Convert-Currency -Value 100 -From USD -To GBP
+```
+
+To use the registered API, provide your key via the `-APIKey` parameter:
+
+```powershell
+Convert-Currency -Value 100 -From USD -To GBP -ApiKey yourapikeystringhere
 ```
 
 > See here for a list of supported currencies: https://www.exchangerate-api.com/docs/supported-currencies. Alternatively you can use the `Get-Currency` cmdlet.
@@ -187,6 +193,15 @@ Finally there is the `Get-ExchangeRate` cmdlet. You can use this to return the f
 ```powershell
 Get-ExchangeRate -Currency USD
 ```
+
+To use the registered API, provide your key via the `-APIKey` parameter:
+
+```powershell
+Get-ExchangeRate -Currency GBP -ApiKey yourapikeystringhere
+```
+
+When an API key is provided, the v6 API is invoked. This returns the rates as a property called 'conversion_rates'. The Open API returns the property as 'rates'.
+
 ```plaintext
 result                : success
 provider              : https://www.exchangerate-api.com
