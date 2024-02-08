@@ -278,12 +278,12 @@ Get-ExchangeRate -From GBP -To USD
 'USD','GBP','EUR' | Get-ExchangeRate
 ```
 
-Finally, if you some reason you wanted to query the API for every currency (resulting in the module caching every currencies exchange rate to disk), you could do the following (although beware this might trigger rate limiting for the API):
+Finally, if for some reason you wanted to query the API for every currency (resulting in the module caching every currencies exchange rate to disk), you could do the following (although beware this might trigger rate limiting for the API, as it will make 161 queries in quick succession):
 
 ```powershell
 (Get-Currency).Code | Get-ExchangeRate
 ```
 
-I hope people find this useful. If you see any issues, or can think of other improvements that can be made, see here for how to contribute:
+I hope you found this useful. If you experience any issues or can think of improvements that could be made, please see here for how to request or make a contribution:
 
 - https://github.com/markwragg/PowerShell-CurrencyConverter/blob/main/CONTRIBUTING.md
