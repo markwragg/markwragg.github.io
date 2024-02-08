@@ -76,7 +76,7 @@ And this means that you can pipe multiple values in to perform a series of conve
 
 ### Format-Currency
 
-The value returned by `Convert-Currency` is always a decimal, to ensure we keep the result as precise as possible, and in case you want to do further calculations. If you want to present the result (such as in a report) as a currency value, then you can use the `Format-Currency` cmdlet. This returns a string value, rounded to two decimal places (by default) and with the corresponding currency symbol added. Obviously you can't then treat this result as a decimal value, so ensure this cmdlet is used last.
+The value returned by `Convert-Currency` is always a decimal, to ensure we keep the result as precise as possible, and in case you want to do further calculations. If you want to present the result (such as in a report) as a currency value, then you can use the `Format-Currency` cmdlet. This returns a string value, rounded to two decimal places (by default) and with the corresponding currency symbol added. Obviously you can't then treat this result as a decimal value, so you probably want to ensure this cmdlet is used last in your pipeline.
 
 ```powershell
 100 | Format-Currency -Currency USD
