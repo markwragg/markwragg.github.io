@@ -16,7 +16,7 @@ tags:
 
 **Cloud computing should be illegal.** It's incredibly easy to get started, but before you know it you're selling your grandmother just so you can afford another month of compute. Hopefully your circumstances aren't that extreme, but I've certainly seen plenty of companies that have entrenched themselves into the highly addictive world of automated, scalable infrastructure, but struggle to understand the sometimes astronomical monthly bill.
 
-I found myself in this situation some time ago (not selling my grandmother.. but trying to understand high bills). After some wrangling, I managed to cut a client's cloud bill by 60%, saving approximately £500,000 over 2 years, despite [Microsoft increasing their prices by 11% in April](https://news.microsoft.com/europe/2023/01/05/consistent-global-pricing-for-the-microsoft-cloud/). 
+I found myself in this situation some time ago (not selling my grandmother.. but trying to understand high bills). After some wrangling, I managed to cut a client's cloud bill by 60%, saving approximately £500,000 over 2 years, and that was despite [Microsoft increasing their prices by 11% last April](https://news.microsoft.com/europe/2023/01/05/consistent-global-pricing-for-the-microsoft-cloud/). 
 
 Rather than a 12-step program, I think cloud addiction can be treated in just 6:
 
@@ -59,6 +59,14 @@ You'll need to also ensure you have the AZ module (so that you have `Get-AzConsu
 To install these prerequisites, execute:
 
 ```powershell
-Install-Module -Name AZ #Assuming you don't already have it installed
+Install-Module -Name Az #Assuming you don't already have it installed
 Install-Module -Name PSparklines
 ```
+
+Finally you of course need to make sure you've authenticated to Azure via the Az module, and for the tenant/s that you want to query costs. To login to Azure execute:
+
+```powershell
+Connect-AzAccount
+```
+
+You are now ready to start querying your costs. So brace yourselves, this might hurt.
