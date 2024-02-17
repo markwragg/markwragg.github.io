@@ -37,7 +37,8 @@ My [AzCostTools]() module helps with monthly reviews by:
 - Comparing those months to the previous ones (or to a previous month of your choice by configuring an offset).
 - Calculating the cost difference and change percentage
 - Charting the daily cost, so you have a basic view of how costs fluctuate
-- Identifying the most expensive services
+- Retrieves any budgets you have configured and indicates where you've been within/over budget
+- Identifying the most expensive services, by type
 
 Per step 1, this tool is not intended to replace the built-in cost management tools that are in the Azure Portal. I strongly advocate their use, and there's a lot of built-in views that are easy to use. My personal favourite is the daily cost view, granulated by Resource Group so that I can drill into where the most expensive resources are. But if you're responsible for more than one tenant and/or multiple subscriptions, you may find AzCostTools works well to automate the reporting of those costs. Another weakness of the built-in Cost Management interface is it only seems to be able to show you the last 12 months of costs. If you wanted to compare your costs for the last few months to their same month a year ago (which might be a reasonable thing to do if your costs fluctuate seasonally), its not very helpful. However the `Get-AzConsumptionUsage` cmdlet does return data from more than 12 months ago, and so AzCostTools can do this comparison for you.
 
@@ -47,9 +48,17 @@ The module is in GitHub, so you can have a look at the source code here:
 
 - [https://github.com/markwragg/PowerShell-AzCostTools/](https://github.com/markwragg/PowerShell-AzCostTools/)
 
-You can install the module from the PowerShell Gallery:
+You can install the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzCostTools/) so to get started, open a PowerShell window and execute:
 
 ```powershell
-Install-Module AzCostTools
+Install-Module -Name AzCostTools
 ```
 
+You'll need to also ensure you have the AZ module (so that you have `Get-AzConsumptionUsage` and some other cmdlets that the module uses). If you want to generate charts, you also need to install a module called `PSparklines`. AzCostTools will work without it, but charts are fun.
+
+To install these prerequisites, execute:
+
+```powershell
+Install-Module -Name AZ #Assuming you don't already have it installed
+Install-Module -Name PSparklines
+```
