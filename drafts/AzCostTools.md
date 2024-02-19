@@ -14,7 +14,7 @@ tags:
 - costmanagement
 ---
 
-**Cloud computing should be illegal.** It's incredibly easy to get started, but before you know it you're selling your grandmother just so you can afford another month of compute. Hopefully your circumstances aren't that extreme, but I've certainly seen plenty of companies that have entrenched themselves into the highly addictive world of automated, scalable infrastructure, but struggle to understand the sometimes astronomical monthly bill.
+**Should cloud computing be illegal?** It's incredibly easy to get started, but before you know it you're selling your grandmother just so you can afford another month of compute. Hopefully your circumstances aren't that extreme, but I've certainly seen plenty of companies that have entrenched themselves into the highly addictive world of automated, scalable infrastructure, but struggle to understand the sometimes astronomical monthly bill.
 
 I found myself in this situation some time ago (not selling my grandmother.. but trying to understand high bills). After some wrangling, I managed to cut a client's cloud bill by 60%, saving approximately £500,000 over 2 years, and that was despite [Microsoft increasing their prices by 11% last April](https://news.microsoft.com/europe/2023/01/05/consistent-global-pricing-for-the-microsoft-cloud/). 
 
@@ -89,7 +89,7 @@ Get-SubscriptionCost
 
 There is a default table view. Pipe the result to `Format-List` to see all of the properties that are returned.
 
-![Get-SubscriptionCost returns current costs for all subscriptions in the current context](https://github.com/markwragg/PowerShell-AzCostTools/blob/main/Media/Get-SubscriptionCost.png)
+![Get-SubscriptionCost returns current costs for all subscriptions in the current context](/content/images/2024/Get-SubscriptionCost.png)
 
 To return cost data for the current billing month for a specified subscription, and compare those costs to the previous billing month, execute:
 
@@ -98,7 +98,7 @@ Get-SubscriptionCost -SubscriptionName 'AdventureWorks Cycles' -ComparePrevious 
 ```
 > In the above example we also increased the size of the charts by specifying `-SparkLineSize`.
 
-![Get-SubscriptionCost returns costs for a specified subscription and compares them to the previous month with sparkline charts that are 3 rows in height](https://github.com/markwragg/PowerShell-AzCostTools/blob/main/Media/Get-SubscriptionCost-ComparePrev.png)
+![Get-SubscriptionCost returns costs for a specified subscription and compares them to the previous month with sparkline charts that are 3 rows in height](/content/images/2024/Get-SubscriptionCost-ComparePrev.png)
 
 To return a number of previous months, you can use the `-PreviousMonths` parameter. For example:
 
@@ -108,7 +108,7 @@ Get-SubscriptionCost -PreviousMonths 5 -ComparePrevious
 
 > In the above example we've also used `-ComparePrevious` so that for each month calculations are made comparing it to the previous month. This is optional.
 
-![Get-SubscriptionCost returns current costs for all subscriptions in the current context and the previous 5 months of costs](https://github.com/markwragg/PowerShell-AzCostTools/blob/main/Media/Cost-MultipleSubscription-PrevMonths-ComparePrev.png)
+![Get-SubscriptionCost returns current costs for all subscriptions in the current context and the previous 5 months of costs](/content/images/2024/Cost-MultipleSubscription-PrevMonths-ComparePrev.png)
 
 When using `-ComparePrevious` you can also specify `-ComparePreviousOffset`. This will compare each month of cost data returned to X month/s prior as specified.
 For example, if you wanted to compare costs for the last 6 months against the same 6 months from the year prior, you could execute:
@@ -116,7 +116,7 @@ For example, if you wanted to compare costs for the last 6 months against the sa
 ```powershell
 Get-SubscriptionCost -PreviousMonths 6 -ComparePrevious -ComparePreviousOffset 12
 ```
-![Get-SubscriptionCost returns current costs for all subscriptions in the current context and the previous 6 months of cost, comparing each to the equivalent month 12 months prior](https://github.com/markwragg/PowerShell-AzCostTools/blob/main/Media/Cost-MultipleSubscription-PrevMonths-ComparePrev-Offset12.png)
+![Get-SubscriptionCost returns current costs for all subscriptions in the current context and the previous 6 months of cost, comparing each to the equivalent month 12 months prior](/content/images/2024/Cost-MultipleSubscription-PrevMonths-ComparePrev-Offset12.png)
 
 Other parameters available for `Get-SubscriptionCost` include:
 
@@ -138,7 +138,7 @@ A chart and table is also generated of the top 15 service costs, with each servi
 
 If more than one subscription is in the cost data, the cmdlet will end with a total of cost for all subscriptions and a chart showing most to least expensive.
 
-![Show-CostAnalysis generates charts and tables for a set of returned cost data](https://github.com/markwragg/PowerShell-AzCostTools/blob/main/Media/Show-CostAnalysis.gif)
+![Show-CostAnalysis generates charts and tables for a set of returned cost data](/content/images/2024/Show-CostAnalysis.gif)
 
 With `Show-CostAnalysis` you can also customise the size of the charts returned by specifying `-SparkLineSize`. The default is 3.
 You can also specify `-ConvertToCurrency` with a 3 letter currency code if you'd like the cost values returned to be converted to a different currency. 
@@ -155,4 +155,4 @@ If you used `-ComparePrevious` when executing `Get-SubscriptionCost` you can als
 ```powershell
 $Cost | Show-CostAnalysis -ComparePrevious
 ```
-![Show-CostAnalysis generates charts and tables for a set of returned cost data and shows charts for the previous cost data](https://github.com/markwragg/PowerShell-AzCostTools/blob/main/Media/Show-CostAnalysis-ComparePrev.png)
+![Show-CostAnalysis generates charts and tables for a set of returned cost data and shows charts for the previous cost data](/content/images/2024/Show-CostAnalysis-ComparePrev.png)
