@@ -27,7 +27,7 @@ Rather than a 12-step program, I believe cloud addiction can be treated in just 
 5. Ensure the purpose/ownership of all resources is understood
 6. Purchase reservations
 
-I've [blogged about these topics before on my company website](https://mpfe.uk/blog/2023-03-31-azure-cost-management/). However in this blog post (and for the purposes of [Azure Spring Clean](https://www.azurespringclean.com/)) I will be focussing on #2: take ownership / perform regular reviews, by way of introducing a PowerShell module I've recently published to help do just that.
+I've [blogged about these topics last year on my company website](https://mpfe.uk/blog/2023-03-31-azure-cost-management/). However in this blog post (and for the purposes of [Azure Spring Clean](https://www.azurespringclean.com/)) I will be focussing on #2: take ownership / perform regular reviews, by way of introducing a PowerShell module I've recently published to help do just that.
 
 > You may want to review your costs more frequently than monthly, but unless you have a very static environment, I think its a good minimum guideline as its how Azure usage is billed. Per step 3, it's important to also have budgets and billing alerts configured (and with thresholds that are close to your typical costs) so that if your usage spikes unexpectedly during the month you are made aware and can intervene if appropriate.
 
@@ -71,25 +71,22 @@ Connect-AzAccount
 
 You are now ready to start querying your costs. So brace yourselves, this might hurt.
 
-### Retrieving costs
+A good place to start is by executing `Get-SubscriptionCost`, which like all great cmdlets can be executed without any supplied parameters. This will retrieve the current month's cost data for each subscription in your current context. Because you'll probably want to dig into the data, I recommend returning it to a variable, which in the below example is `$Cost`.
 
-Ensure you have logged in to AZ PowerShell via `Login-AzAccount` and to the tenant that has the Subscription/s you wish to query.
-
-> Depending on the number of subscriptions and/or previous months of data you wish to query the `Get-SubscriptionCost` cmdlet can take a few minutes to run.
-> I recommend you return the results to a variable. If you want to see the output while also saving to a variable, use the `-OutVariable` parameter.
-> E.g: `Get-SubscriptionCost -OutVariable Cost` will return the results to `$Cost` while also showing them on screen.
-
-To return cost data for the current billing month for all Subscriptions in your current Azure Context, execute:
+> Note, errors may be returned for any subscriptions where the cost data is inaccessible, e.g you are not authorised to access costs or the subscription is of a type where costs are managed externally (such as a CSP).
 
 ```powershell
-Get-SubscriptionCost
+$Cost = Get-SubscriptionCost
 ```
 
-> Errors may be returned for any subscriptions where the cost data is inaccessible, e.g you are not authorised to access costs or the subscription is of a type where costs are managed externally (such as a CSP).
+> Depending on the number of subscriptions and/or previous months of data you wish to query the `Get-SubscriptionCost` cmdlet can take a few minutes to run.
+> If you want to see the numbers roll in while also saving the result to a variable, you could instead do `Get-SubscriptionCost -OutVariable Cost`.
 
-There is a default table view. Pipe the result to `Format-List` to see all of the properties that are returned.
+The cmdlet returns the most pertinent fields by default and as table output, but there's a lot more properties returned, which you can view via `$Cost | Format-List`.
 
 ![Get-SubscriptionCost returns current costs for all subscriptions in the current context](/content/images/2024/Get-SubscriptionCost.png)
+
+...
 
 To return cost data for the current billing month for a specified subscription, and compare those costs to the previous billing month, execute:
 
