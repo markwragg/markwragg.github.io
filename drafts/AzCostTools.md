@@ -1,5 +1,5 @@
 ---
-title: "Monitor and manage your Azure cloud costs with a little help from PowerShell
+title: Monitor and manage your Azure cloud costs with a little help from PowerShell
 
 header:
   show_overlay_excerpt: false
