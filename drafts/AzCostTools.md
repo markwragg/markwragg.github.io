@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage your Azure ~Cloud addiction~ costs with a little help from PowerShell
+title: "Monitor and manage your Azure cloud costs with a little help from PowerShell
 
 header:
   show_overlay_excerpt: false
@@ -29,7 +29,7 @@ Rather than a 12-step program, I believe cloud addiction can be treated in just 
 
 I've [blogged about these topics last year on my company website](https://mpfe.uk/blog/2023-03-31-azure-cost-management/). However in this blog post (and for the purposes of [Azure Spring Clean](https://www.azurespringclean.com/)) I will be focussing on #2: take ownership / perform regular reviews, by way of introducing a PowerShell module I've recently published to help do just that.
 
-> You may want to review your costs more frequently than monthly, but unless you have a very static environment, I think its a good minimum guideline as its how Azure usage is billed. Per step 3, it's important to also have budgets and billing alerts configured (and with thresholds that are close to your typical costs) so that if your usage spikes unexpectedly during the month you are made aware and can intervene if appropriate.
+> You may want to review your costs more frequently than monthly, but unless you have a very static environment, I think its a good minimum guideline as its how Azure usage is billed. Per step #3, it's important to also have budgets and billing alerts configured (and with thresholds that are close to your typical costs) so that if your usage spikes unexpectedly during the month you are made aware and can intervene if appropriate.
 
 The AzCostTools module helps perform monthly reviews by:
 
