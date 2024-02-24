@@ -86,6 +86,14 @@ The cmdlet returns the most pertinent fields by default and as table output, but
 
 ![Get-SubscriptionCost returns current costs for all subscriptions in the current context](/content/images/2024/Get-SubscriptionCost.png)
 
+The `Cost` property is the total cost for the specified billing period (in this case, the current month). If you want to view the costs for a different month, you can specify that by using the `-BillingMonth` parameter:
+
+```powershell
+$Cost = Get-SubscriptionCost -BillingMonth 12/2023
+```
+
+The `Currency` property lets you know the currency you're being billed in. Then (if you've installed the `PSparklines` module) you get a sparkline chart showing how the costs fluctuate per day. The actual daily cost values are available in the `DailyCost` property. Then there's a breakdown of your cost by service type, available under `CostPerService`, and if you have any budgets configured (and active) these are detailed in the `ActiveBudgets` property. The other properties perform some useful calculations on your costs, including the average daily cost, max and mimimum daily cost, the dates that were most and least expensive and finally the service types that were most and least expensive (and how much they cost).
+
 ...
 
 To return cost data for the current billing month for a specified subscription, and compare those costs to the previous billing month, execute:
