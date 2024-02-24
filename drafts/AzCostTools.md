@@ -14,7 +14,7 @@ tags:
 - costmanagement
 ---
 
-**Should cloud computing be illegal?** It's incredibly easy to get started, but before you know it you're selling your grandmother just so you can afford another month of compute. Hopefully your circumstances aren't that extreme, but I've certainly seen plenty of companies that have entrenched themselves into the highly addictive world of automated, scalable infrastructure, but struggle to understand the sometimes astronomical monthly bill.
+**Should cloud computing be illegal?** Probably not, _however_ it is incredibly easy to get started, difficult to stop, and before you know it you could be selling your grandmother just to afford one more month of compute. Hopefully your circumstances never get that dire, but I've certainly seen plenty of companies that have entrenched themselves into the highly addictive world of automated, scalable infrastructure, but then struggle to understand the sometimes astronomical monthly bill.
 
 I found myself in this situation some time ago (not selling my grandmother.. but trying to understand high bills). After some wrangling, I managed to cut a client's cloud bill by 60%, saving approximately £500,000 over 2 years, and that was despite [Microsoft increasing their prices by 11% last April](https://news.microsoft.com/europe/2023/01/05/consistent-global-pricing-for-the-microsoft-cloud/). 
 
