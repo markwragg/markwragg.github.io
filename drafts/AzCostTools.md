@@ -92,18 +92,25 @@ The `Cost` property is the total cost for the specified billing period (in this 
 $Cost = Get-SubscriptionCost -BillingMonth 12/2023
 ```
 
-The `Currency` property lets you know the currency you're being billed in. Then (if you've installed the `PSparklines` module) you get a sparkline chart showing how the costs fluctuate per day. The actual daily cost values are available in the `DailyCost` property. Then there's a breakdown of your cost by service type, available under `CostPerService`, and if you have any budgets configured (and active) these are detailed in the `ActiveBudgets` property. The other properties perform some useful calculations on your costs, including the average daily cost, max and mimimum daily cost, the dates that were most and least expensive and finally the service types that were most and least expensive (and how much they cost).
+The `Currency` property lets you know the currency you're being billed in. If you've installed the `PSparklines` module, you get a sparkline chart showing how the costs fluctuate per day (fun, right?). The actual daily cost values are available in the `DailyCost` property. Then there's a breakdown of your cost by service type, available under `CostPerService`, and if you have any budgets configured (and active) these are detailed in the `ActiveBudgets` property. The other properties perform some useful calculations on your costs, including the average daily cost, max and minimum daily cost, the dates that were most and least expensive and finally the service types that were most and least expensive (and how much they cost).
 
-...
+By default the cmdlet discards the raw data that's returned from the `Get-AzConsumptionUsage` cmdlet, but if you want to keep it (for your own analysis), you can add the `-Raw` parameter. The raw data will then be available under a property named `RawCostData`.
 
-To return cost data for the current billing month for a specified subscription, and compare those costs to the previous billing month, execute:
+You can of course specify one or more subscriptions to query, just use the `-SubscriptionName` parameter, with an array of one or more subscription names. You can also customise how large the sparkline graphs are (they work up to a height of 10 lines) via the `-SparkLineSize` parameter.
+
+Now this is all well and good, but for me cost management is only really worth doing if there's an element of competition, and so I like to know if i'm doing better than I did last month. It keeps me focussed through the month on minimising costs (such as by keeping test environments deployed for as little time as possible). Obviously not every month is going to be cheaper (unless you're going out of business I guess..) but you probably know the patterns of your own business (or hopefully you will do), and when there's likely to be higher or lower demand (such as if you're ramping up testing at the end of a development cycle, or ramping up infrastructure for peak seasonal demand such as Black Friday / Christmas). So you hopefully can come to expect when you should be driving costs down and when they're likely to increase.
+
+To enable competitive mode, you can execute `Get-SubscriptionCost` with the `-ComparePrevious` parameter. You can combine this with `-BillingMonth` obviously to specify the month you want to look at costs for, but it will also then get the previous months costs for comparison (and do some of that comparison). For example (note in the below I've also made the sparkline graphs bigger):
 
 ```powershell
 Get-SubscriptionCost -SubscriptionName 'AdventureWorks Cycles' -ComparePrevious -SparkLineSize 3
 ```
-> In the above example we also increased the size of the charts by specifying `-SparkLineSize`.
 
 ![Get-SubscriptionCost returns costs for a specified subscription and compares them to the previous month with sparkline charts that are 3 rows in height](/content/images/2024/Get-SubscriptionCost-ComparePrev.png)
+
+
+
+...
 
 To return a number of previous months, you can use the `-PreviousMonths` parameter. For example:
 
