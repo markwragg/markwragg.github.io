@@ -72,7 +72,7 @@ Finally you of course need to make sure you've authenticated to Azure via the Az
 Connect-AzAccount
 ```
 
-### Retrieving costs
+### Subscription costs
 
 You are now ready to start querying your costs. So brace yourselves, this might hurt.
 
@@ -130,7 +130,7 @@ Get-SubscriptionCost -PreviousMonths 6 -ComparePrevious -ComparePreviousOffset 1
 ```
 ![Get-SubscriptionCost returns current costs for all subscriptions in the current context and the previous 6 months of cost, comparing each to the equivalent month 12 months prior](/content/images/2024/Cost-MultipleSubscription-PrevMonths-ComparePrev-Offset12.png)
 
-### Cost Analysis
+### Cost analysis
 
 I expect most people (assuming anyone has made it this far) will want to take the output of this tool and do something further with it. Perhaps bring it into Excel and generate some charts (I certainly do). But I wanted to see what other useful ways I could implement `PSparklines`, and while we have all this data in a console window it's potentially very quick and easy to generate some further insight there too. So without any further rambling, let me introduce `Show-CostAnalysis`.
 
@@ -140,7 +140,7 @@ Having retrieved a set of cost data for one or more subscriptions, you can pipe 
 $Cost | Show-CostAnalysis
 ```
 
-This is best experienced with `PSparklines` installed of course, but again it works without it. It generates a daily cost chart with a slightly more useful default height, but if your cost data returned one or more budgets, we convert one of those into a daily average and then use that to colour the daily cost chart to show where you were over budget (in red) and under budget (in green). If your subscription doesn't have a budget, the chart is white. It also shows a little summary for each Subscription detailing the budget used, the daily budget calculation it geenrated, your peak daily cost, the most/least expensive date and total cost. If there's a budget configured, the cost is in green if you're within that overall budget and red if it's over.
+This is best experienced with `PSparklines` installed of course, but again it works without it. It generates a daily cost chart with a slightly more useful default height, but if your cost data returned one or more budgets, we convert one of those into a daily average and then use that to colour the daily cost chart to show where you were over budget (in red) and under budget (in green). If your subscription doesn't have a budget, the chart is white. It also shows a little summary for each Subscription detailing the budget used, the daily budget calculation it generated, your peak daily cost, the most/least expensive date and total cost. If there's a budget configured, the cost is in green if you're within that overall budget and red if it's over.
 
 The tool then breaks down the costs by service type, creating a chart with different colours for each type, and again summarising the most/least expensive services and their cost. It will do this for up to 15 service types (after which we sort of ran out of console colours).
 
@@ -156,7 +156,7 @@ $Cost | Show-CostAnalysis -ConvertToCurrency GBP
 
 > Note that this uses a free/open API for currency conversion that only refreshes the exchange rates once a day. I thought this functionality was so useful I spun it off into its own module which you can read about here:
 >
-> - https://wragg.io/Perform-currency-conversion-with-PowerShell/
+> - [https://wragg.io/Perform-currency-conversion-with-PowerShell/](https://wragg.io/Perform-currency-conversion-with-PowerShell/)
 >
 > AzCostTools doesn't need this separate module installed, it has the functionality built in.
 
@@ -168,3 +168,29 @@ $Cost | Show-CostAnalysis -ComparePrevious
 ![Show-CostAnalysis generates charts and tables for a set of returned cost data and shows charts for the previous cost data](/content/images/2024/Show-CostAnalysis-ComparePrev.png)
 
 Bear in mind the output of `Show-CostAnalysis` is not objects, so there's nothing here you can easily export or pipe into another cmdlet, but most of the calculations it uses were already performed via the `Get-SubscriptionCost` cmdlet, so the data is there.
+
+### Storage costs
+
+I plan to continue to expand AzCostTools with other useful cost-related functionality, hence the slightly generic name. One such expansion is to start to dig into the cost of Storage. Returning to my original tounge-in-cheek premise, I think it's not outrageous to think of cloud storage as like the gateway drug of cloud computing. It can be incredibly cheap, and as such easy to ignore. But sometimes cloud costs can be death by a thousand cuts, and over time you can end up with hundreds of small storage accounts littered through your subscriptions that individually aren't expensive, but still represent a waste.
+
+To help you understand your storage costs specifically, you can execute:
+
+```powershell
+Get-StorageCost
+```
+
+It works in a very similar to way to `Get-SubscriptionCost` (mostly because I started by just copy/pasting that function). By default it will query all available storage accounts in your current context, or you can specify one or more storage accounts via the `-AccountName` parameter. And then it has the other parameters you'll find familiar: `-BillingMonth`, `-ComparePrevious`, `-ComparePreviousOffset`, `-PreviousMonths` and `-SparkLineSize`. Its particularly useful for seeing which storage accounts are the most expensive, and which storage accounts are experiencing active change vs being static.
+
+### In summary
+
+In summary, Drugs = bad. Cloud = good. Reducing cloud costs = great. If I were dispensing any specific advice, I would say don't be afraid to take responsibility for managing your costs, particularly if no one else does. If not for any other reason, saving companies money looks great on your CV. Of course work within the bounds of your organisation, and with suitable permission to make changes.
+
+A final caveat, this AzCostTools module was slightly cobbled together, so please let me know if you experience any bugs, and please don't sue me if you get any erroneous results. But more than anything, please let me know if you have any ideas for improvements. You can log those here:
+
+- [https://github.com/markwragg/PowerShell-AzCostTools/issues](https://github.com/markwragg/PowerShell-AzCostTools/issues)
+
+Thanks for taking the time to read this blog post, I hope you found it useful. Enjoy more great content from Azure Spring Clean 2024 via the website here:
+
+- [https://www.azurespringclean.com/](https://www.azurespringclean.com/)
+
+or by following #AzureSpringClean on the website formerly known as Twitter.
