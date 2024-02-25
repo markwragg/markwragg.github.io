@@ -15,7 +15,7 @@ tags:
 - cloudcomputing
 ---
 
-**Should cloud computing be illegal?** _Probably not_, but it is incredibly easy to get started, equally difficult to stop, and before you know it you could be selling your grandmother just to afford one more month of that delicious compute. Hopefully your circumstances never get that dire, but I've seen plenty of companies entrench themselves into the highly addictive world of automated, scalable infrastructure, but then struggle to understand the often astronomical monthly bill.
+**Should cloud computing be illegal?** _Probably not_, but it is incredibly easy to get started, equally difficult to stop, and before you know it you could be selling your grandmother just to afford one more month of that delicious compute. Hopefully your circumstances never get that dire, but I've seen plenty of companies entrench themselves into the highly addictive world of automated, scalable infrastructure, but then struggle to understand the often-astronomical monthly bill.
 
 I found myself in this situation some time ago (not selling my grandmother.. but trying to understand high bills). After some wrangling, I managed to cut a client's cloud bill by 60%, saving approximately £500,000 over 2 years, and that was despite [Microsoft increasing their prices by 11% last April](https://news.microsoft.com/europe/2023/01/05/consistent-global-pricing-for-the-microsoft-cloud/). 
 
@@ -28,9 +28,9 @@ Rather than a 12-step program, I believe cloud addiction can be treated in just 
 5. Ensure the purpose/ownership of all resources is understood
 6. Purchase reservations
 
-I [blogged about these topics last year on my company website](https://mpfe.uk/blog/2023-03-31-azure-cost-management/). However in this blog post (and for the purposes of [Azure Spring Clean](https://www.azurespringclean.com/)) I will be focussing on #2: take ownership / perform regular reviews, by way of introducing a PowerShell module I've recently published to help do just that.
+[I blogged about these topics last year on my company website](https://mpfe.uk/blog/2023-03-31-azure-cost-management/). However in this blog post (and for the purposes of [Azure Spring Clean](https://www.azurespringclean.com/)) I will be focussing on #2: take ownership / perform regular reviews, by way of introducing a PowerShell module I've recently published to help do just that.
 
-> You may want to review your costs more frequently than monthly, but unless you have a very static environment, I think its a good minimum guideline as its how Azure usage is billed. Per step #3, it's important to also have budgets and billing alerts configured (and with thresholds that are close to your typical costs) so that if your usage spikes unexpectedly during the month you are made aware and can intervene if appropriate.
+> You may want to review your costs more frequently than monthly, but unless you have a very static environment, I think it's a good minimum guideline as it's how Azure usage is billed. Per step #3, it's important to also have budgets and billing alerts configured (and with thresholds that are close to your typical costs) so that if your usage spikes unexpectedly during the month you are made aware and can intervene if appropriate.
 
 The AzCostTools module helps perform monthly reviews by:
 
@@ -41,7 +41,7 @@ The AzCostTools module helps perform monthly reviews by:
 - Retrieves any budgets you have configured and indicates where you've been within/over budget
 - Identifying the most expensive services, by type
 
-Per step #1 (Understand your costs - use the built-in tools), AzCostTools is not intended as a replacement for the existing cost management tools that are in the Azure Portal. I strongly advocate their use, and there's several default views that can give you quick and valuable insight. My personal favourite is the daily cost view, granulated by Resource Group so that I can drill into where the most expensive resources are. But if you're responsible for more than one tenant and/or multiple subscriptions, you may find AzCostTools works well to automate the reporting of those costs (both individually and in total). Another weakness of the built-in Cost Management interface is it only seems to be able to show you the data from the last 12 months. If you wanted to compare your costs for the last few months to those same months from a year prior (which might be a reasonable thing to do if your costs fluctuate seasonally), its not very helpful. However the `Get-AzConsumptionUsage` cmdlet does return data from more than 12 months ago, and so AzCostTools can do this comparison for you.
+Per step #1 (Understand your costs - use the built-in tools), AzCostTools is not intended as a replacement for the existing cost management tools that are in the Azure Portal. I strongly advocate their use, and there's several default views that can give you quick and valuable insight. My personal favourite is the daily cost view, granulated by Resource Group so that I can drill into where the most expensive resources are. But if you're responsible for more than one tenant and/or multiple subscriptions, you may find AzCostTools works well to automate the reporting of those costs (both individually and in total). Another weakness of the built-in Cost Management interface is it only seems to be able to show you the data from the last 12 months. If you wanted to compare your costs for the last few months to those same months from a year prior (which might be a reasonable thing to do if your costs fluctuate seasonally), it's not very helpful. However the `Get-AzConsumptionUsage` cmdlet does return data from more than 12 months ago, and so AzCostTools can do this comparison for you.
 
 ### Getting started
 
@@ -66,7 +66,7 @@ Install-Module -Name Az
 Install-Module -Name PSparklines
 ```
 
-Finally you of course need to make sure you've authenticated to Azure via the Az module, and for the tenant/s that you want to query costs. To login to Azure execute:
+Finally, you of course need to make sure you've authenticated to Azure via the Az module, and for the tenant/s that you want to query costs. To login to Azure execute:
 
 ```powershell
 Connect-AzAccount
@@ -78,7 +78,7 @@ You are now ready to start querying your costs. So brace yourselves, this might 
 
 A good place to start is by executing `Get-SubscriptionCost`, which like all great cmdlets can be executed without any supplied parameters. This will retrieve the current month's cost data for each subscription in your current context. Because you'll probably want to dig into the data, I recommend returning it to a variable, which in the below example is `$Cost`.
 
-> Note, errors may be returned for any subscriptions where the cost data is inaccessible, e.g you are not authorised to access costs or the subscription is of a type where costs are managed externally (such as a CSP).
+> Note, errors may be returned for any subscriptions where the cost data is inaccessible, e.g you are not authorised to access costs, or the subscription is of a type where costs are managed externally (such as a CSP).
 
 ```powershell
 $Cost = Get-SubscriptionCost
@@ -103,9 +103,9 @@ By default the cmdlet discards the raw data that's returned from the `Get-AzCons
 
 You can of course specify one or more subscriptions to query, just use the `-SubscriptionName` parameter, with an array of one or more subscription names. You can also customise how large the sparkline graphs are (they work up to a height of 10 lines) via the `-SparkLineSize` parameter.
 
-Now this is all well and good, but for me cost management is only really worth doing if there's an element of competition, and so I like to know if i'm doing better than I did last month. It keeps me focussed through the month on minimising costs (such as by keeping test environments deployed for as little time as possible). Obviously not every month is going to be cheaper (unless you're going out of business I guess..) but you probably know the patterns of your own business (or hopefully you will do), and when there's likely to be higher or lower demand (such as if you're ramping up testing at the end of a development cycle, or ramping up infrastructure for peak seasonal demand such as Black Friday / Christmas). So you hopefully can come to expect when you should be driving costs down and when they're likely to increase.
+Now this is all well and good, but for me cost management is only really worth doing if there's an element of competition, and so I like to know if I'm doing better than I did last month. It keeps me focussed through the month on minimising costs (such as by keeping test environments deployed for as little time as possible). Obviously not every month is going to be cheaper (unless you're going out of business I guess..) but you probably know the patterns of your own business (or hopefully you will do), and when there's likely to be higher or lower demand (such as if you're ramping up testing at the end of a development cycle, or ramping up infrastructure for peak seasonal demand such as Black Friday / Christmas). So you can come to expect when you should be driving costs down and when they're likely to increase.
 
-To enable competitive mode, you can execute `Get-SubscriptionCost` with the `-ComparePrevious` parameter. You can combine this with `-BillingMonth` obviously to specify the month you want to look at costs for, but it will also then get the previous months costs for comparison (and do some of that comparison for you). For example (note in the below I've also made the sparkline graphs bigger):
+To enable this "competitive mode", you can execute `Get-SubscriptionCost` with the `-ComparePrevious` parameter. You can combine this with `-BillingMonth` obviously to specify the month you want to look at costs for, but it will also then get the previous months costs for comparison (and do some of that comparison for you). For example (note in the below I've also made the sparkline graphs bigger):
 
 ```powershell
 Get-SubscriptionCost -SubscriptionName 'AdventureWorks Cycles' -ComparePrevious -SparkLineSize 3
@@ -113,9 +113,9 @@ Get-SubscriptionCost -SubscriptionName 'AdventureWorks Cycles' -ComparePrevious 
 
 ![Get-SubscriptionCost returns costs for a specified subscription and compares them to the previous month with sparkline charts that are 3 rows in height](/content/images/2024/Get-SubscriptionCost-ComparePrev.png)
 
-Per the screenshot above, there is again a table view returned by default, with cost, the previous month's cost and sparkline daily cost graphs for both. If you once again do `$Cost | Format-List` you'll see there's more properties available. These include the all of the same properties that were returned without using `-ComparePrev`, and then properties that represent the same data for the previous month (all prefixed with `Prev`), but where you get additional value by using this parameter is that you also get a `CostChange` property, which is the calculated difference between the previous month and current one, that change represented as a percentage, and then the cost change also broken down per day under a property named `DailyCostChange`. When I'm reporting costs I typically show the current cost for the month i'm reporting on, how much more of less that is than last month and that change as a percentage, which I think gives a very quick and easy to understand view of whether your costs are going up or down and by how much. Once again if you want the raw data for both months, using `-Raw` ensures these are included.
+Per the screenshot above, there is again a table view returned by default, with cost, the previous month's cost and sparkline daily cost graphs for both. If you once again do `$Cost | Format-List` you'll see there's more properties available. These include the all of the same properties that were returned without using `-ComparePrev`, and then properties that represent the same data for the previous month (all prefixed with `Prev`), but where you get additional value by using this parameter is that you also get a `CostChange` property, which is the calculated difference between the previous month and current one, that change represented as a percentage, and then the cost change also broken down per day under a property named `DailyCostChange`. When I'm reporting costs I typically show the current cost for the month I'm reporting on, how much more of less that is than last month and that change as a percentage, which I think gives a very quick and easy to understand view of whether your costs are going up or down and by how much. Once again if you want the raw data for both months, using `-Raw` ensures these are included.
 
-If you want to look at costs for more than a single month, you could of course make several repeated calls to `Get-SubscriptionCost` with different billing periods, but it has a parameter that is more convenient. If you use `-PreviousMonths` it will return cost data for however many previous months your specify. There's a slight performance advantage to doing this if you're also using `-ComparePrevious` because the tool will know it already retrieved the previous months cost and will just reuse it. For example:
+If you want to look at costs for more than a single month, you could of course make several repeated calls to `Get-SubscriptionCost` with different billing periods, but it has a parameter that is more convenient. If you use `-PreviousMonths` it will return cost data for however many previous months you specify. There's a slight performance advantage to doing this if you're also using `-ComparePrevious` because the tool will know it already retrieved the previous months cost and will just reuse it. For example:
 
 ```powershell
 Get-SubscriptionCost -PreviousMonths 5 -ComparePrevious
@@ -148,7 +148,7 @@ If more than one subscription is in the cost data, the cmdlet will end with a to
 
 ![Show-CostAnalysis generates charts and tables for a set of returned cost data](/content/images/2024/Show-CostAnalysis.gif)
 
-There's a couple of parameters on `Show-CostAnalysis`: you ca  customise the size of the charts returned by specifying `-SparkLineSize`. The default is 3. But perhaps more usefully, you can also specify `-ConvertToCurrency` with a 3 letter currency code if you'd like the cost values returned to be converted to a different currency. Sometimes Azure costs are billed in a currency that is not your own and it may be more informative to view them in your local currency. For example:
+There's a couple of parameters on `Show-CostAnalysis`: you can again customise the size of the charts returned by specifying `-SparkLineSize`. The default is 3. But perhaps more usefully, you can also specify `-ConvertToCurrency` with a 3-letter currency code if you'd like the cost values returned to be converted to a different currency. Sometimes Azure costs are billed in a currency that is not your own and it may be more informative to view them in your local currency. For example:
 
 ```powershell
 $Cost | Show-CostAnalysis -ConvertToCurrency GBP
@@ -171,7 +171,7 @@ Bear in mind the output of `Show-CostAnalysis` is not objects, so there's nothin
 
 ### Storage costs
 
-I plan to continue to expand AzCostTools with other useful cost-related functionality, hence the slightly generic name. One such expansion is to start to dig into the cost of Storage. Returning to my original tounge-in-cheek premise, I think it's not outrageous to think of cloud storage as like the gateway drug of cloud computing. It can be incredibly cheap, and as such easy to ignore. But sometimes cloud costs can be death by a thousand cuts, and over time you can end up with hundreds of small storage accounts littered through your subscriptions that individually aren't expensive, but still represent a waste.
+I plan to continue to expand AzCostTools with other useful cost-related functionality, hence the slightly generic name. One such expansion is to start to dig into the cost of Storage. Returning to my original tongue-in-cheek premise, I think it's not outrageous to think of cloud storage as like the gateway drug of cloud computing. It can be incredibly cheap, and as such easy to ignore. But sometimes cloud costs can be death by a thousand cuts, and over time you can end up with hundreds of small storage accounts littered through your subscriptions that individually aren't expensive, but still represent a waste.
 
 To help you understand your storage costs specifically, you can execute:
 
@@ -193,4 +193,4 @@ Thanks for taking the time to read this blog post, I hope you found it useful. E
 
 - [https://www.azurespringclean.com/](https://www.azurespringclean.com/)
 
-or by following #AzureSpringClean on the website formerly known as Twitter.
+or by following #AzureSpringClean on LinkedIn or the website formerly known as Twitter.
