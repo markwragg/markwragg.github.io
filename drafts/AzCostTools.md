@@ -28,7 +28,7 @@ Rather than a 12-step program, I believe cloud addiction can be treated in just 
 5. Ensure the purpose/ownership of all resources is understood
 6. Purchase reservations
 
-I've [blogged about these topics last year on my company website](https://mpfe.uk/blog/2023-03-31-azure-cost-management/). However in this blog post (and for the purposes of [Azure Spring Clean](https://www.azurespringclean.com/)) I will be focussing on #2: take ownership / perform regular reviews, by way of introducing a PowerShell module I've recently published to help do just that.
+I [blogged about these topics last year on my company website](https://mpfe.uk/blog/2023-03-31-azure-cost-management/). However in this blog post (and for the purposes of [Azure Spring Clean](https://www.azurespringclean.com/)) I will be focussing on #2: take ownership / perform regular reviews, by way of introducing a PowerShell module I've recently published to help do just that.
 
 > You may want to review your costs more frequently than monthly, but unless you have a very static environment, I think its a good minimum guideline as its how Azure usage is billed. Per step #3, it's important to also have budgets and billing alerts configured (and with thresholds that are close to your typical costs) so that if your usage spikes unexpectedly during the month you are made aware and can intervene if appropriate.
 
@@ -132,30 +132,33 @@ Get-SubscriptionCost -PreviousMonths 6 -ComparePrevious -ComparePreviousOffset 1
 
 ### Cost Analysis
 
-Having retrieved a set of cost data for one or more subscriptions, you can pipe that data to `Show-CostAnalysis` to generate charts and tables analysing the costs:
+I expect most people (assuming anyone has made it this far) will want to take the output of this tool and do something further with it. Perhaps bring it into Excel and generate some charts (I certainly do). But I wanted to see what other useful ways I could implement `PSparklines`, and while we have all this data in a console window it's potentially very quick and easy to generate some further insight there too. So without any further rambling, let me introduce `Show-CostAnalysis`.
+
+Having retrieved a set of cost data for one or more subscriptions, you can pipe that data to `Show-CostAnalysis` to generate some charts and tables analysing the costs:
 
 ```powershell
 $Cost | Show-CostAnalysis
 ```
 
-If `PSparklines` is installed, a daily cost chart will be generated. If the subscription has a budget this will show red for days over budget, and green for under (based on a daily budget calculation).
-If there is no budget for the subscription the chart will be white.
+This is best experienced with `PSparklines` installed of course, but again it works without it. It generates a daily cost chart with a slightly more useful default height, but if your cost data returned one or more budgets, we convert one of those into a daily average and then use that to colour the daily cost chart to show where you were over budget (in red) and under budget (in green). If your subscription doesn't have a budget, the chart is white. It also shows a little summary for each Subscription detailing the budget used, the daily budget calculation it geenrated, your peak daily cost, the most/least expensive date and total cost. If there's a budget configured, the cost is in green if you're within that overall budget and red if it's over.
 
-A chart and table is also generated of the top 15 service costs, with each service name mapped to an individual colour.
+The tool then breaks down the costs by service type, creating a chart with different colours for each type, and again summarising the most/least expensive services and their cost. It will do this for up to 15 service types (after which we sort of ran out of console colours).
 
-If more than one subscription is in the cost data, the cmdlet will end with a total of cost for all subscriptions and a chart showing most to least expensive.
+If more than one subscription is in the cost data, the cmdlet will end with a total of cost for all subscriptions and another chart showing most to least expensive. This is a little slow to produce (its largely down to the sparkline charts which take a few seconds each to generate):
 
 ![Show-CostAnalysis generates charts and tables for a set of returned cost data](/content/images/2024/Show-CostAnalysis.gif)
 
-With `Show-CostAnalysis` you can also customise the size of the charts returned by specifying `-SparkLineSize`. The default is 3.
-You can also specify `-ConvertToCurrency` with a 3 letter currency code if you'd like the cost values returned to be converted to a different currency. 
-Sometimes Azure costs are billed in a currency that is not your own and it may be more informative to view them in your local currency. For example:
+There's a couple of parameters on `Show-CostAnalysis`: you ca  customise the size of the charts returned by specifying `-SparkLineSize`. The default is 3. But perhaps more usefully, you can also specify `-ConvertToCurrency` with a 3 letter currency code if you'd like the cost values returned to be converted to a different currency. Sometimes Azure costs are billed in a currency that is not your own and it may be more informative to view them in your local currency. For example:
 
 ```powershell
 $Cost | Show-CostAnalysis -ConvertToCurrency GBP
 ```
 
-> Note that this uses a free/open API for currency conversion that only refreshes the exchange rates once a day.
+> Note that this uses a free/open API for currency conversion that only refreshes the exchange rates once a day. I thought this functionality was so useful I spun it off into its own module which you can read about here:
+>
+> - https://wragg.io/Perform-currency-conversion-with-PowerShell/
+>
+> AzCostTools doesn't need this separate module installed, it has the functionality built in.
 
 If you used `-ComparePrevious` when executing `Get-SubscriptionCost` you can also specify `-ComparePrevious` for `Show-CostAnalysis` to generate further tables and charts for the previous cost data. This might be most useful when using `-ComparePreviousOffset` so that you can see the charts side by side of the current and previous costs. For example:
 
@@ -163,3 +166,5 @@ If you used `-ComparePrevious` when executing `Get-SubscriptionCost` you can als
 $Cost | Show-CostAnalysis -ComparePrevious
 ```
 ![Show-CostAnalysis generates charts and tables for a set of returned cost data and shows charts for the previous cost data](/content/images/2024/Show-CostAnalysis-ComparePrev.png)
+
+Bear in mind the output of `Show-CostAnalysis` is not objects, so there's nothing here you can easily export or pipe into another cmdlet, but most of the calculations it uses were already performed via the `Get-SubscriptionCost` cmdlet, so the data is there.
