@@ -12,6 +12,7 @@ tags:
 - azurespringclean
 - module
 - costmanagement
+- cloudcomputing
 ---
 
 **Should cloud computing be illegal?** _Probably not_, but it is incredibly easy to get started, equally difficult to stop, and before you know it you could be selling your grandmother just to afford one more month of that delicious compute. Hopefully your circumstances never get that dire, but I've seen plenty of companies entrench themselves into the highly addictive world of automated, scalable infrastructure, but then struggle to understand the often astronomical monthly bill.
@@ -40,7 +41,9 @@ The AzCostTools module helps perform monthly reviews by:
 - Retrieves any budgets you have configured and indicates where you've been within/over budget
 - Identifying the most expensive services, by type
 
-Per step #1 (Understand your costs - use the built-in tools), AzCostTools is not intended as a replacement for the existing cost management tools that are in the Azure Portal. I strongly advocate their use, and there's several default views that are can give you quick and valuable insight. My personal favourite is the daily cost view, granulated by Resource Group so that I can drill into where the most expensive resources are. But if you're responsible for more than one tenant and/or multiple subscriptions, you may find AzCostTools works well to automate the reporting of those costs (both individually and in total). Another weakness of the built-in Cost Management interface is it only seems to be able to show you the data from the last 12 months. If you wanted to compare your costs for the last few months to those same months from a year prior (which might be a reasonable thing to do if your costs fluctuate seasonally), its not very helpful. However the `Get-AzConsumptionUsage` cmdlet does return data from more than 12 months ago, and so AzCostTools can do this comparison for you.
+Per step #1 (Understand your costs - use the built-in tools), AzCostTools is not intended as a replacement for the existing cost management tools that are in the Azure Portal. I strongly advocate their use, and there's several default views that can give you quick and valuable insight. My personal favourite is the daily cost view, granulated by Resource Group so that I can drill into where the most expensive resources are. But if you're responsible for more than one tenant and/or multiple subscriptions, you may find AzCostTools works well to automate the reporting of those costs (both individually and in total). Another weakness of the built-in Cost Management interface is it only seems to be able to show you the data from the last 12 months. If you wanted to compare your costs for the last few months to those same months from a year prior (which might be a reasonable thing to do if your costs fluctuate seasonally), its not very helpful. However the `Get-AzConsumptionUsage` cmdlet does return data from more than 12 months ago, and so AzCostTools can do this comparison for you.
+
+### Getting started
 
 That's probably enough sales talk (it's free btw..), here's how to use it:
 
@@ -69,6 +72,8 @@ Finally you of course need to make sure you've authenticated to Azure via the Az
 Connect-AzAccount
 ```
 
+### Retrieving costs
+
 You are now ready to start querying your costs. So brace yourselves, this might hurt.
 
 A good place to start is by executing `Get-SubscriptionCost`, which like all great cmdlets can be executed without any supplied parameters. This will retrieve the current month's cost data for each subscription in your current context. Because you'll probably want to dig into the data, I recommend returning it to a variable, which in the below example is `$Cost`.
@@ -94,13 +99,13 @@ $Cost = Get-SubscriptionCost -BillingMonth 12/2023
 
 The `Currency` property lets you know the currency you're being billed in. If you've installed the `PSparklines` module, you get a sparkline chart showing how the costs fluctuate per day (fun, right?). The actual daily cost values are available in the `DailyCost` property. Then there's a breakdown of your cost by service type, available under `CostPerService`, and if you have any budgets configured (and active) these are detailed in the `ActiveBudgets` property. The other properties perform some useful calculations on your costs, including the average daily cost, max and minimum daily cost, the dates that were most and least expensive and finally the service types that were most and least expensive (and how much they cost).
 
-By default the cmdlet discards the raw data that's returned from the `Get-AzConsumptionUsage` cmdlet, but if you want to keep it (for your own analysis), you can add the `-Raw` parameter. The raw data will then be available under a property named `RawCostData`.
+By default the cmdlet discards the raw data that's returned from the `Get-AzConsumptionUsage` cmdlet, but if you want to keep it (for your own analysis), you can add the `-Raw` parameter. The raw data will then be available under a property named `Consumption_Raw`.
 
 You can of course specify one or more subscriptions to query, just use the `-SubscriptionName` parameter, with an array of one or more subscription names. You can also customise how large the sparkline graphs are (they work up to a height of 10 lines) via the `-SparkLineSize` parameter.
 
 Now this is all well and good, but for me cost management is only really worth doing if there's an element of competition, and so I like to know if i'm doing better than I did last month. It keeps me focussed through the month on minimising costs (such as by keeping test environments deployed for as little time as possible). Obviously not every month is going to be cheaper (unless you're going out of business I guess..) but you probably know the patterns of your own business (or hopefully you will do), and when there's likely to be higher or lower demand (such as if you're ramping up testing at the end of a development cycle, or ramping up infrastructure for peak seasonal demand such as Black Friday / Christmas). So you hopefully can come to expect when you should be driving costs down and when they're likely to increase.
 
-To enable competitive mode, you can execute `Get-SubscriptionCost` with the `-ComparePrevious` parameter. You can combine this with `-BillingMonth` obviously to specify the month you want to look at costs for, but it will also then get the previous months costs for comparison (and do some of that comparison). For example (note in the below I've also made the sparkline graphs bigger):
+To enable competitive mode, you can execute `Get-SubscriptionCost` with the `-ComparePrevious` parameter. You can combine this with `-BillingMonth` obviously to specify the month you want to look at costs for, but it will also then get the previous months costs for comparison (and do some of that comparison for you). For example (note in the below I've also made the sparkline graphs bigger):
 
 ```powershell
 Get-SubscriptionCost -SubscriptionName 'AdventureWorks Cycles' -ComparePrevious -SparkLineSize 3
@@ -108,32 +113,22 @@ Get-SubscriptionCost -SubscriptionName 'AdventureWorks Cycles' -ComparePrevious 
 
 ![Get-SubscriptionCost returns costs for a specified subscription and compares them to the previous month with sparkline charts that are 3 rows in height](/content/images/2024/Get-SubscriptionCost-ComparePrev.png)
 
+Per the screenshot above, there is again a table view returned by default, with cost, the previous month's cost and sparkline daily cost graphs for both. If you once again do `$Cost | Format-List` you'll see there's more properties available. These include the all of the same properties that were returned without using `-ComparePrev`, and then properties that represent the same data for the previous month (all prefixed with `Prev`), but where you get additional value by using this parameter is that you also get a `CostChange` property, which is the calculated difference between the previous month and current one, that change represented as a percentage, and then the cost change also broken down per day under a property named `DailyCostChange`. When I'm reporting costs I typically show the current cost for the month i'm reporting on, how much more of less that is than last month and that change as a percentage, which I think gives a very quick and easy to understand view of whether your costs are going up or down and by how much. Once again if you want the raw data for both months, using `-Raw` ensures these are included.
 
-
-...
-
-To return a number of previous months, you can use the `-PreviousMonths` parameter. For example:
+If you want to look at costs for more than a single month, you could of course make several repeated calls to `Get-SubscriptionCost` with different billing periods, but it has a parameter that is more convenient. If you use `-PreviousMonths` it will return cost data for however many previous months your specify. There's a slight performance advantage to doing this if you're also using `-ComparePrevious` because the tool will know it already retrieved the previous months cost and will just reuse it. For example:
 
 ```powershell
 Get-SubscriptionCost -PreviousMonths 5 -ComparePrevious
 ```
 
-> In the above example we've also used `-ComparePrevious` so that for each month calculations are made comparing it to the previous month. This is optional.
-
 ![Get-SubscriptionCost returns current costs for all subscriptions in the current context and the previous 5 months of costs](/content/images/2024/Cost-MultipleSubscription-PrevMonths-ComparePrev.png)
 
-When using `-ComparePrevious` you can also specify `-ComparePreviousOffset`. This will compare each month of cost data returned to X month/s prior as specified.
-For example, if you wanted to compare costs for the last 6 months against the same 6 months from the year prior, you could execute:
+The default behaviour of comparing your costs to the previous month might not be the right choice for you. If you work somewhere with specific patterns of work (as talked about earlier, development cycles of a fixed cadence or infrastructure that is ramped up seasonally) it might be more insightful to compare to the same month from the previous period (be that last quarter, or last year etc.). To modify which month is used for comparison when using `-ComparePrevious` you can specify `-ComparePreviousOffset`.  This will compare each month of cost data returned to X month/s prior as specified. You can continue to combine this with the other parameters (for example the `-PreviousMonths` one) so for example, if you wanted to compare costs for the last 6 months against the same 6 months from the year prior, you could execute:
 
 ```powershell
 Get-SubscriptionCost -PreviousMonths 6 -ComparePrevious -ComparePreviousOffset 12
 ```
 ![Get-SubscriptionCost returns current costs for all subscriptions in the current context and the previous 6 months of cost, comparing each to the equivalent month 12 months prior](/content/images/2024/Cost-MultipleSubscription-PrevMonths-ComparePrev-Offset12.png)
-
-Other parameters available for `Get-SubscriptionCost` include:
-
-* `-BillingMonth` — Use to specify a specific month to retrieve costs (or as a starting point from when also retrieving previous months costs).
-* `-Raw` — Adds properties to the resultant object that include the raw cost data returned by `Get-AzConsumptionUsageDetail` in case you want to do further direct analysis/manipulation.
 
 ### Cost Analysis
 
