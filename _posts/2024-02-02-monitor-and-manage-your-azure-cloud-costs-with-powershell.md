@@ -5,7 +5,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/Cloud-Computing-Cost-Management4.jpeg"
   teaser: "/content/images/2024/Cloud-Computing-Cost-Management4.jpeg"
-date: '2024-02-24 12:00:00'
+date: '2024-03-02 09:00:00'
 tags:
 - powershell
 - azure
