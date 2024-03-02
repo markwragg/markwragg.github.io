@@ -171,7 +171,7 @@ Bear in mind the output of `Show-CostAnalysis` is not objects, so there's nothin
 
 ### Storage costs
 
-I plan to continue to expand AzCostTools with other useful cost-related functionality, hence the slightly generic name. One such expansion is to start to dig into the cost of Storage. Returning to my original tongue-in-cheek premise, I think it's not outrageous to think of cloud storage as like the gateway drug of cloud computing. It can be incredibly cheap, and as such easy to ignore. But sometimes cloud costs can be death by a thousand cuts, and over time you can end up with hundreds of small storage accounts littered through your subscriptions that individually aren't expensive, but still represent a waste.
+I plan to continue to expand AzCostTools with other useful cost-related functionality, hence the slightly generic name. One such expansion is to start to dig into the cost of Storage. Returning to my original tongue-in-cheek premise, I think it's not outrageous to think of cloud storage as like the gateway drug of cloud computing, because it is incredibly cheap. But sometimes cloud costs can be death by a thousand cuts, and over time you can end up with hundreds of small storage accounts littered through your subscriptions that individually aren't expensive, but still represent a waste that cumulatively can become significant.
 
 To help you understand your storage costs specifically, you can execute:
 
@@ -179,7 +179,7 @@ To help you understand your storage costs specifically, you can execute:
 Get-StorageCost
 ```
 
-It works in a very similar to way to `Get-SubscriptionCost` (mostly because I started by just copy/pasting that function). By default it will query all available storage accounts in your current context, or you can specify one or more storage accounts via the `-AccountName` parameter. And then it has the other parameters you'll find familiar: `-BillingMonth`, `-ComparePrevious`, `-ComparePreviousOffset`, `-PreviousMonths` and `-SparkLineSize`. Its particularly useful for seeing which storage accounts are the most expensive, and which storage accounts are experiencing active change vs being static.
+It works in a very similar to way to `Get-SubscriptionCost` (mostly because I started by just copy/pasting that function). By default it will query all available storage accounts in your current context, or you can specify one or more storage accounts via the `-AccountName` parameter. And then it has the other parameters you'll find familiar: `-BillingMonth`, `-ComparePrevious`, `-ComparePreviousOffset`, `-PreviousMonths` and `-SparkLineSize`. It's particularly useful for seeing which storage accounts are the most expensive, and which storage accounts are experiencing active change vs being static.
 
 ### In summary
 
