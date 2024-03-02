@@ -193,4 +193,4 @@ Thanks for taking the time to read this blog post, I hope you found it useful. E
 
 - [https://www.azurespringclean.com/](https://www.azurespringclean.com/)
 
-or by following #AzureSpringClean on LinkedIn or the website formerly known as Twitter.
+or by following [#AzureSpringClean on LinkedIn](https://www.linkedin.com/search/results/all/?keywords=%23AzureSpringClean&origin=GLOBAL_SEARCH_HEADER&sid=_pt) or the [website formerly known as Twitter](https://twitter.com/search?q=%23AzureSpringClean&src=typed_query&f=live).
