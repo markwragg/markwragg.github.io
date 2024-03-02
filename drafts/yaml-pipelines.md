@@ -1,5 +1,5 @@
 ---
-title: Azure YAML deployment pipelines
+title: The benefits of converting Azure DevOps Classic Pipelines to YAML
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/optic-cables.jpg"
@@ -8,6 +8,7 @@ date: '2024-03-01 09:00:00'
 tags:
 - powershell
 - azure
+- azuredevops
 - pipelines
 - YAML
 ---
