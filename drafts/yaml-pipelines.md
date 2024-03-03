@@ -13,4 +13,7 @@ tags:
 - YAML
 ---
 
-A blog post about creating YAML pipelines for deployment infrastructure and applications to the cloud.
+> The real treasure was the automation benefits we discovered along the way.
+
+Azure DevOps Classic Release pipelines are great, but there's something that feels a little old fashioned about configuring pipelines via a UI. I've spent some time recently recreating some Classic Release pipelines as YAML. My main motivation was to reduce our deployment times by having some tasks run in parallel. It is possible to do this via the Classic Release pipelines, but if you have any sort of significant complexity to your deployment then things can quickly get unwieldy. In this blog post I will explain the approach I took to migrating some pipelines to YAML and the benefits I discovered along the way.
+
