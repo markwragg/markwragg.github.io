@@ -17,3 +17,45 @@ Azure DevOps Classic Release pipelines are great, but there's something that fee
 
 > Maybe the real treasure was the automation benefits we discovered along the way.
 
+## What's not great about Classic Release pipelines
+
+
+
+## Getting started
+
+
+
+## Resources
+
+
+
+## Parameters
+
+
+
+## Stages
+
+
+
+## DependsOn
+
+
+
+## Repetition
+
+
+
+## Automatic Retries
+
+
+
+## Variables
+
+
+
+## Secure Files
+
+
+
+## Advantages/Disadvantages
+
