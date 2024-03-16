@@ -21,11 +21,15 @@ Originally Azure DevOps featured two sections for building pipeline automation: 
 
 ## Getting started
 
-Getting started with YAML pipelines can be a little intimidating. If you go Pipelines (under Pipelines) and click the "New Pipeline" button in the top right, Azure DevOps will take you through a sort of setup wizard. You'll first need to select where your code is, which can be an Azure DevOps repository, Github repository, bitbucket cloud or several other options. It's nice that you can use Azure DevOps to build or automate code that lives elsewhere. Once you've picked a location, its going to ask you if you have an existing pipeline definition (i.e a YAML file that is already in the repository) or if you want to create a new one. You can choose "starter pipeline" to have a very basic scaffolding at the top, or from a number of other templates aimed at various specific purposes. 
+Getting started with YAML pipelines can be a little intimidating. If you go to Pipelines (underneath Pipelines..) and click the "New Pipeline" button in the top right, Azure DevOps will take you through a sort of setup wizard (because Microsoft :P). You'll first need to select where your code is, which can be an Azure DevOps repository, Github repository, bitbucket cloud or several other options. It's nice that you can use Azure DevOps to build or automate code that lives elsewhere. Once you've picked a location, its going to ask you if you have an existing pipeline definition (i.e a YAML file that is already in the repository) or if you want to create a new one. You can choose "starter pipeline" to have a very basic scaffolding at the top, or from a number of other templates aimed at various specific purposes. 
 
 > If you're converting a Classic Build pipeline to YAML, the process is relatively simple as you can export the whole pipeline as YAML via one step. See the official guidance here:
 >
 > - https://learn.microsoft.com/en-us/azure/devops/pipelines/migrate/from-classic-pipelines?view=azure-devops
+>
+> Unfortunately there's not a built-in way to do the  same for Classic Release pipelines. This third party tool can do it, but I didn't personally try it so use at your own risk:
+>
+> - https://github.com/f2calv/yamlizr
 
 
 
