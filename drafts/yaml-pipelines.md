@@ -58,18 +58,20 @@ To create Variable Groups, in Azure DevOps go to Pipelines > Library. You might 
 
 Having created your variable groups, you can now reference them in the YAML template, via a `variables` section. The order in which you specify each group is important, if the same named variable is in multiple groups the last one defined will be used. So define them in priority order. For example:
 
+{% raw %}
 ```yaml
 variables:
   - group: "All environments"
 
-  - \${{ if in(parameters.Environment, 'Test','Staging') }}:
+  - ${{ if in(parameters.Environment, 'Test','Staging') }}:
       - group: "Non-production environments"
 
-  - \${{ if in(parameters.Environment, 'UAT', 'Prod') }}:
+  - ${{ if in(parameters.Environment, 'UAT', 'Prod') }}:
       - group: "Production environments"
 
   - group: ${{ parameters.Environment }}```
 ```
+{% endraw %}
 
 In the above I've used a [conditional expression](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops#conditional-insertion) to define the inclusion of the prod/non-prod groups based on the Environment parameter matching one or more specified names. And then I just use the Environment parameter value itself to include the variable group that I created for the specified environment. The [template expression syntax](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/template-expressions?view=azure-devops) `${{ }}` is used to include these bits of logic. These get processed when the pipeline is initialised.
 
