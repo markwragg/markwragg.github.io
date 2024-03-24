@@ -140,8 +140,8 @@ stages:
                 - task: ExtractFiles@1
                   displayName: "Extract Database zip file"
                   inputs:
-                    archiveFilePatterns: '$(Pipeline.Workspace)\ProductBuild\Database\Database.zip'
-                    destinationFolder: '$(Pipeline.Workspace)\ProductBuild\Database'
+                    archiveFilePatterns: 'ProductBuild\Database\Database.zip'
+                    destinationFolder: 'ProductBuild\Database'
                     cleanDestinationFolder: false
 
                 - task: AzureKeyVault@1
@@ -159,12 +159,14 @@ stages:
                     DatabaseName: ProductDatabase
                     SqlUsername: databaseadmin
                     SqlPassword: "$(DatabasePassword)"
-                    DacpacFile: "$(Pipeline.Workspace)/ProductBuild/Database/ProductDatabase.dacpac"
+                    DacpacFile: "ProductBuild/Database/ProductDatabase.dacpac"
 
 ```
 {% endraw %}
 
-If you're converting a Classic Release pipeline to YAML, you can get the YAML for your individual tasks by going to your Classic Release pipeline and the Tasks view. Then for each individual task there is a "View YAML" link in the top right. You can copy this and paste it into your YAML file, ensuring you indent it appropriately. If the task references a different resource name alias than the one you configured in the `resources:` section you'll need to update that. I also found it was best to convert references to `$(System.DefaultWorkingDirectory)` to be `$(Pipeline.Workspace)` instead but i'm not sure if this was actually required. It will also add comments to the top of the YAML it produces warning you of any variables that have been used that you'd then need to either define on the pipeline directly (under `variables:`) or via the variable groups I suggested earlier. You can see in my example tasks above that I reference a `$(ServiceConnection)` variable, that is the service connection used to connect to my Azure Subscription. This would be the sort of variable that would exist in my Non-production environments and Production environments variable groups, as I'd have a separate subscription each. And then i've got `$(KeyVaultName)` and `$(EnvironmentName)` variables, these would be environment specific values that would exist in each of my environment variable groups. The `$()` syntax is the same variable substitution syntax that is used on the Classic Release pipelines. Note that variables using this syntax are populated when the pipeline runs.
+If you're converting a Classic Release pipeline to YAML, you can get the YAML for your individual tasks by going to your Classic Release pipeline and the Tasks view. Then for each individual task there is a "View YAML" link in the top right. You can copy this and paste it into your YAML file, ensuring you indent it appropriately. If the task references a different resource name alias than the one you configured in the `resources:` section you'll need to update that. It will also add comments to the top of the YAML it produces warning you of any variables that have been used that you'd then need to either define on the pipeline directly (under `variables:`) or via the variable groups I suggested earlier. 
+
+You can see in my example tasks above that I reference a `$(ServiceConnection)` variable, that is the service connection used to connect to my Azure Subscription. This would be the sort of variable that would exist in my Non-production environments and Production environments variable groups, as I'd have a separate subscription each. And then i've got `$(KeyVaultName)` and `$(EnvironmentName)` variables, these would be environment specific values that would exist in each of my environment variable groups. The `$()` syntax is the same variable substitution syntax that is used on the Classic Release pipelines. Note that variables using this syntax are populated when the pipeline runs.
 
 ## Dependencies
 
