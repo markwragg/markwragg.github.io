@@ -147,14 +147,14 @@ stages:
                 - task: AzureKeyVault@1
                   displayName: "Get the Database password from KeyVault"
                   inputs:
-                    azureSubscription: "$(ServiceConnection)"
+                    azureSubscription: "$(azureSubscription)"
                     KeyVaultName: "$(KeyVaultName)"
                     SecretsFilter: DatabasePassword
 
                 - task: SqlAzureDacpacDeployment@1
                   displayName: "Deploy Product Database"
                   inputs:
-                    azureSubscription: "$(ServiceConnection)"
+                    azureSubscription: "$(azureSubscription)"
                     ServerName: "productdb-$(EnvironmentName).database.windows.net"
                     DatabaseName: ProductDatabase
                     SqlUsername: databaseadmin
@@ -168,7 +168,7 @@ Notice that the first task here is downloading the required artifact from one of
 
 If you're converting a Classic Release pipeline to YAML, you can get the YAML for your individual tasks by going to your Classic Release pipeline and the Tasks view. Then for each individual task there is a "View YAML" link in the top right. You can copy this and paste it into your YAML file, ensuring you indent it appropriately. If the task references a different resource name alias than the one you configured in the `resources:` section you'll need to update that. It will also add comments to the top of the YAML it produces warning you of any variables that have been used that you'd then need to either define on the pipeline directly (under `variables:`) or via the variable groups I suggested earlier. 
 
-You can see in my example tasks above that I reference a `$(ServiceConnection)` variable, that is the service connection used to connect to my Azure Subscription. This would be the sort of variable that would exist in my Non-production environments and Production environments variable groups, as I'd have a separate subscription each. And then i've got `$(KeyVaultName)` and `$(EnvironmentName)` variables, these would be environment specific values that would exist in each of my environment variable groups. The `$()` syntax is the same variable substitution syntax that is used on the Classic Release pipelines. Note that variables using this syntax are populated when the pipeline runs.
+You can see in my example tasks above that I reference a `$(azureSubscription)` variable, that is the name of my Azure Subscription. This would be the sort of variable that would exist in my Non-production environments and Production environments variable groups, as I'd have a separate subscription for each. And then i've got `$(KeyVaultName)` and `$(EnvironmentName)` variables, these would be environment specific values that would exist in each of my environment variable groups. The `$()` syntax is the same variable substitution syntax that is used on the Classic Release pipelines. Note that variables using this syntax are populated when the pipeline runs.
 
 ## Dependencies
 
@@ -210,11 +210,64 @@ If you want some tasks to execute in parallel at the beginning of your pipeline,
 
 ## Repetition
 
+If you have a number of repetitive tasks in your YAML pipeline, you can use the `each` expression to repeat them so you only have to specify them (and therefore maintain them) once. For example, if you need to deploy 3 applications to Azure App Service, you could do something like the following:
 
+First you need a parameter defined to specify the list of items (in this case applications) to deploy:
 
-## Automatic Retries
+```yaml
+parameters:
+  - name: AppsToDeploy
+    type: object
+    values:
+      - "App1"
+      - "App2"
+      - "App3"
+```
 
+Then for your task (or for a set of tasks, or you could do it at the stage level) you specify the `each` expression:
 
+{% raw %}
+```yaml
+- ${{ each app in parameters.AppsToDeploy }}:
+  - task: AzureRmWebAppDeployment@3
+    displayName: "Deploy ${{ app }} to App Service"
+    inputs:
+      azureSubscription: '$(azureSubscription)'
+      WebAppName: ${{ app }}
+      Package: '/ProductBuild/${{ app }}/${{ app }}.zip'
+      SetParametersFile: '/ProductBuild/${{ app }}/${{ app }}.SetParameters.xml'
+```
+{% endraw %}
 
-## Advantages/Disadvantages
+If you do this at the stage level, then when you select Run Pipeline in Azure DevOps, the pipeline will be initialised and these stages setup, which if you then select "Stages to run" under Advanced options, you'll see them (and if you only wanted to deploy one of the applications, you could turn one or more of the stages off).
 
+Having the input values as a parameter would mean that you would see (and could modify them) at the the time of triggering the pipeline. However we can hide them away by making the application deployment stages a separate template.
+
+To do this, you would create a new YAML file called something like `ApplicationDeployment-Stages.yml`. This would need to have all the necessary parameters for the applicaiton deployment tasks (for example the `Environment` one, as well as the `AppsToDeploy` one above). But in this template you don't then specify the `resources:`, `variables:` or `trigger:` sections. After the parameters, just specify the various stages, jobs and tasks that apply to App Deployment.
+
+Then back in our `Deployment.yml` template, we can remove all of the application deployment tasks and instead reference the template, along with any input parameters we want to pass along, for example:
+
+```yaml
+stages:
+  - template: ApplicationDeployment-Stages.yml
+    parameters:
+      Environment: ${{ parameters.Environment }}
+```
+
+The `AppsToDeploy` parameter no longer needs to be present on the `Deployment.yml` file, as within `ApplicationDeployment-Stages.yml` its default value is then always used.
+
+By separating off groups of related stages into separate templates, you can build different combinations of the templates for different purposes. And this where I ended up creating a "super pipeline", as once I had a template for infrastructure deployment, application deployment etc. I could then have a pipeline that referenced each of them to have a single pipeline to do a full deployment (such as when standing up an environment for testing). While still having separate definitions for when I just needed to do either infrastructure or application deployments.
+
+## Conclusion
+
+There's a lot to love about YAML pipelines. As I said in the beginning, having everything defined as code (including your pipelines), is powerful in itself because you get all the benefits of source control when maintaining those code artifacts, and (if you implement templates well) pipelines that are a lot less hassle to maintain. Being able to use the `if` and `each` expressions allows you to build pipelines that are more versatile and easier to execute. With the Classic Release pipelines running a subset of tasks would usually mean editing a release to enable/disable certain tasks. But with the YAML pipelines well defined parameters or stages allow you to implement this flexibility as part of the design. And although you can also do parallel tasks in the Classic Release pipelines its a lot less effort to implement via YAML.
+
+That being said, there's a few downsides as well. If you used the approach of having stages per environment in your Classic Release pipelines, then it was very easy to see which environment was deployed to which release, and you could take a kind of left to right deployment approach. Although there is the Environments pane within Azure DevOps that gets populated when you use a `Deployment` type job, its not as easy to see the current status of your environments against each other. One way in which I made this a little more transparent was to implement the `name:` setting in my pipelines, to customise the run name to include the environment and the version of the product being deployed. For example:
+
+```yaml
+name: Application Deployment - ${{ parameters.Environment }} - 1.0.123 - Run $(Rev:r)
+```
+
+The other downside is with the variables. As I noted earlier, the variable groups are very similar to how you'd configure variables on the release pipelines, but there's no concept of creating a release that then stamps a version of those variables. In a way this is a positive as well, because maintaining variables on the Classic Release pipelines can be a bit of a nightmare when they're copied all over the place, but if you make some changes to your variable groups for the next release, and those changes weren't appropriate for the previous release then you've broken some backwards compatibility. There's ways to workaround this but it requires thought and careful consideration. 
+
+Personally I found the positives outweighed the negatives and ended up with some easy to maintain pipelines that reduced the deployment time by multiple hours, and allowed me to build the "super pipeline" so I can one click deploy test environments. I also built an environment removal pipeline to have a one click tear down. Which means costs saved, by making it easy to run and remove environments only when required.
