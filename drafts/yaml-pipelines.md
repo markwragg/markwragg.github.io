@@ -13,7 +13,7 @@ tags:
 - YAML
 ---
 
-I recently migrated some Azure DevOps Classic Release deployment pipelines to YAML. There's obvious benefits to storing your pipelines as code: they become an artifact in source control that can evolve and change as the code they build or deploy does, and you have the benefits of version history and maintaining the pipelines via pull requests. However I also found that I could use logic and expressions to make the pipelines more efficient and easier to maintain and that through templating could easily connect the pipelines together to form what I humorously dubbed the "super pipeline" (but then the name stuck). In this blog post I will explain the approach I took and the advantages/disadvantages I discovered along the way.
+I recently migrated some Azure DevOps Classic Release deployment pipelines to YAML. There's obvious benefits to storing your pipelines as code: they become an artifact in source control that can evolve and change as the code they build or deploy does, and you have the benefits of version history and maintaining the pipelines via pull requests. However I also found that I could use logic and expressions to make the pipelines more efficient and easier to maintain and that through templating could easily connect the pipelines together to form what I humorously dubbed the "super pipeline" (but then the name stuck). In this blog post I will explain the approach I took and the advantages/disadvantages I discovered.
 
 > Maybe the real treasure was the automation improvements we made along the way.
 
@@ -163,6 +163,8 @@ stages:
 
 ```
 {% endraw %}
+
+Notice that the first task here is downloading the required artifact from one of the resources I specified in `resources:`. You can have download all artifacts from the resource, but if you know for a specific stage that you only need a subset of them (and assuming your build outputs multiple resources), then you can specify just the ones you need to speed things up.
 
 If you're converting a Classic Release pipeline to YAML, you can get the YAML for your individual tasks by going to your Classic Release pipeline and the Tasks view. Then for each individual task there is a "View YAML" link in the top right. You can copy this and paste it into your YAML file, ensuring you indent it appropriately. If the task references a different resource name alias than the one you configured in the `resources:` section you'll need to update that. It will also add comments to the top of the YAML it produces warning you of any variables that have been used that you'd then need to either define on the pipeline directly (under `variables:`) or via the variable groups I suggested earlier. 
 
