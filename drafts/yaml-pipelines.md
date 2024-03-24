@@ -164,7 +164,7 @@ stages:
 ```
 {% endraw %}
 
-Notice that the first task here is downloading the required artifact from one of the resources I specified in `resources:`. You can have download all artifacts from the resource, but if you know for a specific stage that you only need a subset of them (and assuming your build outputs multiple resources), then you can specify just the ones you need to speed things up.
+Notice that the first task here is downloading the required artifact from one of the resources I specified in `resources:`. By default this task would download all artifacts from the resource, but if you know for a specific stage that you only need a subset of them (and assuming your build outputs multiple resources), then you can specify just the ones you need to speed things up.
 
 If you're converting a Classic Release pipeline to YAML, you can get the YAML for your individual tasks by going to your Classic Release pipeline and the Tasks view. Then for each individual task there is a "View YAML" link in the top right. You can copy this and paste it into your YAML file, ensuring you indent it appropriately. If the task references a different resource name alias than the one you configured in the `resources:` section you'll need to update that. It will also add comments to the top of the YAML it produces warning you of any variables that have been used that you'd then need to either define on the pipeline directly (under `variables:`) or via the variable groups I suggested earlier. 
 
@@ -172,7 +172,41 @@ You can see in my example tasks above that I reference a `$(ServiceConnection)` 
 
 ## Dependencies
 
+The stages / jobs / tasks that you specify in a YAML pipeline will execute in the order that you list them, but you can use the `dependsOn` setting to specify that certain stages depend on the execution of one or more previous ones. This is also how you can specify certain stages to execute in parallel. For example, imagine I had my DatabaseDeployment stage above, and then I had stages called ConfigurationDeployment and ApplicationDeployment. Lets say my configuration gets written into the database, and my application will just keep polling for it if until it exists. So to speed up my deployment i'm happy for my configuration and application to deploy in parallel, so long as the database has been deployed. By using `dependsOn` these two stages will run in parallel:
 
+{% raw %}
+```yaml
+  - stage: ConfigurationDeployment
+    displayName: "Deploy Configuration"
+    pool: "My Deployment Pool"
+    dependsOn: DatabaseDeployment
+    jobs:
+      - deployment: ConfigurationDeployment
+        environment: ${{ parameters.Environment }}
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - ...
+
+  - stage: ApplicationDeployment
+    displayName: "Deploy Application"
+    pool: "My Deployment Pool"
+    dependsOn: DatabaseDeployment
+    jobs:
+      - deployment: ApplicationDeployment
+        environment: ${{ parameters.Environment }}
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - ...
+```
+{% endraw %}
+
+For the tasks to execute in parallel you need to be using a deployment pool that supports more than 1 parallel job. If you're using the free tier Microsoft-hosted agents and a private project you only get 1 job by default. If you purchase parallel jobs you have to purchase at least 2 (once you have a paid job the free one no longer applies).
+
+If you want some tasks to execute in parallel at the beginning of your pipeline, you can specify `dependsOn: []`.
 
 ## Repetition
 
