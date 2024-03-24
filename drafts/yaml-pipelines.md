@@ -11,7 +11,6 @@ tags:
 - azuredevops
 - pipelines
 - YAML
-toc: true
 ---
 
 I recently migrated some Azure DevOps Classic Release deployment pipelines to YAML. There's obvious benefits to storing your pipelines as code: they become an artifact in source control that can evolve and change as the code they build or deploy does, and you have the benefits of version history and maintaining the pipelines via pull requests. However I also found that I could use logic and expressions to make the pipelines more efficient and easier to maintain and that through templating could easily connect the pipelines together to form what I humorously dubbed the "super pipeline" (but then the name stuck). In this blog post I will explain the approach I took and the advantages/disadvantages I discovered.
@@ -87,7 +86,7 @@ In the above I've used a [conditional expression](https://learn.microsoft.com/en
 
 Because we have separate build pipelines (that generate our deployment artifacts such as infrastructure templates and a compiled release of the software) we next define a `resources` section. [Resources](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/resources?view=azure-devops&tabs=schema) are anything used by a pipeline that live outside the pipeline. This can include other Azure DevOps pipelines as well as builds from other external CI systems.
 
-In my case, I need to consume some other Azure DevOps pipelines, for example one that builds my infrastructure artifacts (such as ARM templates and deployment scripts) and one that builds the product itself. Because these are Azure DevOps pipelines, we consume them by specifcying `pipelines`. The value given for `pipeline` is the alias I want to refer to them via later in the code, `project` is the name of the Azure DevOps project they exist in, `source` is the actual name of the pipeline, and `version` is the specific build version I want to consume.
+In my case, I need to consume some other Azure DevOps pipelines, for example one that builds my infrastructure artifacts (such as ARM templates and deployment scripts) and one that builds the product itself. Because these are Azure DevOps pipelines, we consume them by specifying `pipelines`. The value given for `pipeline` is the alias I want to refer to them via later in the code, `project` is the name of the Azure DevOps project they exist in, `source` is the actual name of the pipeline, and `version` is the specific build version I want to consume.
 
 ```yaml
 resources:
