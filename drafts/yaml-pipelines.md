@@ -247,12 +247,14 @@ To do this, you would create a new YAML file called something like `ApplicationD
 
 Then back in our `Deployment.yml` template, we can remove all of the application deployment tasks and instead reference the template, along with any input parameters we want to pass along, for example:
 
+{% raw %}
 ```yaml
 stages:
   - template: ApplicationDeployment-Stages.yml
     parameters:
       Environment: ${{ parameters.Environment }}
 ```
+{% endraw %}
 
 The `AppsToDeploy` parameter no longer needs to be present on the `Deployment.yml` file, as within `ApplicationDeployment-Stages.yml` its default value is then always used.
 
@@ -264,9 +266,11 @@ There's a lot to love about YAML pipelines. As I said in the beginning, having e
 
 That being said, there's a few downsides as well. If you used the approach of having stages per environment in your Classic Release pipelines, then it was very easy to see which environment was deployed to which release, and you could take a kind of left to right deployment approach. Although there is the Environments pane within Azure DevOps that gets populated when you use a `Deployment` type job, its not as easy to see the current status of your environments against each other. One way in which I made this a little more transparent was to implement the `name:` setting in my pipelines, to customise the run name to include the environment and the version of the product being deployed. For example:
 
+{% raw %}
 ```yaml
 name: Application Deployment - ${{ parameters.Environment }} - 1.0.123 - Run $(Rev:r)
 ```
+{% endraw %}
 
 The other downside is with the variables. As I noted earlier, the variable groups are very similar to how you'd configure variables on the release pipelines, but there's no concept of creating a release that then stamps a version of those variables. In a way this is a positive as well, because maintaining variables on the Classic Release pipelines can be a bit of a nightmare when they're copied all over the place, but if you make some changes to your variable groups for the next release, and those changes weren't appropriate for the previous release then you've broken some backwards compatibility. There's ways to workaround this but it requires thought and careful consideration. 
 
