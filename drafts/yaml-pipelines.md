@@ -50,7 +50,6 @@ parameters:
       - "Staging"
       - "UAT"
       - "Production"
-
     default: "Test"
 ```
 
@@ -109,11 +108,45 @@ The next thing I define in my YAML pipeline is the `trigger`. By default pipelin
 
 ```yaml
 trigger: none
-
 ```
 
 ## Stages
 
+We're now ready to start defining the actual tasks the deployment pipeline will perform. You don't have to use stages as part of this, but by grouping the different associated sets of tasks into stages you can then easily enable or disable them at the point where you run the deployment. For example you might have a pipeline that deploys databases, configuration and then the application/s. It might make sense to split these into stages if you might have a run in the future where you only want to execute a subset of them. 
+
+To define stages we need to specify `stages:` and then under that each stage with a name. Within the stage we can define `displayName` to have a more descriptive title appear in the UI when the pipeline is run. You use `pool` to define which of your Azure DevOps deployment pools will execute this task. You can define this at the top level if all of your tasks will run under the same pool, but for my pipeline I wanted some tasks to run via a self hosted agent and some tasks to run via Microsoft-Hosted agents, so it was necessary to define it at the stage level. 
+
+Within each Stage you can have one or more `jobs`. We use a special job type here called `deployment` to indicate to Azure DevOps that this is a [deployment job](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) we're running. Under deployment you specify `environment` which then allows you to view your deployments per environment under the Pipelines > Environments section of Azure DevOps. In the example below i'm using the `Environments` parameter value to populate this via the expression syntax. We then need to specify `strategy` because this is a deployment job. For my purpose this needs to be `runOnce` because I'm just deploying to a single environment and I just want each phase of the deployment to run once. You can split your tasks under different phases (predeploy, deploy, routeTraffic and postRouteTraffic) but I personally just have all my tasks under deploy. Finally you use `steps:` under which you then define each of the tasks to be performed.  
+
+Here's an example first stage:
+
+{% raw %}
+```yaml
+stages:
+  - stage: DatabaseDeployment
+    displayName: "Deploy Database"
+    pool: "My Deployment Pool"
+    jobs:
+      - deployment: DatabaseDeployment
+        environment: ${{ parameters.Environment }}
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: ProductBuild
+                  artifact: Database
+                  displayName: Download Database Release
+
+                # Unpack product database zip files
+                - task: ExtractFiles@1
+                  displayName: "Extract Database zip file"
+                  inputs:
+                    archiveFilePatterns: '$(Pipeline.Workspace)\ProductBuild\Database\Database.zip'
+                    destinationFolder: '$(Pipeline.Workspace)\ProductBuild'
+                    cleanDestinationFolder: false
+
+```
+{% endraw %}
 
 
 ## DependsOn
