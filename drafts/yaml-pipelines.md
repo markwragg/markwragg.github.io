@@ -37,6 +37,8 @@ Personally I started from scratch, so I suggest finding a suitable location in w
 
 The Classic Release pipelines I migrated were separated into stages, with a single stage per environment. We would then create a Release, which would consume the artifacts from several builds that contained the built version of the product being deployed, and manually trigger each environment stage whenever we were ready to deploy. There's lots of different ways to implement this as YAML, I could create a pipeline per environment, or have pipelines that deploy to multiple environments, but what I decided to do was use [Templates](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops&pivots=templates-includes), so that the pipeline could be defined once, but have an environment parameter in it to specify which environment was being deployed.
 
+## Parameters
+
 To specify parameters, your YAML file needs a parameters section, under which you create one or more parameters by specifying a name, type and default value. If you want the parameter to be a drop-down selection, you can specify a list of accepted values:
 
 ```yaml
@@ -54,9 +56,13 @@ parameters:
 
 When the pipeline is executed, the environment selection needs to make sure that we're using variables specific to that environment. Under the Classic Release pipeline, if you took the approach of having a stage per environment, you could then have variables scoped to that environment (stage). To achieve the same result for the YAML pipeline, we can create Variable Groups, which we link to the template.
 
+## Variable Groups
+
 To create Variable Groups, in Azure DevOps go to Pipelines > Library. You might want to create a variable group called "All environments", which has default values, or values that apply to all environments. On the Classic Release pipelines the equivalent of this would be variables that were Release scoped. You might also want to create variable groups that apply to more than one of your environments, for values that are the same for all environments of that type, for example: "Non-production environments" and "Production environments". Finally you want to create a variable group for each specific environment, for example: "Test", "Staging", "UAT" etc. Within each of your variable groups, create the various environment specific variables that are required for deployment.
 
 > Note that with the Classic Release pipelines, the variables you created on a pipeline would be cloned when you created a Release, and then any changes you made to the variables on that Release would affect it only. With variable groups, the variables are read from the group at time of execution, so bear in mind that any changes you make to the variables that reference your groups will affect old and new deployments alike.
+
+## Variables
 
 Having created your variable groups, you can now reference them in the YAML template, via a `variables` section. The order in which you specify each group is important, if the same named variable is in multiple groups the last one defined will be used. So define them in priority order. For example:
 
@@ -77,29 +83,34 @@ variables:
 
 In the above I've used a [conditional expression](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops#conditional-insertion) to define the inclusion of the prod/non-prod groups based on the Environment parameter matching one or more specified names. And then I just use the Environment parameter value itself to include the variable group that I created for the specified environment. The [template expression syntax](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/template-expressions?view=azure-devops) `${{ }}` is used to include these bits of logic. These get processed when the pipeline is initialised.
 
+## Resources
 
+Because we have separate build pipelines (that generate our deployment artifacts such as infrastructure templates and a compiled release of the software) we next define a `resources` section. [Resources](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/resources?view=azure-devops&tabs=schema) are anything used by a pipeline that live outside the pipeline. This can include other Azure DevOps pipelines as well as builds from other external CI systems.
+
+In my case, I need to consume some other Azure DevOps pipelines, for example one that builds my infrastructure artifacts (such as ARM templates and deployment scripts) and one that builds the product itself. Because these are Azure DevOps pipelines, we consume them by specifcying `pipelines`. The value given for `pipeline` is the alias I want to refer to them via later in the code, `project` is the name of the Azure DevOps project they exist in, `source` is the actual name of the pipeline, and `version` is the specific build version I want to consume.
 
 ```yaml
 resources:
   pipelines:
-    - pipeline: "YourPipeline"
-      project: "YourProject"
-      source: "Name_Of_Your_Pipeline"
-      version: 2.15.47
+    - pipeline: "InfraBuild"
+      project: "MyProject"
+      source: "Build_Our_Infrastructure"
+      version: 1.0.123
+
+    - pipeline: "ProductBuild"
+      project: "MyProject"
+      source: "Build_Our_Product"
+      version: 1.0.456
 ```
 
+## Trigger
 
+The next thing I define in my YAML pipeline is the `trigger`. By default pipelines trigger whenever there is a commit to any branch in their respective repository, but because this is a deployment pipeline that I want to trigger manually, we need to set trigger to none. 
 
 ```yaml
 trigger: none
 
 ```
-
-## Resources
-
-
-
-## Parameters
 
 
 
