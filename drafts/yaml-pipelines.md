@@ -118,7 +118,7 @@ To define stages we need to specify `stages:` and then under that each stage wit
 
 Within each Stage you can have one or more `jobs`. We use a special job type here called `deployment` to indicate to Azure DevOps that this is a [deployment job](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) we're running. Under deployment you specify `environment` which then allows you to view your deployments per environment under the Pipelines > Environments section of Azure DevOps. In the example below i'm using the `Environments` parameter value to populate this via the expression syntax. We then need to specify `strategy` because this is a deployment job. For my purpose this needs to be `runOnce` because I'm just deploying to a single environment and I just want each phase of the deployment to run once. You can split your tasks under different phases (predeploy, deploy, routeTraffic and postRouteTraffic) but I personally just have all my tasks under deploy. Finally you use `steps:` under which you then define each of the tasks to be performed.  
 
-Here's an example first stage:
+Here's an example first stage, with some tasks for unzipping and deploying a database DACPAC:
 
 {% raw %}
 ```yaml
@@ -137,19 +137,36 @@ stages:
                   artifact: Database
                   displayName: Download Database Release
 
-                # Unpack product database zip files
                 - task: ExtractFiles@1
                   displayName: "Extract Database zip file"
                   inputs:
                     archiveFilePatterns: '$(Pipeline.Workspace)\ProductBuild\Database\Database.zip'
-                    destinationFolder: '$(Pipeline.Workspace)\ProductBuild'
+                    destinationFolder: '$(Pipeline.Workspace)\ProductBuild\Database'
                     cleanDestinationFolder: false
+
+                - task: AzureKeyVault@1
+                  displayName: "Get the Database password from KeyVault"
+                  inputs:
+                    azureSubscription: "$(ServiceConnection)"
+                    KeyVaultName: "$(KeyVaultName)"
+                    SecretsFilter: DatabasePassword
+
+                - task: SqlAzureDacpacDeployment@1
+                  displayName: "Deploy Product Database"
+                  inputs:
+                    azureSubscription: "$(ServiceConnection)"
+                    ServerName: "productdb-$(EnvironmentName).database.windows.net"
+                    DatabaseName: ProductDatabase
+                    SqlUsername: databaseadmin
+                    SqlPassword: "$(DatabasePassword)"
+                    DacpacFile: "$(Pipeline.Workspace)/ProductBuild/Database/ProductDatabase.dacpac"
 
 ```
 {% endraw %}
 
+If you're converting a Classic Release pipeline to YAML, you can get the YAML for your individual tasks by going to your Classic Release pipeline and the Tasks view. Then for each individual task there is a "View YAML" link in the top right. You can copy this and paste it into your YAML file, ensuring you indent it appropriately. If the task references a different resource name alias than the one you configured in the `resources:` section you'll need to update that. I also found it was best to convert references to `$(System.DefaultWorkingDirectory)` to be `$(Pipeline.Workspace)` instead but i'm not sure if this was actually required. It will also add comments to the top of the YAML it produces warning you of any variables that have been used that you'd then need to either define on the pipeline directly (under `variables:`) or via the variable groups I suggested earlier. You can see in my example tasks above that I reference a `$(ServiceConnection)` variable, that is the service connection used to connect to my Azure Subscription. This would be the sort of variable that would exist in my Non-production environments and Production environments variable groups, as I'd have a separate subscription each. And then i've got `$(KeyVaultName)` and `$(EnvironmentName)` variables, these would be environment specific values that would exist in each of my environment variable groups. The `$()` syntax is the same variable substitution syntax that is used on the Classic Release pipelines. Note that variables using this syntax are populated when the pipeline runs.
 
-## DependsOn
+## Dependencies
 
 
 
@@ -158,14 +175,6 @@ stages:
 
 
 ## Automatic Retries
-
-
-
-## Variables
-
-
-
-## Secure Files
 
 
 
