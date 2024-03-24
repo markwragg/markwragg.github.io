@@ -13,7 +13,7 @@ tags:
 - YAML
 ---
 
-I recently migrated some Azure DevOps Classic Release deployment pipelines to YAML. There's obvious benefits to storing your pipelines as code: they become an artifact in source control that can evolve and change as the code they build or deploy does, and you have the benefits of version history and maintaining the pipelines via pull requests. However I also found that I could use logic and expressions to make the pipelines more efficient and easier to maintain and that through templating could easily connect the pipelines together to form what I dubbed the "super pipeline". In this blog post I will explain the approach I took to this migration and the benefits and downsides I discovered along the way.
+I recently migrated some Azure DevOps Classic Release deployment pipelines to YAML. There's obvious benefits to storing your pipelines as code: they become an artifact in source control that can evolve and change as the code they build or deploy does, and you have the benefits of version history and maintaining the pipelines via pull requests. However I also found that I could use logic and expressions to make the pipelines more efficient and easier to maintain and that through templating could easily connect the pipelines together to form what I humorously dubbed the "super pipeline" (but then the name stuck). In this blog post I will explain the approach I took and the advantages/disadvantages I discovered along the way.
 
 > Maybe the real treasure was the automation improvements we made along the way.
 
@@ -111,8 +111,6 @@ The next thing I define in my YAML pipeline is the `trigger`. By default pipelin
 trigger: none
 
 ```
-
-
 
 ## Stages
 
