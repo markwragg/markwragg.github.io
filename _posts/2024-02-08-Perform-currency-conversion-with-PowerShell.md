@@ -13,7 +13,7 @@ tags:
 - currency
 ---
 
-I've recently been working on a PowerShell module for exploring Azure costs (which I plan to blog about soon) and while doing so added some functionality to allow the costs to be converted between different currencies. It occurred to me that this functionality would be useful as a module of its own, and when I searched around I didn't find too many recent examples for the same. As such I've now developed and published a module in the PowerShell Gallery and on GitHub called [CurrencyConverter](https://github.com/markwragg/PowerShell-CurrencyConverter/tree/main).
+I've recently been working on a [PowerShell module for exploring Azure costs](https://wragg.io/monitor-and-manage-your-azure-cloud-costs-with-powershell/) and while doing so added some functionality to allow the costs to be converted between different currencies. It occurred to me that this functionality would be useful as a module of its own, and when I searched around I didn't find too many recent examples for the same. As such I've now developed and published a module in the PowerShell Gallery and on GitHub called [CurrencyConverter](https://github.com/markwragg/PowerShell-CurrencyConverter/tree/main).
 
 > https://github.com/markwragg/PowerShell-CurrencyConverter/
 
