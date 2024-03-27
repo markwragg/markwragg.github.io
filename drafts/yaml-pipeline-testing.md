@@ -2,8 +2,8 @@
 title: Testing Azure DevOps YAML pipelines with Pester
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2024/pipeline-testing.jpeg"
-  teaser: "/content/images/2024/pipeline-testing.jpeg"
+  overlay_image: "/content/images/2024/Pipeline-testing.jpeg"
+  teaser: "/content/images/2024/Pipeline-testing.jpeg"
 date: '2024-03-24 09:00:00'
 tags:
 - powershell
