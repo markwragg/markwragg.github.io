@@ -4,7 +4,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/optic-cables.jpg"
   teaser: "/content/images/2024/optic-cables.jpg"
-date: '2024-03-24 09:00:00'
+date: '2024-04-02 12:00:00'
 tags:
 - powershell
 - azure
