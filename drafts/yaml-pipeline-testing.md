@@ -14,4 +14,5 @@ tags:
 - YAML
 ---
 
-In my previous blog post I covered how I converted a number of Classic Azure Deployment pipelines to YAML. In the blog post I will explain how I authored some PowerShell Pester tests to validate these pipelines are configured and working as expected.
+In my [previous blog post](https://wragg.io/converting-azure-devops-classic-release-pipelines-to-yaml/) I covered how I recently converted a number of Classic Azure Deployment pipelines to YAML. In this blog post I will explain how I then authored some PowerShell Pester tests as a way to validate the pipelines are configured and working as expected.
+
