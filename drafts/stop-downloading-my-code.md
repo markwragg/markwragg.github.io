@@ -79,25 +79,35 @@ Downloads | Published Date      | Name
 
 So this is a story all about how (my life got flipped-turned upside down, and I'd like to take a minute just sit right there while I tell you how) I'm about to become a PowerShell Gallery millionaire.
 
-### ADAudit
+### MacNotify
 
-- **First published:** 07th Jun 2016
-- **Last Published:**  25th Feb 2020
-- **Download count:** 9800
+- **First published:** 02 Oct 2018
+- **Last updated:** 17 Mar 2024
+- **Download count:** 1221
 
-I always thought XKCD was my first module, but apparently it was [ADAudit](https://github.com/markwragg/Test-ActiveDirectory). This module actually just built on some excellent work by [Irwin Strachan](https://x.com/IrwinStrachan), who continues to be a wonderfully generous member of the PowerShell community. ADAudit is just a set of Pester tests which validate whether an Active Directory forest is in good health. The idea is that (assuming your AD is currently healthy) you export a "gold snapshot" of its current state and then can run the tests routinely to see if anything has changed / is out of order. 
+...
 
-If you want to read more about it the original blog is [here](https://wragg.io/testing-active-directory-with-pester-and-powershell/).
+**Should you still use it?** 
 
-**Should you still use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so its currently designed for use with Pester v3. A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and more recently maintained.
+### PSHipChat
+
+- **First published:** 25 Jan 2017
+- **Last updated:** 09 Sep 2019
+- **Download count:** 1283
+
+I first uploaded [PSHipChat](https://github.com/markwragg/Powershell-Hipchat) to GitHub in March of 2016. HipChat is Atlassians answers to Slack. I think they bundled it free with some of their other products (such as Confluence) as I worked for a few companies where it was used before Slack became more ubiquitous and now (for me at least) Teams. The PSHipChat module provides some PowerShell cmdlets for sending notifications into HipChat from your scripts by invoking its API (this is the theme of a lot of my modules, FYI). This allowed my team at the time to get visibility of when certain automated tasks were running, by just adding a few lines to those scripts to trigger notifications in HipChat.
+
+The original blog for it is [here](https://wragg.io/send-notifications-to-hipchat-with-powershell/).
+
+**Should you still use it?** I have no idea tbh. I haven't worked anywhere with HipChat for a number of years, so I'm not sure if it still works. The project is actually now maintained under the [AtlassianPS](https://github.com/AtlassianPS) GitHub organisation, but its not getting a lot of love there either.
 
 ### XKCD
 
-- **First published:** 19th Jan 2017
-- **Last Published:**  25th Feb 2020
+- **First published:** 19 Jan 2017
+- **Last updated:** 25 Feb 2020
 - **Download count:** 1584
 
-[XKCD](https://xkcd.com/) is a brilliant webcomic that's been going since September 2005. The [XKCD module](https://github.com/markwragg/Powershell-XKCD) just wraps some PowerShell friendly cmdlets around the XKCD API (this is the theme of a lot of my modules, FYI), which requires no key/registration. This was mostly for fun, and an excuse to get my head around Parameter Sets, as I blogged about [here](https://wragg.io/create-dynamic-powershell-functions-with-parameter-sets/).
+[XKCD](https://xkcd.com/) is a brilliant webcomic that's been going since September 2005. The [XKCD module](https://github.com/markwragg/Powershell-XKCD) just wraps some PowerShell friendly cmdlets around the XKCD API which requires no key/registration and returns JSON. This was mostly for fun, and an excuse to get my head around Parameter Sets, as I blogged about [here](https://wragg.io/create-dynamic-powershell-functions-with-parameter-sets/).
 
 **Should you still use it?** I don't see why not! It still works. The most useful thing about it is its ability to search for a specific comic by keyword, and it builds a local cache of the comics inside the Module so subsequent searches require no calls to the API. So if you're looking for a comic on a specific topic, it's as good as Google:
 
@@ -114,30 +124,104 @@ month  num link year news safe_title              transcript alt
 
 Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probably not going to get you promoted, but it might make you smile.
 
-### PSHipChat
+### Remedy
 
-- **First published:** 25th Jan 2017
-- **Last Published:**  9th Sep 2019
-- **Download count:** 1283
+- **First published:** 25 May 2017
+- **Last updated:** 10 Sep 2019
+- **Download count:** 1666
 
-I was obviously on a bit of a roll, as the [PSHipChat](https://github.com/markwragg/Powershell-Hipchat) module was first published less than a week after XKCD, although I first published this to GitHub in March of 2016. HipChat is Atlassians answers to Slack. I think they bundled it free with some of their other products (such as Confluence) as I worked for a few companies where it was used before Slack became more ubiquitous and then later Teams. The PSHipChat module provides some PowerShell cmdlets for sending notifications into HipChat from your scripts. This allowed my team to get visibility of when certain automated tasks were running, by just adding a few lines to the scripts that triggered notifications in HipChat. Like with XKCD, all this is doing is wrapping up API calls into friendly PowerShell cmdlets.
+...
 
-The original blog for it is [here](https://wragg.io/send-notifications-to-hipchat-with-powershell/).
-
-**Should you still use it?** I have no idea tbh. I haven't worked anywhere with HipChat for a number of years, so I'm not sure if it still works. The project is actually now maintained under the [AtlassianPS](https://github.com/AtlassianPS) GitHub organisation, but its not getting a lot of love there either.
+**Should you still use it?** 
 
 ### SlackBot
 
-- **First published:** 25th Jan 2017
-- **Last Published:**  10th Sep 2019
+- **First published:** 25 Jan 2017
+- **Last updated:** 10 Sep 2019
 - **Download count:** 1674
 
 The purpose of my SlackBot module was to provide a basic demonstration of how to setup a bot for Slack using their Real-time messaging API. This kind of Bot essentially monitors one or more chat channels for messages and can then respond to certain messages directed at it. Part of the motivation for sharing this was it was really fiddly to get working at the time. I blogged about it [here](https://wragg.io/powershell-slack-bot-using-the-real-time-messaging-api/). The version in the PowerShell Gallery (and on GitHub) is just the basic framework that you need to extend with whatever functionality you want the Bot to do. At the company I was working for at the time our internal version of it had that additional functionality so you could use to query for assets / tickets / changes etc. and it would make calls to other systems to retrieve the data. 
 
 **Should you still use it?** Maybe. If you'd rather build something up yourself, I think its still a good starting point, although I am also not a big Slack user these days so I don't know entirely if it's still compatible with the API. There is a more featured alternative I can recommend though (that I suspect is also more up to date) and easier to customise/extend with additonal functionality: [PoshBot](https://github.com/poshbotio/PoshBot) by [Brandon Olin](https://github.com/devblackops).
 
-### Remedy
+### CurrencyConverter
 
-- **First published:** 25th May 2017
-- **Last Published:**  10th Sep 2019
-- **Download count:** 1666
+- **First published:** 07 Feb 2024
+- **Last updated:** 18 May 2024
+- **Download count:** 1675
+
+...
+
+**Should you still use it?** 
+
+### Lumos
+
+- **First published:** 07 Aug 2019
+- **Last updated:** 07 Dec 2021
+- **Download count:** 4395
+
+...
+
+**Should you still use it?** 
+
+### ADAudit
+
+- **First published:** 07 Jun 2016
+- **Last updated:** 25 Feb 2020
+- **Download count:** 9800
+
+I always thought XKCD was the first module I ever published, but apparently it was [ADAudit](https://github.com/markwragg/Test-ActiveDirectory). This module actually just built on some excellent work by [Irwin Strachan](https://x.com/IrwinStrachan), who was very supportive of my work and continues to be a wonderfully generous member of the PowerShell community. ADAudit is just a set of Pester tests which validate whether an Active Directory forest is in good health. The idea is that (assuming your AD is currently healthy) you export a "gold snapshot" of its current state and then can run the tests routinely to see if anything has changed / is out of order. 
+
+If you want to read more about it the original blog is [here](https://wragg.io/testing-active-directory-with-pester-and-powershell/).
+
+**Should you still use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so its currently designed for use with Pester v3 (which is pretty old). A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and recently maintained.
+
+### Watch
+
+- **First published:** 19 Mar 2018
+- **Last updated:** 08 Mar 2023
+- **Download count:** 14865
+
+...
+
+**Should you still use it?** 
+
+### HashCopy
+
+- **First published:** 06 Aug 2018
+- **Last updated:** 02 Jul 2023
+- **Download count:** 24309
+
+...
+
+**Should you still use it?** 
+
+### Subnet
+
+- **First published:** 11 Apr 2019
+- **Last updated:** 10 Sep 2019
+- **Download count:** 432107
+
+...
+
+**Should you still use it?** 
+
+### Influx
+
+- **First published:** 31 Dec 2017
+- **Last updated:** 06 May 2023
+- **Download count:** 468659
+
+...
+
+**Should you still use it?** 
+
+### XKCD
+
+- **First published:** 19th Jan 2017
+- **Last updated:**  25th Feb 2020
+- **Download count:** 1584
+
+...
+
+**Should you still use it?** 
