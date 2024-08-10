@@ -55,8 +55,6 @@ $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
 $Modules | Select Name,FirstPublishedDate,DownloadCount,ProjectUri | Sort FirstPublishedDate
 ```
 
-<center>
-
 Downloads | Published Date      | Name
 --------- | ------------------- | -----------------
 9800      | 07/06/2016 11:43:38 | ADAudit
@@ -72,8 +70,6 @@ Downloads | Published Date      | Name
 4395      | 07/08/2019 13:52:53 | Lumos
 358       | 14/01/2024 15:34:23 | AzCostTools
 1675      | 07/02/2024 23:48:58 | CurrencyConverter
-
-</center>
 
 ```powershell
 ($modules.downloadCount | Measure -Sum).Sum
