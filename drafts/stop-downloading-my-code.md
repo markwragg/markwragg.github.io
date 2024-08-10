@@ -52,7 +52,7 @@ Here's where I discovered a horrifying statistic:
 
 # Modules I've published in the PowerShell Gallery have been downloaded (in total) _almost a million times_. 
 
-(well.. 963,557 to be exact):
+(well.. 963,850 times to be exact):
 
 ```powershell
 $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
