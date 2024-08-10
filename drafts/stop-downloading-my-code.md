@@ -50,13 +50,13 @@ function Find-ModuleByAuthor {
 
 Here's where I discovered a horrifying statistic: 
 
-# Modules I've published in the PowerShell Gallery have been downloaded _almost a million times_. 
+# Modules I've published in the PowerShell Gallery have been downloaded (in total) _almost a million times_. 
 
 (well.. 963,557 to be exact):
 
 ```powershell
 $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
-$Modules | Select Name,FirstPublishedDate,DownloadCount | Sort FirstPublishedDate
+$Modules | Select Name,FirstPublishedDate,DownloadCount | Sort DownloadCount
 ```
 
 Downloads     | Published           | Name              | Link                                                                                                            
@@ -90,9 +90,9 @@ So this is a story all about how (my life got flipped-turned upside down, and I'
 - **Last updated:** 02 Jun 2024
 - **Download count:** 359
 
-...
+**Should you use it?** 
 
-**Should you still use it?** 
+...
 
 ### MacNotify
 
@@ -100,9 +100,9 @@ So this is a story all about how (my life got flipped-turned upside down, and I'
 - **Last updated:** 17 Mar 2024
 - **Download count:** 1221
 
-My second least popular module is an apparently little known tool called [MacNotify](https://github.com/markwragg/PowerShell-MacNotify). This is for MacOS users of PowerShell, made possible since the introduction of PowerShell Core. MacNotify allows you to generate your own custom MacOS alerts (those little pop up boxes that appear in the top right). If you've ever heard of [BurntToast](https://github.com/Windos/BurntToast) by [Josh King](https://x.com/WindosNZ), MacNotify is the Mac equivalent. In fact Josh went on to create a cross-patform module called [PoshNotify](https://github.com/Windos/PoshNotify) which wraps BurntToast, MacNotify and a third module for generating notifications under Linux so that you can use consistent cmdlet names to generate notifications on any of those operating systems.
+My second least popular module is an apparently little known tool called [MacNotify](https://github.com/markwragg/PowerShell-MacNotify) that I published in 2018. This is for MacOS users of PowerShell, made possible since the introduction of PowerShell Core. MacNotify allows you to generate your own custom MacOS alerts (those little pop up boxes that appear in the top right). If you've ever heard of [BurntToast](https://github.com/Windos/BurntToast) by [Josh King](https://x.com/WindosNZ), MacNotify is the Mac equivalent. In fact Josh went on to create a cross-patform module called [PoshNotify](https://github.com/Windos/PoshNotify) which wraps BurntToast, MacNotify and a third module for generating notifications under Linux so that you can use consistent cmdlet names to generate notifications on any of those operating systems.
  
-**Should you still use it?** Yes! In fact I made some updates to it a few months ago as I was clearing down old issues on my GitHub repos and as part of that I made sure it still works on the current version of MacOS (which it does!) so if you're running PowerShell on MacOS and want an easy way to surface events MacNotify could be what you're looking for.
+**Should you use it?** Yes! In fact I made some updates to it a few months ago as I was clearing down old issues on my GitHub repos and as part of that I made sure it still works on the current version of MacOS (which it does!) so if you're running PowerShell on MacOS and want an easy way to surface events MacNotify could be what you're looking for.
 
 ### PSHipChat
 
@@ -114,7 +114,7 @@ I first uploaded [PSHipChat](https://github.com/markwragg/Powershell-Hipchat) to
 
 The original blog for it is [here](https://wragg.io/send-notifications-to-hipchat-with-powershell/).
 
-**Should you still use it?** I have no idea tbh. I haven't worked anywhere with HipChat for a number of years, so I'm not sure if it still works. The project is actually now maintained under the [AtlassianPS](https://github.com/AtlassianPS) GitHub organisation, but its not getting a lot of love there either.
+**Should you use it?** I have no idea tbh. I haven't worked anywhere with HipChat for a number of years, so I'm not sure if it still works. The project is actually now maintained under the [AtlassianPS](https://github.com/AtlassianPS) GitHub organisation, but its not getting a lot of love there either.
 
 ### XKCD
 
@@ -124,7 +124,7 @@ The original blog for it is [here](https://wragg.io/send-notifications-to-hipcha
 
 [XKCD](https://xkcd.com/) is a brilliant webcomic that's been going since September 2005. The [XKCD module](https://github.com/markwragg/Powershell-XKCD) just wraps some PowerShell friendly cmdlets around the XKCD API which requires no key/registration and returns JSON. This was mostly for fun, and an excuse to get my head around creating advanced functions with Parameter Sets, which I blogged about [here](https://wragg.io/create-dynamic-powershell-functions-with-parameter-sets/).
 
-**Should you still use it?** I don't see why not! It still works. The most useful thing about it is its ability to search for a specific comic by keyword, and it builds a local cache of the comics inside the Module so subsequent searches require no calls to the API. So if you're looking for a comic on a specific topic, it's as good as Google:
+**Should you use it?** I don't see why not! It still works. The most useful thing about it is its ability to search for a specific comic by keyword, and it builds a local cache of the comics inside the Module so subsequent searches require no calls to the API. So if you're looking for a comic on a specific topic, it's as good as Google:
 
 ```
 Find-Xkcd -Query covid | FT
@@ -147,7 +147,7 @@ Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probabl
 
 My [Remedy]() module is another API wrapper, this time for the ITSM tool BMC Remedy. At the time I wrote this module I was working somewhere that used BMC Remedy and the interface for it back then was pretty clunky. Being able to pull data out of it via PowerShell allowed me to automate a lot of reporting that I needed to generate, as well as hook it up to the next module in this list (SlackBot) to allow my team to query tickets / changes / assets as part of a Slack conversation.
 
-**Should you still use it?** This is another one where I'm not sure. I haven't worked somewhere with BMC Remedy for a while. If you're using the version of Remedy I had when I wrote it (which I think was v6) then I suspect it will still work, but I doubt its compatible with any subsequent versions.
+**Should you use it?** This is another one where I'm not sure. I haven't worked somewhere with BMC Remedy for a while. If you're using the version of Remedy I had when I wrote it (which I think was v6) then I suspect it will still work, but I doubt its compatible with any subsequent versions.
 
 ### SlackBot
 
@@ -159,7 +159,7 @@ The purpose of my SlackBot module was to provide a basic demonstration of how to
 
 The version in the PowerShell Gallery (and on GitHub) is just a basic framework that you need to extend with whatever functionality you want the Bot to do. At the company I was working for at the time our internal version of it had lots of additional functionality so you could use to query for assets / tickets / changes etc (as mentioned above) and it would then make calls to other systems to retrieve that data. 
 
-**Should you still use it?** Maybe. If you'd rather build something up yourself, I think its still a good starting point, although I am also not a big Slack user these days so I don't know entirely if it's still compatible with the API. There is a more featured alternative I can recommend though (that I suspect is also more up to date) and easier to customise/extend with additonal functionality: [PoshBot](https://github.com/poshbotio/PoshBot) by [Brandon Olin](https://github.com/devblackops).
+**Should you use it?** Maybe. If you'd rather build something up yourself, I think its still a good starting point, although I am also not a big Slack user these days so I don't know entirely if it's still compatible with the API. There is a more featured alternative I can recommend though (that I suspect is also more up to date) and easier to customise/extend with additonal functionality: [PoshBot](https://github.com/poshbotio/PoshBot) by [Brandon Olin](https://github.com/devblackops).
 
 ### CurrencyConverter
 
@@ -169,7 +169,7 @@ The version in the PowerShell Gallery (and on GitHub) is just a basic framework 
 
 CurrencyConverter is the newest module in this list, so you can somewhat forgive its low download count. 
 
-**Should you still use it?** 
+**Should you use it?** 
 
 ### Lumos
 
@@ -179,7 +179,7 @@ CurrencyConverter is the newest module in this list, so you can somewhat forgive
 
 ...
 
-**Should you still use it?** 
+**Should you use it?** 
 
 ### ADAudit
 
@@ -191,7 +191,7 @@ I always thought XKCD was the first module I ever published, but apparently it w
 
 If you want to read more about it the original blog is [here](https://wragg.io/testing-active-directory-with-pester-and-powershell/).
 
-**Should you still use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so its currently designed for use with Pester v3 (which is pretty old). A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and recently maintained.
+**Should you use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so its currently designed for use with Pester v3 (which is pretty old). A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and recently maintained.
 
 ### Watch
 
@@ -201,7 +201,7 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 
 ...
 
-**Should you still use it?** 
+**Should you use it?** 
 
 ### HashCopy
 
@@ -211,7 +211,7 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 
 ...
 
-**Should you still use it?** 
+**Should you use it?** 
 
 ### Subnet
 
@@ -221,7 +221,7 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 
 ...
 
-**Should you still use it?** 
+**Should you use it?** 
 
 ### Influx
 
@@ -231,4 +231,4 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 
 ...
 
-**Should you still use it?** 
+**Should you use it?** 
