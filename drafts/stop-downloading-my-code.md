@@ -59,7 +59,7 @@ $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
 $Modules | Select Name,FirstPublishedDate,DownloadCount | Sort FirstPublishedDate
 ```
 
-DownloadCount | FirstPublishedDate  | Name              | ProjectUri
+Downloads     | Published           | Name              | Link
 ------------- | ------------------- | ----------------- | ---------------------------------------------------------
 359           | 14/01/2024 15:34:23 | AzCostTools       | https://github.com/markwragg/PowerShell-AzCostTools
 1221          | 02/10/2018 11:28:45 | MacNotify         | https://github.com/markwragg/PowerShell-MacNotify
