@@ -59,21 +59,21 @@ $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
 $Modules | Select Name,FirstPublishedDate,DownloadCount | Sort FirstPublishedDate
 ```
 
-Downloads     | Published Date      | Name
-------------- | ------------------- | -----------------
-359           | 14/01/2024 15:34:23 | AzCostTools
-1221          | 02/10/2018 11:28:45 | MacNotify
-1283          | 25/01/2017 11:30:48 | PSHipChat
-1584          | 19/01/2017 15:21:44 | XKCD
-1666          | 25/05/2017 14:43:28 | Remedy
-1674          | 25/01/2017 13:50:21 | SlackBot
-1675          | 07/02/2024 23:48:58 | CurrencyConverter
-4395          | 07/08/2019 13:52:53 | Lumos
-9800          | 07/06/2016 11:43:38 | ADAudit
-14898         | 19/03/2018 09:08:11 | Watch
-24316         | 06/08/2018 09:25:13 | HashCopy
-432312        | 11/04/2019 10:52:29 | Subnet
-468667        | 31/12/2017 09:41:33 | Influx
+DownloadCount | FirstPublishedDate  | Name              | ProjectUri
+------------- | ------------------- | ----------------- | ---------------------------------------------------------
+359           | 14/01/2024 15:34:23 | AzCostTools       | https://github.com/markwragg/PowerShell-AzCostTools
+1221          | 02/10/2018 11:28:45 | MacNotify         | https://github.com/markwragg/PowerShell-MacNotify
+1283          | 25/01/2017 11:30:48 | PSHipChat         | https://github.com/markwragg/Powershell-Hipchat
+1584          | 19/01/2017 15:21:44 | XKCD              | https://github.com/markwragg/Powershell-XKCD
+1666          | 25/05/2017 14:43:28 | Remedy            | https://github.com/markwragg/Powershell-Remedy
+1674          | 25/01/2017 13:50:21 | SlackBot          | https://github.com/markwragg/Powershell-SlackBot
+1675          | 07/02/2024 23:48:58 | CurrencyConverter | https://github.com/markwragg/PowerShell-CurrencyConverter
+4395          | 07/08/2019 13:52:53 | Lumos             | https://github.com/markwragg/powershell-lumos
+9800          | 07/06/2016 11:43:38 | ADAudit           | https://github.com/markwragg/Test-ActiveDirectory
+14898         | 19/03/2018 09:08:11 | Watch             | https://github.com/markwragg/Powershell-Watch
+24316         | 06/08/2018 09:25:13 | HashCopy          | https://github.com/markwragg/Powershell-HashCopy
+432312        | 11/04/2019 10:52:29 | Subnet            | https://github.com/markwragg/PowerShell-Subnet
+468667        | 31/12/2017 09:41:33 | Influx            | https://github.com/markwragg/Powershell-Influx
 
 ```powershell
 ($modules.downloadCount | Measure -Sum).Sum
