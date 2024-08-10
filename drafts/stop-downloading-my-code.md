@@ -38,11 +38,11 @@ function Find-ModuleByAuthor {
 
     [PSCustomObject]@{
       Name               = $Module.Name
-      DownloadCount      = $DownloadCount
+      Downloads          = $DownloadCount
       Description        = $Module.Description
-      ProjectUri         = $Module.ProjectUri
-      FirstPublishedDate = $FirstPublishedDate
-      LastPublishedDate  = $Module.PublishedDate
+      Link               = $Module.ProjectUri
+      Published          = $FirstPublishedDate
+      LastUpdated        = $Module.PublishedDate
     }
   }
 }
@@ -56,7 +56,7 @@ Here's where I discovered a horrifying statistic:
 
 ```powershell
 $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
-$Modules | Select Name,FirstPublishedDate,DownloadCount | Sort DownloadCount
+$Modules | Select Downloads,Published,Name,Link | Sort Downloads
 ```
 
 Downloads     | Published           | Name              | Link                                                                                                            
