@@ -7,7 +7,7 @@ header:
 
 There was a recent trend on Twitter/X where people were sharing whether they spent more time tweeting or coding, which you can discover for yourself through this [tool](https://shiptalkers.dev/compare). Apparently I spent 61% more time tweeting than coding (in public anyway), and while I was pondering whether or not that was a good thing, [Doug Finke](https://x.com/dfinke) came to this excellent conclusion:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">If no one knows what you&#39;re doing, what&#39;s the point? <a href="https://t.co/JdNcIDpzzU">pic.twitter.com/JdNcIDpzzU</a></p>&mdash; Doug Finke (@dfinke) <a href="https://twitter.com/dfinke/status/1798785849238360370?ref_src=twsrc%5Etfw">June 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-align="center" data-theme="dark"><p lang="en" dir="ltr">If no one knows what you&#39;re doing, what&#39;s the point? <a href="https://t.co/JdNcIDpzzU">pic.twitter.com/JdNcIDpzzU</a></p>&mdash; Doug Finke (@dfinke) <a href="https://twitter.com/dfinke/status/1798785849238360370?ref_src=twsrc%5Etfw">June 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Which got me thinking about the modules I've published in GitHub and the PowerShell Gallery over the last few years (almost 10 years in fact). So I've decided to revisit them and why they exist. I thought it might be interesting to do that in order of popularity, and (if you've used a consistent author name) it's actually quite easy (although not entirely quick as I think it has to parse every module) to get your modules from the Gallery along with their download counts by using `Find-Module`. For example:
 
@@ -55,6 +55,8 @@ $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
 $Modules | Select Name,FirstPublishedDate,DownloadCount,ProjectUri | Sort FirstPublishedDate
 ```
 
+<center>
+
 Downloads | Published Date      | Name
 --------- | ------------------- | -----------------
 9800      | 07/06/2016 11:43:38 | ADAudit
@@ -70,6 +72,8 @@ Downloads | Published Date      | Name
 4395      | 07/08/2019 13:52:53 | Lumos
 358       | 14/01/2024 15:34:23 | AzCostTools
 1675      | 07/02/2024 23:48:58 | CurrencyConverter
+
+</center>
 
 ```powershell
 ($modules.downloadCount | Measure -Sum).Sum
@@ -150,7 +154,7 @@ The purpose of my SlackBot module was to provide a basic demonstration of how to
 - **Last updated:** 18 May 2024
 - **Download count:** 1675
 
-...
+CurrencyConverter is the newest kid on the block, so you can somewhat forgive its low download count. 
 
 **Should you still use it?** 
 
