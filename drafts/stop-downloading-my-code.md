@@ -9,7 +9,11 @@ There was a recent trend on Twitter/X where people were sharing whether they spe
 
 <blockquote class="twitter-tweet" data-align="center" data-theme="dark"><p lang="en" dir="ltr">If no one knows what you&#39;re doing, what&#39;s the point? <a href="https://t.co/JdNcIDpzzU">pic.twitter.com/JdNcIDpzzU</a></p>&mdash; Doug Finke (@dfinke) <a href="https://twitter.com/dfinke/status/1798785849238360370?ref_src=twsrc%5Etfw">June 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Which got me thinking about the modules I've published in GitHub and the PowerShell Gallery over the last few years (almost 10 years in fact). So I've decided to revisit them and why they exist. I thought it might be interesting to do that in order of popularity, and (if you've used a consistent author name) it's actually quite easy (although not entirely quick as I think it has to parse every module) to get your modules from the Gallery along with their download counts by using `Find-Module`. For example:
+Which got me thinking about the modules I've published in GitHub and the PowerShell Gallery over the last few years (almost 10 years in fact). So I've decided to revisit them, why they exist, and whether they are still useful, in case it inspires anyone else to go on their own decade long journey of publishing things to the gallery.
+
+> If you've never published a module to the PowerShell Gallery and are interested in how to get started, there's a detailed guide in the [official documentation here](https://learn.microsoft.com/en-us/powershell/gallery/how-to/publishing-packages/publishing-a-package?view=powershellget-3.x).
+
+I thought it might be interesting to do that in order of popularity, and (if you've used a consistent author name) it's actually quite easy (although not entirely quick as I think it has to parse every module) to get your modules from the Gallery along with their download counts by using `Find-Module`. For example:
 
 ```powershell
 function Find-ModuleByAuthor {
@@ -52,32 +56,42 @@ Here's where I discovered a horrifying statistic:
 
 ```powershell
 $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
-$Modules | Select Name,FirstPublishedDate,DownloadCount,ProjectUri | Sort FirstPublishedDate
+$Modules | Select Name,FirstPublishedDate,DownloadCount | Sort FirstPublishedDate
 ```
 
-Downloads | Published Date      | Name
---------- | ------------------- | -----------------
-9800      | 07/06/2016 11:43:38 | ADAudit
-1584      | 19/01/2017 15:21:44 | XKCD
-1283      | 25/01/2017 11:30:48 | PSHipChat
-1674      | 25/01/2017 13:50:21 | SlackBot
-1666      | 25/05/2017 14:43:28 | Remedy
-468658    | 31/12/2017 09:41:33 | Influx
-14864     | 19/03/2018 09:08:11 | Watch
-24308     | 06/08/2018 09:25:13 | HashCopy
-1221      | 02/10/2018 11:28:45 | MacNotify
-432102    | 11/04/2019 10:52:29 | Subnet
-4395      | 07/08/2019 13:52:53 | Lumos
-358       | 14/01/2024 15:34:23 | AzCostTools
-1675      | 07/02/2024 23:48:58 | CurrencyConverter
+Downloads     | Published Date      | Name
+------------- | ------------------- | -----------------
+359           | 14/01/2024 15:34:23 | AzCostTools
+1221          | 02/10/2018 11:28:45 | MacNotify
+1283          | 25/01/2017 11:30:48 | PSHipChat
+1584          | 19/01/2017 15:21:44 | XKCD
+1666          | 25/05/2017 14:43:28 | Remedy
+1674          | 25/01/2017 13:50:21 | SlackBot
+1675          | 07/02/2024 23:48:58 | CurrencyConverter
+4395          | 07/08/2019 13:52:53 | Lumos
+9800          | 07/06/2016 11:43:38 | ADAudit
+14898         | 19/03/2018 09:08:11 | Watch
+24316         | 06/08/2018 09:25:13 | HashCopy
+432312        | 11/04/2019 10:52:29 | Subnet
+468667        | 31/12/2017 09:41:33 | Influx
 
 ```powershell
 ($modules.downloadCount | Measure -Sum).Sum
 
-963557
+963850
 ```
 
 So this is a story all about how (my life got flipped-turned upside down, and I'd like to take a minute just sit right there while I tell you how) I'm about to become a PowerShell Gallery millionaire.
+
+### AzCostTools
+
+- **First published:** 14 Jan 2024
+- **Last updated:** 02 Jun 2024
+- **Download count:** 359
+
+...
+
+**Should you still use it?** 
 
 ### MacNotify
 
@@ -85,9 +99,9 @@ So this is a story all about how (my life got flipped-turned upside down, and I'
 - **Last updated:** 17 Mar 2024
 - **Download count:** 1221
 
-...
-
-**Should you still use it?** 
+My second least popular module is an apparently little known tool called [MacNotify](https://github.com/markwragg/PowerShell-MacNotify). This is for MacOS users of PowerShell, made possible since the introduction of PowerShell Core. MacNotify allows you to generate your own custom MacOS alerts (those little pop up boxes that appear in the top right). If you've ever heard of [BurntToast](https://github.com/Windos/BurntToast) by [Josh King](https://x.com/WindosNZ), MacNotify is the Mac equivalent. In fact Josh went on to create a cross-patform module called [PoshNotify](https://github.com/Windos/PoshNotify) which wraps BurntToast, MacNotify and a third module for generating notifications under Linux so that you can use consistent cmdlet names to generate notifications on any of those operating systems.
+ 
+**Should you still use it?** Yes! In fact I made some updates to it a few months ago as I was clearing down old issues on my GitHub repos and as part of that I made sure it still works on the current version of MacOS (which it does!) so if you're running PowerShell on MacOS and want an easy way to surface events MacNotify could be what you're looking for.
 
 ### PSHipChat
 
@@ -95,7 +109,7 @@ So this is a story all about how (my life got flipped-turned upside down, and I'
 - **Last updated:** 09 Sep 2019
 - **Download count:** 1283
 
-I first uploaded [PSHipChat](https://github.com/markwragg/Powershell-Hipchat) to GitHub in March of 2016. HipChat is Atlassians answers to Slack. I think they bundled it free with some of their other products (such as Confluence) as I worked for a few companies where it was used before Slack became more ubiquitous and now (for me at least) Teams. The PSHipChat module provides some PowerShell cmdlets for sending notifications into HipChat from your scripts by invoking its API (this is the theme of a lot of my modules, FYI). This allowed my team at the time to get visibility of when certain automated tasks were running, by just adding a few lines to those scripts to trigger notifications in HipChat.
+I first uploaded [PSHipChat](https://github.com/markwragg/Powershell-Hipchat) to GitHub in March of 2016. HipChat is (was?) Atlassians answers to Slack. I think they bundled it free with some of their other products (such as Confluence) as I worked for a few companies where it was used before Slack became more ubiquitous and now (for me at least) Teams. The PSHipChat module provides some PowerShell cmdlets for sending notifications into HipChat from your scripts by invoking its API (this is the theme of a lot of my modules, FYI). This allowed my team at the time to get visibility of when certain automated tasks were running, by just adding a few lines to those scripts to trigger notifications in HipChat.
 
 The original blog for it is [here](https://wragg.io/send-notifications-to-hipchat-with-powershell/).
 
@@ -107,7 +121,7 @@ The original blog for it is [here](https://wragg.io/send-notifications-to-hipcha
 - **Last updated:** 25 Feb 2020
 - **Download count:** 1584
 
-[XKCD](https://xkcd.com/) is a brilliant webcomic that's been going since September 2005. The [XKCD module](https://github.com/markwragg/Powershell-XKCD) just wraps some PowerShell friendly cmdlets around the XKCD API which requires no key/registration and returns JSON. This was mostly for fun, and an excuse to get my head around Parameter Sets, as I blogged about [here](https://wragg.io/create-dynamic-powershell-functions-with-parameter-sets/).
+[XKCD](https://xkcd.com/) is a brilliant webcomic that's been going since September 2005. The [XKCD module](https://github.com/markwragg/Powershell-XKCD) just wraps some PowerShell friendly cmdlets around the XKCD API which requires no key/registration and returns JSON. This was mostly for fun, and an excuse to get my head around creating advanced functions with Parameter Sets, which I blogged about [here](https://wragg.io/create-dynamic-powershell-functions-with-parameter-sets/).
 
 **Should you still use it?** I don't see why not! It still works. The most useful thing about it is its ability to search for a specific comic by keyword, and it builds a local cache of the comics inside the Module so subsequent searches require no calls to the API. So if you're looking for a comic on a specific topic, it's as good as Google:
 
@@ -122,7 +136,7 @@ month  num link year news safe_title              transcript alt
 12    2395      2020      Covid Precaution Level             It's frustrating to calibrate your precautions when there's only one kind of really definitive feedback you can get, you can only get it once, and when you do it's too late.
 ```
 
-Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probably not going to get you promoted, but it might make you smile.
+Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probably not going to get you promoted, but it might brighten your day.
 
 ### Remedy
 
@@ -130,9 +144,9 @@ Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probabl
 - **Last updated:** 10 Sep 2019
 - **Download count:** 1666
 
-...
+My [Remedy]() module is another API wrapper, this time for the ITSM tool BMC Remedy. At the time I wrote this module I was working somewhere that used BMC Remedy and the interface for it back then was pretty clunky. Being able to pull data out of it via PowerShell allowed me to automate a lot of reporting that I needed to generate, as well as hook it up to the next module in this list (SlackBot) to allow my team to query tickets / changes / assets as part of a Slack conversation.
 
-**Should you still use it?** 
+**Should you still use it?** This is another one where I'm not sure. I haven't worked somewhere with BMC Remedy for a while. If you're using the version of Remedy I had when I wrote it (which I think was v6) then I suspect it will still work, but I doubt its compatible with any subsequent versions.
 
 ### SlackBot
 
@@ -140,7 +154,9 @@ Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probabl
 - **Last updated:** 10 Sep 2019
 - **Download count:** 1674
 
-The purpose of my SlackBot module was to provide a basic demonstration of how to setup a bot for Slack using their Real-time messaging API. This kind of Bot essentially monitors one or more chat channels for messages and can then respond to certain messages directed at it. Part of the motivation for sharing this was it was really fiddly to get working at the time. I blogged about it [here](https://wragg.io/powershell-slack-bot-using-the-real-time-messaging-api/). The version in the PowerShell Gallery (and on GitHub) is just the basic framework that you need to extend with whatever functionality you want the Bot to do. At the company I was working for at the time our internal version of it had that additional functionality so you could use to query for assets / tickets / changes etc. and it would make calls to other systems to retrieve the data. 
+The purpose of my SlackBot module was to provide a basic demonstration of how to setup a bot for Slack using their Real-time messaging API. This kind of Bot essentially monitors one or more chat channels for messages (as if it were a user) and can then respond to certain messages directed at it. Part of the motivation for sharing this code was it was really fiddly to get working at the time (and I wanted to save others the pain). I originally blogged about it [here](https://wragg.io/powershell-slack-bot-using-the-real-time-messaging-api/). 
+
+The version in the PowerShell Gallery (and on GitHub) is just a basic framework that you need to extend with whatever functionality you want the Bot to do. At the company I was working for at the time our internal version of it had lots of additional functionality so you could use to query for assets / tickets / changes etc (as mentioned above) and it would then make calls to other systems to retrieve that data. 
 
 **Should you still use it?** Maybe. If you'd rather build something up yourself, I think its still a good starting point, although I am also not a big Slack user these days so I don't know entirely if it's still compatible with the API. There is a more featured alternative I can recommend though (that I suspect is also more up to date) and easier to customise/extend with additonal functionality: [PoshBot](https://github.com/poshbotio/PoshBot) by [Brandon Olin](https://github.com/devblackops).
 
@@ -150,7 +166,7 @@ The purpose of my SlackBot module was to provide a basic demonstration of how to
 - **Last updated:** 18 May 2024
 - **Download count:** 1675
 
-CurrencyConverter is the newest kid on the block, so you can somewhat forgive its low download count. 
+CurrencyConverter is the newest module in this list, so you can somewhat forgive its low download count. 
 
 **Should you still use it?** 
 
@@ -211,16 +227,6 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 - **First published:** 31 Dec 2017
 - **Last updated:** 06 May 2023
 - **Download count:** 468659
-
-...
-
-**Should you still use it?** 
-
-### XKCD
-
-- **First published:** 19th Jan 2017
-- **Last updated:**  25th Feb 2020
-- **Download count:** 1584
 
 ...
 
