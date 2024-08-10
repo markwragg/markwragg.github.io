@@ -75,6 +75,23 @@ Downloads     | Published           | Name              | Link
 432312        | 11/04/2019 10:52:29 | Subnet            | https://github.com/markwragg/PowerShell-Subnet
 468667        | 31/12/2017 09:41:33 | Influx            | https://github.com/markwragg/Powershell-Influx
 
+DownloadCount | FirstPublishedDate  | Link                                                                                                                   | Name             
+------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------- | -----------------
+359           | 14/01/2024 15:34:23 | [https://github.com/markwragg/PowerShell-AzCostTools](https://github.com/markwragg/PowerShell-AzCostTools)             | AzCostTools      
+1221          | 02/10/2018 11:28:45 | [https://github.com/markwragg/PowerShell-MacNotify](https://github.com/markwragg/PowerShell-MacNotify)                 | MacNotify        
+1283          | 25/01/2017 11:30:48 | [https://github.com/markwragg/Powershell-Hipchat](https://github.com/markwragg/Powershell-Hipchat)                     | PSHipChat        
+1584          | 19/01/2017 15:21:44 | [https://github.com/markwragg/Powershell-XKCD](https://github.com/markwragg/Powershell-XKCD)                           | XKCD             
+1666          | 25/05/2017 14:43:28 | [https://github.com/markwragg/Powershell-Remedy](https://github.com/markwragg/Powershell-Remedy)                       | Remedy           
+1674          | 25/01/2017 13:50:21 | [https://github.com/markwragg/Powershell-SlackBot](https://github.com/markwragg/Powershell-SlackBot)                   | SlackBot         
+1675          | 07/02/2024 23:48:58 | [https://github.com/markwragg/PowerShell-CurrencyConverter](https://github.com/markwragg/PowerShell-CurrencyConverter) | CurrencyConverter
+4395          | 07/08/2019 13:52:53 | [https://github.com/markwragg/powershell-lumos](https://github.com/markwragg/powershell-lumos)                         | Lumos            
+9800          | 07/06/2016 11:43:38 | [https://github.com/markwragg/Test-ActiveDirectory](https://github.com/markwragg/Test-ActiveDirectory)                 | ADAudit          
+14898         | 19/03/2018 09:08:11 | [https://github.com/markwragg/Powershell-Watch](https://github.com/markwragg/Powershell-Watch)                         | Watch            
+24316         | 06/08/2018 09:25:13 | [https://github.com/markwragg/Powershell-HashCopy](https://github.com/markwragg/Powershell-HashCopy)                   | HashCopy         
+432312        | 11/04/2019 10:52:29 | [https://github.com/markwragg/PowerShell-Subnet](https://github.com/markwragg/PowerShell-Subnet)                       | Subnet           
+468667        | 31/12/2017 09:41:33 | [https://github.com/markwragg/Powershell-Influx](https://github.com/markwragg/Powershell-Influx)                       | Influx           
+
+
 ```powershell
 ($modules.downloadCount | Measure -Sum).Sum
 
