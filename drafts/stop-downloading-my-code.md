@@ -1,5 +1,5 @@
 ---
-title: Please stop downloading my code
+title: Please stop downloading my code (aka the Fresh Prince of PSGallery)
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/global-internet.jpg"
@@ -19,16 +19,18 @@ function Find-ModuleByAuthor {
     $Author
   )
 
-  Write-Information 'Finding all modules..'
+  Write-Verbose "Finding all modules by $Author.."
   $Modules = Find-Module | Where-Object { $_.Author -eq $Author }
 
   foreach ($Module in $Modules) {
 
-    Write-Information "Finding all versions of $($Module.Name).."
+    Write-Verbose "Finding all versions of $($Module.Name).."
     $ModuleVersions = Find-Module -Name $Module.Name -AllVersions
 
-    $FirstPublishedDate = ($ModuleVersions | Sort-Object { $_.Version -as [version] } | Select -First 1).PublishedDate
-    $DownloadCount = [int]($ModuleVersions.AdditionalMetadata.versionDownloadCount | Measure-Object -Sum).Sum
+    $FirstPublishedDate = ($ModuleVersions | Sort { $_.Version -as [version] } | 
+      Select -First 1).PublishedDate
+    $DownloadCount = [int]($ModuleVersions.AdditionalMetadata.versionDownloadCount | 
+      Measure-Object -Sum).Sum
 
     [PSCustomObject]@{
       Name               = $Module.Name
@@ -53,7 +55,7 @@ $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
 $Modules | Select Name,FirstPublishedDate,DownloadCount,ProjectUri | Sort FirstPublishedDate
 ```
 
-DownloadCount | FirstPublishedDate  | Name
+Downloads | Published Date  | Name
 ------------- | ------------------- | -----------------
 9800          | 07/06/2016 11:43:38 | ADAudit
 1584          | 19/01/2017 15:21:44 | XKCD
@@ -75,5 +77,16 @@ PS> $Modules.downloadCount | Measure-Object -Sum
 963557
 ```
 
-So here's the story of how I'm about to become a PowerShell Gallery millionaire (I assume I will receive some sort of equivalent of the YouTube creators gold award?). 
+So this is a story all about how (my life got flipped-turned upside down, and I'd like to take a minute just sit right there while I tell you how) I'm about to become a PowerShell Gallery millionaire.
 
+### ADAudit
+
+I always thought XKCD was my first module, but apparently it was [ADAudit](https://github.com/markwragg/Test-ActiveDirectory). This module actually just built on some excellent work by Irwin Strachan, who continues to be a wonderfully generous member of the PowerShell community. ADAudit is just a set of Pester tests which validate whether an Active Directory forest is in good health. The idea is that (assuming your AD is currently healthy) you create a "gold snapshot" of its current state and then can run the tests routinely to see if anything has changed / is out of order. 
+
+If you want to read more about it the original blog is here: https://wragg.io/testing-active-directory-with-pester-and-powershell/
+
+**Should you still use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so its currently designed for use with Pester v3. A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and more recently maintained.
+
+### XKCD
+
+..
