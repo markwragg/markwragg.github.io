@@ -1,5 +1,5 @@
 ---
-title: Please stop downloading my code (aka the Fresh Prince of PSGallery)
+title: Please stop downloading my PowerShell modules
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/global-internet.jpg"
@@ -55,24 +55,24 @@ $Modules = Find-ModuleByAuthor -Author 'Mark Wragg'
 $Modules | Select Name,FirstPublishedDate,DownloadCount,ProjectUri | Sort FirstPublishedDate
 ```
 
-Downloads | Published Date  | Name
-------------- | ------------------- | -----------------
-9800          | 07/06/2016 11:43:38 | ADAudit
-1584          | 19/01/2017 15:21:44 | XKCD
-1283          | 25/01/2017 11:30:48 | PSHipChat
-1674          | 25/01/2017 13:50:21 | SlackBot
-1666          | 25/05/2017 14:43:28 | Remedy
-468658        | 31/12/2017 09:41:33 | Influx
-14864         | 19/03/2018 09:08:11 | Watch
-24308         | 06/08/2018 09:25:13 | HashCopy
-1221          | 02/10/2018 11:28:45 | MacNotify
-432102        | 11/04/2019 10:52:29 | Subnet
-4395          | 07/08/2019 13:52:53 | Lumos
-358           | 14/01/2024 15:34:23 | AzCostTools
-1675          | 07/02/2024 23:48:58 | CurrencyConverter
+Downloads | Published Date      | Name
+--------- | ------------------- | -----------------
+9800      | 07/06/2016 11:43:38 | ADAudit
+1584      | 19/01/2017 15:21:44 | XKCD
+1283      | 25/01/2017 11:30:48 | PSHipChat
+1674      | 25/01/2017 13:50:21 | SlackBot
+1666      | 25/05/2017 14:43:28 | Remedy
+468658    | 31/12/2017 09:41:33 | Influx
+14864     | 19/03/2018 09:08:11 | Watch
+24308     | 06/08/2018 09:25:13 | HashCopy
+1221      | 02/10/2018 11:28:45 | MacNotify
+432102    | 11/04/2019 10:52:29 | Subnet
+4395      | 07/08/2019 13:52:53 | Lumos
+358       | 14/01/2024 15:34:23 | AzCostTools
+1675      | 07/02/2024 23:48:58 | CurrencyConverter
 
 ```powershell
-PS> $Modules.downloadCount | Measure-Object -Sum
+($modules.downloadCount | Measure -Sum).Sum
 
 963557
 ```
@@ -81,12 +81,63 @@ So this is a story all about how (my life got flipped-turned upside down, and I'
 
 ### ADAudit
 
-I always thought XKCD was my first module, but apparently it was [ADAudit](https://github.com/markwragg/Test-ActiveDirectory). This module actually just built on some excellent work by Irwin Strachan, who continues to be a wonderfully generous member of the PowerShell community. ADAudit is just a set of Pester tests which validate whether an Active Directory forest is in good health. The idea is that (assuming your AD is currently healthy) you create a "gold snapshot" of its current state and then can run the tests routinely to see if anything has changed / is out of order. 
+- **First published:** 07th Jun 2016
+- **Last Published:**  25th Feb 2020
+- **Download count:** 9800
 
-If you want to read more about it the original blog is here: https://wragg.io/testing-active-directory-with-pester-and-powershell/
+I always thought XKCD was my first module, but apparently it was [ADAudit](https://github.com/markwragg/Test-ActiveDirectory). This module actually just built on some excellent work by [Irwin Strachan](https://x.com/IrwinStrachan), who continues to be a wonderfully generous member of the PowerShell community. ADAudit is just a set of Pester tests which validate whether an Active Directory forest is in good health. The idea is that (assuming your AD is currently healthy) you export a "gold snapshot" of its current state and then can run the tests routinely to see if anything has changed / is out of order. 
+
+If you want to read more about it the original blog is [here](https://wragg.io/testing-active-directory-with-pester-and-powershell/).
 
 **Should you still use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so its currently designed for use with Pester v3. A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and more recently maintained.
 
 ### XKCD
 
-..
+- **First published:** 19th Jan 2017
+- **Last Published:**  25th Feb 2020
+- **Download count:** 1584
+
+[XKCD](https://xkcd.com/) is a brilliant webcomic that's been going since September 2005. The [XKCD module](https://github.com/markwragg/Powershell-XKCD) just wraps some PowerShell friendly cmdlets around the XKCD API (this is the theme of a lot of my modules, FYI), which requires no key/registration. This was mostly for fun, and an excuse to get my head around Parameter Sets, as I blogged about [here](https://wragg.io/create-dynamic-powershell-functions-with-parameter-sets/).
+
+**Should you still use it?** I don't see why not! It still works. The most useful thing about it is its ability to search for a specific comic by keyword, and it builds a local cache of the comics inside the Module so subsequent searches require no calls to the API. So if you're looking for a comic on a specific topic, it's as good as Google:
+
+```
+Find-Xkcd -Query covid | FT
+
+month  num link year news safe_title              transcript alt
+-----  --- ---- ---- ---- ----------              ---------- ---
+7     2333      2020      COVID Risk Chart                   First prize is a free ticket to the kissing booth.
+8     2346      2020      COVID Risk Comfort Zone            I'm like a vampire, except I'm not crossing that threshold even if you invite me.
+9     2355      2020      University COVID Model             I admit this is an exaggeration, since I can think of at least three parties I attended while doing my degree, and I'm probably forgetting several more.
+12    2395      2020      Covid Precaution Level             It's frustrating to calibrate your precautions when there's only one kind of really definitive feedback you can get, you can only get it once, and when you do it's too late.
+```
+
+Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probably not going to get you promoted, but it might make you smile.
+
+### PSHipChat
+
+- **First published:** 25th Jan 2017
+- **Last Published:**  9th Sep 2019
+- **Download count:** 1283
+
+I was obviously on a bit of a roll, as the [PSHipChat](https://github.com/markwragg/Powershell-Hipchat) module was first published less than a week after XKCD, although I first published this to GitHub in March of 2016. HipChat is Atlassians answers to Slack. I think they bundled it free with some of their other products (such as Confluence) as I worked for a few companies where it was used before Slack became more ubiquitous and then later Teams. The PSHipChat module provides some PowerShell cmdlets for sending notifications into HipChat from your scripts. This allowed my team to get visibility of when certain automated tasks were running, by just adding a few lines to the scripts that triggered notifications in HipChat. Like with XKCD, all this is doing is wrapping up API calls into friendly PowerShell cmdlets.
+
+The original blog for it is [here](https://wragg.io/send-notifications-to-hipchat-with-powershell/).
+
+**Should you still use it?** I have no idea tbh. I haven't worked anywhere with HipChat for a number of years, so I'm not sure if it still works. The project is actually now maintained under the [AtlassianPS](https://github.com/AtlassianPS) GitHub organisation, but its not getting a lot of love there either.
+
+### SlackBot
+
+- **First published:** 25th Jan 2017
+- **Last Published:**  10th Sep 2019
+- **Download count:** 1674
+
+The purpose of my SlackBot module was to provide a basic demonstration of how to setup a bot for Slack using their Real-time messaging API. This kind of Bot essentially monitors one or more chat channels for messages and can then respond to certain messages directed at it. Part of the motivation for sharing this was it was really fiddly to get working at the time. I blogged about it [here](https://wragg.io/powershell-slack-bot-using-the-real-time-messaging-api/). The version in the PowerShell Gallery (and on GitHub) is just the basic framework that you need to extend with whatever functionality you want the Bot to do. At the company I was working for at the time our internal version of it had that additional functionality so you could use to query for assets / tickets / changes etc. and it would make calls to other systems to retrieve the data. 
+
+**Should you still use it?** Maybe. If you'd rather build something up yourself, I think its still a good starting point, although I am also not a big Slack user these days so I don't know entirely if it's still compatible with the API. There is a more featured alternative I can recommend though (that I suspect is also more up to date) and easier to customise/extend with additonal functionality: [PoshBot](https://github.com/poshbotio/PoshBot) by [Brandon Olin](https://github.com/devblackops).
+
+### Remedy
+
+- **First published:** 25th May 2017
+- **Last Published:**  10th Sep 2019
+- **Download count:** 1666
