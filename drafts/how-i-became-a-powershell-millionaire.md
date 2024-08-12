@@ -2,7 +2,7 @@
 title: How I became a (PowerShell) millionaire
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2024/global-internet.jpg"
+  overlay_image: "/content/images/2024/diamond.jpg"
 ---
 
 There was a recent trend on Twitter/X where people were sharing whether they spent more time tweeting or coding, which you can discover for yourself through this [tool](https://shiptalkers.dev/compare). Apparently I spent 61% more time tweeting than coding (in public anyway), and while I was pondering whether or not that was a good thing, [Doug Finke](https://x.com/dfinke) came to this excellent conclusion:
