@@ -189,11 +189,11 @@ The year was 2019. Windows 10 had just got a dark mode feature, as had MacOS, bu
 - **Last updated:** 25 Feb 2020
 - **Download count:** 9800
 
-I always thought XKCD was the first module I ever published, but apparently it was [ADAudit](https://github.com/markwragg/Test-ActiveDirectory). This module actually just built on some excellent work by [Irwin Strachan](https://x.com/IrwinStrachan), who was very supportive of my work and continues to be a wonderfully generous member of the PowerShell community. ADAudit is just a set of Pester tests which validate whether an Active Directory forest is in good health. The idea is that (assuming your AD is currently healthy) you export a "gold snapshot" of its current state and then can run the tests routinely to see if anything has changed / is out of order. 
+I always thought XKCD was the first module I ever published, but apparently the title belongs to [ADAudit](https://github.com/markwragg/Test-ActiveDirectory). This module actually just built on some excellent work by [Irwin Strachan](https://x.com/IrwinStrachan), who was very supportive and continues to be a wonderfully generous member of the PowerShell community. ADAudit is just a set of Pester tests which validate whether an Active Directory forest is in good health. The idea is that (assuming your AD is currently healthy) you export a "gold snapshot" of its current state and then can run the tests routinely to see if anything has changed / is out of order. 
 
 If you want to read more about it the original blog is [here](https://wragg.io/testing-active-directory-with-pester-and-powershell/).
 
-**Should you use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so its currently designed for use with Pester v3 (which is pretty old). A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and recently maintained.
+**Should you use it?** I would say probably not, unless you fancy bringing it up to date. I haven't updated it for several years and so it's currently designed for use with Pester v3 (which is pretty old). A good alternative looks to be [Testimo](https://github.com/EvotecIT/Testimo) by EvotecIT, although I haven't personally used it, it looks to be more featured and recently maintained.
 
 ### Watch
 
@@ -217,9 +217,9 @@ This will keep checking the services until one of them changes state.
 - **Last updated:** 02 Jul 2023
 - **Download count:** 24309
 
-...
+24.3K downloads ( you can tell we're getting serious now, because I'm using "K"). HashCopy came into existence because I needed to know if some files in one folder matched some files in another folder, but I couldn't trust the modifed dates to tell me (long story, short version: Git). I discovered PowerShell has a `Get-FileHash` command, which you can use to compute the hash value of a file. So by computing the hash values of the files I wanted to compare, I could quickly determine if they were different. 
 
-**Should you use it?** 
+**Should you use it?** Yes! I guess I'm not the only person to face this problem based on the downloads, and I don't think much has changed for `Get-FileHash`. 
 
 ### Subnet
 
@@ -227,9 +227,11 @@ This will keep checking the services until one of them changes state.
 - **Last updated:** 10 Sep 2019
 - **Download count:** 432107
 
-...
+Now we take a giant leap to the last two modules that do most of the heavy lifting for this millionaire. If I'm being honest here, I suspect much of the success of my Subnet module is because I noticed no one had nabbed the name "Subnet". It's possibly an oversight (and a bit of a security flaw) of the PowerShell Gallery that anyone can take any available name. 
 
-**Should you use it?** 
+The Subnet module has 3 commands, `Get-Subnet` calculates details of a specified subnet (such as it's subnet mask, IP range and the host addresses), `Get-NetworkClass` tells you the network class of a specified IP and `Test-PrivateIP` gives you a true/false result for public/private IPs. 
+
+**Should you use it?** Yes! I personally use it pretty frequently as it's usually more convenient than using a subnet calculator website. It's also a great tool if you need to generate subnet details for a list of IP addresses. One example I gave was to grab the address spaces of an Azure VNET and then calculate all the host IPs.
 
 ### Influx
 
@@ -237,10 +239,11 @@ This will keep checking the services until one of them changes state.
 - **Last updated:** 06 May 2023
 - **Download count:** 468659
 
-...
+And finally, with a horrifying 468,659 downloads and counting is `Influx`. Guess what? I had a need to automate some stuff into Influx (which is a time-series database that I heartily recommend, particularly if you pair it with Grafana) and so I did something I'd never done before and turned to PowerShell. The Influx module makes writing statistics into an Influx database pretty simple. And I guess lots of other people thought so too. 
 
-**Should you use it?** 
+Read the original blog post [here](https://wragg.io/windows-based-grafana-analytics-platform-via-influxdb-and-powershell/).
 
+**Should you use it?** I mean, I guess?! One regret I have is that I bundled into the module various other commands that I wrote for retrieving values from things like VMWare and 3PAR and then writing those into Influx and I think that kind of bloats the module now, but for all I know 100k people think those things are really useful. 
 
 ---
 
