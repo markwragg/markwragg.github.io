@@ -1,5 +1,5 @@
 ---
-title: Please stop downloading my PowerShell modules
+title: How I became a (PowerShell) millionaire
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/global-internet.jpg"
@@ -90,9 +90,9 @@ So this is a story all about how (my life got flipped-turned upside down, and I'
 - **Last updated:** 02 Jun 2024
 - **Download count:** 359
 
-**Should you use it?** 
+AzCostTools is one of my newest projects. I introduced it in [this blog post](https://wragg.io/monitor-and-manage-your-azure-cloud-costs-with-powershell/) which was written for [Azure Spring Clean](https://www.azurespringclean.com/). It allows you to report on monthly costs across multiple Azure Subscriptions and compare those costs to one or more previous months. It also generates some simple charts using another module called PSparklines. The idea is to have a single command you can run once a month (or schedule) to generate insight into how your costs are changing in Azure.
 
-...
+**Should you use it?** Yes! (if you're using Azure and want to better understand or report on your costs), although currently it doesn't work for CSP subscriptions (where billing is done elsewhere). However I am working on a solution to this, as you can usually schedule CSP costs to be exported to a storage account and then AzCostTools will be able to import those exports.
 
 ### MacNotify
 
@@ -169,9 +169,9 @@ The version in the PowerShell Gallery (and on GitHub) is just a basic framework 
 - **Last updated:** 18 May 2024
 - **Download count:** 1675
 
-CurrencyConverter is the newest module in this list, so you can somewhat forgive its low download count. 
+CurrencyConverter is the newest module in this list, so you can somewhat forgive its low download count. It actually began life as part of AzCostTools, where I wanted to be able to convert Azure costs into an alternative currency (as often they're billed in a currency that is not your own). I realised this was probably useful functionality in its own right and there didn't seem to be a recent module in the Gallery that could do the same. One of the appealing things about my module is that it uses a backend service that has an open API, so there's no need to register an account / generate a key. This caused some confusion on Reddit when I shared it as people thought I'd just hard coded my own key into the tool but this is not the case.
 
-**Should you use it?** 
+**Should you use it?** Yes! It should work fine as long as the API it wraps is around. I also added crypto currency conversion recently at the request of someone who raised an issue on it's GitHub project.
 
 ### Lumos
 
@@ -179,9 +179,9 @@ CurrencyConverter is the newest module in this list, so you can somewhat forgive
 - **Last updated:** 07 Dec 2021
 - **Download count:** 4395
 
-...
+The year was 2019. Windows 10 had just got a dark mode feature, as had MacOS, but neither offered the ability to switch between light and dark mode automatically. Hence Lumos was born, and the world was saved. I think both OSes do allow you to configure automatic switching now, so Lumos is kind of redundant. That being said it does allow you to switch Windows to dark mode, but keep apps as light mode (or vice versa) and it also allows you to configure a specific wallpaper for each mode. Plus it's fun to type `Invoke-Lumos` and feel like (you're) a Wizard (Harry).
 
-**Should you use it?** 
+**Should you use it?** Yes, be magical.
 
 ### ADAudit
 
@@ -201,9 +201,15 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 - **Last updated:** 08 Mar 2023
 - **Download count:** 14865
 
-...
+Linux has a Watch command and Windows doesn't which was frankly unacceptable. Watch allows you to run a command (or script block) continuously until the output changes. It's useful if you're waiting for something to change, or want to catch something in the act (like a process starting, or terminating). Ultimately all we're really doing here is wrapping something some code a `while` loop and comparing it's output to the previous iteration. One of the coolest things about `Watch-Command` is that if you just pipe a string of commands to it, it gets those commands from `$MyInvocation` so it can loop them and watch for changes. You can also send it a script block, but you don't have to. This makes it pretty convenient to use.
 
-**Should you use it?** 
+```powershell
+Get-Service | Select Name,Status | Watch-Command
+```
+
+This will keep checking the services until one of them changes state.
+
+**Should you use it?** Yes! It still works as far as I know. I don't use it in earnest but every now and again I have some need to quickly monitor something for change and I remember it exists. And 14,865 other people apparently did too.
 
 ### HashCopy
 
@@ -234,3 +240,8 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 ...
 
 **Should you use it?** 
+
+
+---
+
+If you've made it this far, thanks for indulging me. You've probably realised there's a theme to the modules above, which is that most of them started life as a way to solve some specific problem for me, that I realised could probably also help someone else. None of the modules above are perfect, but I suspect they've saved (perhaps a lot) of people (perhaps a lot) of time, and that's worth a million.
