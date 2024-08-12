@@ -137,7 +137,9 @@ month  num link year news safe_title              transcript alt
 12    2395      2020      Covid Precaution Level             It's frustrating to calibrate your precautions when there's only one kind of really definitive feedback you can get, you can only get it once, and when you do it's too late.
 ```
 
-Or you can open a random comic by running `Get-Xkcd -Random -Open`. It's probably not going to get you promoted, but it might brighten your day.
+Or you can open a random comic by running `Get-Xkcd -Random -Open`.
+
+[![xkcd starwatching comic #428](/content/images/2024/xkcd-blog.png)](https://xkcd.com/428/)
 
 ### Remedy
 
