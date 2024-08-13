@@ -15,24 +15,27 @@ I recently needed to make a change to the membership of an Active Directory grou
 > While working on this cmdlet I discovered that [Lee Holmes provides a very similar cmdlet](http://www.powershellcookbook.com/recipe/PrtD/program-monitor-a-command-for-changes) as part of his Windows PowerShell Cookbook. While I didn't see his version until mine was mostly formed, it takes a very similar but simpler approach and you might want to check it out.
 
 If you want to try my version of `Watch-Command`, it is available via a module named [Watch](https://powershellgallery.com/packages/Watch/) in the PowerShell Gallery. If you have PS5 or newer you can install it via:
-```
+
+```powershell
 Install-Module Watch -Scope CurrentUser
 ```
+
 There are three different ways to use the cmdlet. The most straightforward is to provide it with a ScriptBlock as input. You define a ScriptBlock by wrapping one or more commands in curly braces `{ .. }`. For example:
 
-```
+```powershell
 Watch-Command {
    $Seconds = (Get-Date).Second
    $Seconds - ($Seconds % 10)
 } -Verbose
 ```
+
 This gets the seconds portion of the current time and rounds it down to the nearest ten (using the mod `%` math operator). `Watch-Command` will therefore repeat this every second (by default) until the second count moves in to the next ten.
 
 ![Watch-Command Example](/content/images/2018/03/watch-command-seconds.png){: .align-center}
 
 If you want `Watch-Command` to run continuously you can add the `-Continuous` switch:
 
-```
+```powershell
 Watch-Command {
    $Seconds = (Get-Date).Second
    $Seconds - ($Seconds % 10)
@@ -44,9 +47,11 @@ When you want it to stop, just press `CTRL+C`.
 ![Watch-Command example continuous](/content/images/2018/03/watch-command-seconds-continuous.png){: .align-center}
 
 The second way you can use the cmdlet is to provide a ScriptBlock via the pipeline. For example:
-```
+
+```powershell
 { Get-Date } | Watch-Command
 ```
+
 The third and final way to use the cmdlet is where things get controversial. It occurred to me that if you had a very long command you'd already entered in to the console, it could be slightly annoying to have to cursor back to the beginning and end of that command to wrap it in curly braces. Ideally you would just want to be able to up arrow and throw `| Watch-Command` at the end of a pipeline, and have it take on repeat execution of the command. 
 
 The cmdlet allows you to do just that:
@@ -67,7 +72,7 @@ I discovered I could get the commandline that invoked the cmdlet via the automat
 
 Here's an example function that exposes `$MyInvocation`:
 
-```
+```powershell
 Function Show-MyInvocation {
     Param(
         [parameter(ValueFromPipeline)]
@@ -83,7 +88,7 @@ Get-Service | Where {$_.name -eq 'winrm'} | Select name | Show-MyInvocation
 
 The `Watch-Command` cmdlet uses several properties of `$MyInvocation` as follows:
 
-```
+```powershell
 if ($ScriptBlock -isnot [scriptblock]){
     if ($MyInvocation.PipelinePosition -gt 1){        
         $ScriptBlock = [Scriptblock]::Create( ($MyInvocation.Line -Split "\|\s*$($MyInvocation.InvocationName)")[0] )
@@ -93,6 +98,7 @@ if ($ScriptBlock -isnot [scriptblock]){
     }
 }
 ```
+
 First it checks that it has't received a ScriptBlock type object. If it hasn't, then it uses the `PipelinePositon` property (which tells it how many commands preceded it) to check that there was at least one command before it in the pipeline (without which we have nothing to process). 
 
 It then uses `-Split` and a Regular Expression to find where its cmdlet name appears in the `Line` property next to a `|` and zero or more spaces. It uses the `$MyInvocation.InvocationName` property to reference its own cmdlet name so that if it was invoked via an Alias it remains correct.
@@ -106,9 +112,11 @@ The default behaviour of `Watch-Command` is just to run some block of code and t
 However you can also add a `-Difference` switch to have it only return the differences between the first and changed result. This comparison is performed via the `Compare-Object` cmdlet, and then we only return the right-side changes from that cmdlet. This is so that generally you get just one result (e.g the change), vs it returning what it was before and after the change.
 
 By using `-Difference` with `-Continuous` you can use `Watch-Command` to perform ongoing monitoring of state changes. For example:
-```
+
+```powershell
 Get-Service | Watch-Command -Diff -Cont -Verbose
 ``` 
+
 This will show ongoing output each time a service changes state:
 
 ![Watch-Command continuous service monitoring example](/content/images/2018/03/watch-command-get-service-continuous.png){: .align-center}
@@ -116,7 +124,8 @@ This will show ongoing output each time a service changes state:
 Having used the `-Verbose` switch you can see (in the output above) which specific properties are being 'watched'. By default the cmdlet will look to see if the command being executed returns a [Default Display Set](https://blogs.msdn.microsoft.com/powershell/2010/02/18/psstandardmembers-the-stealth-property/). If one exists, it uses these properties by default in order to limit how many properties are being monitored to a sensible set of defaults. If there isn't a Default Display Set then by default it monitors all properties.
 
 If you want to explicitly specify what properties are monitored, you can do so with the `-Property` parameter. Here's an example of where this might be useful:
-```
+
+```powershell
 Get-Process | Watch-Command -Diff -Cont -Property id
 ```
 
