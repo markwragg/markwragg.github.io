@@ -153,7 +153,7 @@ Or you can open a random comic by running `Get-Xkcd -Random -Open`.
 - **Last updated:** 10 Sep 2019
 - **Download count:** 1666
 
-My [Remedy]() module is another API wrapper, this time for the ITSM tool BMC Remedy. At the time I wrote this module I was working somewhere that used BMC Remedy and the interface for it back then was pretty clunky. Being able to pull data out of it via PowerShell allowed me to automate a lot of reporting that I needed to generate, as well as hook it up to the next module in this list (SlackBot) to allow my team to query tickets / changes / assets as part of a Slack conversation.
+My [Remedy](https://github.com/markwragg/Powershell-Remedy) module is another API wrapper, this time for the ITSM tool BMC Remedy. At the time I wrote this module I was working somewhere that used BMC Remedy and the interface for it back then was pretty clunky. Being able to pull data out of it via PowerShell allowed me to automate a lot of reporting that I needed to generate, as well as hook it up to the next module in this list (SlackBot) to allow my team to query tickets / changes / assets as part of a Slack conversation.
 
 **Should you use it?** This is another one where I'm not sure. I haven't worked somewhere with BMC Remedy for a while. If you're using the version of Remedy I had when I wrote it (which I think was v6) then I suspect it will still work, but I doubt it's compatible with any subsequent versions.
 
@@ -163,7 +163,7 @@ My [Remedy]() module is another API wrapper, this time for the ITSM tool BMC Rem
 - **Last updated:** 10 Sep 2019
 - **Download count:** 1674
 
-The purpose of my SlackBot module was to provide a basic demonstration of [how to setup a bot for Slack using their Real-time messaging API](https://wragg.io/powershell-slack-bot-using-the-real-time-messaging-api/). This kind of Bot essentially monitors one or more chat channels for messages (as if it were a user) and can then respond to certain messages directed at it. Part of the motivation for sharing this code was because it was really fiddly to get working at the time (and I wanted to save others the pain).
+The purpose of my [SlackBot](https://github.com/markwragg/Powershell-SlackBot) module was to provide a basic demonstration of [how to setup a bot for Slack using their Real-time messaging API](https://wragg.io/powershell-slack-bot-using-the-real-time-messaging-api/). This kind of Bot essentially monitors one or more chat channels for messages (as if it were a user) and can then respond to certain messages directed at it. Part of the motivation for sharing this code was because it was really fiddly to get working at the time (and I wanted to save others the pain).
 
 The version in the PowerShell Gallery (and on GitHub) is just a basic framework that you need to extend with whatever functionality you want the Bot to do. At the company I was working for at the time our internal version of it had lots of additional functionality so you could use to query for assets / tickets / changes etc (as mentioned above) and it would then make calls to other systems to retrieve that data. 
 
@@ -175,7 +175,7 @@ The version in the PowerShell Gallery (and on GitHub) is just a basic framework 
 - **Last updated:** 18 May 2024
 - **Download count:** 1675
 
-CurrencyConverter is the newest module in this list. It actually began life as part of AzCostTools, where I wanted to be able to convert Azure costs into an alternative currency (as sometimes they're billed in a currency that is not your own). I realised this was probably useful functionality in its own right and there didn't seem to be a recent module in the gallery that could do the same. One of the appealing things about my module is that it uses a backend service that has an open API, so there's no need to register an account / generate a key. This caused some confusion on Reddit when I shared it as people thought I'd just hard coded my own key into the tool but this is not the case.
+[CurrencyConverter](https://github.com/markwragg/PowerShell-CurrencyConverter) is the newest module in this list. It actually began life as part of AzCostTools, where I wanted to be able to convert Azure costs into an alternative currency (as sometimes they're billed in a currency that is not your own). I realised this was probably [useful functionality in its own right](https://wragg.io/Perform-currency-conversion-with-PowerShell/) and there didn't seem to be a recent module in the gallery that could do the same. One of the appealing things about my module is that it uses a backend service that has an open API, so there's no need to register an account / generate a key. This caused some confusion on Reddit when I shared it as people thought I'd just hard coded my own key into the tool but this is not the case.
 
 **Should you use it?** Yes! It should work fine as long as the API it wraps continues to exist. I also added crypto currency conversion recently at the request of someone who raised an issue on it's GitHub project. Beware though that for traditional currencies the exchange rates only update daily.
 
@@ -185,7 +185,7 @@ CurrencyConverter is the newest module in this list. It actually began life as p
 - **Last updated:** 07 Dec 2021
 - **Download count:** 4395
 
-The year was 2019. Windows 10 had just got a dark mode feature, as had MacOS, but neither offered the ability to switch between light and dark mode automatically. Hence Lumos was born, and the world was saved. I think both OSes do allow you to configure automatic switching now, so Lumos is kind of redundant. That being said it does allow you to switch Windows to dark mode, but keep apps as light mode (or vice versa) and it also allows you to configure a specific wallpaper for each mode that it can then switch for you at the same time (can Windows do that? Maybe! I haven't checked). Plus it's fun to type `Invoke-Lumos` and feel like (you're) a Wizard (Harry).
+The year was 2019. Windows 10 had just got a dark mode feature, as had MacOS, but neither offered the ability to switch between light and dark mode automatically. Hence [Lumos](https://github.com/markwragg/PowerShell-Lumos) was born, and the world was saved. I think both OSes do allow you to configure automatic switching now, so Lumos is kind of redundant. That being said it does allow you to switch Windows to dark mode, but keep apps as light mode (or vice versa) and it also allows you to configure a specific wallpaper for each mode that it can then switch for you at the same time (can Windows do that? Maybe! I haven't checked). Plus it's fun to type `Invoke-Lumos` and feel like (you're) a Wizard (Harry).
 
 **Should you use it?** Yes, be magical.
 
@@ -207,7 +207,7 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 - **Last updated:** 08 Mar 2023
 - **Download count:** 14898
 
-Linux has a Watch command and Windows doesn't which was frankly unacceptable. Watch allows you to run a command (or script block) continuously until the output changes. It's useful if you're waiting for something to occur, or want to catch something in the act (like a process starting, or terminating). Ultimately all we're really doing here is wrapping some code in a `while` loop and comparing it's output to the previous iteration. One of the coolest things about `Watch-Command` is that you can just pipe a string of commands to it. It then gets the full pipeline that proceeded it from `$MyInvocation` so it can loop those commands and watch for changes. You can also send it a script block, but you don't have to. This makes it pretty convenient to use.
+Linux has a Watch command and Windows doesn't which was frankly unacceptable. [Watch](https://github.com/markwragg/PowerShell-Watch) allows you to [run a command (or script block) continuously until the output changes](https://wragg.io/watch-for-changes-with-powershell/). It's useful if you're waiting for something to occur, or want to catch something in the act (like a process starting, or terminating). Ultimately all we're really doing here is wrapping some code in a `while` loop and comparing it's output to the previous iteration. One of the coolest things about `Watch-Command` is that you can just pipe a string of commands to it. It then gets the full pipeline that proceeded it from `$MyInvocation` so it can loop those commands and watch for changes. You can also send it a script block, but you don't have to. This makes it pretty convenient to use.
 
 ```powershell
 Get-Service | Select Name,Status | Watch-Command
@@ -221,7 +221,7 @@ Get-Service | Select Name,Status | Watch-Command
 - **Last updated:** 02 Jul 2023
 - **Download count:** 24316
 
-24.3K downloads (you can tell we're getting serious now, because I'm using "K"). HashCopy came into existence because I needed to know if some files in one folder matched some files in another folder, but I couldn't trust the modified dates to tell me (long story short: Git). I discovered PowerShell has a `Get-FileHash` command, which you can use to compute the hash value of a file. So by computing the hash values of the files I wanted to compare, I could quickly determine if they were different. 
+24.3K downloads (you can tell we're getting serious now, because I'm using "K"). [HashCopy](https://github.com/markwragg/PowerShell-HashCopy) came into existence because I needed to know if some files in one folder matched some files in another folder, but I couldn't trust the modified dates to tell me (long story short: Git). I discovered PowerShell has a `Get-FileHash` command, which you can use to compute the hash value of a file. So by computing the hash values of the files I wanted to compare, I could quickly determine if they were different. 
 
 **Should you use it?** Yes! I guess I'm not the only person to face this problem based on the downloads, and I don't think much has changed for `Get-FileHash` so it should still work. You can read the original blog post [here](https://wragg.io/a-powershell-cmdlet-to-copy-files-based-on-hash-difference/).
 
@@ -231,7 +231,7 @@ Get-Service | Select Name,Status | Watch-Command
 - **Last updated:** 10 Sep 2019
 - **Download count:** 432312
 
-Now we take a giant leap to the last two modules that do most of the heavy lifting for this two-thumbed millionaire. If I'm being honest here, I suspect much of the success of my Subnet module is because I noticed no one had nabbed the name "Subnet". It's possibly an oversight (and a bit of a security flaw) of the PowerShell Gallery that anyone can take any available name. 
+Now we take a giant leap to the last two modules that do most of the heavy lifting for this two-thumbed millionaire. If I'm being honest here, I suspect much of the success of my [Subnet](https://github.com/markwragg/PowerShell-Subnet) module is because I noticed no one had nabbed the name "Subnet". It's possibly an oversight (and a bit of a security flaw) of the PowerShell Gallery that anyone can take any available name. 
 
 The Subnet module has 3 commands, `Get-Subnet` calculates details of a specified subnet (such as it's subnet mask, IP range and the host addresses), `Get-NetworkClass` tells you the network class of a specified IP and `Test-PrivateIP` gives you a true/false result for public/private IPs. 
 
@@ -243,7 +243,7 @@ The Subnet module has 3 commands, `Get-Subnet` calculates details of a specified
 - **Last updated:** 06 May 2023
 - **Download count:** 468667
 
-And finally, with a horrifying 468,659 downloads and counting is `Influx`. Guess what? I had a need to write some metrics into Influx (which is a time-series database that I heartily recommend, particularly if you pair it with Grafana), using the API directly was a little clunky, and so I did something I'd ~never~ done before and turned to PowerShell. The Influx module makes writing statistics into an Influx database pretty simple. And I guess lots of other people thought so too. 
+And finally, with a horrifying 468,659 downloads and counting is [Influx](https://github.com/markwragg/PowerShell-Influx). Guess what? I had a need to write some metrics into Influx (which is a time-series database that I heartily recommend, particularly if you pair it with Grafana), using the API directly was a little clunky, and so I did something I'd ~never~ done before and turned to PowerShell. The Influx module makes writing statistics into an Influx database pretty simple. And I guess lots of other people thought so too. 
 
 Read the original blog post [here](https://wragg.io/windows-based-grafana-analytics-platform-via-influxdb-and-powershell/).
 
@@ -251,6 +251,6 @@ Read the original blog post [here](https://wragg.io/windows-based-grafana-analyt
 
 ---
 
-If you've made it this far, thanks for indulging me. You've perhaps noticed there's a consistent theme to the modules above, which is that most of them started life as a way to solve some specific problem for me, that I realised could probably also help someone else. None of the modules above are perfect, but I suspect they've saved (perhaps a lot) of people (perhaps a lot) of time, and that's worth a million. Here's to the next.
+If you've made it this far, thanks for indulging me through this walk down memory lane. You've perhaps noticed there's a consistent theme to the modules above, which is that most of them started life as a way to solve some specific problem for me, that I realised could probably also help someone else. None of the modules above are perfect, but I suspect they've saved (perhaps a lot) of people (hopefully a lot) of time, and that's worth a million. Here's to the next.
 
 ![Leonardo DiCaprio Cheers](/content/images/2024/Leonardo-Dicaprio-Cheers.jpg){: .align-center}
