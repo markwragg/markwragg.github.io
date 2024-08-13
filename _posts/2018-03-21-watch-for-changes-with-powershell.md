@@ -10,7 +10,7 @@ tags:
 ---
 I recently needed to make a change to the membership of an Active Directory group which was enforced via Puppet. While waiting for the Puppet manifest to apply I used `Get-ADGroupMember` in PowerShell to check if the change had taken effect. Finding that it had not, I then wrote a crude loop to continually check the group membership until it changed. It occurred to me that this kind of functionality might be useful as a cmdlet and as such I have created `Watch-Command`. This blog post details how it works as well as some inventive but controversial design decisions I made.
 
-![The cats of the nights watch](/content/images/2018/03/Nights-watch-cats.png)
+![The cats of the nights watch](/content/images/2018/03/Nights-watch-cats.png){: .align-center}
 
 > While working on this cmdlet I discovered that [Lee Holmes provides a very similar cmdlet](http://www.powershellcookbook.com/recipe/PrtD/program-monitor-a-command-for-changes) as part of his Windows PowerShell Cookbook. While I didn't see his version until mine was mostly formed, it takes a very similar but simpler approach and you might want to check it out.
 
@@ -28,7 +28,7 @@ Watch-Command {
 ```
 This gets the seconds portion of the current time and rounds it down to the nearest ten (using the mod `%` math operator). `Watch-Command` will therefore repeat this every second (by default) until the second count moves in to the next ten.
 
-![Watch-Command Example](/content/images/2018/03/watch-command-seconds.png)
+![Watch-Command Example](/content/images/2018/03/watch-command-seconds.png){: .align-center}
 
 If you want `Watch-Command` to run continuously you can add the `-Continuous` switch:
 
@@ -41,7 +41,7 @@ Watch-Command {
 
 When you want it to stop, just press `CTRL+C`.
 
-![](/content/images/2018/03/watch-command-seconds-continuous.png)
+![Watch-Command example continuous](/content/images/2018/03/watch-command-seconds-continuous.png){: .align-center}
 
 The second way you can use the cmdlet is to provide a ScriptBlock via the pipeline. For example:
 ```
@@ -51,7 +51,7 @@ The third and final way to use the cmdlet is where things get controversial. It 
 
 The cmdlet allows you to do just that:
 
-![Watch-Command Example using pipeline](/content/images/2018/03/watch-command-pipleine.png)
+![Watch-Command Example using pipeline](/content/images/2018/03/watch-command-pipleine.png){: .align-center}
 
 In this example we're checking the `winrm` service and then waiting for it to change (this example also uses the `wc` alias for `Watch-Command`).
 
@@ -79,7 +79,7 @@ Function Show-MyInvocation {
 Get-Service | Where {$_.name -eq 'winrm'} | Select name | Show-MyInvocation
 ```
 
-![](/content/images/2018/03/show-myinvocation.png)
+![](/content/images/2018/03/show-myinvocation.png){: .align-center}
 
 The `Watch-Command` cmdlet uses several properties of `$MyInvocation` as follows:
 
@@ -111,7 +111,7 @@ Get-Service | Watch-Command -Diff -Cont -Verbose
 ``` 
 This will show ongoing output each time a service changes state:
 
-![Watch-Command continuous service monitoring example](/content/images/2018/03/watch-command-get-service-continuous.png)
+![Watch-Command continuous service monitoring example](/content/images/2018/03/watch-command-get-service-continuous.png){: .align-center}
 
 Having used the `-Verbose` switch you can see (in the output above) which specific properties are being 'watched'. By default the cmdlet will look to see if the command being executed returns a [Default Display Set](https://blogs.msdn.microsoft.com/powershell/2010/02/18/psstandardmembers-the-stealth-property/). If one exists, it uses these properties by default in order to limit how many properties are being monitored to a sensible set of defaults. If there isn't a Default Display Set then by default it monitors all properties.
 
@@ -120,7 +120,7 @@ If you want to explicitly specify what properties are monitored, you can do so w
 Get-Process | Watch-Command -Diff -Cont -Property id
 ```
 
-![](/content/images/2018/03/watch-command-get-process-id-continuous.png)
+![Watch-Command example get process ID continuously](/content/images/2018/03/watch-command-get-process-id-continuous.png){: .align-center}
 
 By default, `Get-Process` displays Id, Handles, CPU, SI and Name properties. Obviously the result of CPU changes frequently, so if we want to set up `Watch-Command` to report to us only when new processes start, we can just monitor the Id property.
 
@@ -128,7 +128,7 @@ If you want to force the command to monitor all object properties (where there i
 
 You can use `Watch-Command` to monitor non-PowerShell command output also (which will generally be treated as strings). Here's an example of monitoring the output of `ipconfig /all` for a change to the DNS server addresses:
 
-![Watch-Command example monitoring ipconfig change](/content/images/2018/03/watch-command-ipconfig.png)
+![Watch-Command example monitoring ipconfig change](/content/images/2018/03/watch-command-ipconfig.png){: .align-center}
 
 There are a few other way to customise your use of `Watch-Command`:
 
