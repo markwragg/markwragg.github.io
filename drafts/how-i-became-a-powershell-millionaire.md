@@ -9,7 +9,7 @@ There was a recent trend on Twitter/X where people were sharing whether they spe
 
 <blockquote class="twitter-tweet" data-align="center" data-theme="dark"><p lang="en" dir="ltr">If no one knows what you&#39;re doing, what&#39;s the point? <a href="https://t.co/JdNcIDpzzU">pic.twitter.com/JdNcIDpzzU</a></p>&mdash; Doug Finke (@dfinke) <a href="https://twitter.com/dfinke/status/1798785849238360370?ref_src=twsrc%5Etfw">June 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Which got me thinking about the modules I've published in GitHub and the PowerShell Gallery over the last few years (almost 10 in fact). So I've decided to revisit them, why they exist, and whether they are still useful, in case it inspires anyone else to go on their own decade long journey of publishing things to the gallery.
+Which got me thinking about the modules I've published in [GitHub](https://github.com/markwragg) and the [PowerShell Gallery](https://www.powershellgallery.com/profiles/markwragg) over the last few years (almost 10 in fact). So I've decided to revisit them, why they exist, and whether they are still useful, in case it inspires anyone else to go on their own decade long journey of publishing things to the gallery.
 
 > If you've never published a module to the PowerShell Gallery and are interested in how to get started, there's a detailed guide in the [official documentation here](https://learn.microsoft.com/en-us/powershell/gallery/how-to/publishing-packages/publishing-a-package?view=powershellget-3.x).
 
@@ -247,4 +247,4 @@ Read the original blog post [here](https://wragg.io/windows-based-grafana-analyt
 
 If you've made it this far, thanks for indulging me. You've perhaps noticed there's a consistent theme to the modules above, which is that most of them started life as a way to solve some specific problem for me, that I realised could probably also help someone else. None of the modules above are perfect, but I suspect they've saved (perhaps a lot) of people (perhaps a lot) of time, and that's worth a million. Here's to the next.
 
-![Leonardo Dicaprio Chees](/content/images/2024/Leonardo-Dicaprio-Cheers.jpg){: .align-center}
+![Leonardo DiCaprio Cheers](/content/images/2024/Leonardo-Dicaprio-Cheers.jpg){: .align-center}
