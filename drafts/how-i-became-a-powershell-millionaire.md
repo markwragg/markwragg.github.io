@@ -199,7 +199,7 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 
 - **First published:** 19 Mar 2018
 - **Last updated:** 08 Mar 2023
-- **Download count:** 14865
+- **Download count:** 14898
 
 Linux has a Watch command and Windows doesn't which was frankly unacceptable. Watch allows you to run a command (or script block) continuously until the output changes. It's useful if you're waiting for something to occur, or want to catch something in the act (like a process starting, or terminating). Ultimately all we're really doing here is wrapping some code in a `while` loop and comparing it's output to the previous iteration. One of the coolest things about `Watch-Command` is that you can just pipe a string of commands to it. It then gets the full pipeline that proceeded it from `$MyInvocation` so it can loop those commands and watch for changes. You can also send it a script block, but you don't have to. This makes it pretty convenient to use.
 
@@ -213,7 +213,7 @@ Get-Service | Select Name,Status | Watch-Command
 
 - **First published:** 06 Aug 2018
 - **Last updated:** 02 Jul 2023
-- **Download count:** 24309
+- **Download count:** 24316
 
 24.3K downloads (you can tell we're getting serious now, because I'm using "K"). HashCopy came into existence because I needed to know if some files in one folder matched some files in another folder, but I couldn't trust the modified dates to tell me (long story short: Git). I discovered PowerShell has a `Get-FileHash` command, which you can use to compute the hash value of a file. So by computing the hash values of the files I wanted to compare, I could quickly determine if they were different. 
 
@@ -223,7 +223,7 @@ Get-Service | Select Name,Status | Watch-Command
 
 - **First published:** 11 Apr 2019
 - **Last updated:** 10 Sep 2019
-- **Download count:** 432107
+- **Download count:** 432312
 
 Now we take a giant leap to the last two modules that do most of the heavy lifting for this two-thumbed millionaire. If I'm being honest here, I suspect much of the success of my Subnet module is because I noticed no one had nabbed the name "Subnet". It's possibly an oversight (and a bit of a security flaw) of the PowerShell Gallery that anyone can take any available name. 
 
@@ -235,7 +235,7 @@ The Subnet module has 3 commands, `Get-Subnet` calculates details of a specified
 
 - **First published:** 31 Dec 2017
 - **Last updated:** 06 May 2023
-- **Download count:** 468659
+- **Download count:** 468667
 
 And finally, with a horrifying 468,659 downloads and counting is `Influx`. Guess what? I had a need to write some metrics into Influx (which is a time-series database that I heartily recommend, particularly if you pair it with Grafana), using the API directly was a little clunky, and so I did something I'd ~never~ done before and turned to PowerShell. The Influx module makes writing statistics into an Influx database pretty simple. And I guess lots of other people thought so too. 
 
