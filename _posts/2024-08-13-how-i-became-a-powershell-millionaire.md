@@ -3,6 +3,8 @@ title: How I became a (PowerShell) millionaire
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2024/diamond.jpg"
+  teaser: "/content/images/2024/diamond.jpg"
+date: '2024-08-13 10:00:00'
 tags:
 - powershell
 - module
