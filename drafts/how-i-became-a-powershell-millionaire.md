@@ -9,11 +9,11 @@ There was a recent trend on Twitter/X where people were sharing whether they spe
 
 <blockquote class="twitter-tweet" data-align="center" data-theme="dark"><p lang="en" dir="ltr">If no one knows what you&#39;re doing, what&#39;s the point? <a href="https://t.co/JdNcIDpzzU">pic.twitter.com/JdNcIDpzzU</a></p>&mdash; Doug Finke (@dfinke) <a href="https://twitter.com/dfinke/status/1798785849238360370?ref_src=twsrc%5Etfw">June 6, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Which got me thinking about the modules I've published in GitHub and the PowerShell Gallery over the last few years (almost 10 years in fact). So I've decided to revisit them, why they exist, and whether they are still useful, in case it inspires anyone else to go on their own decade long journey of publishing things to the gallery.
+Which got me thinking about the modules I've published in GitHub and the PowerShell Gallery over the last few years (almost 10 in fact). So I've decided to revisit them, why they exist, and whether they are still useful, in case it inspires anyone else to go on their own decade long journey of publishing things to the gallery.
 
 > If you've never published a module to the PowerShell Gallery and are interested in how to get started, there's a detailed guide in the [official documentation here](https://learn.microsoft.com/en-us/powershell/gallery/how-to/publishing-packages/publishing-a-package?view=powershellget-3.x).
 
-I thought it might be interesting to do that in order of popularity, and (if you've used a consistent author name) it's actually quite easy (although not entirely quick as I think it has to parse every module) to get your modules from the Gallery along with their download counts by using `Find-Module`. For example:
+I thought it might be interesting to do that in order of popularity, and (if you've used a consistent author name) it's actually quite easy (although not entirely quick as I think it has to parse every module) to get your modules from the gallery along with their download counts by using `Find-Module`. For example:
 
 ```powershell
 function Find-ModuleByAuthor {
@@ -169,7 +169,7 @@ The version in the PowerShell Gallery (and on GitHub) is just a basic framework 
 - **Last updated:** 18 May 2024
 - **Download count:** 1675
 
-CurrencyConverter is the newest module in this list. It actually began life as part of AzCostTools, where I wanted to be able to convert Azure costs into an alternative currency (as sometimes they're billed in a currency that is not your own). I realised this was probably useful functionality in its own right and there didn't seem to be a recent module in the Gallery that could do the same. One of the appealing things about my module is that it uses a backend service that has an open API, so there's no need to register an account / generate a key. This caused some confusion on Reddit when I shared it as people thought I'd just hard coded my own key into the tool but this is not the case.
+CurrencyConverter is the newest module in this list. It actually began life as part of AzCostTools, where I wanted to be able to convert Azure costs into an alternative currency (as sometimes they're billed in a currency that is not your own). I realised this was probably useful functionality in its own right and there didn't seem to be a recent module in the gallery that could do the same. One of the appealing things about my module is that it uses a backend service that has an open API, so there's no need to register an account / generate a key. This caused some confusion on Reddit when I shared it as people thought I'd just hard coded my own key into the tool but this is not the case.
 
 **Should you use it?** Yes! It should work fine as long as the API it wraps continues to exist. I also added crypto currency conversion recently at the request of someone who raised an issue on it's GitHub project. Beware though that for traditional currencies the exchange rates only update daily.
 
