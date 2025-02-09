@@ -1,9 +1,9 @@
 ---
-title: Well-architect your Azure PowerShell with PSRule
+title: Well-architect your Azure Terraform with PSRule
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2025/one-ring-powershell.png"
-  teaser: "/content/images/2025/one-ring-powershell.png"
+  overlay_image: "/content/images/2025/one-ring-powershell-wide.png"
+  teaser: "/content/images/2025/one-ring-powershell-wide.png"
 date: '2025-02-08 09:00:00'
 tags:
 - azure
