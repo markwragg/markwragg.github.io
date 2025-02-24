@@ -21,7 +21,11 @@ But they were all of them deceived, for another tool was made.
 In the land of Microsoft, in the fires of Mount Azure, the Architect [Bernie White](https://www.linkedin.com/in/bernie-white/) forged, in open source, a tool to validate all others.
 And into this tool he poured his creativity, his mastery and his desire to improve your infrastructure. One tool to [PSRule](https://microsoft.github.io/PSRule/v2/) them all.
 
+I suspect it was something like that anyway. PSrule is 
+
 Fortunately [installing PSRule](https://azure.github.io/PSRule.Rules.Azure/install/) requires no difficult journey (or gathering of fellowships), although you may feel quite heroic once you do. Simply do the following:
 
 - Install PowerShell 7 (if you haven't already)
 - Install PSRule from the PowerShell Gallery via `Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser`
+
+For Azure Spring Clean 2024, [Dan Rios blogged about PSRule](https://rios.engineer/azure-spring-clean-azure-best-practice-for-bicep-with-psrule/)
