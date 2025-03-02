@@ -33,7 +33,12 @@ The idea is that you (or Microsoft, or the community) define rules for how your 
 
 Obviously developing these rules is itself a timely endeavour, but PSRule has done the heavy lifting for you by providing you with various pre-built rules based on best practice guidance such as the [Azure Well-architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/). PSRule is extensible, so you chose which existing rules you want to use, and customise them to meet your requirements, and/or develop your own rules to meet your specific requirements.
 
-[Installing PSRule](https://azure.github.io/PSRule.Rules.Azure/install/) requires no difficult journey to Mount Doom. Simply do the following:
+[Installing PSRule for Azure](https://azure.github.io/PSRule.Rules.Azure/install/) requires no difficult journey to Mount Doom. Simply do the following:
 
-- Install PowerShell 7 (if you haven't already)
-- Install PSRule from the PowerShell Gallery via `Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser`
+- [Install PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) (if you haven't already)
+- Install PSRule (with the pre-built Azure rules) from the PowerShell Gallery:
+  
+```powershell
+Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser
+```
+
