@@ -4,7 +4,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/one-ring.jpg"
   teaser: "/content/images/2025/one-ring.jpg"
-date: '2025-02-08 09:00:00'
+date: '2025-03-02 09:00:00'
 tags:
 - azure
 - psrule
@@ -33,7 +33,7 @@ The idea is that you (or Microsoft, or the community) define rules for how your 
 
 Obviously developing these rules is itself a timely endeavour, but PSRule has done the heavy lifting for you by providing various pre-built rules based on best practice guidance such as the [Azure Well-architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/). PSRule is extensible, so you choose which existing rules you want to use, and customise them (and/or develop your own rules) to meet your requirements.
 
-### Begin the journey
+### Beginning the journey
 
 [Installing PSRule for Azure](https://azure.github.io/PSRule.Rules.Azure/install/) requires no difficult journey to Mount Doom. There is a [dedicated site for this module](https://azure.github.io/PSRule.Rules.Azure/), with its own [Getting started](https://azure.github.io/PSRule.Rules.Azure/about/) page. You can install it directly, as follows:
 
@@ -48,7 +48,7 @@ PSRule for Azure is officially described as:
 
 > "A pre-built set of tests and documentation to help you configure Azure solutions. These tests allow you to check your Infrastructure as Code (IaC) before or after deployment to Azure. PSRule for Azure includes unit tests that check how Azure resources defined in **ARM templates or Bicep code** are configured."
 
-As it turns out, one does not simply test Terraform with PSRule.
+As it turns out, one does not _simply_ test Terraform with PSRule.
 
 ![One does not simply test Terraform meme](/content/images/2025/one-does-not-simply-test-terraform.jpg){: .align-center}
 
@@ -60,22 +60,22 @@ To summarise, here's the steps to take to analyse Terraform resources:
 2. Ensure you have authenticated to Azure via `Connect-AzAccount` and have the relevant subscription selected.
 3. Export your Azure resources to a specified directory (and ensure the directory exists):
 
-```powerShell
+```powershell
 New-Item -Path out -ItemType Directory
 Export-AzRuleData -OutputPath "$pwd/out"
 ```
 
 By default this will export all of the resources for the currently selected subscription. You can use `-Subscription` to specify one or more subscriptions, or `-ResourceGroupName` to specify one or more resource groups. You can also use `-Tag` to export resources with one or more specified tags.
 
-If you want to go big (or go home to the shire), you can use `-All` to export resources from all the subscriptions your current context can access.
+If you want to go big (rather than return to the shire), you can use `-All` to export resources from all the subscriptions your current context can access.
 
 The output file/s are named with the guid of the subscription. This is true even if you filter to specific resources by Resource Group or Tag, and any existing file with the same name will be overwritten.
 
-### Face your challenges
+### Facing your first challenge
 
-> "It is the small things, everyday deeds of ordinary folk that keep the darkness at bay."
+> _"It is the small things, everyday deeds of ordinary folk that keep the darkness at bay."_ — Gandalf
 
-It's now time to analyse the output. You do this with `Invoke-PSRule` which you need to point at your exports and the `PSRule.Rules.Azure` module:
+It's now time to analyse the output. You do this with `Invoke-PSRule` which you need to point at your export file/s and the `PSRule.Rules.Azure` module:
 
 ```powershell
 Invoke-PsRule -InputPath "$pwd/out" -Module 'PSRule.Rules.Azure'
@@ -87,5 +87,13 @@ Depending on your resources, you'll probably get quite a lot of output because b
 Invoke-PSRule -InputPath "$pwd/out" -Module 'PSRule.Rules.Azure' -Outcome Fail
 ```
 
-### Journey onward
+![One does not simply test Terraform meme](/content/images/2025/psrule-output.png){: .align-center}
 
+- Review the output
+- Configure rules
+- Implementing a pipeline
+- Authoring your own rules
+
+### Journeying onward
+
+Azure Policy..?
