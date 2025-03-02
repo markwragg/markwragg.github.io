@@ -73,7 +73,7 @@ If you want to go big (rather than return to the shire), you can use `-All` to e
 
 The output file/s are named with the guid of the subscription. This is true even if you filter to specific resources by Resource Group or Tag, and any existing file with the same name will be overwritten.
 
-### Face your demons (fight the Balrog)
+### Face your demons
 
 > _"It is the small things, everyday deeds of ordinary folk that keep the darkness at bay."_ — Gandalf
 
@@ -100,11 +100,69 @@ Further properties in the object that are useful include:
 
 You also might want to export the results for some further/offline analysis and PSRule makes this easy with it's `-OutputPath` parameter, along with `-OutputFormat` that can be used to output to various formats such as CSV, JSON, Markdown, YAML and NUnit3.
 
+There are some other switches on the command that are worth exploring, one of which is `-As Summary` which simply returns a table showing for each rule how many resources passed and failed:
+
+```plaintext
+RuleName                            Pass  Fail  Outcome
+--------                            ----  ----  -------
+Azure.AppService.PlanInstanceCount  0     4     Fail
+Azure.AppService.MinTLS             20    0     Pass
+Azure.KeyVault.Logs                 19    0     Pass
+Azure.KeyVault.Name                 19    0     Pass
+Azure.Resource.UseTags              153   0     Pass
+Azure.Resource.AllowedRegions       154   0     Pass
+Azure.ResourceGroup.Name            20    0     Pass
+Azure.ServiceBus.Usage              4     0     Pass
+Azure.SQL.FirewallRuleCount         1     1     Fail
+Azure.SQL.AllowAzureAccess          0     2     Fail
+Azure.Storage.UseReplication        23    6     Fail
+Azure.Storage.SoftDelete            2     12    Fail
+Azure.RBAC.UseRGDelegation          20    0     Pass
+Azure.VM.PublicIPAttached           5     1     Fail
+Azure.VNET.UseNSGs                  0     4     Fail
+...
+```
+
 ### Make the hard choices (or the easy ones)
 
 > _"This task was appointed to you. And if you do not find a way, no one will."_ — Galadriel
 
-- Configure rules
+Once you have the output there's obviously two ways forward (three if you count doing nothing):
+
+1. Address the failure by modifying your Terraform code
+2. Exclude the rule
+
+If there are issues that you can and want to fix, then simply make the required changes in your Terraform code (using the guidance provided by the recommendation). Redeploy your infrastructure and re-run the export of the rule data and analysis to confirm the test now passes.
+
+There may be issues that you don't want to fix, because the apparent misconfiguration is appropriate for your infrastructure (for example, you might have a Storage account that you need to be publicly accessible) or there may be entire rulesets that you don't consider in scope for your infrastructure (you may have no need for tags for example). PSRule allows you to control these exceptions by [configuring exclusion or suppression](https://azure.github.io/PSRule.Rules.Azure/concepts/suppression/).
+
+These customisations are configured by creating a file called `ps-rule.yaml`.
+
+You can exclude a rule as follows:
+
+```yaml
+rule:
+  exclude:
+  # Ignore the following rules for all resources
+  - Azure.VM.UseHybridUseBenefit
+  - Azure.VM.Standalone
+```
+
+And you can suppress a rule for specific resources like this:
+
+```yaml
+suppression:
+  Azure.Storage.SoftDelete:
+  # Ignore soft delete on the following non-production storage accounts
+  - storagedeveus6jo36t
+  - storagedeveus1df278
+```
+
+These rules will no longer pass or fail.
+
+![You shall not pass or fail rule is excluded meme](/content/images/2025/you-shall-not-pass.jpg){: .align-center}
+
+There's some further cleverness you can do to avoid having to manually populate resources in these files, by instead creating logic that sets up exclusions based on the value of fields such as names or tags. These are called [suppression groups](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_SuppressionGroups/).
 
 ### Don't go it alone
 
