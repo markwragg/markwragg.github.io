@@ -114,7 +114,7 @@ You also might want to export the results for some further/offline analysis and 
 
 ### Journeying onward
 
-> _"Don't adventures ever have an end? I suppose not. Someone else always has to carry on on the story."_ — Bilbo Baggins
+> _"Don't adventures ever have an end? I suppose not. Someone else always has to carry on the story."_ — Bilbo Baggins
 
 - Authoring your own rules
 
