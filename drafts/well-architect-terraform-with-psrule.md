@@ -17,7 +17,9 @@ tags:
 > Many DevOps tools were gifted to the Engineers, who above all else, desired automation. For within these tools was bound the strength and will to govern the Cloud.
 > But they were all of them deceived, for another tool was made.
 > In the land of Microsoft, in the fires of Mount Azure, the Architect [Bernie White](https://www.linkedin.com/in/bernie-white/) forged, in open source, a tool to validate all others.
-> And into this tool he poured his creativity, his mastery and his determination to improve your infrastructure. One tool to [PSRule](https://microsoft.github.io/PSRule/v2/) them all.
+> And into this tool he poured his creativity, his mastery and his determination to improve your infrastructure. 
+> 
+> One tool to [PSRule](https://microsoft.github.io/PSRule/v2/) them all.
 
 I suspect it was something like that anyway. PSrule is (ancient magic aside) an excellent open source tool that can be used to make your infrastructure great again. 
 
