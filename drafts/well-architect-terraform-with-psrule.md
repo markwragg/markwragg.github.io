@@ -35,6 +35,8 @@ Obviously developing these rules is itself a timely endeavour, but PSRule has do
 
 ### Beginning the journey
 
+> _"It's a dangerous business, Frodo, going out your door."_ — Bilbo Baggins
+
 [Installing PSRule for Azure](https://azure.github.io/PSRule.Rules.Azure/install/) requires no difficult journey to Mount Doom. There is a [dedicated site for this module](https://azure.github.io/PSRule.Rules.Azure/), with its own [Getting started](https://azure.github.io/PSRule.Rules.Azure/about/) page. You can install it directly, as follows:
 
 - [Install PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) (if you haven't already)
@@ -71,7 +73,7 @@ If you want to go big (rather than return to the shire), you can use `-All` to e
 
 The output file/s are named with the guid of the subscription. This is true even if you filter to specific resources by Resource Group or Tag, and any existing file with the same name will be overwritten.
 
-### Facing your first challenge
+### Carrying a heavy burden
 
 > _"It is the small things, everyday deeds of ordinary folk that keep the darkness at bay."_ — Gandalf
 
@@ -87,13 +89,26 @@ Depending on your resources, you'll probably get quite a lot of output because b
 Invoke-PSRule -InputPath "$pwd/out" -Module 'PSRule.Rules.Azure' -Outcome Fail
 ```
 
-![One does not simply test Terraform meme](/content/images/2025/psrule-output.png){: .align-center}
+![PSRule for Azure output example](/content/images/2025/psrule-output.png){: .align-center}
 
 - Review the output
+
+### Making difficult decisions
+
+> _"This task was appointed to you. And if you do not find a way, no one will."_ — Galadriel
+
 - Configure rules
+
+### Relying on friends (or automation)
+
+> _"You cannot trust us to let you face trouble alone."_ — Samwise Gamgee
+
 - Implementing a pipeline
-- Authoring your own rules
 
 ### Journeying onward
+
+> _"Don't adventures ever have an end? I suppose not. Someone else always has to carry on on the story."_ — Bilbo Baggins
+
+- Authoring your own rules
 
 Azure Policy..?
