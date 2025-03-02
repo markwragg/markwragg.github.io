@@ -31,7 +31,9 @@ I suspect it was something like that anyway.
 
 The idea is that you (or Microsoft, or the community) define rules for how your infrastructure should be configured and PSRule (executed as part of your development process) confirms those constraints are being followed. Infrastructure code is often complex, and can be developed by multiple individuals or teams over time. PSRule acts as a guard rail to ensure the infrastructure requirements of your organisation are being followed. 
 
-Obviously developing these rules is itself a timely endeavour, but PSRule has done the heavy lifting for you by providing you with various pre-built rules based on best practice guidance such as the [Azure Well-architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/). PSRule is extensible, so you chose which existing rules you want to use, and customise them to meet your requirements, and/or develop your own rules to meet your specific requirements.
+Obviously developing these rules is itself a timely endeavour, but PSRule has done the heavy lifting for you by providing various pre-built rules based on best practice guidance such as the [Azure Well-architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/). PSRule is extensible, so you chose which existing rules you want to use, and customise them to meet your requirements, and/or develop your own rules to meet your specific requirements.
+
+### Getting Started
 
 [Installing PSRule for Azure](https://azure.github.io/PSRule.Rules.Azure/install/) requires no difficult journey to Mount Doom. Simply do the following:
 
