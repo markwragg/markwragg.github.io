@@ -23,9 +23,9 @@ This blog post is part of the [Azure Spring Clean 2025](https://learn.microsoft.
 > 
 > One tool to [PSRule](https://microsoft.github.io/PSRule/v2/) them all.
 
-_I suspect it was something like that anyway._
+I suspect it was something like that anyway.
 
-If you've never heard of it, [PSrule can be found in GitHub](https://github.com/microsoft/PSRule) and has been in development since December 2018. At time of writing the current stable version is v2.9.0 (v3 is in development). The [official website](https://microsoft.github.io/PSRule/v2/) has lots of guidance on getting started, and is officially described as:
+[PSrule can be found in GitHub](https://github.com/microsoft/PSRule) and has been in development since December 2018. At time of writing the current stable version is v2.9.0 (v3 is in development). The [official website](https://microsoft.github.io/PSRule/v2/) has lots of guidance on getting started, and is officially described as:
 
 > "A rules engine geared towards testing Infrastructure as Code (IaC). Rules you write or import perform static analysis on IaC artifacts such as: templates, manifests, pipelines, and workflows."
 
