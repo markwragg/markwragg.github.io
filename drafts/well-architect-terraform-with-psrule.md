@@ -29,7 +29,7 @@ I suspect it was something like that anyway.
 
 > "A rules engine geared towards testing Infrastructure as Code (IaC). Rules you write or import perform static analysis on IaC artifacts such as: templates, manifests, pipelines, and workflows."
 
-The idea is that you (or Microsoft, or the community) define rules for how your infrastructure should be configured and PSRule (executed as part of your development process) confirms those constraints are being followed. Infrastructure code is often complex, and can be developed by multiple individuals or teams over time. PSRule can act as a guard rail to ensure the infrastructure requirements of your organisation are being followed, or used to evaluated the quality of existing infrastructure.
+The idea is that you (or Microsoft, the community, the Council of Elrond) define rules for how your infrastructure should be configured and PSRule (executed as part of your development process) confirms those constraints are being followed. Infrastructure code is often complex, and can be developed by multiple individuals or teams over time. PSRule can act as a guard rail to ensure the infrastructure requirements of your organisation are being followed, or used to evaluated the quality of existing infrastructure.
 
 Obviously developing these rules is itself a timely endeavour, but PSRule has done the heavy lifting for you by providing various pre-built rules based on best practice guidance such as the [Azure Well-architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/). PSRule is extensible, so you choose which existing rules you want to use, and customise them (and/or develop your own rules) to meet your requirements.
 
@@ -178,7 +178,11 @@ You will see a warning when a specified baseline is outdated.
 
 While it might be helpful to have a band of [hobbitses](https://en.wiktionary.org/wiki/hobbitses) to assist with this work, a more DevOpses approach might be to implement a pipeline. Once you've done the above: established your baseline and excluded or suppressed rules that do not apply to your infrastructure, it may make sense to include a run of PSRule as part of your CI pipeline, and perhaps as a gate for infrastructure Pull Requests. [PSRule provides guidance on this](https://azure.github.io/PSRule.Rules.Azure/creating-your-pipeline) but it is geared towards testing the Bicep or ARM static files. For Terraform we need to do an in-flight analysis post-deployment.
 
+Here's how you might do that in Azure DevOps:
 
+```yaml
+
+```
 
 ### Journeying onward
 
