@@ -226,15 +226,14 @@ stages:
   - job: PSRule
     displayName: 'Execute PSRule'
     steps:
-      - task: AzureCLI@2
+      - task: AzurePowerShell@5
             displayName: Export PSRule Data and Execute Rules
             inputs:
               azureSubscription: $(azureSubscription)
-              scriptType: pscore
-              scriptLocation: inlineScript
-              inlineScript: |
-                $modules = 'Az.Resources','PSRule.Rules.Azure'
-                Install-Module -Name $modules -Scope CurrentUser -Force -ErrorAction Stop
+              scriptType: InlineScript
+              azurePowerShellVersion: LatestVersion
+              Inline: |
+                Install-Module -Name 'PSRule.Rules.Azure' -Scope CurrentUser -Force -ErrorAction Stop
 
                 New-Item -Path out -ItemType Directory -Force
                 Export-AzRuleData -OutputPath 'out'
@@ -242,7 +241,12 @@ stages:
                 Assert-PSRule -InputPath 'out' -Module 'PSRule.Rules.Azure' -Outcome Fail -Baseline 'Azure.GA_2024_12'
 ```
 
-Note the usage of `Assert-PSRule` instead of `Invoke-PSRule`. This command returns formatted text instead of PowerShell objects and is likely easier to read in the output of a pipeline job.
+Note the usage of `Assert-PSRule` instead of `Invoke-PSRule`. This command returns formatted text instead of PowerShell objects which is easier to read in the output of a pipeline job.
+
+The pipeline job will fail if the tests fail, and the output will look something like this:
+
+![PSRule for Azure pipeline output example](/content/images/2025/psrule-pipeline-output.png){: .align-center}
+
 
 ### Journeying onward
 
