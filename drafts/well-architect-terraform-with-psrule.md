@@ -233,6 +233,9 @@ stages:
               scriptType: pscore
               scriptLocation: inlineScript
               inlineScript: |
+                $modules = 'Az.Resources','PSRule.Rules.Azure'
+                Install-Module -Name $modules -Scope CurrentUser -Force -ErrorAction Stop
+
                 New-Item -Path out -ItemType Directory -Force
                 Export-AzRuleData -OutputPath 'out'
 
@@ -248,3 +251,5 @@ Note the usage of `Assert-PSRule` instead of `Invoke-PSRule`. This command retur
 - Authoring your own rules
 
 Azure Policy..?
+
+![Lord of the Rings fellowship](/content/images/2025/lotr-fellowship.jpg){: .align-center}
