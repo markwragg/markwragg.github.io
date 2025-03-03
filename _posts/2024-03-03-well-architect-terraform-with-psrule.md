@@ -4,7 +4,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/one-ring.jpg"
   teaser: "/content/images/2025/one-ring.jpg"
-date: "2025-03-02 09:00:00"
+date: "2025-03-03 17:00:00"
 tags:
   - azure
   - psrule
@@ -334,4 +334,4 @@ For other great content in this year's Azure Spring Clean, check out the [websit
 
 ![Lord of the Rings fellowship](/content/images/2025/lotr-fellowship.jpg){: .align-center}
 
-_Did you know that in the books, 17 years pass between Frodo receiving the ring and heading off on his quest? Once he finally got going he travelled about 1800 miles, from Bag End to Mount Doom, in about 6 months. It would likely have been quicker by eagle._
+_Did you know that in the books, 17 years pass between Frodo receiving the ring and heading off on his quest? Once he finally got going he [travelled about 1800 miles, from Bag End to Mount Doom, in about 6 months](https://www.theonering.net/torwp/2014/05/31/89705-compare-the-time-and-distance-travelled-in-the-hobbit-and-the-lord-of-the-rings/). It would likely have been quicker by eagle._
