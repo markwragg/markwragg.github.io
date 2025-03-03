@@ -19,7 +19,7 @@ This blog post is part of the [Azure Spring Clean 2025](https://learn.microsoft.
 > Many DevOps tools were gifted to the Engineers, who above all else, desired automation. For within these tools was bound the strength and will to govern the Cloud.
 > But they were all of them deceived, for another tool was made.
 > In the land of Microsoft, in the fires of Mount Azure, the Architect [Bernie White](https://www.linkedin.com/in/bernie-white/) forged, in open source, a tool to validate all others.
-> And into this tool he poured his creativity, his mastery and his determination to improve your infrastructure.
+> And into this tool he poured his creativity, his mastery and his will to improve all infrastructure.
 >
 > One tool to [PSRule](https://microsoft.github.io/PSRule/v2/) them all.
 
@@ -123,7 +123,7 @@ Azure.VNET.UseNSGs                  0     4     Fail
 ...
 ```
 
-### Make the hard choices (or the easy ones)
+### Make the hard choices (or easy ones)
 
 > _"This task was appointed to you. And if you do not find a way, no one will."_ — Galadriel
 
@@ -134,7 +134,7 @@ Once you have the output there's obviously two ways forward (three if you count 
 
 If there are issues that you can and want to fix, then simply make the required changes in your Terraform code (using the guidance provided by the recommendation). Redeploy your infrastructure and re-run the export of the rule data and analysis to confirm the test now passes.
 
-There may be issues that you don't want to fix, because the apparent misconfiguration is appropriate for your infrastructure (for example, you might have a Storage account that you need to be publicly accessible) or there may be entire rulesets that you don't consider in scope for your infrastructure (you may have no need for tags for example). PSRule allows you to control these exceptions by [configuring exclusion or suppression](https://azure.github.io/PSRule.Rules.Azure/concepts/suppression/).
+There may be issues that you don't want to fix, because the supposed misconfiguration is appropriate for your infrastructure (for example, you might have a Storage account that you need to be publicly accessible) or there may be entire rulesets that you don't consider in scope for your infrastructure (you may have no need for tags for example). PSRule allows you to control these exceptions by [configuring exclusion or suppression](https://azure.github.io/PSRule.Rules.Azure/concepts/suppression/).
 
 These customisations are configured by creating a file called `ps-rule.yaml`.
 
@@ -144,18 +144,16 @@ You can exclude a rule as follows:
 rule:
   exclude:
   # Ignore the following rules for all resources
-  - Azure.VM.UseHybridUseBenefit
-  - Azure.VM.Standalone
+  - Azure.Resource.UseTags
 ```
 
 And you can suppress a rule for specific resources like this:
 
 ```yaml
 suppression:
-  Azure.Storage.SoftDelete:
-  # Ignore soft delete on the following non-production storage accounts
-  - storagedeveus6jo36t
-  - storagedeveus1df278
+  Azure.Storage.BlobPublicAccess:
+  # Ignore blob public access on the following storage account
+  - mypublicstorageaccount
 ```
 
 These rules will no longer pass or fail.
@@ -164,11 +162,23 @@ These rules will no longer pass or fail.
 
 There's some further cleverness you can do to avoid having to manually populate resources in these files, by instead creating logic that sets up exclusions based on the value of fields such as names or tags. These are called [suppression groups](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_SuppressionGroups/).
 
+The built-in rules are routinely updated (usually monthly). As the rules are updated, the output you get may change. You can manage this by [running PSRule against a specified baseline](https://azure.github.io/PSRule.Rules.Azure/working-with-baselines/). This keeps your testing consistent, until you decide to move to a new baseline. There are also pillar specific baselines, for example if you're only interested using PSRule to evaluate cost optimisation you can use the `Azure.Pillar.CostOptimization` baseline. You can also [create your own custom baselines](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_Baseline/).
+
+[Available baselines are listed here](https://azure.github.io/PSRule.Rules.Azure/en/baselines/). To run PSRule against a specified baseline:
+
+```powershell
+Invoke-PSRule -InputPath "$pwd/out" -Module 'PSRule.Rules.Azure' -Outcome Fail -Baseline 'Azure.GA_2024_09'
+```
+
+You will see a warning when a specified baseline is outdated.
+
 ### Don't go it alone
 
 > _"Help me bear this burden."_ — Frodo
 
-- Implementing a pipeline
+While it might be helpful to have a band of [hobbitses](https://en.wiktionary.org/wiki/hobbitses) to assist with this work, a more DevOpses approach might be to implement a pipeline. Once you've done the above: established your baseline and excluded or suppressed rules that do not apply to your infrastructure, it may make sense to include a run of PSRule as part of your CI pipeline, and perhaps as a gate for infrastructure Pull Requests. [PSRule provides guidance on this](https://azure.github.io/PSRule.Rules.Azure/creating-your-pipeline) but it is geared towards testing the Bicep or ARM static files. For Terraform we need to do an in-flight analysis post-deployment.
+
+
 
 ### Journeying onward
 
