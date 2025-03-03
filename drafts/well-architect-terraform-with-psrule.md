@@ -80,13 +80,13 @@ The output file/s are named with the guid of the subscription. This is true even
 It's now time to analyse the output. You do this with `Invoke-PSRule` which you need to point at your export file/s and the `PSRule.Rules.Azure` module:
 
 ```powershell
-Invoke-PsRule -InputPath "$pwd/out" -Module 'PSRule.Rules.Azure'
+Invoke-PsRule -InputPath "$pwd/out/" -Module 'PSRule.Rules.Azure'
 ```
 
 Depending on your resources, you'll probably get quite a lot of output because by default the tool returns all results (pass, fail and error). If you want to just see failed results, execute:
 
 ```powershell
-Invoke-PSRule -InputPath "$pwd/out" -Module 'PSRule.Rules.Azure' -Outcome Fail
+Invoke-PSRule -InputPath "$pwd/out/" -Module 'PSRule.Rules.Azure' -Outcome Fail
 ```
 
 ![PSRule for Azure output example](/content/images/2025/psrule-output.png){: .align-center}
@@ -167,7 +167,7 @@ The built-in rules are routinely updated (usually monthly). As the rules are upd
 [Available baselines are listed here](https://azure.github.io/PSRule.Rules.Azure/en/baselines/). To run PSRule against a specified baseline:
 
 ```powershell
-Invoke-PSRule -InputPath "$pwd/out" -Module 'PSRule.Rules.Azure' -Outcome Fail -Baseline 'Azure.GA_2024_09'
+Invoke-PSRule -InputPath "$pwd/out/" -Module 'PSRule.Rules.Azure' -Outcome Fail -Baseline 'Azure.GA_2024_09'
 ```
 
 You will see a warning when a specified baseline is outdated.
@@ -247,13 +247,91 @@ The pipeline job will fail if the tests fail, and the output will look something
 
 ![PSRule for Azure pipeline output example](/content/images/2025/psrule-pipeline-output.png){: .align-center}
 
-
 ### Journeying onward
 
 > _"Don't adventures ever have an end? I suppose not. Someone else always has to carry on the story."_ — Bilbo Baggins
 
-- Authoring your own rules
+If you've conquered all of the above, well done! But what comes after? Well you could give some consideration to authoring your own [custom rules](https://azure.github.io/PSRule.Rules.Azure/customization/using-custom-rules/). To do this:
 
-Azure Policy..?
+1. Create a `.ps-rule` directory in your repository.
+2. Create a new custom rule ps1 file. The rule name is up to you, but must be unique. For example: `Org.Azure.Rule.ps1`.
+3. In the file define your rule. For example, here's how you might configure a rule for custom tags:
+
+```powershell
+# Synopsis: Resource Groups must have all mandatory tags defined.
+Rule 'Org.Azure.RG.Tags' -Type 'Microsoft.Resources/resourceGroups' {
+    $hasTags = $Assert.HasField($TargetObject, 'Tags')
+    if (!$hasTags.Result) {
+        return $hasTags
+    }
+
+    # Require tags be case-sensitive
+    $Assert.HasField($TargetObject.tags, 'costCentre', $True)
+    $Assert.HasField($TargetObject.tags, 'env', $True)
+}
+```
+
+In the example above the `HasField` assertion takes 3 inputs, the value being evaluated, the expected value and a boolean indicating whether the comparison should be case-sensitive. There are plenty of [other assertions](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_Assert/) you can use.
+
+Before your rule will work, you also need to add a file to the root of your repository named `ps-rule.yaml` with the following content:
+
+```yaml
+# Configure binding options
+binding:
+  targetType:
+    - 'resourceType'
+    - 'type'
+```
+
+This binding allows custom rules to use the `-Type` parameter. The in-built rules detect this automatically, but custom rules check the `ps-rule.yaml` file for their type binding configuration.
+
+You can test your custom rule by executing `Invoke-PSRule` with a `-Path` parameter:
+
+```powershell
+Invoke-PSRule -Path "$pwd/.ps-rule/" -InputPath "$pwd/out/"
+```
+
+The output will look something like this:
+
+``plaintext
+RuleName                            Outcome    Recommendation
+--------                            -------    --------------
+Org.Azure.RG.Tags                   Fail
+
+   TargetName: sometargetresource
+```
+
+You'll notice there's no Recommendation returned. We can add this by adding the `Recommend` keyword into your rule:
+
+```powershell
+Rule 'Org.Azure.RG.Tags' -Type 'Microsoft.Resources/resourceGroups' {
+    $hasTags = $Assert.HasField($TargetObject, 'Tags')
+    if (!$hasTags.Result) {
+        return $hasTags
+    }
+
+    # Require tags be case-sensitive
+    $Assert.HasField($TargetObject.tags, 'costCentre', $True)
+    $Assert.HasField($TargetObject.tags, 'env', $True)
+
+    Recommend "The following tags are mandatory: 'costCentre','env'"
+}
+```
+
+And now we can see the message:
+
+```plaintext
+RuleName                            Outcome    Recommendation
+--------                            -------    --------------
+Org.Azure.RG.Tags                   Fail       The following tags are mandatory: 'costCentre','env'
+
+   TargetName: sometargetresource
+```
+
+I hope you've found this a useful introduction to PSRule. While the focus of this blog was on Terraform, most of what is detailed above can be used to test infrastructure deployed via any mechanism (even resources created manually, but please don't :) ).
+
+For other great content in this year's Azure Spring Clean, check out the [website](https://www.azurespringclean.com/) or follow the [Azure Spring Clean list on BlueSky](https://bsky.app/profile/wragg.io/lists/3ljhoyojxk42m).
 
 ![Lord of the Rings fellowship](/content/images/2025/lotr-fellowship.jpg){: .align-center}
+
+_Did you know that in the books, 17 years pass between Frodo receiving the ring and heading off on his quest? Once he finally got going he travelled about 1800 miles, from Bag End to Mount Doom, in about 6 months. It would likely have been quicker by eagle._
