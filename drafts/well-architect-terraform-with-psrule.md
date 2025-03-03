@@ -293,7 +293,7 @@ Invoke-PSRule -Path "$pwd/.ps-rule/" -InputPath "$pwd/out/"
 
 The output will look something like this:
 
-``plaintext
+```plaintext
 RuleName                            Outcome    Recommendation
 --------                            -------    --------------
 Org.Azure.RG.Tags                   Fail
