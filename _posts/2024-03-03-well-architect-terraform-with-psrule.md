@@ -162,21 +162,21 @@ These rules will no longer pass or fail.
 
 There's some further cleverness you can do to avoid having to manually populate resources in these files, by instead creating logic that sets up exclusions based on the value of fields such as names or tags. These are called [suppression groups](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_SuppressionGroups/).
 
-The built-in rules are routinely updated (usually monthly). As the rules are updated, the output you get may change. You can manage this by [running PSRule against a specified baseline](https://azure.github.io/PSRule.Rules.Azure/working-with-baselines/). This keeps your testing consistent, until you decide to move to a new baseline. There are also pillar specific baselines, for example if you're only interested using PSRule to evaluate cost optimisation you can use the `Azure.Pillar.CostOptimization` baseline. You can also [create your own custom baselines](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_Baseline/).
+The built-in rules are routinely updated (usually monthly). As the rules are updated, the output you get may change. You can manage this by [running PSRule against a specified baseline](https://azure.github.io/PSRule.Rules.Azure/working-with-baselines/) which are published quarterly. This keeps your testing consistent, until you decide to move to a new baseline. There are also pillar specific baselines, for example if you're only interested in using PSRule to evaluate cost optimisation you can use the `Azure.Pillar.CostOptimization` baseline. You can also [create your own custom baselines](https://microsoft.github.io/PSRule/v2/concepts/PSRule/en-US/about_PSRule_Baseline/).
 
-[Available baselines are listed here](https://azure.github.io/PSRule.Rules.Azure/en/baselines/). To run PSRule against a specified baseline:
+[The built-in baselines are listed here](https://azure.github.io/PSRule.Rules.Azure/en/baselines/). To run PSRule against a specified baseline you use the `-Baseline` parameter:
 
 ```powershell
 Invoke-PSRule -InputPath "$pwd/out/" -Module 'PSRule.Rules.Azure' -Outcome Fail -Baseline 'Azure.GA_2024_09'
 ```
 
-You will see a warning when a specified baseline is outdated.
+Note: you will see a warning if you use a baseline that is outdated (i.e, not the latest).
 
 ### Don't go it alone
 
 > _"Help me bear this burden."_ — Frodo
 
-While it might be helpful to have a band of [hobbitses](https://en.wiktionary.org/wiki/hobbitses) to assist with this work, a more DevOpses approach might be to implement a pipeline. Once you've done the above: established your baseline and excluded or suppressed rules that do not apply to your infrastructure, it may make sense to include a run of PSRule as part of your CI pipeline, and perhaps as a gate for infrastructure Pull Requests. [PSRule provides guidance on this](https://azure.github.io/PSRule.Rules.Azure/creating-your-pipeline) but it is geared towards testing the Bicep or ARM static files. For Terraform we need to do an in-flight analysis post-deployment.
+While it might be helpful to have a band of [hobbitses](https://en.wiktionary.org/wiki/hobbitses) to assist with this work, a more DevOpses approach might be to implement a pipeline. Once you've done the above: established your baseline and excluded or suppressed rules that do not apply to your infrastructure, it may make sense to include a run of PSRule as part of your CI pipeline, and perhaps as a gate for infrastructure Pull Requests. [PSRule provides guidance on this](https://azure.github.io/PSRule.Rules.Azure/creating-your-pipeline) but it is once again geared towards testing Bicep or ARM static files. For Terraform we need to do an in-flight analysis post-deployment.
 
 Here's how you might do that in Azure DevOps:
 
