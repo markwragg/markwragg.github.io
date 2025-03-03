@@ -4,14 +4,14 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/one-ring.jpg"
   teaser: "/content/images/2025/one-ring.jpg"
-date: '2025-03-02 09:00:00'
+date: "2025-03-02 09:00:00"
 tags:
-- azure
-- psrule
-- terraform
-- azuredevops
-- pipelines
-- powershell
+  - azure
+  - psrule
+  - terraform
+  - azuredevops
+  - pipelines
+  - powershell
 ---
 
 This blog post is part of the [Azure Spring Clean 2025](https://learn.microsoft.com/en-us/azure/well-architected/) community event, promoting well managed Azure tenants. In last year's Azure Spring Clean, [Dan Rios blogged about using PSRule for Bicep code](https://rios.engineer/azure-spring-clean-azure-best-practice-for-bicep-with-psrule/). The focus of this blog post is on how you can use PSRule to validate Azure resources deployed via [Terraform by HashiCorp](https://www.terraform.io/).
@@ -143,8 +143,8 @@ You can exclude a rule as follows:
 ```yaml
 rule:
   exclude:
-  # Ignore the following rules for all resources
-  - Azure.Resource.UseTags
+    # Ignore the following rules for all resources
+    - Azure.Resource.UseTags
 ```
 
 And you can suppress a rule for specific resources like this:
@@ -152,8 +152,8 @@ And you can suppress a rule for specific resources like this:
 ```yaml
 suppression:
   Azure.Storage.BlobPublicAccess:
-  # Ignore blob public access on the following storage account
-  - mypublicstorageaccount
+    # Ignore blob public access on the following storage account
+    - mypublicstorageaccount
 ```
 
 These rules will no longer pass or fail.
@@ -181,8 +181,65 @@ While it might be helpful to have a band of [hobbitses](https://en.wiktionary.or
 Here's how you might do that in Azure DevOps:
 
 ```yaml
+trigger:
+- main
 
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Plan
+  displayName: 'Terraform Plan'
+  jobs:
+  - job: TerraformPlan
+    displayName: 'Terraform Plan'
+    steps:
+    - task: TerraformInstaller@0
+      inputs:
+        terraformVersion: 'latest'
+
+    - script: |
+        terraform --version
+        terraform init -backend-config="storage_account_name=$(storageAccountName)" -backend-config="container_name=$(containerName)" -backend-config="key=$(key)" -backend-config="access_key=$(accessKey)"
+        terraform plan -out=tfplan
+      displayName: 'Terraform Init and Plan'
+
+- stage: Deploy
+  displayName: 'Terraform Apply'
+  jobs:
+  - job: TerraformApply
+    displayName: 'Terraform Apply'
+    steps:
+    - task: TerraformInstaller@0
+      inputs:
+        terraformVersion: 'latest'
+
+    - script: |
+        terraform --version
+        terraform init -backend-config="storage_account_name=$(storageAccountName)" -backend-config="container_name=$(containerName)" -backend-config="key=$(key)" -backend-config="access_key=$(accessKey)"
+        terraform apply -auto-approve tfplan
+      displayName: 'Terraform Init and Apply'
+
+- stage: PSRule
+  displayName: 'Execute PSRule'
+  jobs:
+  - job: PSRule
+    displayName: 'Execute PSRule'
+    steps:
+      - task: AzureCLI@2
+            displayName: Export PSRule Data and Execute Rules
+            inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: pscore
+              scriptLocation: inlineScript
+              inlineScript: |
+                New-Item -Path out -ItemType Directory -Force
+                Export-AzRuleData -OutputPath 'out'
+
+                Assert-PSRule -InputPath 'out' -Module 'PSRule.Rules.Azure' -Outcome Fail -Baseline 'Azure.GA_2024_12'
 ```
+
+Note the usage of `Assert-PSRule` instead of `Invoke-PSRule`. This command returns formatted text instead of PowerShell objects and is likely easier to read in the output of a pipeline job.
 
 ### Journeying onward
 
