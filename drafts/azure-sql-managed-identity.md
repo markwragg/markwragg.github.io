@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Managed Identity
+title: Connecting to an Azure SQL database via a managed identity
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/azure-sql.jpg"
