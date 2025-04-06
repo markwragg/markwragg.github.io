@@ -73,7 +73,7 @@ Once you've configured a System Assigned identity you need to [grant it the Dire
 
 ## 3. Execute your SQL scripts to configure the managed identity permissions and roles
 
-Having completed the above, we could now configure the Logic App managed identity as a user in the SQL server as follows:
+Having completed the above, we could now configure the Logic App managed identity as a user in the SQL server as follows (this script runs in another pipeline where the specific logic app is deployed that we wanted to grant access):
 
 > Because we configured the pipeline user as a AD Admin, the below uses Az CLI to get the current users access token to authenticate to SQL. If you configured another user as SQL Server AD Admin you'll need to authenticate to SQL with those credentials.
 
