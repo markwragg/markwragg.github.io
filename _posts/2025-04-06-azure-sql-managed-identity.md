@@ -1,5 +1,5 @@
 ---
-title: Configuring a managed identity as an Azure SQL user via an Azure DevOps pipeline
+title: Configuring a Logic App managed identity as an Azure SQL user via an Azure DevOps pipeline
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/connection.jpg"
