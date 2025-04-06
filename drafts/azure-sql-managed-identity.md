@@ -1,10 +1,10 @@
 ---
-title: Configuring Azure SQL managed identity access via a pipeline
+title: Configuring a managed identity as an Azure SQL user via an Azure DevOps pipeline
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/azure-sql.jpg"
   teaser: "/content/images/2025/azure-sql.jpg"
-date: "2025-03-09 09:00:00"
+date: "2025-04-06 11:00:00"
 tags:
   - azure
   - sql
