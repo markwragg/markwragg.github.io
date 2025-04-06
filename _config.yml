@@ -7,7 +7,7 @@ masthead_title: wragg.io | blog
 subtitle: Windows, DevOps, Powershell, Pester, Azure, Terraform
 name: Mark Wragg
 
-description: "The personal IT blog of Mark Wragg, a Windows DevOps Engineer in the UK."
+description: "The personal IT blog of Mark Wragg, an Azure DevOps Engineer in the UK."
 
 defaults:
   # _posts
@@ -38,7 +38,7 @@ author:
   name             : Mark Wragg
   avatar           : /content/images/MarkWragg.png
   bio              : >
-    Windows DevOps Engineer and PowerShell fanatic. IT Contractor. Director @ MPFE Consultancy Ltd.
+    Azure DevOps Engineer and PowerShell fanatic. IT Contractor. Director @ MPFE Consultancy Ltd.
   location         : "Basingstoke, UK"
   email            : mark@wragg.io
   links:

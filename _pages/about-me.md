@@ -6,16 +6,17 @@ header:
   overlay_image: "/content/images/mark-wragg-pester-presentation.jpg"
 ---
 
-👋 Hi! I am a Windows DevOps Engineer from the UK. I live in Basingstoke with my wife and three small humans.
+👋 Hi! I am an Azure DevOps Engineer from the UK. I live in Basingstoke with my wife and three small humans.
 
-I've worked full-time in IT since graduating with a Degree in Computing in 2003, with the exception of a year out to give Teacher Training a whirl. Much of my initial IT career experience was working in front-line operations roles, supporting infrastructure and SaaS applications hosted in private data centres and the cloud. Since 2017 I've worked as a DevOps Engineer and for the last few years as a contractor. My experience is predominantly with Microsoft technologies but I can generally turn a quick hand to any tool and I have experience with AWS and Azure as well as a variety of DevOps toolsets.
+I've worked full-time in IT since graduating with a Degree in Computing in 2003, with the exception of a year out to give teacher training a whirl. Much of my initial IT career experience was working in front-line operations roles, supporting infrastructure and SaaS applications hosted in private data centres and the cloud. Since 2017 I've worked as a DevOps Engineer and for the last few years as a contractor. My experience is predominantly with Microsoft technologies but I can generally turn a quick hand to any tool. I have prior experience with AWS but my more recent experience is with Azure, along with a variety of DevOps toolsets.
 
 You can follow me on Bluesky [@wragg.io](https://bsky.app/profile/wragg.io).
 
-I am particularly passionate about PowerShell and have spoken twice at [PSDay.UK](https://psday.uk/), the UK's annual PowerShell Conference. If you'd like to view my talks they can be found here:
+I am particularly passionate about PowerShell and have spoken twice at [PSDay.UK](https://psday.uk/), the UK's annual PowerShell Conference, and on an episode of [The PowerShell Podcast](https://powershellpodcast.podbean.com/). If you'd like to view my talks they can be found here:
 
 #### Public Speaking
 
+- [The PowerShell Podcast E109 Cloud Chronicles: Mark Wragg's Journey in DevOps](https://www.youtube.com/watch?v=AEl6FQXTAEY) *-- Recorded March 2024*
 - [Measure all the things with Influx, Grafana and PowerShell](https://www.youtube.com/watch?v=V7PYt9tWFw8) *-- PSDay Birmingham 2019*
 - [Mastering PowerShell Testing with Pester](https://www.youtube.com/watch?v=BbOiQCgDDR8&feature=youtu.be) *-- PSDay London 2018*
 - [How to Develop Cross-Platform Compatible Modules using PowerShell Code](https://github.com/markwragg/Presentations/tree/master/20180925_Southampton-PSUG) *-- Southampton PowerShell Usergroup 2018 (slides only, not recorded)*
