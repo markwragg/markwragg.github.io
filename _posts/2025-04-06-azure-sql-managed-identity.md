@@ -9,6 +9,7 @@ tags:
   - azure
   - sql
   - azuredevops
+  - pipelines
   - powershell
 ---
 
