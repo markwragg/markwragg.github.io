@@ -2,8 +2,8 @@
 title: Configuring a managed identity as an Azure SQL user via an Azure DevOps pipeline
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2025/azure-sql.jpg"
-  teaser: "/content/images/2025/azure-sql.jpg"
+  overlay_image: "/content/images/2025/connection.jpg"
+  teaser: "/content/images/2025/connection.jpg"
 date: "2025-04-06 11:00:00"
 tags:
   - azure
@@ -27,7 +27,7 @@ Getting this setup to execute via a pipeline can be done via the following three
 
 > To configure a managed identity as a user within Azure SQL the user must be configured by another Entra ID account
 
-At first this might seem like a [chicken and egg scenario](https://en.wikipedia.org/wiki/Chicken_or_the_egg), because how can you configure an Entra ID account as a user without already having an Entra ID account as a user? The answer is to configure an Entra ID account as the SQL Server AD Administrator. If you attempt to connect using local SQL credentials (even those with system administrator permissions) and attempt to create a SQL login for an Entra ID user you'll get an error.
+At first this might seem like a [chicken and egg scenario](https://en.wikipedia.org/wiki/Chicken_or_the_egg), because how can you configure an Entra ID account as a user without already having an Entra ID account as a user? The answer is to configure an Entra ID account as the SQL Server AD Administrator. If you connect using local SQL credentials (even those with system administrator permissions) and attempt to create a SQL login for an Entra ID user you'll get an error.
 
 Because we wanted to be able to configure the Logic App managed identity with permissions to SQL via the pipeline, I made the service principal of the pipeline the Azure AD Administrator. I did this via PowerShell as follows (this script ran in the pipeline that deploys Azure SQL, which has new input variables to specify the name `$sqlAdAdminName` and object ID `$sqlAdAdminObjectId` of the pipeline service principal):
 
