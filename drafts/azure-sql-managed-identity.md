@@ -16,16 +16,23 @@ I was recently tasked with enabling connectivity to an Azure SQL database via th
 
 Azure provides managed identities as a secure and convenient way to manage access to resources. By configuring a managed identity you no longer need to store secrets, keys or credentials. For SQL server, the traditional way to access a database would be via a connection string that would include a username and password. However managed identities are password-less, so eliminate the need to provide a password directly in the connection string.
 
-The complexity of this task is due to the following:
+The complexity of this task comes from the following issues:
 
-## 1. To configure a managed identity as a user within Azure SQL the user must be configured by another Entra ID account
+- To configure a managed identity as a user within Azure SQL the user must be configured by another Entra ID account
+- The SQL Server itself must be able to validate the Entra ID user you are configuring
+
+Getting this setup to execute via a pipeline can be done via the following three tasks:
+
+## 1. Configure an AD Administrator for the SQL server
+
+> To configure a managed identity as a user within Azure SQL the user must be configured by another Entra ID account
 
 At first this might seem like a [chicken and egg scenario](https://en.wikipedia.org/wiki/Chicken_or_the_egg), because how can you configure an Entra ID account as a user without already having an Entra ID account as a user? The answer is to configure an Entra ID account as the SQL Server AD Administrator. If you attempt to connect using local SQL credentials (even those with system administrator permissions) and attempt to create a SQL login for an Entra ID user you'll get an error.
 
 Because we wanted to be able to configure the Logic App managed identity with permissions to SQL via the pipeline, I made the service principal of the pipeline the Azure AD Administrator. I did this via PowerShell as follows (this script ran in the pipeline that deploys Azure SQL, which has new input variables to specify the name `$sqlAdAdminName` and object ID `$sqlAdAdminObjectId` of the pipeline service principal):
 
 ```powershell
-# Get existing Sql Server configuration
+# Get existing Sql server configuration
 $sqlServer = az sql server show --name $sqlServerName --resource-group $resourceGroup --output json | ConvertFrom-Json
 
 # Check if AD admin already exists
@@ -48,9 +55,11 @@ else {
 
 If you didn't want to use the pipeline's service principal as the AD administrator, you could configure another Entra ID user or group and then provide the credentials for that user during your pipeline execution. Obviously using the pipeline's service principal negates the need to store any credentials, but it does mean anything executed via the pipeline's service principal in the future has AD Administrator access to the SQL Server, so would have to be carefully secured. It's up to you to decide whether this is appropriate for your specific database/scenario.
 
-## 2. The SQL Server itself must be able to validate the Entra ID user you are configuring
+## 2. Enable a system-assigned (or user-assigned) managed identity on the SQL server
 
-You might think (as I did) that the Entra ID user you're now connecting to SQL Server with to execute your commands to create the new Entra ID login would have enough access by itself to complete the task. But actually, when you add a directory user to SQL Server, it seems SQL itself has to do a bit of validation against the directory. To do this, the Azure SQL Server needs either a System Assigned identity, or User Assigned identity configured with specific permissions to read the Entra ID directory.
+> The SQL Server itself must be able to validate the Entra ID user you are configuring
+
+You might think (as I did) that the Entra ID user you're now connecting to the SQL server with to execute your commands to create the new Entra ID login would have enough access by itself to complete the task. But actually, when you add a directory user to SQL server, it seems the SQL server itself has to do a bit of validation against the directory. To do this, the Azure SQL Server needs either a System Assigned identity, or User Assigned identity configured with specific permissions to read the Entra ID directory.
 
 You can enable a System Assigned identity via PowerShell as follows:
 
