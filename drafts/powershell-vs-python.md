@@ -10,7 +10,6 @@ tags:
 - python
 ---
 
-<div markdown="1">
 <table>
 <tr>
 <th>Concept</th>
@@ -20,11 +19,11 @@ tags:
 <tr>
 <td>Defining a string</td>
 <td>
-
+<div markdown="1">
 ```powershell
 $text = 'sometext'
 ```
-
+</div>
 </td>
 <td>
 
@@ -34,4 +33,3 @@ text = 'sometext'
 </td>
 </tr>
 </table>
-</div>
