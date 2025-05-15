@@ -12,24 +12,29 @@ tags:
 
 <table>
 <tr>
-<th>Concept</th>
-<th>PowerShell</th>
-<th>Python</th>
+<th width="10%">Concept</th>
+<th width="45%">PowerShell</th>
+<th width="45%">Python</th>
 </tr>
 <tr>
 <td>Defining a string</td>
 <td>
-<div>
+<div markdown="1">
+
 ```powershell
 $text = 'sometext'
 ```
+
 </div>
 </td>
 <td>
+<di markdown="1">
 
 ```python
 text = 'sometext'
 ```
+
+</div>
 </td>
 </tr>
 </table>
