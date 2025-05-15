@@ -11,11 +11,13 @@ tags:
 ---
 
 <table>
+
 <tr>
-<th width="10%">Concept</th>
-<th width="45%">PowerShell</th>
-<th width="45%">Python</th>
+<th width="20%">Concept</th>
+<th width="40%">PowerShell</th>
+<th width="40%">Python</th>
 </tr>
+
 <tr>
 <td>Defining a string</td>
 <td>
@@ -28,7 +30,7 @@ $text = 'sometext'
 </div>
 </td>
 <td>
-<di markdown="1">
+<div markdown="1">
 
 ```python
 text = 'sometext'
@@ -37,4 +39,45 @@ text = 'sometext'
 </div>
 </td>
 </tr>
+
+<tr>
+<td>if / elseif / else</td>
+<td>
+<div markdown="1">
+
+```powershell
+$a = 33
+$b = 200
+
+if ($b -gt $a) {
+  Write-Host "b is greater than a"
+}
+elseif ($a -eq $b) {
+  Write-Host "a and b are equal"
+}
+else {
+  Write-Host "a is greater than b"
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+a = 33
+b = 200
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+```
+
+</div>
+</td>
+</tr>
+
 </table>
