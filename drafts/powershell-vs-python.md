@@ -11,26 +11,25 @@ tags:
 ---
 
 <table>
-  <tr>
-    <th>Concept</th>
-    <th>PowerShell</th>
-    <th>Python</th>
-  </tr>
-  <tr>
-    <td>Defining a string</td>
-    <td>
+<tr>
+<th>Concept</th>
+<th>PowerShell</th>
+<th>Python</th>
+</tr>
+<tr>
+<td>Defining a string</td>
+<td>
 
-    ```powershell
-    $text = 'sometext'
-    ```
+```powershell
+$text = 'sometext'
+```
 
-    </td>
-    <td>
+</td>
+<td>
 
-    ```python
-    text = 'sometext'
-    ```
-
-    </td>
-  </tr>
+```python
+text = 'sometext'
+```
+</td>
+</tr>
 </table>
