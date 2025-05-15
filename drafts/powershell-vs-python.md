@@ -12,18 +12,21 @@ tags:
 
 <table>
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Concept</th>
+    <th>PowerShell</th>
+    <th>Python</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td>Defining a string</td>
+    <td>
+    ```powershell
+    $text = 'sometext'
+    ```
+    </td>
+    <td>
+    ```python
+    text = 'sometext'
+    ```
+    </td>
   </tr>
 </table>
