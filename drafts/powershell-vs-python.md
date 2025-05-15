@@ -11,10 +11,11 @@ tags:
 ---
 
 <style type="text/css">
+  table { display: none }
   td { vertical-align: top; }
 </style>
 
-<table width="100%" display="none">
+<table width="100%">
 
 <tr width="100%">
 <th width="20%">Concept</th>
