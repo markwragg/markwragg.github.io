@@ -19,14 +19,18 @@ tags:
   <tr>
     <td>Defining a string</td>
     <td>
+
     ```powershell
     $text = 'sometext'
     ```
+
     </td>
     <td>
+
     ```python
     text = 'sometext'
     ```
+
     </td>
   </tr>
 </table>
