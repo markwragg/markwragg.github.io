@@ -10,6 +10,15 @@ tags:
 - python
 ---
 
+<style type="text/css">
+  td {
+    vertical-align: top
+  }
+  div {
+    markdown: 1
+  }
+</style>
+
 <table>
 
 <tr>
@@ -21,7 +30,7 @@ tags:
 <tr>
 <td>Defining a string</td>
 <td>
-<div markdown="1">
+<div>
 
 ```powershell
 $text = 'sometext'
@@ -30,7 +39,7 @@ $text = 'sometext'
 </div>
 </td>
 <td>
-<div markdown="1">
+<div>
 
 ```python
 text = 'sometext'
@@ -43,7 +52,7 @@ text = 'sometext'
 <tr>
 <td>if / elseif / else</td>
 <td>
-<div markdown="1">
+<div>
 
 ```powershell
 $a = 33
@@ -68,10 +77,13 @@ else {
 ```python
 a = 33
 b = 200
+
 if b > a:
   print("b is greater than a")
+
 elif a == b:
   print("a and b are equal")
+
 else:
   print("a is greater than b")
 ```
