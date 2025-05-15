@@ -11,14 +11,12 @@ tags:
 ---
 
 <style type="text/css">
-  table { width: 100%; }
-  tr { width: 100%; }
   td { vertical-align: top; }
 </style>
 
-<table>
+<table width="100%">
 
-<tr>
+<tr width="100%">
 <th width="20%">Concept</th>
 <th width="40%">PowerShell</th>
 <th width="40%">Python</th>
