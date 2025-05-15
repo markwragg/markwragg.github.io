@@ -11,12 +11,7 @@ tags:
 ---
 
 <style type="text/css">
-  td {
-    vertical-align: top
-  }
-  div {
-    markdown: 1
-  }
+  td { vertical-align: top; }
 </style>
 
 <table>
@@ -30,7 +25,7 @@ tags:
 <tr>
 <td>Defining a string</td>
 <td>
-<div>
+<div markdown="1">
 
 ```powershell
 $text = 'sometext'
@@ -39,7 +34,7 @@ $text = 'sometext'
 </div>
 </td>
 <td>
-<div>
+<div markdown="1">
 
 ```python
 text = 'sometext'
@@ -52,7 +47,7 @@ text = 'sometext'
 <tr>
 <td>if / elseif / else</td>
 <td>
-<div>
+<div markdown="1">
 
 ```powershell
 $a = 33
