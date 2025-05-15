@@ -10,6 +10,7 @@ tags:
 - python
 ---
 
+<div markdown="1">
 <table>
 <tr>
 <th>Concept</th>
@@ -33,3 +34,4 @@ text = 'sometext'
 </td>
 </tr>
 </table>
+</div>
