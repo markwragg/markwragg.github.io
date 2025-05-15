@@ -14,7 +14,7 @@ tags:
   td { vertical-align: top; }
 </style>
 
-<table>
+<table width="100%">
 
 <tr>
 <th width="20%">Concept</th>
@@ -81,6 +81,7 @@ elif a == b:
 
 else:
   print("a is greater than b")
+
 ```
 
 </div>
