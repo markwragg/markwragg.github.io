@@ -14,7 +14,7 @@ tags:
   td { vertical-align: top; }
 </style>
 
-<table width="100%">
+<table width="100%" display="none">
 
 <tr width="100%">
 <th width="20%">Concept</th>
