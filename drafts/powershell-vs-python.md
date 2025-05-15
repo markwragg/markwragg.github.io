@@ -19,7 +19,7 @@ tags:
 <tr>
 <td>Defining a string</td>
 <td>
-<div markdown="1">
+<div>
 ```powershell
 $text = 'sometext'
 ```
