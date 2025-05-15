@@ -17,9 +17,9 @@ tags:
 <table width="100%">
 
 <tr>
-<th>Concept</th>
-<th>PowerShell</th>
-<th>Python</th>
+<th width="20%">Concept</th>
+<th width="40%">PowerShell</th>
+<th width="40%">Python</th>
 </tr>
 
 <tr>
