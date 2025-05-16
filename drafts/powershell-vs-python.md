@@ -113,20 +113,24 @@ print("Hello, World!") #This is also a comment
 
 
 ```
-You can also use `'''` for multiline comments, which are ignored unless used as [docstrings](https://www.geeksforgeeks.org/python-docstrings/).
+Unofficially, you can also use `'''` for multiline comments, which are ignored unless used as [docstrings](https://www.geeksforgeeks.org/python-docstrings/).
 
 </div>
 </td>
 </tr>
 
 <tr>
-<td>Defining a string</td>
+<td>Variables
+
+A variable is created the moment you first assign a value to it.</td>
 <td>
 <div markdown="1">
 
 ```powershell
-$text = 'sometext'
+$myVariable = 5
+$text = 'sometext' #strings can be declared with ' or "
 ```
+PowerShell variables are case-insensitive, `$text` is the same as `$Text`.
 
 </div>
 </td>
@@ -134,8 +138,10 @@ $text = 'sometext'
 <div markdown="1">
 
 ```python
-text = 'sometext'
+myVariable = 5
+text = 'sometext' #strings can be declared with ' or "
 ```
+Python variables are case-sensitive `text` is **not** the same as `Text`.
 
 </div>
 </td>
