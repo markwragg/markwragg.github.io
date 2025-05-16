@@ -533,4 +533,39 @@ match day:
 </td>
 </tr>
 
+
+<tr><td colspan="3"><div markdown="1">
+### Iteration
+
+- Python doesn't have a `do`..`until` loop, but you can achieve the same result by negating the condition of a `while` loop.
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>While Loops</td>
+<td>
+<div markdown="1">
+
+```powershell
+$i = 1
+while ($i -lt 5) {
+  $i += 1
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+while i < 5:
+  i += 1
+```
+
+</div>
+</td>
+</tr>
+
 </table>
