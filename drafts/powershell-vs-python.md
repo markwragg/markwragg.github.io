@@ -13,10 +13,6 @@ tags:
 <style type="text/css">
   td { vertical-align: top; }
 
-  #wrap {
-    width:600px;
-    margin:0 auto;
-  }
   #left_col {
     float:left;
     width:70%;
@@ -27,7 +23,6 @@ tags:
   }
 </style>
 
-<div id="wrap">
 <div id="left_col" markdown="1">
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
@@ -39,8 +34,6 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 <div id="right_col">
 {% include toc icon="code" title="Concepts" %}
 </div>
-</div>
-
 
 <tr><td colspan="3"><div markdown="1">
 ### Getting started
