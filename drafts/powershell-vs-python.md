@@ -415,11 +415,11 @@ print(len("This is a string"))
 ```powershell
 $str = 'heLLo'
 
-$str.padleft(8)           # --> '   hello' (adds spaces to the left of the string)
-$str.padright(8)          # --> 'hello   ' (adds spaces to the right of the string)
-$str.tolower()            # --> 'hello' (converts string to lowercase)
-$str.toupper()            # --> 'HELLO' (converts string to uppercase)
-$str.replace('LL','YY')   # --> 'heYYo' (replaces the specified matching string value)
+$str.padleft(8)           # --> '   hello'
+$str.padright(8)          # --> 'hello   '
+$str.tolower()            # --> 'hello'
+$str.toupper()            # --> 'HELLO'
+$str.replace('LL','YY')   # --> 'heYYo'
 ```
 
 </div>
@@ -430,11 +430,11 @@ $str.replace('LL','YY')   # --> 'heYYo' (replaces the specified matching string 
 ```python
 str = 'heLLo'
 
-str.capitalize()         # --> 'HeLLo' (uppercase the first character)
-str.center(11)           # --> '   heLLo   ' (centers the string within the specified number of characters)
-str.lower()              # --> 'hello' (converts string to lowercase)
-str.upper()              # --> 'hello' (converts string to uppercase)
-str.replace('LL','YY')   # --> 'heYYo' (replaces the specified matching string value)
+str.capitalize()         # --> 'HeLLo'
+str.center(11)           # --> '   heLLo   '
+str.lower()              # --> 'hello'
+str.upper()              # --> 'hello'
+str.replace('LL','YY')   # --> 'heYYo'
 ```
 
 </div>
