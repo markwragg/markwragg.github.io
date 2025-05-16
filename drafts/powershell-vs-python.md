@@ -13,17 +13,18 @@ tags:
 <style type="text/css">
   td { vertical-align: top; }
 
-  #left_col {
+  #top_left_col {
     float:left;
     width:70%;
   }
-  #right_col {
+  #top_right_col {
     float:right;
     width:30%;
   }
 </style>
 
-<div id="left_col" markdown="1">
+<div id="top_left_col" markdown="1">
+
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
 As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
@@ -31,10 +32,13 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
 
 </div>
-<div id="right_col">
+<div id="top_right_col" markdown="1">
+
 {% include toc icon="code" title="Concepts" %}
+
 </div>
 
+<table>
 <tr><td colspan="3"><div markdown="1">
 ### Getting started
 
