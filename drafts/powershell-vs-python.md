@@ -94,10 +94,8 @@ Hello, World!
 #This is a comment
 Write-Host "Hello, world!" #This is also a comment
 
-<#
-This is a
-multiline comment
-#>
+<# This is a
+multiline comment #>
 ```
 </div>
 </td>
@@ -108,10 +106,8 @@ multiline comment
 #This is a comment
 print("Hello, World!") #This is also a comment
 
-#This is a
-#multiline comment
-
-
+# This is a
+# multiline comment
 ```
 Unofficially, you can also use `'''` for multiline comments, which are ignored unless used as [docstrings](https://www.geeksforgeeks.org/python-docstrings/).
 
