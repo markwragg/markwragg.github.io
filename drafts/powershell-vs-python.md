@@ -67,6 +67,7 @@ Write-Host "Hello, world!"
 ```plaintext
 Hello, World!
 ```
+Alternatively use `Write-Output` to return a PowerShell object.
 
 </div>
 </td>
@@ -78,6 +79,29 @@ print("Hello, World!")
 ```
 ```plaintext
 Hello, World!
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Comments</td>
+<td>
+<div markdown="1">
+
+```powershell
+# This is a comment
+Write-Host "Hello, world!" #This is also a comment
+```
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+# This is a comment
+print("Hello, World!") #This is also a comment
 ```
 
 </div>
