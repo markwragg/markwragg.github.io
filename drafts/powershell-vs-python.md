@@ -119,14 +119,14 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 
 <tr><td colspan="3">
 <div markdown="1">
-## Variables
+### Variables
 
 - In both languages, a variable is created the moment you first assign a value to it.
 </div>
 </td></tr>
 
 <tr>
-<td>Variables</td>
+<td>Creating variables</td>
 <td>
 <div markdown="1">
 
