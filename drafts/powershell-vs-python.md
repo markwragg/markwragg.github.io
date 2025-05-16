@@ -25,23 +25,14 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 <table>
 
-<tr>
-<td colspan="3">
-<div markdown="1">
+<tr><td colspan="3"><div markdown="1">
 ### Getting started
 
 - The latest version of PowerShell is cross-platform and can be [installed on Windows, MacOS and Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.5).
 - Python can also be [installed on a variety of platforms including Windows, MacOS and Linux](https://www.python.org/downloads/).
-</div>
-</td>
-</tr>
 
-<tr width="100%">
-<th width="20%">Concept</th>
-<th width="40%">PowerShell</th>
-<th width="40%">Python</th>
-</tr>
-
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
 <td>Check installed version</td>
@@ -133,22 +124,13 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 </td>
 </tr>
 
-<tr>
-<td colspan="3">
-<div markdown="1">
+<tr><td colspan="3"><div markdown="1">
 ### Variables
 
 - In both languages, a variable is created the moment you first assign a value to it.
 - Variables do not need to be declared with a specific type, and can change type after being set. You can however use casting to specify the data type.
-</div>
-</td>
-</tr>
-
-<tr width="100%">
-<th width="20%">Concept</th>
-<th width="40%">PowerShell</th>
-<th width="40%">Python</th>
-</tr>
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
 <td>Creating variables</td>
@@ -222,13 +204,11 @@ x,y,z = 1,2,3
 </td>
 </tr>
 
-<tr>
-<td colspan="3">
-<div markdown="1">
+<tr><td colspan="3"><div markdown="1">
 ### Conditions and If statements
-</div>
-</td>
-</tr>
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
 <td>if / elseif / else</td>
