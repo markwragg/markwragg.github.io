@@ -11,7 +11,6 @@ tags:
 ---
 
 <style type="text/css">
-  table { display: table }
   td { vertical-align: top; }
 </style>
 
