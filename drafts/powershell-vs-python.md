@@ -5,11 +5,13 @@ header:
   overlay_image: "/content/images/2025/code.jpg"
   teaser: "/content/images/2025/code.jpg"
 date: '2025-05-15 09:00:00'
-toc: true
 tags:
 - powershell
 - python
 ---
+
+{% include toc %}
+
 
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
