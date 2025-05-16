@@ -31,10 +31,9 @@ tags:
 $PSVersionTable
 ```
 ```plaintext
-Name                           Value
-----                           -----
-PSVersion                      7.4.7
-PSEdition                      Core
+Name        Value
+----        -----
+PSVersion   7.4.7
 ..
 ```
 
@@ -51,7 +50,34 @@ Python 3.13.3
 
 
 
+```
 
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Hello World</td>
+<td>
+<div markdown="1">
+
+```powershell
+Write-Host "Hello, world!"
+```
+```plaintext
+Hello, World!
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+print("Hello, World!")
+```
+```plaintext
+Hello, World!
 ```
 
 </div>
