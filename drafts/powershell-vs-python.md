@@ -17,7 +17,7 @@ PowerShell and Python are popular programming languages, with a lot of similarit
 
 As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
 
-> The PowerShell examples given below have been tested as working in PowerShell 7.5.
+> The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
 
 <style type="text/css">
   td { vertical-align: top; }
@@ -291,7 +291,7 @@ x,y,z = 1,2,3
 <tr><td colspan="3"><div markdown="1">
 ### Operators
 
-- Operators are used to perform operations on variables and values.
+- For a full list of operators see these pages: [Python](https://www.w3schools.com/python/python_operators.asp) \| [PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.5)
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
@@ -331,6 +331,38 @@ a // b   # Floor division
 </tr>
 
 <tr>
+<td>Assignment</td>
+<td>
+<div markdown="1">
+
+```powershell
+$x += 3   # --> x = x + 3 (add)
+$x -= 3   # --> x = x - 3 (subtract)
+$x *= 3   # --> x = x * 3 (multiply)
+$x /= 3   # --> x = x / 3 (divide)
+$x %= 3   # --> x = x % 3 (modulus)
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+$x += 3   # --> x = x + 3 (add)
+$x -= 3   # --> x = x - 3 (subtract)
+$x *= 3   # --> x = x * 3 (multiply)
+$x /= 3   # --> x = x / 3 (divide)
+$x %= 3   # --> x = x % 3 (modulus)
+$x **= 3   # --> x = x ** 3 (exponentiation)
+$x //= 3   # --> x = x // 3 (floor divide)
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
 <td>Comparison</td>
 <td>
 <div markdown="1">
@@ -356,6 +388,58 @@ a < b    # Less than
 a <= b   # Less than or equal to
 a > b    # Greater than
 a >= b   # Greater than or equal to
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Logical</td>
+<td>
+<div markdown="1">
+
+```powershell
+($a -gt 5) -and ($b -lt 10)
+($a -gt 5) -or ($b -lt 10)
+-not ($a -gt 5 -and $b -lt 10)
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+(a > 5) -and (b < 10)
+(a > 5) -or (b < 10)
+not(a > 5 and b < 10)
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Membership</td>
+<td>
+<div markdown="1">
+
+```powershell
+$a = 1,2,3
+3 -in $a  # True
+4 -in $a  # False
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+a = (1,2,3)
+3 in a  # True
+4 in a  # False
 ```
 
 </div>
