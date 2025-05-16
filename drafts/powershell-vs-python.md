@@ -175,10 +175,11 @@ Python variable names are case-sensitive `text` is **not** the same as `Text`.
 <div markdown="1">
 
 ```powershell
-$x = [string]3
+$x = [string]3   # '3'
 $y = [int]3
-$z = [float]3
+$z = [double]3.14
 ```
+`float` in PowerShell maps to `System.Single` which is a 32 bit integer. `double` is used in the example above to be equivalent to the Python `float` which uses a 64 bit integer.
 
 </div>
 </td>
@@ -186,10 +187,12 @@ $z = [float]3
 <div markdown="1">
 
 ```python
-x = str(3)
+x = str(3)   # '3'
 y = int(3)
-z = float(3)
+z = float(3.14)
 ```
+
+`float` in Python is a 64 bit integer.
 
 </div>
 </td>
