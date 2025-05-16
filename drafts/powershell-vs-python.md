@@ -5,14 +5,18 @@ header:
   overlay_image: "/content/images/2025/code.jpg"
   teaser: "/content/images/2025/code.jpg"
 date: "2025-05-15 09:00:00"
-classes: normal
-toc: true
-toc_label: "Code concepts"
-toc_icon: "code"
 tags:
   - powershell
   - python
 ---
+<style type="text/css">
+  td { vertical-align: top; }
+</style>
+
+<table>
+<tr>
+<td width="80%">
+<div markdown="1">
 
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
@@ -20,9 +24,12 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
 
-<style type="text/css">
-  td { vertical-align: top; }
-</style>
+</td>
+<td width="20%">
+{% include toc icon="code" title="Concepts" %}
+</td>
+</tr>
+</table>
 
 <table>
 
