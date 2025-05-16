@@ -9,18 +9,38 @@ tags:
   - powershell
   - python
 ---
+
 <style type="text/css">
   td { vertical-align: top; }
+
+  #wrap {
+    width:600px;
+    margin:0 auto;
+  }
+  #left_col {
+    float:left;
+    width:70%;
+  }
+  #right_col {
+    float:right;
+    width:30%;
+  }
 </style>
 
-<div float="right" width="150px">
-{% include toc icon="code" title="Concepts" %}
-</div>
+<div id="wrap">
+<div id="left_col" markdown="1">
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
 As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
 
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
+
+</div>
+<div id="right_col">
+{% include toc icon="code" title="Concepts" %}
+</div>
+</div>
+
 
 <tr><td colspan="3"><div markdown="1">
 ### Getting started
@@ -176,6 +196,7 @@ $x = [string]3   # '3'
 $y = [int]3
 $z = [double]3.14
 ```
+
 `float` in PowerShell maps to `System.Single` which is a 32 bit integer. `double` is used in the example above to be equivalent to the Python `float` which uses a 64 bit integer.
 
 </div>
@@ -303,6 +324,7 @@ x,y,z = 1,2,3
 $str1 = 'this is a string'
 $str2 = "this is also a string"
 ```
+
 In PowerShell you can interpolate variables inside a double quoted string:
 
 ```powershell
@@ -310,6 +332,7 @@ $name = 'Mark'
 Write-Host "my name is $name"
 Write-Host 'my name is ' + $name
 ```
+
 ```plaintext
 my name is Mark
 my name is Mark
@@ -332,6 +355,7 @@ name = 'Mark'
 print(f"my name is {name}")
 print(f'my name is {name}')
 ```
+
 ```plaintext
 my name is Mark
 my name is Mark
@@ -387,6 +411,7 @@ string'''
 ```powershell
 "This is a string".length
 ```
+
 ```plaintext
 16
 ```
@@ -399,6 +424,7 @@ string'''
 ```python
 print(len("This is a string"))
 ```
+
 ```plaintext
 16
 ```
@@ -736,7 +762,6 @@ match day:
 </div>
 </td>
 </tr>
-
 
 <tr><td colspan="3"><div markdown="1">
 ### Iteration
