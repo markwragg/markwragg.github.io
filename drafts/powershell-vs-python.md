@@ -11,14 +11,15 @@ tags:
 ---
 <style type="text/css">
   td { vertical-align: top; }
+  div { font-size: 2.441em; }
 </style>
-
-PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
 <table>
 <tr>
 <td width="70%">
-<div markdown="1" font-size="larger">
+<div markdown="1">
+PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
+
 As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
 
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
