@@ -310,9 +310,11 @@ In PowerShell you can interpolate variables inside a double quoted string:
 ```powershell
 $name = 'Mark'
 Write-Host "my name is $name"
+Write-Host 'my name is ' + $name
 ```
 ```plaintext
-my name is mark
+my name is Mark
+my name is Mark
 ```
 
 </div>
@@ -354,7 +356,7 @@ string
 "@
 
 $str2 = @'
-This is
+This is also
 a multiline
 string
 '@
