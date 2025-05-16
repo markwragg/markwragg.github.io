@@ -68,9 +68,6 @@ python --version
 ```
 ```plaintext
 Python 3.13.3
-
-
-
 ```
 
 </div>
