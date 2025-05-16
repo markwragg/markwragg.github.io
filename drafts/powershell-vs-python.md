@@ -5,12 +5,15 @@ header:
   overlay_image: "/content/images/2025/code.jpg"
   teaser: "/content/images/2025/code.jpg"
 date: '2025-05-15 09:00:00'
+toc: true
 tags:
 - powershell
 - python
 ---
 
-PowerShell and Python are similar languages.
+PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
+
+As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
 
 <style type="text/css">
   td { vertical-align: top; }
@@ -22,6 +25,17 @@ PowerShell and Python are similar languages.
 <th width="20%">Concept</th>
 <th width="40%">PowerShell</th>
 <th width="40%">Python</th>
+</tr>
+
+<tr>
+<td colspan="3">
+<div markdown="1">
+### Getting started
+
+- The latest version of PowerShell is cross-platform and can be [installed on Windows, MacOS and Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.5).
+- Python can also be [installed on a variety of platforms including Windows, MacOS and Linux](https://www.python.org/downloads/).
+</div>
+</td>
 </tr>
 
 <tr>
@@ -117,13 +131,15 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 </td>
 </tr>
 
-<tr><td colspan="3">
+<tr>
+<td colspan="3">
 <div markdown="1">
 ### Variables
 
 - In both languages, a variable is created the moment you first assign a value to it.
 </div>
-</td></tr>
+</td>
+</tr>
 
 <tr>
 <td>Creating variables</td>
