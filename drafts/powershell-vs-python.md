@@ -4,13 +4,13 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/code.jpg"
   teaser: "/content/images/2025/code.jpg"
-date: '2025-05-15 09:00:00'
+date: "2025-05-15 09:00:00"
 toc: true
 toc_label: "Code concepts"
 toc_icon: "code"
 tags:
-- powershell
-- python
+  - powershell
+  - python
 ---
 
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
@@ -30,6 +30,7 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 - The latest version of PowerShell is cross-platform and can be [installed on Windows, MacOS and Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.5).
 - Python can also be [installed on a variety of platforms including Windows, MacOS and Linux](https://www.python.org/downloads/).
+- Indentation is important in Python and is used to associate certain blocks of code, similar to how curly braces are used in PowerShell. The number of spaces you use is up to you, but must be consistent for each indented block.
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
@@ -42,6 +43,7 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 ```powershell
 $PSVersionTable
 ```
+
 ```plaintext
 Name        Value
 ----        -----
@@ -57,6 +59,7 @@ PSVersion   7.4.7
 ```python
 python --version
 ```
+
 ```plaintext
 Python 3.13.3
 ```
@@ -73,9 +76,11 @@ Python 3.13.3
 ```powershell
 Write-Host "Hello, world!"
 ```
+
 ```plaintext
 Hello, World!
 ```
+
 Alternatively use `Write-Output` to return a PowerShell object.
 
 </div>
@@ -86,6 +91,7 @@ Alternatively use `Write-Output` to return a PowerShell object.
 ```python
 print("Hello, World!")
 ```
+
 ```plaintext
 Hello, World!
 ```
@@ -106,6 +112,7 @@ Write-Host "Hello, world!" #This is also a comment
 <# This is a
 multiline comment #>
 ```
+
 </div>
 </td>
 <td>
@@ -118,6 +125,7 @@ print("Hello, World!") #This is also a comment
 # This is a
 # multiline comment
 ```
+
 Unofficially, you can also use `'''` for multiline comments, which are ignored unless used as [docstrings](https://www.geeksforgeeks.org/python-docstrings/).
 
 </div>
@@ -142,6 +150,7 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 $myVariable = 5
 $text = 'sometext' #strings can be declared with ' or "
 ```
+
 PowerShell variable names are case-insensitive, `$text` is the same as `$Text`.
 
 </div>
@@ -153,6 +162,7 @@ PowerShell variable names are case-insensitive, `$text` is the same as `$Text`.
 myVariable = 5
 text = 'sometext' #strings can be declared with ' or "
 ```
+
 Python variable names are case-sensitive `text` is **not** the same as `Text`.
 
 </div>
@@ -169,6 +179,7 @@ $x = [string]3
 $y = [int]3
 $z = [float]3
 ```
+
 </div>
 </td>
 <td>
@@ -192,6 +203,73 @@ z = float(3)
 ```powershell
 $x,$y,$z = 1,2,3
 ```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+x,y,z = 1,2,3
+```
+
+</div>
+</td>
+</tr>
+
+<tr><td colspan="3"><div markdown="1">
+### Data Types
+
+- Lists and tuples are standard Python data types that store values in a sequence. Sets are another standard Python data type that also store values. The major difference is that sets, unlike lists or tuples, cannot have multiple occurrences of the same element and store unordered values.
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Built-in Data Types</td>
+<td>
+<div markdown="1">
+
+```powershell
+$x = "some string"             #string
+$x = 20                        #int
+$x = 20.5                      #double
+$x = "ben","max","kim"         #array
+$x = 0..5                      #range
+$x = @{name = "ben"; age = 36} #Hashtable
+$x = $true                     #bool
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+x = "some string"                #str
+x = 20                           #int
+x = 20.5                         #float
+x = ["ben","max","kim"]          #list
+x = ("ben","max","kim")          #tuple
+x = range(6)                     #range
+x = {"name" : "ben", "age" : 36} #dict
+x = {"ben", "max", "kim"}        #set
+x = True                         #bool
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Assign multiple values</td>
+<td>
+<div markdown="1">
+
+```powershell
+$x,$y,$z = 1,2,3
+```
+
 </div>
 </td>
 <td>
@@ -226,6 +304,7 @@ $a -le $b   # Less than or equal to
 $a -gt $b   # Greater than
 $a -ge $b   # Greater than or equal to
 ```
+
 </div>
 </td>
 <td>
