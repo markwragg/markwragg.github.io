@@ -235,8 +235,10 @@ $x = "some string"             #string
 $x = 20                        #int
 $x = 20.5                      #double
 $x = "ben","max","kim"         #array
+
 $x = 0..5                      #range
 $x = @{name = "ben"; age = 36} #Hashtable
+
 $x = $true                     #bool
 ```
 
