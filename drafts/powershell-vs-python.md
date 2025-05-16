@@ -292,6 +292,7 @@ x,y,z = 1,2,3
 ### Strings
 
 - In both PowerShell and Python strings can be specified via single or double quotes.
+- Both PowerShell and Python have a number of built-in methods you can use on strings, but they differ. For a full list of methods see these pages: [PowerShell](http://xahlee.info/powershell/powershell_string_methods.html) \| [Python](https://www.w3schools.com/python/python_ref_string.asp)
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
