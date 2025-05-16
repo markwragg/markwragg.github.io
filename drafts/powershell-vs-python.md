@@ -549,6 +549,7 @@ match day:
 
 ```powershell
 $i = 1
+
 while ($i -lt 5) {
   $i += 1
 }
@@ -560,9 +561,63 @@ while ($i -lt 5) {
 <div markdown="1">
 
 ```python
+i = 1
+
 while i < 5:
   i += 1
+
 ```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>For Loops</td>
+<td>
+<div markdown="1">
+
+Iterate over a collection with a `foreach` loop:
+
+```powershell
+$fruits = "apple", "banana", "cherry"
+
+foreach ($fruit in $fruits) {
+  Write-Host $fruit
+}
+```
+
+Iterate a set number of times at a custom increment:
+
+```powershell
+for ($i = 0; $i -le 20; $i += 2){
+    Write-Host $i
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+Iterate over a list with a `for` loop:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+  print(fruit)
+
+```
+
+Iterate a set number of times at a custom increment:
+
+```powershell
+for i in range(0, 21, 2):
+    print(i)
+
+```
+
 
 </div>
 </td>
