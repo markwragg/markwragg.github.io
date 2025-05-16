@@ -32,12 +32,14 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 </div>
 <div id="top_right_col" markdown="1">
-
 {% include toc icon="code" title="Concepts" %}
-
 </div>
 
+<div markdown="1">
+
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
+
+</div>
 
 <table>
 <tr><td colspan="3"><div markdown="1">
