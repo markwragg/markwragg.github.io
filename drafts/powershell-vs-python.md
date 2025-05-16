@@ -16,6 +16,7 @@ tags:
 <table>
 <tr>
 <td width="70%">
+<div markdown="0">
 
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
@@ -23,6 +24,7 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
 
+</div>
 </td>
 <td width="30%">
 {% include toc icon="code" title="Concepts" %}
