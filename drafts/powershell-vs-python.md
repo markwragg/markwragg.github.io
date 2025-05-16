@@ -107,7 +107,7 @@ Hello, World!
 
 ```powershell
 #This is a comment
-Write-Host "Hello, world!" #This is also a comment
+Write-Host "Hello, world!" #This too
 
 <# This is a
 multiline comment #>
@@ -120,7 +120,7 @@ multiline comment #>
 
 ```python
 #This is a comment
-print("Hello, World!") #This is also a comment
+print("Hello, World!") #This too
 
 # This is a
 # multiline comment
@@ -148,7 +148,7 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 
 ```powershell
 $myVariable = 5
-$text = 'sometext' #strings can be declared with ' or "
+$text = 'sometext'
 ```
 
 PowerShell variable names are case-insensitive, `$text` is the same as `$Text`.
@@ -160,7 +160,7 @@ PowerShell variable names are case-insensitive, `$text` is the same as `$Text`.
 
 ```python
 myVariable = 5
-text = 'sometext' #strings can be declared with ' or "
+text = 'sometext'
 ```
 
 Python variable names are case-sensitive `text` is **not** the same as `Text`.
@@ -291,7 +291,7 @@ x,y,z = 1,2,3
 <tr><td colspan="3"><div markdown="1">
 ### Strings
 
-- In both PowerShell and Python strings can be specified via single or double quotes.
+- In both PowerShell and Python, strings can be specified via single or double quotes.
 - Both PowerShell and Python have a number of built-in methods you can use on strings, but they differ. For a full list of methods see these pages: [PowerShell](http://xahlee.info/powershell/powershell_string_methods.html) \| [Python](https://www.w3schools.com/python/python_ref_string.asp)
 
 </div></td></tr>
@@ -418,8 +418,8 @@ print(len("This is a string"))
 ```powershell
 $str = 'heLLo'
 
-$str.padleft(8)           # --> '   hello'
-$str.padright(8)          # --> 'hello   '
+$str.padleft(8)           # --> '   heLLo'
+$str.padright(8)          # --> 'heLLo   '
 $str.tolower()            # --> 'hello'
 $str.toupper()            # --> 'HELLO'
 $str.replace('LL','YY')   # --> 'heYYo'
@@ -433,11 +433,14 @@ $str.replace('LL','YY')   # --> 'heYYo'
 ```python
 str = 'heLLo'
 
-str.capitalize()         # --> 'HeLLo'
-str.center(11)           # --> '   heLLo   '
+str.rjust(8)             # --> '   heLLo'
+str.ljust(8)             # --> 'heLLo   '
 str.lower()              # --> 'hello'
 str.upper()              # --> 'hello'
 str.replace('LL','YY')   # --> 'heYYo'
+
+str.capitalize()         # --> 'HeLLo'
+str.center(11)           # --> '   heLLo   '
 ```
 
 </div>
@@ -505,11 +508,11 @@ $x %= 3   # --> x = x % 3 (modulus)
 <div markdown="1">
 
 ```python
-$x += 3   # --> x = x + 3 (add)
-$x -= 3   # --> x = x - 3 (subtract)
-$x *= 3   # --> x = x * 3 (multiply)
-$x /= 3   # --> x = x / 3 (divide)
-$x %= 3   # --> x = x % 3 (modulus)
+$x += 3    # --> x = x + 3 (add)
+$x -= 3    # --> x = x - 3 (subtract)
+$x *= 3    # --> x = x * 3 (multiply)
+$x /= 3    # --> x = x / 3 (divide)
+$x %= 3    # --> x = x % 3 (modulus)
 $x **= 3   # --> x = x ** 3 (exponentiation)
 $x //= 3   # --> x = x // 3 (floor divide)
 ```
@@ -544,6 +547,32 @@ a < b    # Less than
 a <= b   # Less than or equal to
 a > b    # Greater than
 a >= b   # Greater than or equal to
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Escape characters</td>
+<td>
+<div markdown="1">
+
+```powershell
+"This is `"how`" to escape" # Escape character
+"This is `n on two lines"   # Insert new line
+"`tThis has a tab space"    # Insert tab space
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+"This is \"how\" to escape" # Escape character
+"This is \n on two lines"   # Insert new line
+"\tThis has a tab space"    # Insert tab space
 ```
 
 </div>
