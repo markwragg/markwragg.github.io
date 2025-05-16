@@ -289,6 +289,159 @@ x,y,z = 1,2,3
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
+### Strings
+
+- In both PowerShell and Python strings can be specified via single or double quotes.
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Quotation marks</td>
+<td>
+<div markdown="1">
+
+```powershell
+$str1 = 'this is a string'
+$str2 = "this is also a string"
+```
+In PowerShell you can interpolate variables inside a double quoted string:
+
+```powershell
+$name = 'Mark'
+Write-Host "my name is $name"
+```
+```plaintext
+my name is mark
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+str1 = 'this is a string'
+str2 = "this is also a string"
+```
+
+In Python you can interpolate variables in any string. The below uses the [f-string method](https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/):
+
+```python
+name = 'Mark'
+print(f"my name is {name}")
+print(f'my name is {name}')
+```
+```plaintext
+my name is Mark
+my name is Mark
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Multiline strings</td>
+<td>
+<div markdown="1">
+
+```powershell
+$str1 = @"
+This is
+a multiline
+string
+"@
+
+$str2 = @'
+This is
+a multiline
+string
+'@
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+str1 = """This is
+a multiline
+string"""
+
+str2 = '''This is also
+a multiline
+string'''
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>String length</td>
+<td>
+<div markdown="1">
+
+```powershell
+"This is a string".length
+```
+```plaintext
+16
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+print(len("This is a string"))
+```
+```plaintext
+16
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>String methods</td>
+<td>
+<div markdown="1">
+
+```powershell
+$str = 'heLLo'
+
+$str.padleft(8)           # --> '   hello' (adds spaces to the left of the string)
+$str.padright(8)          # --> 'hello   ' (adds spaces to the right of the string)
+$str.tolower()            # --> 'hello' (converts string to lowercase)
+$str.toupper()            # --> 'HELLO' (converts string to uppercase)
+$str.replace('LL','YY')   # --> 'heYYo' (replaces the specified matching string value)
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+str = 'heLLo'
+
+str.capitalize()         # --> 'HeLLo' (uppercase the first character)
+str.center(11)           # --> '   heLLo   ' (centers the string within the specified number of characters)
+str.lower()              # --> 'hello' (converts string to lowercase)
+str.upper()              # --> 'hello' (converts string to uppercase)
+str.replace('LL','YY')   # --> 'heYYo' (replaces the specified matching string value)
+```
+
+</div>
+</td>
+</tr>
+
+<tr><td colspan="3"><div markdown="1">
 ### Operators
 
 - For a full list of operators see these pages: [PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.5) \| [Python](https://www.w3schools.com/python/python_operators.asp).
@@ -455,7 +608,7 @@ a = (1,2,3)
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>if / elseif / else</td>
+<td>if / else-if / else</td>
 <td>
 <div markdown="1">
 
@@ -612,12 +765,11 @@ for fruit in fruits:
 
 Iterate a set number of times at a custom increment:
 
-```powershell
+```python
 for i in range(0, 21, 2):
     print(i)
 
 ```
-
 
 </div>
 </td>
