@@ -14,12 +14,12 @@ tags:
   td { vertical-align: top; }
 </style>
 
-<table width="100%">
+<table>
 
 <tr width="100%">
-<th width="100%">Concept</th>
-<th>PowerShell</th>
-<th>Python</th>
+<th width="20%">Concept</th>
+<th width="40%">PowerShell</th>
+<th width="40%">Python</th>
 </tr>
 
 <tr>
