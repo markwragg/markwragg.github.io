@@ -10,6 +10,8 @@ tags:
 - python
 ---
 
+PowerShell and Python are similar languages.
+
 <style type="text/css">
   td { vertical-align: top; }
 </style>
@@ -115,10 +117,16 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 </td>
 </tr>
 
-<tr>
-<td>Variables
+<tr><td colspan="3">
+<div markdown="1">
+## Variables
 
-A variable is created the moment you first assign a value to it.</td>
+- In both languages, a variable is created the moment you first assign a value to it.
+</div>
+</td></tr>
+
+<tr>
+<td>Variables</td>
 <td>
 <div markdown="1">
 
