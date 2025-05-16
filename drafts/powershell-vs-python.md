@@ -23,6 +23,42 @@ tags:
 </tr>
 
 <tr>
+<td>Check installed version</td>
+<td>
+<div markdown="1">
+
+```powershell
+$PSVersionTable
+```
+```plaintext
+Name                           Value
+----                           -----
+PSVersion                      7.4.7
+PSEdition                      Core
+..
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+python --version
+```
+```plaintext
+Python 3.13.3
+
+
+
+
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
 <td>Defining a string</td>
 <td>
 <div markdown="1">
