@@ -448,6 +448,24 @@ str.center(11)           # --> '   heLLo   '
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
+### Dictionaries
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr><td colspan="3"><div markdown="1">
+### Dates
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr><td colspan="3"><div markdown="1">
+### JSON
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr><td colspan="3"><div markdown="1">
 ### Operators
 
 - For a full list of operators see these pages: [PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.5) \| [Python](https://www.w3schools.com/python/python_operators.asp).
@@ -596,8 +614,8 @@ a >= b   # Greater than or equal to
 <div markdown="1">
 
 ```python
-(a > 5) -and (b < 10)
-(a > 5) -or (b < 10)
+(a > 5) and (b < 10)
+(a > 5) or (b < 10)
 not(a > 5 and b < 10)
 ```
 
@@ -612,8 +630,11 @@ not(a > 5 and b < 10)
 
 ```powershell
 $a = 1,2,3
-3 -in $a  # True
-4 -in $a  # False
+3 -in $a       # True
+4 -in $a       # False
+3 -notin $a    # False
+
+$a -contains 3 # True
 ```
 
 </div>
@@ -623,8 +644,9 @@ $a = 1,2,3
 
 ```python
 a = (1,2,3)
-3 in a  # True
-4 in a  # False
+3 in a     # True
+4 in a     # False
+3 not in a # False
 ```
 
 </div>
@@ -806,5 +828,23 @@ for i in range(0, 21, 2):
 </div>
 </td>
 </tr>
+
+<tr><td colspan="3"><div markdown="1">
+### Functions
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr><td colspan="3"><div markdown="1">
+### Modules
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr><td colspan="3"><div markdown="1">
+### Exception Handling
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 </table>
