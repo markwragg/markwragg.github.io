@@ -5,13 +5,12 @@ header:
   overlay_image: "/content/images/2025/code.jpg"
   teaser: "/content/images/2025/code.jpg"
 date: '2025-05-15 09:00:00'
+toc: true
+toc_icon: "code"
 tags:
 - powershell
 - python
 ---
-
-{% include toc %}
-
 
 PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
@@ -23,12 +22,6 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 <table>
 
-<tr width="100%">
-<th width="20%">Concept</th>
-<th width="40%">PowerShell</th>
-<th width="40%">Python</th>
-</tr>
-
 <tr>
 <td colspan="3">
 <div markdown="1">
@@ -39,6 +32,13 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 </div>
 </td>
 </tr>
+
+<tr width="100%">
+<th width="20%">Concept</th>
+<th width="40%">PowerShell</th>
+<th width="40%">Python</th>
+</tr>
+
 
 <tr>
 <td>Check installed version</td>
@@ -141,6 +141,12 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 - In both languages, a variable is created the moment you first assign a value to it.
 </div>
 </td>
+</tr>
+
+<tr width="100%">
+<th width="20%">Concept</th>
+<th width="40%">PowerShell</th>
+<th width="40%">Python</th>
 </tr>
 
 <tr>
