@@ -13,7 +13,7 @@ tags:
 - python
 ---
 
-PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
+PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
 As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
 
@@ -128,7 +128,7 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 ### Variables
 
 - In both languages, a variable is created the moment you first assign a value to it.
-- In both languages, variables are scoped based on where they are declared: [Python scope](https://www.w3schools.com/python/python_scope.asp) | [PowerShell scope](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes?view=powershell-7.5).
+- In both languages, variables are scoped based on where they are declared: [Python scope](https://www.w3schools.com/python/python_scope.asp) \| [PowerShell scope](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes?view=powershell-7.5).
 - Variables do not need to be declared with a specific type, and can change type after being set. You can however use casting to specify the data type.
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
