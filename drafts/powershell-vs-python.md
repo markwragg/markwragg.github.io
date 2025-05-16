@@ -91,8 +91,13 @@ Hello, World!
 <div markdown="1">
 
 ```powershell
-# This is a comment
+#This is a comment
 Write-Host "Hello, world!" #This is also a comment
+
+<#
+This is a
+multiline comment
+#>
 ```
 </div>
 </td>
@@ -100,9 +105,15 @@ Write-Host "Hello, world!" #This is also a comment
 <div markdown="1">
 
 ```python
-# This is a comment
+#This is a comment
 print("Hello, World!") #This is also a comment
+
+#This is a
+#multiline comment
+
+
 ```
+You can also use `'''` for multiline comments, which are ignored unless used as [docstrings](https://www.geeksforgeeks.org/python-docstrings/).
 
 </div>
 </td>
