@@ -237,7 +237,7 @@ $x = 20.5                      #double
 $x = "ben","max","kim"         #array
 
 $x = 0..5                      #range
-$x = @{name = "ben"; age = 36} #Hashtable
+$x = @{name = "ben"; age = 36} #hashtable
 
 $x = $true                     #bool
 ```
@@ -286,12 +286,46 @@ x,y,z = 1,2,3
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
-### Conditions and If statements
+### Operators
 
-- Python uses indentation to define scope in it's code. PowerShell uses curly-brackets.
+- Operators are used to perform operations on variables and values.
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Arithmetic</td>
+<td>
+<div markdown="1">
+
+```powershell
+$a + $b                  # Addition
+$a - $b                  # Subtraction
+$a * $b                  # Multiplication
+$a / $b                  # Division
+$a % $b                  # Modulus
+[Math]::Pow($a, $b)      # Exponentiation
+[math]::floor($a / $b)   # Floor division
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+a + b    # Addition
+a - b    # Subtraction
+a * b    # Multiplication
+a / b    # Division
+a % b    # Modulus
+a ** b   # Exponentiation
+a // b   # Floor division
+```
+
+</div>
+</td>
+</tr>
 
 <tr>
 <td>Comparison</td>
@@ -325,6 +359,14 @@ a >= b   # Greater than or equal to
 </td>
 </tr>
 
+<tr><td colspan="3"><div markdown="1">
+### Conditional statements
+
+- Python uses indentation to define scope in it's code. PowerShell uses curly-brackets.
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
 <tr>
 <td>if / elseif / else</td>
 <td>
@@ -356,6 +398,45 @@ elif a == b:
 
 else:
   print("a is greater than b")
+
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>switch / match</td>
+<td>
+<div markdown="1">
+
+```powershell
+switch ($day) {
+    1..5 {
+        Write-Host "weekday"
+    }
+    6..7 {
+        Write-Host "weekend"
+    }
+    default {
+        throw "day out of range"
+    }
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+match day:
+  case 1 | 2 | 3 | 4 | 5:
+    print("weekday")
+  case 6 | 7:
+    print("weekend")
+  case _:
+    raise Exception("day out of range")
 
 ```
 
