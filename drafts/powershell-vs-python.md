@@ -5,6 +5,7 @@ header:
   overlay_image: "/content/images/2025/code.jpg"
   teaser: "/content/images/2025/code.jpg"
 date: "2025-05-15 09:00:00"
+classes: normal
 toc: true
 toc_label: "Code concepts"
 toc_icon: "code"
