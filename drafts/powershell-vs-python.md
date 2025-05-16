@@ -128,6 +128,7 @@ Unofficially, you can also use `'''` for multiline comments, which are ignored u
 ### Variables
 
 - In both languages, a variable is created the moment you first assign a value to it.
+- In both languages, variables are scoped based on where they are declared: [Python scope](https://www.w3schools.com/python/python_scope.asp) | [PowerShell scope](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes?view=powershell-7.5).
 - Variables do not need to be declared with a specific type, and can change type after being set. You can however use casting to specify the data type.
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
