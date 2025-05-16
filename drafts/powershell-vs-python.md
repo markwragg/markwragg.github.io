@@ -207,8 +207,41 @@ x,y,z = 1,2,3
 <tr><td colspan="3"><div markdown="1">
 ### Conditions and If statements
 
+- Python uses indentation to define scope in it's code. PowerShell uses curly-brackets.
+
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Comparison</td>
+<td>
+<div markdown="1">
+
+```powershell
+$a -eq $b   # Equals
+$a -ne $b   # Not equals
+$a -lt $b   # Less than
+$a -le $b   # Less than or equal to
+$a -gt $b   # Greater than
+$a -ge $b   # Greater than or equal to
+```
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+a == b     # Equals
+a != b     # Not equals
+a < b      # Less than
+a <= b   # Less than or equal to
+a > b   # Greater than
+a >= b   # Greater than or equal to
+```
+
+</div>
+</td>
+</tr>
 
 <tr>
 <td>if / elseif / else</td>
@@ -216,9 +249,6 @@ x,y,z = 1,2,3
 <div markdown="1">
 
 ```powershell
-$a = 33
-$b = 200
-
 if ($b -gt $a) {
   Write-Host "b is greater than a"
 }
@@ -236,9 +266,6 @@ else {
 <div markdown="1">
 
 ```python
-a = 33
-b = 200
-
 if b > a:
   print("b is greater than a")
 
