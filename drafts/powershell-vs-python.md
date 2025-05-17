@@ -881,7 +881,7 @@ $y.age
 $y.city
 ```
 
-PowerShell converts JSON to a PSCustomObject, so the key/values become properties.
+PowerShell converts JSON to a PSCustomObject.
 
 ```plaintext
 Bob
