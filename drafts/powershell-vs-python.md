@@ -1544,8 +1544,9 @@ Hello Sarah
 
 ```powershell
 function personDetails($person) {
-  foreach ($person in $person.getenumerator()) {
-    Write-Host "$($person.key)`: $($person.value)"
+  $persons = $person.getenumerator()
+  foreach ($p in $persons) {
+    Write-Host "$($p.key)`: $($p.value)"
   }
 }
 
@@ -1561,6 +1562,7 @@ personDetails @{ fname = "Bob"; lname= "Bilby" }
 def personDetails(**person):
   for key in person:
     print(f"{key}: {person[key]}")
+
 
 
 personDetails(fname = "Bob", lname = "Bilby")
