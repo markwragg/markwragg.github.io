@@ -485,6 +485,7 @@ $car = @{
   year = 2019
 }
 ```
+
 You can specify an ordered hashtable by adding the `[ordered]` type accelerator.
 
 </div>
@@ -499,6 +500,7 @@ car = {
   "year": 2019
 }
 ```
+
 As of Python 3.7, dictionaries are ordered by default. Prior to 3.7 they are unordered.
 
 </div>
@@ -513,6 +515,7 @@ As of Python 3.7, dictionaries are ordered by default. Prior to 3.7 they are uno
 ```powershell
 $car["brand"]
 ```
+
 ```plaintext
 Audi
 ```
@@ -525,6 +528,7 @@ Audi
 ```python
 print(car["brand"])
 ```
+
 ```plaintext
 Audi
 ```
@@ -541,6 +545,7 @@ Audi
 ```powershell
 $car.keys
 ```
+
 ```plaintext
 year
 brand
@@ -555,9 +560,11 @@ model
 ```python
 print(car.keys())
 ```
+
 ```plaintext
 dict_keys(['brand', 'model', 'year'])
 ```
+
 The list of the values is a view of the dictionary. Any changes to the dictionary will be reflected in the list.
 
 </div>
@@ -572,6 +579,7 @@ The list of the values is a view of the dictionary. Any changes to the dictionar
 ```powershell
 $car.values
 ```
+
 ```plaintext
 2019
 Audi
@@ -586,11 +594,13 @@ Q7
 ```python
 print(car.items())
 ```
+
 ```plaintext
 dict_items([('brand', 'Audi'),
   ('model', 'Q7'),
   ('year', 2019)])
 ```
+
 The list of the values is a view of the dictionary. Any changes to the dictionary will be reflected in the list.
 
 </div>
@@ -697,6 +707,7 @@ car.clear()
 ```powershell
 $car.count
 ```
+
 ```plaintext
 3
 ```
@@ -709,6 +720,7 @@ $car.count
 ```python
 print(len(car))
 ```
+
 ```plaintext
 3
 ```
@@ -739,12 +751,14 @@ $now.day
 $now.month
 $now.year
 ```
+
 ```plaintext
 17 May 2025 13:27:16
 17
 5
 2025
 ```
+
 </div>
 </td>
 <td>
@@ -759,12 +773,14 @@ print(now.day)
 print(now.month)
 print(now.year)
 ```
+
 ```plaintext
 2025-05-17 12:28:25.903551
 17
 5
 2025
 ```
+
 </div>
 </td>
 </tr>
@@ -778,6 +794,7 @@ print(now.year)
 $x = Get-Date -Day 17 -Month 5 -Year 2025
 
 ```
+
 Time parameters can also be specified, their default is the current time.
 
 </div>
@@ -789,6 +806,7 @@ Time parameters can also be specified, their default is the current time.
 import datetime
 x = datetime.datetime(2025, 5, 17)
 ```
+
 Time parameters can also be specified, their default is 0.
 
 </div>
@@ -862,6 +880,7 @@ $y.name
 $y.age
 $y.city
 ```
+
 ```plaintext
 Bob
 30
@@ -883,6 +902,7 @@ print(y["name"])
 print(y["age"])
 print(y["city"])
 ```
+
 ```plaintext
 Bob
 30
@@ -890,6 +910,70 @@ Bath
 ```
 
 Python converts the JSON to a dictionary.
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Convert to JSON</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+$x = @{
+  name = "Bob"
+  age  = 30
+  city = "Bath"
+}
+
+$y = $x | ConvertTo-Json
+$y
+```
+```plaintext
+{
+  "age": 30,
+  "name": "Bob",
+  "city": "Bath"
+}
+```
+The ConvertTo-Json cmdlet converts any .NET object to JSON. The properties become the name / values, and the methods are removed.
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+import json
+x = {
+  "name": "Bob",
+  "age": 30,
+  "city": "Bath"
+}
+
+y = json.dumps(x)
+print(y)
+```
+```plaintext
+{"name":"John", "age": 30, "city":"New York"}
+```
+
+Python objects are converted into the JSON  equivalent: `dict` --> object, `list`, `tuple` --> array, `str` --> string, `int`, `float` --> number, `True`/`False` --> true/false, `None` --> null.
+
+You can customise the indentation via Python, by specifying an indent value:
+```python
+json.dumps(x, indent=4)
+```
+You can also customise the separators:
+```python
+json.dumps(x, indent=4, separators=(". ", " = "))
+```
+Use `sort_keys` to specify whether or not the result should be sorted:
+```python
+json.dumps(x, indent=4, sort_keys=True)
+```
 
 </div>
 </td>
@@ -1064,6 +1148,7 @@ $a = 1,2,3
 4 -in $a       # False
 3 -notin $a    # False
 ```
+
 PowerShell also has the `-contains` operator.
 
 </div>
