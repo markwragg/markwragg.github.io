@@ -6,7 +6,7 @@ header:
   overlay_image: "/content/images/mark-wragg-pester-presentation.jpg"
 ---
 
-👋 Hi! I am an Azure DevOps Engineer from the UK. I live in Basingstoke with my wife and three small humans.
+👋 Hi! I am an IT contractor from the UK, specialising in Cloud, Automation and DevOps. I live in Basingstoke with my wife and three small humans.
 
 I've worked full-time in IT since graduating with a Degree in Computing in 2003, with the exception of a year out to give teacher training a whirl. Much of my initial IT career experience was working in front-line operations roles, supporting infrastructure and SaaS applications hosted in private data centres and the cloud. Since 2017 I've worked as a DevOps Engineer and for the last few years as a contractor. My experience is predominantly with Microsoft technologies but I can generally turn a quick hand to any tool. I have prior experience with AWS but my more recent experience is with Azure, along with a variety of DevOps toolsets.
 
