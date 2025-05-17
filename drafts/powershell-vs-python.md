@@ -785,6 +785,8 @@ Time parameters can also be specified, their default is the current time.
 <div markdown="1">
 
 ```python
+import datetime
+
 x = datetime.datetime(2025, 5, 17)
 ```
 Time parameters can also be specified, their default is 0.
@@ -819,6 +821,8 @@ See here for the full list of supported [Python datetime formatting codes](https
 <div markdown="1">
 
 ```python
+import datetime
+
 x = datetime.datetime(2025, 5, 17)
 
 x.strftime("%a") # --> Sat
@@ -840,11 +844,13 @@ See here for the full list of supported [PowerShell datetime formatting codes](h
 <tr><td colspan="3"><div markdown="1">
 ### JSON
 
+- To work with JSON in Python you need to import the built-in `json` module.
+
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>Concept</td>
+<td>Convert from JSON</td>
 <td>
 <div markdown="1">
 
@@ -858,6 +864,8 @@ See here for the full list of supported [PowerShell datetime formatting codes](h
 <div markdown="1">
 
 ```python
+import json
+
 
 ```
 
