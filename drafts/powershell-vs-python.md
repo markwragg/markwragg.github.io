@@ -46,7 +46,7 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 - Indentation is important in Python and is used to associate certain blocks of code, similar to how curly braces are used in PowerShell. The number of spaces you use is up to you, but must be consistent for each indented block.
 
 </div></td></tr>
-<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+<tr><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
 <td>Check installed version</td>
