@@ -959,8 +959,7 @@ y = json.dumps(x)
 print(y)
 ```
 
-Python objects are converted into the JSON  equivalent: `dict` --> object, `list`, `tuple` --> array, `str` --> string, `int`, `float` --> number, `True`/`False` --> true/false, `None` --> null.
-
+Python objects are converted into the JSON equivalent: `dict` --> object, `list`, `tuple` --> array, `str` --> string, `int`, `float` --> number, `True`/`False` --> true/false, `None` --> null.
 
 ```plaintext
 {"name":"John","age": 30,"city":"New York"}
@@ -1363,6 +1362,7 @@ function sayHello {
 
 sayHello
 ```
+
 ```plaintext
 Hello
 ```
@@ -1379,6 +1379,7 @@ def sayHello():
 
 sayHello()
 ```
+
 ```plaintext
 Hello
 ```
@@ -1399,6 +1400,7 @@ function sayHello($name) {
 
 sayHello "Sarah"
 ```
+
 ```plaintext
 Hello Sarah
 ```
@@ -1410,6 +1412,7 @@ function sayHello($fname, $lname) {
 
 sayHello "Bob" "Bilby"
 ```
+
 ```plaintext
 Hello Bob Bilby
 ```
@@ -1432,6 +1435,7 @@ def sayHello(name):
 
 sayHello("Sarah")
 ```
+
 ```plaintext
 Hello Sarah
 ```
@@ -1443,6 +1447,7 @@ def sayHello(fname,lname):
 
 sayHello("Bob", "Bilby")
 ```
+
 ```plaintext
 Hello Bob Bilby
 ```
@@ -1469,6 +1474,7 @@ function sayHello($name, $co = "BobCo") {
 
 sayHello "Jeff"
 ```
+
 ```plaintext
 Hello Jeff from BobCo
 ```
@@ -1485,6 +1491,7 @@ def sayHello(name,co = "BobCo"):
 
 sayHello("Jeff")
 ```
+
 ```plaintext
 Hello Jeff from BobCo
 ```
@@ -1507,6 +1514,7 @@ function sayHello() {
 
 sayHello "Jeff" "Bob" "Sarah"
 ```
+
 ```plaintext
 Hello Jeff
 Hello Bob
@@ -1527,6 +1535,7 @@ def sayHello(*names):
 
 sayHello("Jeff", "Bob", "Sarah")
 ```
+
 ```plaintext
 Hello Jeff
 Hello Bob
@@ -1582,6 +1591,7 @@ function multiplyBy5 ($x) {
 
 multiplyBy5 5
 ```
+
 ```plaintext
 25
 ```
@@ -1598,6 +1608,7 @@ def multiplyBy5 (x):
 
 print(multiplyBy5(5))
 ```
+
 ```plaintext
 25
 ```
@@ -1636,7 +1647,7 @@ def emptyFunction:
 - In both languages, a module is simply a collection of functions that you want to include in another script or application.
 - In Python modules are discovered via the [module search path](https://docs.python.org/3/tutorial/modules.html#the-module-search-path):
 
-    > When a module named `spam` is imported, the interpreter first searches for a built-in module with that name. These module names are listed in `sys.builtin_module_names`. If not found, it then searches for a file named `spam.py` in a list of directories given by the variable `sys.path`.
+  > When a module named `spam` is imported, the interpreter first searches for a built-in module with that name. These module names are listed in `sys.builtin_module_names`. If not found, it then searches for a file named `spam.py` in a list of directories given by the variable `sys.path`.
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
@@ -1711,7 +1722,7 @@ for name in dir(MyModule):
 <div markdown="1">
 
 ```powershell
-Import-Module MyModule -Functions "greeting"
+Import-Module MyModule -Function "greeting"
 ```
 
 </div>
@@ -1796,18 +1807,20 @@ pip list
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
-### Exception Handling
+### Exceptions
+
+- PowerShell and Python have similar concepts for handling excpetions, with `try..catch` and `try..except` being functionally similar. Both support catching multiple specific exception types and a `finally` block for performing post-exception clean up tasks, such as closing connections or removing temporary files.
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>Concept</td>
+<td>Raise an exception</td>
 <td>
 <div markdown="1">
 
 ```powershell
-
+throw 'An exception occurred'
 ```
 
 </div>
@@ -1816,7 +1829,114 @@ pip list
 <div markdown="1">
 
 ```python
+raise Exception("An exception occurred")
+```
 
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Catch exceptions</td>
+<td>
+<div markdown="1">
+
+```powershell
+try {
+  Write-Host $x -ErrorAction Stop
+}
+catch {
+  Write-Error ("An exception occurred")
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+try:
+  print(x)
+
+except:
+  print("An exception occurred")
+
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Catch multiple exceptions</td>
+<td>
+<div markdown="1">
+
+```powershell
+try {
+  Get-Content .\file.txt -ErrorAction Stop
+}
+catch [System.IO.IOException] {
+  Write-Error "A file error occurred"
+}
+catch {
+  Write-Error "A different error occurred"
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+try:
+  f = open('file.txt', 'w')
+
+except OSError:
+  print("A file error occurred")
+
+except:
+  print("A different error occurred")
+
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Execute code after an exception</td>
+<td>
+<div markdown="1">
+
+```powershell
+try {
+  $f = [System.IO.File]::Open("file.txt")
+}
+catch {
+  Write-Error "Failed to open"
+}
+finally {
+  $f.close()
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+try:
+  f = open('file.txt', 'w')
+
+except:
+  print("Failed to open")
+
+finally:
+  f.close()
 ```
 
 </div>
