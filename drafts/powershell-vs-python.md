@@ -1346,7 +1346,7 @@ for i in range(0, 21, 2):
 ### Functions
 
 - Python uses indentation to define the code that belongs to a function. PowerShell uses curly braces.
-- In PowerShell a `param()` block can also be used to define function parameters.
+- In PowerShell a `param()` block can also be used to define function input parameters (arguments), with additional validation.
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
@@ -1402,6 +1402,7 @@ sayHello "Sarah"
 ```plaintext
 Hello Sarah
 ```
+
 ```powershell
 function sayHello($fname, $lname) {
   Write-Host "Hello $fname $lname"
@@ -1411,6 +1412,12 @@ sayHello "Bob" "Bilby"
 ```
 ```plaintext
 Hello Bob Bilby
+```
+
+Parameters can be invoked by name:
+
+```python
+sayHello -fname "Bob" -lname "Bilby"
 ```
 
 </div>
@@ -1428,6 +1435,7 @@ sayHello("Sarah")
 ```plaintext
 Hello Sarah
 ```
+
 ```python
 def sayHello(fname,lname):
   print(f"Hello {fname} {lname}")
@@ -1437,6 +1445,48 @@ sayHello("Bob", "Bilby")
 ```
 ```plaintext
 Hello Bob Bilby
+```
+
+Parameters can be invoked by name:
+
+```python
+sayHello(fname = "Bob", lname = "Bilby")
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Argument / parameter default values</td>
+<td>
+<div markdown="1">
+
+```powershell
+function sayHello($name, $company = "BobCo") {
+  Write-Host "Hello $name from $company"
+}
+
+sayHello "Jeff"
+```
+```plaintext
+Hello Jeff from BobCo
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+def sayHello(name,company = "BobCo"):
+  print(f"Hello {name} from {company}")
+
+
+sayHello("Jeff")
+```
+```plaintext
+Hello Jeff from BobCo
 ```
 
 </div>
