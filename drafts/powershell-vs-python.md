@@ -1169,7 +1169,7 @@ a = (1,2,3)
 <tr><td colspan="3"><div markdown="1">
 ### Conditional statements
 
-- Python uses indentation to define scope in it's code. PowerShell uses curly-brackets.
+- Python uses indentation to define the code that belongs to a conditional statement. PowerShell uses curly braces.
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
@@ -1345,16 +1345,26 @@ for i in range(0, 21, 2):
 <tr><td colspan="3"><div markdown="1">
 ### Functions
 
+- Python uses indentation to define the code that belongs to a function. PowerShell uses curly braces.
+- In PowerShell a `param()` block can also be used to define function parameters.
+
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>Concept</td>
+<td>Defining and calling a function</td>
 <td>
 <div markdown="1">
 
 ```powershell
+function sayHello {
+  Write-Host "Hello"
+}
 
+sayHello
+```
+```plaintext
+Hello
 ```
 
 </div>
@@ -1363,7 +1373,67 @@ for i in range(0, 21, 2):
 <div markdown="1">
 
 ```python
+def sayHello():
+  print("Hello")
 
+sayHello()
+```
+```plaintext
+Hello
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Function arguments / parameters</td>
+<td>
+<div markdown="1">
+
+```powershell
+function sayHello($name) {
+  Write-Host "Hello $name"
+}
+
+sayHello "Sarah"
+```
+```plaintext
+Hello Sarah
+```
+```powershell
+function sayHello($fname, $lname) {
+  Write-Host "Hello $fname $lname"
+}
+
+sayHello "Bob" "Bilby"
+```
+```plaintext
+Hello Bob Bilby
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+def sayHello(name):
+  print(f"Hello {name}")
+
+sayHello("Sarah")
+```
+```plaintext
+Hello Sarah
+```
+```python
+def sayHello(fname,lname):
+  print(f"Hello {fname} {lname}")
+
+sayHello("Bob", "Bilby")
+```
+```plaintext
+Hello Bob Bilby
 ```
 
 </div>
