@@ -1090,9 +1090,9 @@ a >= b   # Greater than or equal to
 <div markdown="1">
 
 ```powershell
-"This is `"how`" to escape" # Escape character
-"This is `n on two lines"   # Insert new line
-"`tThis has a tab space"    # Insert tab space
+"This is `"how`" to escape" # Escape next
+"This is `n on two lines"   # new line
+"`tThis has a tab space"    # tab space
 ```
 
 </div>
@@ -1101,9 +1101,9 @@ a >= b   # Greater than or equal to
 <div markdown="1">
 
 ```python
-"This is \"how\" to escape" # Escape character
-"This is \n on two lines"   # Insert new line
-"\tThis has a tab space"    # Insert tab space
+"This is \"how\" to escape" # Escape next
+"This is \n on two lines"   # new line
+"\tThis has a tab space"    # tab space
 ```
 
 </div>
