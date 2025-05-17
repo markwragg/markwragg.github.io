@@ -39,7 +39,7 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 <table>
 <tr><td colspan="3"><div markdown="1">
-### Getting started
+### Get started
 
 - The latest version of PowerShell is cross-platform and can be [installed on Windows, MacOS and Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.5).
 - Python can also be [installed on a variety of platforms including Windows, MacOS and Linux](https://www.python.org/downloads/).
