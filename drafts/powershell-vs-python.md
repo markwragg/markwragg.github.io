@@ -1544,13 +1544,12 @@ Hello Sarah
 
 ```powershell
 function personDetails($person) {
-  $persons = $person.getenumerator()
-  foreach ($p in $persons) {
+  foreach ($p in $person.getenumerator()) {
     Write-Host "$($p.key)`: $($p.value)"
   }
 }
 
-personDetails @{ fname = "Bob"; lname= "Bilby" }
+personDetails @{fn = "Bob"; ln = "Bilby"}
 ```
 
 </div>
@@ -1564,8 +1563,7 @@ def personDetails(**person):
     print(f"{key}: {person[key]}")
 
 
-
-personDetails(fname = "Bob", lname = "Bilby")
+personDetails(fn = "Bob", ln = "Bilby")
 ```
 
 </div>
