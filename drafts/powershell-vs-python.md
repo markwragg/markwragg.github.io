@@ -15,12 +15,12 @@ tags:
 
   #top_left_col {
     float:left;
-    width:70%;
+    width:75%;
     padding-right: 30px;
   }
   #top_right_col {
     float:right;
-    width:30%;
+    width:25%;
   }
 </style>
 
