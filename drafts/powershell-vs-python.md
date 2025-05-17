@@ -1463,8 +1463,8 @@ sayHello(fname = "Bob", lname = "Bilby")
 <div markdown="1">
 
 ```powershell
-function sayHello($name, $company = "BobCo") {
-  Write-Host "Hello $name from $company"
+function sayHello($name, $co = "BobCo") {
+  Write-Host "Hello $name from $co"
 }
 
 sayHello "Jeff"
@@ -1479,8 +1479,8 @@ Hello Jeff from BobCo
 <div markdown="1">
 
 ```python
-def sayHello(name,company = "BobCo"):
-  print(f"Hello {name} from {company}")
+def sayHello(name,co = "BobCo"):
+  print(f"Hello {name} from {co}")
 
 
 sayHello("Jeff")
@@ -1522,6 +1522,7 @@ Hello Sarah
 def sayHello(*names):
   for name in names:
     print(f"Hello {name}")
+
 
 
 sayHello("Jeff", "Bob", "Sarah")
