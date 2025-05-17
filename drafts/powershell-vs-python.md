@@ -1494,7 +1494,7 @@ Hello Jeff from BobCo
 </tr>
 
 <tr>
-<td>Arbitrary arguments</td>
+<td>Arbitrary arguments *args</td>
 <td>
 <div markdown="1">
 
@@ -1530,6 +1530,38 @@ sayHello("Jeff", "Bob", "Sarah")
 Hello Jeff
 Hello Bob
 Hello Sarah
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Arbitrary Keyword Arguments **kwargs</td>
+<td>
+<div markdown="1">
+
+```powershell
+function personDetails($person) {
+  foreach ($person in $person.getenumerator()) {
+    Write-Host "$($person.key)`: $($person.value)"
+  }
+}
+
+personDetails @{ fname = "Bob"; lname= "Bilby" }
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+def personDetails(**person):
+  for key in person:
+    print(f"{key}: {person[key]}")
+
+personDetails(fname = "Bob", lname = "Bilby")
 ```
 
 </div>
