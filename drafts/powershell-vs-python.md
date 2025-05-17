@@ -467,16 +467,55 @@ str.replace('LL','YY')   # --> 'heYYo'
 <tr><td colspan="3"><div markdown="1">
 ### Dictionaries
 
+- Dictionaries are a collection of key value pairs. In PowerShell a dictionary is referred to as a [hashtable](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7.5).
+- In both languages, dictionaries (hashtables) are changeable: you can modify/add/remove items after creation. Dictionary keys must be unique.
+
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>Concept</td>
+<td>Creation</td>
 <td>
 <div markdown="1">
 
 ```powershell
+$car = @{
+  brand = "Audi"
+  model = "Q7"
+  year = 2019
+}
+```
+You can specify an ordered hashtable by adding the `[ordered]` type accelerator.
 
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+car = {
+  "brand": "Audi",
+  "model": "Q7",
+  "year": 2019
+}
+```
+
+As of Python 3.7, dictionaries are ordered by default. Prior to 3.7 they are unordered.
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Return an item</td>
+<td>
+<div markdown="1">
+
+```powershell
+$car["brand"]
+```
+```plaintext
+Audi
 ```
 
 </div>
@@ -485,7 +524,10 @@ str.replace('LL','YY')   # --> 'heYYo'
 <div markdown="1">
 
 ```python
-
+print(car["brand"])
+```
+```plaintext
+Audi
 ```
 
 </div>
