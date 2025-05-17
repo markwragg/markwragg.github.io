@@ -881,13 +881,13 @@ $y.age
 $y.city
 ```
 
+PowerShell converts JSON to a PSCustomObject, so the key/values become properties.
+
 ```plaintext
 Bob
 30
 Bath
 ```
-
-PowerShell converts the JSON to a PSCustomObject, so the values are accessible as properties.
 
 </div>
 </td>
@@ -903,13 +903,13 @@ print(y["age"])
 print(y["city"])
 ```
 
+Python converts JSON to a dictionary object.
+
 ```plaintext
 Bob
 30
 Bath
 ```
-
-Python converts the JSON to a dictionary.
 
 </div>
 </td>
@@ -931,6 +931,9 @@ $x = @{
 $y = $x | ConvertTo-Json
 $y
 ```
+
+The ConvertTo-Json cmdlet converts any .NET object to JSON. The properties become the name / values, and the methods are removed.
+
 ```plaintext
 {
   "age": 30,
@@ -938,7 +941,6 @@ $y
   "city": "Bath"
 }
 ```
-The ConvertTo-Json cmdlet converts any .NET object to JSON. The properties become the name / values, and the methods are removed.
 
 </div>
 </td>
@@ -956,23 +958,20 @@ x = {
 y = json.dumps(x)
 print(y)
 ```
-```plaintext
-{"name":"John", "age": 30, "city":"New York"}
-```
 
 Python objects are converted into the JSON  equivalent: `dict` --> object, `list`, `tuple` --> array, `str` --> string, `int`, `float` --> number, `True`/`False` --> true/false, `None` --> null.
 
-You can customise the indentation via Python, by specifying an indent value:
+
+```plaintext
+{"name":"John","age": 30,"city":"New York"}
+```
+
+You can further customise the indentation, separators and sorting as follows (these can also be combined):
+
 ```python
 json.dumps(x, indent=4)
-```
-You can also customise the separators:
-```python
-json.dumps(x, indent=4, separators=(". ", " = "))
-```
-Use `sort_keys` to specify whether or not the result should be sorted:
-```python
-json.dumps(x, indent=4, sort_keys=True)
+json.dumps(x, separators=(". ", " = "))
+json.dumps(x, sort_keys=True)
 ```
 
 </div>
