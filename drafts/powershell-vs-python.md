@@ -1632,15 +1632,59 @@ def emptyFunction:
 <tr><td colspan="3"><div markdown="1">
 ### Modules
 
+- In both languages, a module is simply a collection of functions that you want to include in another script or application.
+- In Python modules are discovered via the [module search path](https://docs.python.org/3/tutorial/modules.html#the-module-search-path):
+
+    > When a module named `spam` is imported, the interpreter first searches for a built-in module with that name. These module names are listed in `sys.builtin_module_names`. If not found, it then searches for a file named `spam.py` in a list of directories given by the variable `sys.path`.
+
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>Concept</td>
+<td>Use a module</td>
 <td>
 <div markdown="1">
 
 ```powershell
+# Save this in a file called MyModule.ps1
+function greeting($name):
+  Write-Host "Hello, $name"
+
+# In your main file
+Import-Module MyModule.ps1
+
+greeting "Mark"
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+# Save this in a file called MyModule.py
+def greeting(name):
+  print("Hello, {name}")
+
+# In your main file
+import MyModule
+
+MyModule.greeting("Mark")
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>List the functions in a module</td>
+<td>
+<div markdown="1">
+
+```powershell
+Import-Module MyModule.ps1
+
+(Get-Command -Module MyModule).Name
 
 ```
 
@@ -1650,7 +1694,32 @@ def emptyFunction:
 <div markdown="1">
 
 ```python
+import MyModule
 
+for name in dir(MyModule):
+  print(name)
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Import a specific function</td>
+<td>
+<div markdown="1">
+
+```powershell
+Import-Module MyModule -Functions "greeting"
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+from MyModule import greeting
 ```
 
 </div>
