@@ -856,6 +856,16 @@ See here for the full list of supported [PowerShell datetime formatting codes](h
 
 ```powershell
 
+$x = '{"name":"Bob","age":30,"city":"Bath"}'
+$y = $x | ConvertFrom-Json
+$y.name
+$y.age
+$y.city
+```
+```plaintext
+Bob
+30
+Bath
 ```
 
 </div>
@@ -865,8 +875,16 @@ See here for the full list of supported [PowerShell datetime formatting codes](h
 
 ```python
 import json
-
-
+x = '{ "name":"Bob","age":30,"city":"Bath"}'
+y = json.loads(x)
+print(y["name"])
+print(y["age"])
+print(y["city"])
+```
+```plaintext
+Bob
+30
+London
 ```
 
 </div>
