@@ -499,7 +499,6 @@ car = {
   "year": 2019
 }
 ```
-
 As of Python 3.7, dictionaries are ordered by default. Prior to 3.7 they are unordered.
 
 </div>
@@ -528,6 +527,122 @@ print(car["brand"])
 ```
 ```plaintext
 Audi
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>List keys</td>
+<td>
+<div markdown="1">
+
+```powershell
+$car.keys
+```
+```plaintext
+year
+brand
+model
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+print(car.keys())
+```
+```plaintext
+dict_keys(['brand', 'model', 'year'])
+```
+The list of the values is a view of the dictionary. Any changes to the dictionary will be reflected in the list.
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>List items</td>
+<td>
+<div markdown="1">
+
+```powershell
+$car.values
+```
+```plaintext
+2019
+Audi
+Q7
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+print(car.items())
+```
+```plaintext
+dict_items([('brand', 'Audi'), ('model', 'Q7'), ('year', 2019)])
+```
+The list of the values is a view of the dictionary. Any changes to the dictionary will be reflected in the list.
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Check if key exists</td>
+<td>
+<div markdown="1">
+
+```powershell
+if ('model' -in $car.Keys) {
+  $true
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+if "model" in car:
+  print(True)
+
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Dictionary length</td>
+<td>
+<div markdown="1">
+
+```powershell
+$car.count
+```
+```plaintext
+3
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+print(len(car))
+```
+```plaintext
+3
 ```
 
 </div>
