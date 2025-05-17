@@ -726,14 +726,25 @@ print(len(car))
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>Concept</td>
+<td>Return the current date/time</td>
 <td>
 <div markdown="1">
 
 ```powershell
-Get-Date
+$now = Get-Date
+$now
+$now.day
+$now.month
+$now.year
 ```
+```plaintext
 
+17 May 2025 13:27:16
+
+17
+5
+2025
+```
 </div>
 </td>
 <td>
@@ -744,7 +755,83 @@ import datetime
 
 now = datetime.datetime.now()
 print(now)
+print(now.day)
+print(now.month)
+print(now.year)
 ```
+```plaintext
+2025-05-17 12:28:25.903551
+17
+5
+2025
+```
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Create a date object</td>
+<td>
+<div markdown="1">
+
+```powershell
+$x = Get-Date -Day 17 -Month 5 -Year 2025
+```
+Time parameters can also be specified, their default is the current time.
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+x = datetime.datetime(2025, 5, 17)
+```
+Time parameters can also be specified, their default is 0.
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Formatting dates</td>
+<td>
+<div markdown="1">
+
+```powershell
+$x = Get-Date -Day 17 -Month 5 -Year 2025
+
+Get-Date $x -UFormat '%a' # --> Sat
+Get-Date $x -UFormat '%A' # --> Saturday
+Get-Date $x -UFormat '%w' # --> 6
+Get-Date $x -UFormat '%d' # --> 17
+Get-Date $x -UFormat '%b' # --> May
+Get-Date $x -UFormat '%m' # --> 05
+Get-Date $x -UFormat '%y' # --> 25
+Get-Date $x -UFormat '%Y' # --> 2025
+```
+
+See here for the full list of supported [Python datetime formatting codes](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-7.5#notes).
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+x = datetime.datetime(2025, 5, 17)
+
+x.strftime("%a") # --> Sat
+x.strftime("%A") # --> Saturday
+x.strftime("%w") # --> 6
+x.strftime("%d") # --> 17
+x.strftime("%b") # --> May
+x.strftime("%m") # --> 05
+x.strftime("%y") # --> 25
+x.strftime("%Y") # --> 2025
+```
+
+See here for the full list of supported [PowerShell datetime formatting codes](https://docs.python.org/3/library/datetime.html#format-codes).
 
 </div>
 </td>
