@@ -731,7 +731,9 @@ print(len(car))
 <div markdown="1">
 
 ```powershell
+
 $now = Get-Date
+
 $now
 $now.day
 $now.month
@@ -752,8 +754,8 @@ $now.year
 
 ```python
 import datetime
-
 now = datetime.datetime.now()
+
 print(now)
 print(now.day)
 print(now.month)
@@ -775,6 +777,7 @@ print(now.year)
 <div markdown="1">
 
 ```powershell
+
 $x = Get-Date -Day 17 -Month 5 -Year 2025
 ```
 Time parameters can also be specified, their default is the current time.
@@ -786,7 +789,6 @@ Time parameters can also be specified, their default is the current time.
 
 ```python
 import datetime
-
 x = datetime.datetime(2025, 5, 17)
 ```
 Time parameters can also be specified, their default is 0.
@@ -801,6 +803,7 @@ Time parameters can also be specified, their default is 0.
 <div markdown="1">
 
 ```powershell
+
 $x = Get-Date -Day 17 -Month 5 -Year 2025
 
 Get-Date $x -UFormat '%a' # --> Sat
@@ -822,7 +825,6 @@ See here for the full list of supported [Python datetime formatting codes](https
 
 ```python
 import datetime
-
 x = datetime.datetime(2025, 5, 17)
 
 x.strftime("%a") # --> Sat
