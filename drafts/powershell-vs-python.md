@@ -1726,6 +1726,74 @@ from MyModule import greeting
 </td>
 </tr>
 
+<tr>
+<td>Install a module</td>
+<td>
+<div markdown="1">
+
+```powershell
+Install-Module SomeModule
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+pip install SomeModule
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Uninstall a module</td>
+<td>
+<div markdown="1">
+
+```powershell
+Uninstall-Module SomeModule
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+pip uninstall SomeModule
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>List installed modules</td>
+<td>
+<div markdown="1">
+
+```powershell
+# List modules installed via PowerShellGet
+Get-InstalledModule
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+# List modules installed via pip
+pip list
+```
+
+</div>
+</td>
+</tr>
+
 <tr><td colspan="3"><div markdown="1">
 ### Exception Handling
 
