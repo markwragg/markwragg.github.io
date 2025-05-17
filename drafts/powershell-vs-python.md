@@ -720,6 +720,8 @@ print(len(car))
 <tr><td colspan="3"><div markdown="1">
 ### Dates
 
+- To work with dates in Python you need to import the built-in `datetime` module.
+
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
@@ -729,7 +731,7 @@ print(len(car))
 <div markdown="1">
 
 ```powershell
-
+Get-Date
 ```
 
 </div>
@@ -738,7 +740,10 @@ print(len(car))
 <div markdown="1">
 
 ```python
+import datetime
 
+now = datetime.datetime.now()
+print(now)
 ```
 
 </div>
@@ -834,13 +839,13 @@ $x %= 3   # --> x = x % 3 (modulus)
 <div markdown="1">
 
 ```python
-$x += 3    # --> x = x + 3 (add)
-$x -= 3    # --> x = x - 3 (subtract)
-$x *= 3    # --> x = x * 3 (multiply)
-$x /= 3    # --> x = x / 3 (divide)
-$x %= 3    # --> x = x % 3 (modulus)
-$x **= 3   # --> x = x ** 3 (exponentiation)
-$x //= 3   # --> x = x // 3 (floor divide)
+x += 3    # --> x = x + 3 (add)
+x -= 3    # --> x = x - 3 (subtract)
+x *= 3    # --> x = x * 3 (multiply)
+x /= 3    # --> x = x / 3 (divide)
+x %= 3    # --> x = x % 3 (modulus)
+x **= 3   # --> x = x ** 3 (exponentiation)
+x //= 3   # --> x = x // 3 (floor divide)
 ```
 
 </div>
@@ -941,9 +946,8 @@ $a = 1,2,3
 3 -in $a       # True
 4 -in $a       # False
 3 -notin $a    # False
-
-$a -contains 3 # True
 ```
+PowerShell also has the `-contains` operator.
 
 </div>
 </td>
