@@ -731,8 +731,8 @@ print(len(car))
 <div markdown="1">
 
 ```powershell
-
 $now = Get-Date
+
 
 $now
 $now.day
@@ -740,9 +740,7 @@ $now.month
 $now.year
 ```
 ```plaintext
-
 17 May 2025 13:27:16
-
 17
 5
 2025
@@ -777,8 +775,8 @@ print(now.year)
 <div markdown="1">
 
 ```powershell
-
 $x = Get-Date -Day 17 -Month 5 -Year 2025
+
 ```
 Time parameters can also be specified, their default is the current time.
 
@@ -803,8 +801,8 @@ Time parameters can also be specified, their default is 0.
 <div markdown="1">
 
 ```powershell
-
 $x = Get-Date -Day 17 -Month 5 -Year 2025
+
 
 Get-Date $x -UFormat '%a' # --> Sat
 Get-Date $x -UFormat '%A' # --> Saturday
