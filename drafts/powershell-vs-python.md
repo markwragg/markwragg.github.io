@@ -34,7 +34,7 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 </div>
 <div id="top_right_col" markdown="1">
-{% include toc icon="code" title="Concepts" %}
+{% include toc icon="code" %}
 </div>
 
 <table>
