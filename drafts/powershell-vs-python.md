@@ -868,6 +868,8 @@ Bob
 Bath
 ```
 
+PowerShell converts the JSON to a PSCustomObject, so the values are accessible as properties.
+
 </div>
 </td>
 <td>
@@ -886,6 +888,8 @@ Bob
 30
 Bath
 ```
+
+Python converts the JSON to a dictionary.
 
 </div>
 </td>
