@@ -1376,6 +1376,7 @@ Hello
 def sayHello():
   print("Hello")
 
+
 sayHello()
 ```
 ```plaintext
@@ -1421,6 +1422,7 @@ Hello Bob Bilby
 def sayHello(name):
   print(f"Hello {name}")
 
+
 sayHello("Sarah")
 ```
 ```plaintext
@@ -1429,6 +1431,7 @@ Hello Sarah
 ```python
 def sayHello(fname,lname):
   print(f"Hello {fname} {lname}")
+
 
 sayHello("Bob", "Bilby")
 ```
