@@ -598,7 +598,7 @@ The list of the values is a view of the dictionary. Any changes to the dictionar
 </tr>
 
 <tr>
-<td>Check if key exists</td>
+<td>Check if a key exists</td>
 <td>
 <div markdown="1">
 
@@ -617,6 +617,72 @@ if ('model' -in $car.Keys) {
 if "model" in car:
   print(True)
 
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Add or update an item</td>
+<td>
+<div markdown="1">
+
+```powershell
+$car["color"] = "Blue"
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+car["color"] = "Blue"
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Remove an item</td>
+<td>
+<div markdown="1">
+
+```powershell
+$car.remove("color")
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+car.pop("color")
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Remove all items</td>
+<td>
+<div markdown="1">
+
+```powershell
+$car.clear()
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+car.clear()
 ```
 
 </div>
