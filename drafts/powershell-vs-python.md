@@ -1537,7 +1537,7 @@ Hello Sarah
 </tr>
 
 <tr>
-<td>Arbitrary Keyword Arguments **kwargs</td>
+<td>Arbitrary keyword arguments **kwargs</td>
 <td>
 <div markdown="1">
 
@@ -1560,6 +1560,7 @@ personDetails @{ fname = "Bob"; lname= "Bilby" }
 def personDetails(**person):
   for key in person:
     print(f"{key}: {person[key]}")
+
 
 personDetails(fname = "Bob", lname = "Bilby")
 ```
