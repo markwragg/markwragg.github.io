@@ -26,7 +26,7 @@ tags:
 
 <div id="top_left_col" markdown="1">
 
-PowerShell and Python are popular programming languages, with a lot of similarities. PowerShell is commonly referred to as a shell scripting language (more akin to Bash) but functionally has a lot in common with Python, and can be used to generate scripts of equal complexity.
+PowerShell and Python are popular programming languages, with a lot of similarities. While PowerShell is a shell scripting language (like Bash), functionally it has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
 As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
 
@@ -54,14 +54,11 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 <div markdown="1">
 
 ```powershell
-$PSVersionTable
+($PSVersionTable).PSVersion
 ```
 
 ```plaintext
-Name        Value
-----        -----
-PSVersion   7.4.7
-..
+7.4.7
 ```
 
 </div>
@@ -386,13 +383,17 @@ string
 <div markdown="1">
 
 ```python
-str1 = """This is
+str1 = """
+This is
 a multiline
-string"""
+string
+"""
 
-str2 = '''This is also
+str2 = '''
+This is also
 a multiline
-string'''
+string
+'''
 ```
 
 </div>
@@ -457,9 +458,6 @@ str.ljust(8)             # --> 'heLLo   '
 str.lower()              # --> 'hello'
 str.upper()              # --> 'hello'
 str.replace('LL','YY')   # --> 'heYYo'
-
-str.capitalize()         # --> 'HeLLo'
-str.center(11)           # --> '   heLLo   '
 ```
 
 </div>
@@ -472,17 +470,83 @@ str.center(11)           # --> '   heLLo   '
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
+<tr>
+<td>Concept</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+
+```
+
+</div>
+</td>
+</tr>
+
 <tr><td colspan="3"><div markdown="1">
 ### Dates
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
+<tr>
+<td>Concept</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+
+```
+
+</div>
+</td>
+</tr>
+
 <tr><td colspan="3"><div markdown="1">
 ### JSON
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Concept</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+
+```
+
+</div>
+</td>
+</tr>
 
 <tr><td colspan="3"><div markdown="1">
 ### Operators
@@ -853,16 +917,82 @@ for i in range(0, 21, 2):
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
+<tr>
+<td>Concept</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+
+```
+
+</div>
+</td>
+</tr>
+
 <tr><td colspan="3"><div markdown="1">
 ### Modules
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
+<tr>
+<td>Concept</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+
+```
+
+</div>
+</td>
+</tr>
+
 <tr><td colspan="3"><div markdown="1">
 ### Exception Handling
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Concept</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+
+```
+
+</div>
+</td>
+</tr>
 
 </table>
