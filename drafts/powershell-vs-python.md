@@ -1493,6 +1493,109 @@ Hello Jeff from BobCo
 </td>
 </tr>
 
+<tr>
+<td>Arbitrary arguments</td>
+<td>
+<div markdown="1">
+
+```powershell
+function sayHello() {
+  foreach ($name in $args) {
+    Write-Host "Hello $name"
+  }
+}
+
+sayHello "Jeff" "Bob" "Sarah"
+```
+```plaintext
+Hello Jeff
+Hello Bob
+Hello Sarah
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+def sayHello(*names):
+  for name in names:
+    print(f"Hello {name}")
+
+
+sayHello("Jeff", "Bob", "Sarah")
+```
+```plaintext
+Hello Jeff
+Hello Bob
+Hello Sarah
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Return values</td>
+<td>
+<div markdown="1">
+
+```powershell
+function multiplyBy5 ($x) {
+  return ($x * 5)
+}
+
+multiplyBy5 5
+```
+```plaintext
+25
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+def multiplyBy5 (x):
+    return (x * 5)
+
+
+print(multiplyBy5(5))
+```
+```plaintext
+25
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Empty function</td>
+<td>
+<div markdown="1">
+
+```powershell
+function emptyFunction {}
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+def emptyFunction:
+  pass
+```
+
+</div>
+</td>
+</tr>
+
 <tr><td colspan="3"><div markdown="1">
 ### Modules
 
