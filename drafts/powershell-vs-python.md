@@ -15,12 +15,12 @@ tags:
 
   #top_left_col {
     float:left;
-    width:75%;
+    width:72%;
     padding-right: 30px;
   }
   #top_right_col {
     float:right;
-    width:25%;
+    width:28%;
   }
 </style>
 
@@ -34,7 +34,7 @@ As someone who has a strong familiarity with PowerShell, I'm finding it useful t
 
 </div>
 <div id="top_right_col" markdown="1">
-{% include toc icon="code" %}
+{% include toc icon="code" title="Contents" %}
 </div>
 
 <table>
