@@ -1166,7 +1166,7 @@ a = (1,2,3)
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
-### Conditional statements
+### Conditionals
 
 - Python uses indentation to define the code that belongs to a conditional statement. PowerShell uses curly braces.
 
