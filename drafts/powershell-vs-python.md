@@ -38,15 +38,15 @@ As someone who (the force) is strong with PowerShell, I'm finding it useful (as 
 {% include toc icon="code" title="Contents" %}
 </div>
 
-> The examples given below have been tested as working in PowerShell 7.4.7 and Python 3.13.3.
-
-I've tried to keep the examples as narrow as possible, but if you're visting this site via a mobile you may need to use landscape mode.
-
-If you find any errors in the examples below (or if you have any suggestions for new ones) please let me know.
-
-
 <table>
 <tr><td colspan="3"><div markdown="1">
+
+> The examples below have been tested in PowerShell version 7.4.7 and Python version 3.13.3.
+
+I've tried to keep the example code as narrow as possible, but if you're visiting this site via a mobile you may need to use landscape mode.
+
+If you find any errors in the code examples (or if you have any suggestions for new ones) please let me know.
+
 ### Get started
 
 - The latest version of PowerShell is cross-platform and can be [installed on Windows, MacOS and Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.5).
