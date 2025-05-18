@@ -41,11 +41,9 @@ As someone who (the force) is strong with PowerShell, I'm finding it useful (as 
 <table>
 <tr><td colspan="3"><div markdown="1">
 
-> The examples below have been tested in PowerShell version 7.4.7 and Python version 3.13.3.
+I've tried to keep the examples narrow, but if you're visiting this site via a mobile you may want to use landscape mode.
 
-I've tried to keep the example code as narrow as possible, but if you're visiting this site via a mobile you may need to use landscape mode.
-
-If you find any errors in the code examples (or if you have any suggestions for new ones) please let me know.
+If you find any errors (or if you have any suggestions) please let me know. The code samples assume you have a minimum PowerShell version of 7.4.7 and Python version of 3.13.3.
 
 ### Get started
 
