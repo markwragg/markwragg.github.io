@@ -1185,7 +1185,7 @@ if os.path.exists("file.txt"):
 <div markdown="1">
 
 ```powershell
-
+# ConvertFrom-Json is built-in
 $x = '{"name":"Bob","age":30,"city":"Bath"}'
 $y = $x | ConvertFrom-Json
 $y.name
@@ -1233,7 +1233,7 @@ Bath
 <div markdown="1">
 
 ```powershell
-
+# ConvertTo-Json is built-in
 $x = @{
   name = "Bob"
   age  = 30
