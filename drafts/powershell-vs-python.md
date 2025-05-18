@@ -16,7 +16,7 @@ tags:
   #top_left_col {
     float:left;
     width:72%;
-    padding-right: 30px;
+    padding-right: 50px;
   }
   #top_right_col {
     float:right;
