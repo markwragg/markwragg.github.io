@@ -2312,5 +2312,3 @@ finally:
 </div>
 </td>
 </tr>
-
-I hope this has been useful. If you've found any errors or if you have any suggestions for further concepts please get in touch via the comments below, or any of my socials.
