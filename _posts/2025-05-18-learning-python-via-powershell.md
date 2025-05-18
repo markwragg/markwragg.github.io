@@ -88,7 +88,7 @@ Python 3.13.3
 <div markdown="1">
 
 ```powershell
-Write-Host "Hello, world!"
+Write-Host "Hello, World!"
 ```
 
 ```plaintext
@@ -121,7 +121,7 @@ Hello, World!
 
 ```powershell
 #This is a comment
-Write-Host "Hello, world!" #This too
+Write-Host "Hello, World!" #This too
 
 <# This is a
 multiline comment #>
