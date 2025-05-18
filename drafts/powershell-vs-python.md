@@ -1,5 +1,5 @@
 ---
-title: PowerShell vs Python
+title: Python and PowerShell concept comparison
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/code.jpg"
