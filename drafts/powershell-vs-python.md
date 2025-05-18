@@ -32,22 +32,13 @@ As someone who (the force) is strong with PowerShell, I'm finding it useful (as 
 
 [Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've followed a similar approach, by using many of the concepts covered by the [W3Schools Python tutorials](https://www.w3schools.com/python/default.asp)) and comparing them side by side with their PowerShell equivalents, to help cement my knowledge as I learn Python.
 
-<div>
+> I've tried to keep the code samples narrow, but if you're visiting this site via mobile you may want to use landscape mode.
+>
+> The code below assumes you have a minimum PowerShell version of 7.4.7 and Python version of 3.13.3.
 
 <div id="top_right_col" markdown="1">
-
 {% include toc icon="code" title="Contents" %}
-
 </div>
-
-<div markdown="1">
-
-[I've tried to keep the examples narrow, but if you're visiting this site via a mobile you may want to use landscape mode.]{: .notice--info}
-
-[If you find any errors (or if you have any suggestions) please let me know. The code samples assume you have a minimum PowerShell version of 7.4.7 and Python version of 3.13.3.]{: .notice--warning}
-
-</div>
-
 
 <table>
 <tr><td colspan="3"><div markdown="1">
@@ -2321,3 +2312,5 @@ finally:
 </div>
 </td>
 </tr>
+
+I hope this has been useful. If you've found any errors or if you have any suggestions for further concepts please get in touch via the comments below, or any of my socials.
