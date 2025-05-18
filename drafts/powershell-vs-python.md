@@ -508,6 +508,124 @@ plum
 </td>
 </tr>
 
+<tr>
+<td>Array length (number of elements)</td>
+<td>
+<div markdown="1">
+
+```powershell
+$basket = @("apple","pear","plum")
+$basket.count
+```
+```plaintext
+3
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+basket = ["apple","pear","plum"]
+print(len(basket))
+```
+```plaintext
+3
+```
+
+<tr>
+<td>Add an item to an array</td>
+<td>
+<div markdown="1">
+
+```powershell
+$basket = @("apple","pear","plum")
+$basket += "banana"
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+basket = ["apple","pear","plum"]
+basket.append("banana")
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Remove an item from an array</td>
+<td>
+<div markdown="1">
+
+```powershell
+$basket = @("apple","pear","plum")
+$basket = $basket | where { $_ -ne "banana" }
+```
+Alternatively you could defined a `[System.Collections.ArrayList]` object which has `add` and `remove` methods.
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+basket = ["apple","pear","plum"]
+basket.remove("banana")
+```
+This will only remove the first occurrence of the specified value.
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Sort an array</td>
+<td>
+<div markdown="1">
+
+```powershell
+$basket = @("apple","pear","plum","banana")
+$basket | Sort-Object
+$basket
+
+```
+```plaintext
+apple
+banana
+pear
+plum
+```
+Alternatively you could define a `[System.Collections.ArrayList]` object which has a `sort` method.
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+basket = ["apple","pear","plum","banana"]
+basket.sort()
+for fruit in basket:
+  print(fruit)
+```
+```plaintext
+apple
+banana
+pear
+plum
+```
+Sorts the list ascending by default. Use `sort(reverse=True)` to specify descending.
+
+</div>
+</td>
+</tr>
+
 <tr><td colspan="3"><div markdown="1">
 ### Dictionaries
 
