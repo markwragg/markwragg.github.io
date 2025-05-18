@@ -1065,11 +1065,11 @@ print(f.read())
 <div markdown="1">
 
 ```powershell
-# Use Add-Content to append
+# Use Add-Content to append a file
 'Some content' | Add-Content "file.txt"
 
 
-# Use Set-Content to overwrite
+# Use Set-Content to overwrite a file
 'New content' | Set-Content "file.txt"
 
 ```
@@ -1080,11 +1080,11 @@ print(f.read())
 <div markdown="1">
 
 ```python
-# Use "a" to append
+# Use "a" to append a file
 with open("file.txt", "a") as f:
   f.write("Some content")
 
-# Use "w" to overwrite
+# Use "w" to overwrite a file
 with open("file.txt", "w") as f:
   f.write("New content")
 ```
@@ -1099,7 +1099,7 @@ with open("file.txt", "w") as f:
 <div markdown="1">
 
 ```powershell
-# Use New-Item to create
+# Use New-Item to create a file
 New-Item "file.txt" -ItemType "File"
 ```
 
@@ -1109,7 +1109,7 @@ New-Item "file.txt" -ItemType "File"
 <div markdown="1">
 
 ```python
-# Use "x" to create
+# Use "x" to create a file
 open("file.txt", "x")
 ```
 
@@ -1123,7 +1123,7 @@ open("file.txt", "x")
 <div markdown="1">
 
 ```powershell
-# Use Remove-Item to delete
+# Use Remove-Item to delete a file
 Remove-Item "file.txt"
 
 ```
@@ -1134,7 +1134,7 @@ Remove-Item "file.txt"
 <div markdown="1">
 
 ```python
-# File delete requires the os module
+# File delete requires os module remove()
 import os
 os.remove("file.txt")
 ```
@@ -1149,6 +1149,7 @@ os.remove("file.txt")
 <div markdown="1">
 
 ```powershell
+# Use Test-Path to check exists
 if (Test-Path "file.txt") {
   #..
 }
@@ -1162,7 +1163,7 @@ if (Test-Path "file.txt") {
 <div markdown="1">
 
 ```python
-# File exists requires the os module
+# File exists requires os module exists()
 import os
 if os.path.exists("file.txt"):
   #..
