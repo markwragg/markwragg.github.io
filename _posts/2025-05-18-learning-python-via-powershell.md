@@ -1581,7 +1581,8 @@ match day:
 ```powershell
 $i = 1
 
-while ($i -lt 5) {
+while ($i -le 5) {
+  $i
   $i += 1
 }
 ```
@@ -1594,7 +1595,8 @@ while ($i -lt 5) {
 ```python
 i = 1
 
-while i < 5:
+while i <= 5:
+  print(i)
   i += 1
 
 ```
