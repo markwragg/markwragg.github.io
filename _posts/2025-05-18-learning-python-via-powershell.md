@@ -9,6 +9,7 @@ tags:
   - powershell
   - python
   - automation
+excerpt: "PowerShell and Python are powerful programming languages with many similarities. While PowerShell is technically a shell scripting language (like Bash), functionally it has a lot more in common with Python, and can be used to generate scripts of equal complexity. As someone with a strong familiarity with PowerShell, I'm finding it useful as I learn Python to reference the equivalent concepts in PowerShell."
 ---
 
 <style type="text/css">
