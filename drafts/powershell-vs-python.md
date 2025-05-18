@@ -34,18 +34,20 @@ As someone who (the force) is strong with PowerShell, I'm finding it useful (as 
 
 <div>
 
+<div id="top_right_col" markdown="1">
+
+{% include toc icon="code" title="Contents" %}
+
+</div>
+
 </div markdown="1">
 
 [I've tried to keep the examples narrow, but if you're visiting this site via a mobile you may want to use landscape mode.]{: .notice--info}
 
 [If you find any errors (or if you have any suggestions) please let me know. The code samples assume you have a minimum PowerShell version of 7.4.7 and Python version of 3.13.3.]{: .notice--warning}
 
-
 </div>
 
-<div id="top_right_col" markdown="1">
-{% include toc icon="code" title="Contents" %}
-</div>
 
 <table>
 <tr><td colspan="3"><div markdown="1">
