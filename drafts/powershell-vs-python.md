@@ -1,5 +1,5 @@
 ---
-title: A turn to the dark side\: Learn Python by comparing it to PowerShell (or vice-versa)
+title: A turn to the dark side — Learning Python through comparison to PowerShell (or vice-versa)
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/darth-vader.jpg"
@@ -26,9 +26,11 @@ tags:
 
 <div id="top_left_col" markdown="1">
 
-PowerShell and Python are popular programming languages, with a lot of similarities. While PowerShell is a shell scripting language (like Bash), functionally it has a lot in common with Python, and can be used to generate scripts of equal complexity.
+PowerShell and Python are powerful programming languages, with a lot of similarities. While PowerShell is a shell scripting language (like Bash), functionally it has a lot in common with Python, and can be used to generate scripts of equal complexity.
 
-As someone who has a strong familiarity with PowerShell, I'm finding it useful to reference the concepts of Python against their PowerShell equivalents. [Adam Driscoll did this previously in 2020 and his page was incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own (following a similar approach, referencing the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
+As someone for whom (the force) is strong with PowerShell, I'm finding it useful as (I am increasingly tempted by the dark side), to reference the concepts of Python against their PowerShell equivalents.
+
+[Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own version (following a similar approach, using the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) as a reference, and comparing them side by side with the PowerShell equivalent to help cement my knowledge as I ~turn~ learn Python.
 
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
 
