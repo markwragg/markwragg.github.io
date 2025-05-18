@@ -40,7 +40,7 @@ As someone who (the force) is strong with PowerShell, I'm finding it useful (as 
 
 </div>
 
-</div markdown="1">
+<div markdown="1">
 
 [I've tried to keep the examples narrow, but if you're visiting this site via a mobile you may want to use landscape mode.]{: .notice--info}
 
