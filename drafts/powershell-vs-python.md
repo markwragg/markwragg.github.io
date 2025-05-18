@@ -473,14 +473,20 @@ str.replace('LL','YY')   # --> 'heYYo'
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
 
 <tr>
-<td>Concept</td>
+<td>Create an array</td>
 <td>
 <div markdown="1">
 
 ```powershell
+$basket = @("apple","pear","plum")
+$basket
 
 ```
-
+```plaintext
+apple
+pear
+plum
+```
 
 </div>
 </td>
@@ -488,7 +494,14 @@ str.replace('LL','YY')   # --> 'heYYo'
 <div markdown="1">
 
 ```python
-
+basket = ["apple","pear","plum"]
+for fruit in basket:
+  print(fruit)
+```
+```plaintext
+apple
+pear
+plum
 ```
 
 </div>
