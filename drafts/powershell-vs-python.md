@@ -26,13 +26,13 @@ tags:
 
 <div id="top_left_col" markdown="1">
 
-PowerShell and Python are powerful programming languages, with a lot of similarities. While PowerShell is technically a shell scripting language (like Bash), functionally it has a lot more in common with Python, and can be used to generate scripts of equal complexity.
+PowerShell and Python are powerful programming languages with many similarities. While PowerShell is technically a shell scripting language (like Bash), functionally it has a lot more in common with Python, and can be used to generate scripts of equal complexity.
 
 As someone who (the force) is strong with PowerShell, I'm finding it useful (as I am increasingly tempted by the dark side) to reference the concepts of Python against their PowerShell equivalents.
 
-[Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own version (following a similar approach, using the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) as a reference, and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
+[Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've followed a similar approach, by using many the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with their PowerShell equivalents, to help cement my knowledge as I learn Python.
 
-> The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
+> The examples given below have been tested as working in PowerShell 7.4.7 and Python 3.13.3.
 
 </div>
 <div id="top_right_col" markdown="1">
@@ -192,7 +192,7 @@ $y = [int]3
 $z = [double]3.14
 ```
 
-`float` in PowerShell maps to `System.Single` which is a 32 bit integer. `double` is used in the example above to be equivalent to the Python `float` which uses a 64 bit integer.
+`float` in PowerShell maps to `System.Single` which is a 32 bit floating-point number. `double` is used in the example above to be equivalent to the Python `float` which uses a 64 bit integer.
 
 </div>
 </td>
@@ -205,7 +205,7 @@ y = int(3)
 z = float(3.14)
 ```
 
-`float` in Python is a 64 bit integer.
+`float` in Python is a 64 bit floating-point number.
 
 </div>
 </td>
