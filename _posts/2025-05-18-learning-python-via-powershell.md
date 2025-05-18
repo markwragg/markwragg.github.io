@@ -1,13 +1,14 @@
 ---
-title: A turn to the dark side — Learning Python through PowerShell
+title: Learning Python via PowerShell — A turn to the dark side?
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/darth-vader.jpg"
   teaser: "/content/images/2025/darth-vader.jpg"
-date: "2025-05-15 09:00:00"
+date: "2025-05-17 09:00:00"
 tags:
   - powershell
   - python
+  - automation
 ---
 
 <style type="text/css">
