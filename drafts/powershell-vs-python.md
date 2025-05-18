@@ -1,5 +1,5 @@
 ---
-title: A turn to the dark side — Learning Python through comparison to PowerShell (or vice-versa)
+title: A turn to the dark side — Learning Python through PowerShell
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/darth-vader-wide.jpg"
