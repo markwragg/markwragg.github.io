@@ -1642,6 +1642,206 @@ def emptyFunction:
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
+### Classes
+
+- Both languages are object oriented. Almost everything is an object with properties and methods.
+- A Class is a way to define a custom object's structure.
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+
+<tr>
+<td>Class with a fixed property</td>
+<td>
+<div markdown="1">
+
+```powershell
+Class Customer {
+  $Bank = "GlobalBank"
+}
+
+# Example usage:
+$c = [Customer]::new()
+$c.Bank
+```
+
+```plaintext
+GlobalBank
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+class Customer:
+  Bank = "GlobalBank"
+
+# Example usage:
+c = Customer()
+print(c.Bank)
+```
+
+```plaintext
+GlobalBank
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Class with assignable properties</td>
+<td>
+<div markdown="1">
+
+```powershell
+Class Customer {
+  [string]$name
+  [decimal]$balance
+
+  $Bank = "GlobalBank"
+
+  Customer($name, $balance = 0) {
+    $this.name = $name
+    $this.balance = $balance
+  }
+}
+
+# Example usage:
+$c = [Customer]::new("Alice",100)
+$c.name
+$c.balance
+```
+
+```plaintext
+Alice
+100
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+class Customer:
+  bank = "GlobalBank"
+
+  def __init__(self, name, balance=0):
+    self.name = name
+    self.balance = balance
+
+# Example usage:
+c = Customer("Alice",100)
+print(c.name)
+print(c.balance)
+```
+
+```plaintext
+Alice
+100
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Class with properties and methods</td>
+<td>
+<div markdown="1">
+
+```powershell
+Class Customer {
+  [string]$name
+  [decimal]$balance
+
+  $Bank = "GlobalBank"
+
+  Customer($name, $balance = 0) {
+    $this.name = $name
+    $this.balance = $balance
+  }
+
+  [void]Deposit($amount) {
+    if ($amount -le 0) {
+      throw "Negative deposit."
+    }
+    $this.balance += $amount
+}
+
+  [void]Withdraw($amount) {
+    if ($amount -gt $this.balance) {
+      throw "Insufficient funds."
+    }
+    $this.balance -= $amount
+  }
+
+  [string]ToString() {
+    return "$($this.name): £{0:N2}" -f $this.balance
+  }
+}
+
+# Example usage:
+$c = [Customer]::new("Alice", 100)
+$c.Deposit(50)
+$c.Withdraw(30)
+$c.ToString()
+```
+
+```plaintext
+Alice: £120.00
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+class Customer:
+
+  bank = "GlobalBank"
+
+  def __init__(self, name, balance=0):
+    self.name = name
+    self.balance = balance
+
+  def deposit(self, amount):
+    if amount <= 0:
+        raise ValueError("Negative deposit.")
+
+    self.balance += amount
+
+  def withdraw(self, amount):
+    if amount > self.balance:
+        raise ValueError("Insufficient funds.")
+
+    self.balance -= amount
+
+  def __str__(self):
+    return f"{self.name}: £{self.balance:.2f}"
+
+
+# Example usage:
+c = Customer("Alice", 100)
+c.deposit(50)
+c.withdraw(30)
+print(c)
+```
+
+```plaintext
+Alice: £120.00
+```
+
+</div>
+</td>
+</tr>
+
+<tr><td colspan="3"><div markdown="1">
 ### Modules
 
 - In both languages, a module is simply a collection of functions that you want to include in another script or application.
