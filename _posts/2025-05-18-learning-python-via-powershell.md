@@ -1608,6 +1608,48 @@ while i < 5:
 <td>
 <div markdown="1">
 
+```powershell
+for ($i = 0; $i -lt 21; $i++){
+    Write-Host $i
+}
+```
+
+Iterate a set number of times at a custom increment (2 in this example):
+
+```powershell
+for ($i = 0; $i -lt 21; $i += 2){
+    Write-Host $i
+}
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+for i in range(0, 21):
+    print(i)
+
+```
+
+Iterate a set number of times at a custom increment (2 in this example):
+
+```python
+for i in range(0, 21, 2):
+    print(i)
+
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>ForEach Loops</td>
+<td>
+<div markdown="1">
+
 Iterate over a collection with a `foreach` loop:
 
 ```powershell
@@ -1615,6 +1657,14 @@ $fruits = "apple", "banana", "cherry"
 
 foreach ($fruit in $fruits) {
   Write-Host $fruit
+}
+```
+
+PowerShell also has `foreach-object` for iterating objects via the pipeline.
+
+```powershell
+$fruits | foreach-object {
+  Write-Host $_
 }
 ```
 
