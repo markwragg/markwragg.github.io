@@ -30,7 +30,7 @@ PowerShell and Python are powerful programming languages, with a lot of similari
 
 As someone for whom (the force) is strong with PowerShell, I'm finding it useful as (I am increasingly tempted by the dark side), to reference the concepts of Python against their PowerShell equivalents.
 
-[Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own version (following a similar approach, using the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) as a reference, and comparing them side by side with the PowerShell equivalent to help cement my knowledge as I ~turn~ learn Python.
+[Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've created my own version (following a similar approach, using the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) as a reference, and comparing them side by side with the PowerShell equivalent, to help cement my knowledge as I learn Python.
 
 > The examples given below have been tested as working in PowerShell 7.4 and Python 3.13.
 
