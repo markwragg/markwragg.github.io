@@ -2,8 +2,8 @@
 title: A turn to the dark side — Learning Python through comparison to PowerShell (or vice-versa)
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2025/darth-vader.jpg"
-  teaser: "/content/images/2025/darth-vader.jpg"
+  overlay_image: "/content/images/2025/darth-vader-wide.jpg"
+  teaser: "/content/images/2025/darth-vader-wide.jpg"
 date: "2025-05-15 09:00:00"
 tags:
   - powershell
