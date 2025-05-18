@@ -2,8 +2,8 @@
 title: Learning Python via PowerShell — A turn to the dark side?
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2025/darth-vader.jpg"
-  teaser: "/content/images/2025/darth-vader.jpg"
+  overlay_image: "/content/images/2025/vader-emperor.jpg"
+  teaser: "/content/images/2025/vader-emperor.jpg"
 date: "2025-05-17 09:00:00"
 tags:
   - powershell
