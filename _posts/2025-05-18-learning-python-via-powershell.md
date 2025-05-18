@@ -1027,6 +1027,152 @@ See here for the full list of supported [PowerShell datetime formatting codes](h
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
+### Files
+
+- PowerShell has built-in cmdlets for working with files.
+- Python has built-in functions for creating, reading and writing to files. File deletion requires the `os` module.
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Read from a file</td>
+<td>
+<div markdown="1">
+
+```powershell
+$f = Get-Content "file.txt"
+$f
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+f = open("file.txt")
+print(f.read())
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Write to a file</td>
+<td>
+<div markdown="1">
+
+```powershell
+# Use Add-Content to append
+'Some content' | Add-Content "file.txt"
+
+
+# Use Set-Content to overwrite
+'New content' | Set-Content "file.txt"
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+# Use "a" to append
+with open("file.txt", "a") as f:
+  f.write("Some content")
+
+# Use "w" to overwrite
+with open("file.txt", "w") as f:
+  f.write("New content")
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>New file</td>
+<td>
+<div markdown="1">
+
+```powershell
+# Use New-Item to create
+New-Item "file.txt" -ItemType "File"
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+# Use "x" to create
+open("file.txt", "x")
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Delete files</td>
+<td>
+<div markdown="1">
+
+```powershell
+# Use Remove-Item to delete
+Remove-Item "file.txt"
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+# File delete requires the os module
+import os
+os.remove("file.txt")
+```
+
+</div>
+</td>
+</tr>
+
+<tr>
+<td>Check if a file exists</td>
+<td>
+<div markdown="1">
+
+```powershell
+if (Test-Path "file.txt") {
+  #..
+}
+
+
+```
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+# File exists requires the os module
+import os
+if os.path.exists("file.txt"):
+  #..
+```
+
+</div>
+</td>
+</tr>
+
+<tr><td colspan="3"><div markdown="1">
 ### JSON
 
 - To work with JSON in Python you need to import the built-in `json` module.
