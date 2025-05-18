@@ -1153,8 +1153,6 @@ os.remove("file.txt")
 if (Test-Path "file.txt") {
   #..
 }
-
-
 ```
 
 </div>
