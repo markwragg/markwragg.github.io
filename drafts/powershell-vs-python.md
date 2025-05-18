@@ -465,6 +465,37 @@ str.replace('LL','YY')   # --> 'heYYo'
 </tr>
 
 <tr><td colspan="3"><div markdown="1">
+### Arrays
+
+- ..
+
+</div></td></tr>
+<tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
+
+<tr>
+<td>Concept</td>
+<td>
+<div markdown="1">
+
+```powershell
+
+```
+
+
+</div>
+</td>
+<td>
+<div markdown="1">
+
+```python
+
+```
+
+</div>
+</td>
+</tr>
+
+<tr><td colspan="3"><div markdown="1">
 ### Dictionaries
 
 - Dictionaries are a collection of key value pairs. In PowerShell a dictionary is referred to as a [hashtable](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables?view=powershell-7.5).
@@ -1771,7 +1802,7 @@ Class Customer {
       throw "Negative deposit."
     }
     $this.balance += $amount
-}
+  }
 
   [void]Withdraw($amount) {
     if ($amount -gt $this.balance) {
@@ -1781,7 +1812,8 @@ Class Customer {
   }
 
   [string]ToString() {
-    return "$($this.name): £{0:N2}" -f $this.balance
+    $fbalance = "£{0:N2}" -f $this.balance
+    return "$($this.name): $fbalance"
   }
 }
 
@@ -1823,7 +1855,8 @@ class Customer:
     self.balance -= amount
 
   def __str__(self):
-    return f"{self.name}: £{self.balance:.2f}"
+    fbalance = f"£{self.balance:.2f}"
+    return f"{self.name}: {fbalance}"
 
 
 # Example usage:
