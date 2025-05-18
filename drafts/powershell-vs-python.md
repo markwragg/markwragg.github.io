@@ -16,7 +16,7 @@ tags:
   #top_left_col {
     float:left;
     width:72%;
-    padding-right: 50px;
+    padding-right: 30px;
   }
   #top_right_col {
     float:right;
@@ -26,7 +26,7 @@ tags:
 
 <div id="top_left_col" markdown="1">
 
-PowerShell and Python are powerful programming languages, with a lot of similarities. While PowerShell is a shell scripting language (like Bash), functionally it has a lot in common with Python, and can be used to generate scripts of equal complexity.
+PowerShell and Python are powerful programming languages, with a lot of similarities. While PowerShell is a shell scripting language (like Bash), functionally it has a lot more in common with Python, and can be used to generate scripts of equal complexity.
 
 As someone for whom (the force) is strong with PowerShell, I'm finding it useful as (I am increasingly tempted by the dark side), to reference the concepts of Python against their PowerShell equivalents.
 
