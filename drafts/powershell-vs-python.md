@@ -30,14 +30,20 @@ PowerShell and Python are powerful programming languages with many similarities.
 
 As someone who (the force) is strong with PowerShell, I'm finding it useful (as I am increasingly tempted by the dark side) to reference the concepts of Python against their PowerShell equivalents.
 
-[Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've followed a similar approach, by using many the concepts covered by [W3Schools](https://www.w3schools.com/python/default.asp)) and comparing them side by side with their PowerShell equivalents, to help cement my knowledge as I learn Python.
-
-> The examples given below have been tested as working in PowerShell 7.4.7 and Python 3.13.3.
+[Adam Driscoll did this previously in 2020 and his page is incredibly helpful](https://blog.ironmansoftware.com/powershell-vs-python/). Below I've followed a similar approach, by using many of the concepts covered by the [W3Schools Python tutorials](https://www.w3schools.com/python/default.asp)) and comparing them side by side with their PowerShell equivalents, to help cement my knowledge as I learn Python.
 
 </div>
+
 <div id="top_right_col" markdown="1">
 {% include toc icon="code" title="Contents" %}
 </div>
+
+> The examples given below have been tested as working in PowerShell 7.4.7 and Python 3.13.3.
+
+I've tried to keep the examples as narrow as possible, but if you're visting this site via a mobile you may need to use landscape mode.
+
+If you find any errors in the examples below (or if you have any suggestions for new ones) please let me know.
+
 
 <table>
 <tr><td colspan="3"><div markdown="1">
