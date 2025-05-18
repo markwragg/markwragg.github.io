@@ -1670,14 +1670,6 @@ $fruits | foreach-object {
 }
 ```
 
-Iterate a set number of times at a custom increment:
-
-```powershell
-for ($i = 0; $i -le 20; $i += 2){
-    Write-Host $i
-}
-```
-
 </div>
 </td>
 <td>
@@ -1690,14 +1682,6 @@ fruits = ["apple", "banana", "cherry"]
 
 for fruit in fruits:
   print(fruit)
-
-```
-
-Iterate a set number of times at a custom increment:
-
-```python
-for i in range(0, 21, 2):
-    print(i)
 
 ```
 
