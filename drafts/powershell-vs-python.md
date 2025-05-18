@@ -467,7 +467,8 @@ str.replace('LL','YY')   # --> 'heYYo'
 <tr><td colspan="3"><div markdown="1">
 ### Arrays
 
-- ..
+- Python does not have built-in support for arrays, but Python Lists can be used instead, as demonstrated in the below examples. You can get [arrays via the NumPy module](https://www.w3schools.com/python/numpy/numpy_creating_arrays.asp).
+- PowerShell has arrays, but once defined they are a fixed length. To append a new item PowerShell recreates the entire array with the new element. You can alternatively use `[System.Collections.ArrayList]` which is a dynamic array that behaves more like Python Lists.
 
 </div></td></tr>
 <tr width="100%"><th width="20%">Concept</th><th width="40%">PowerShell</th><th width="40%">Python</th></tr>
@@ -567,7 +568,7 @@ basket.append("banana")
 $basket = @("apple","pear","plum")
 $basket = $basket | where { $_ -ne "banana" }
 ```
-Alternatively you could defined a `[System.Collections.ArrayList]` object which has `add` and `remove` methods.
+Alternatively you could define a `[System.Collections.ArrayList]` object which has `add` and `remove` methods.
 
 </div>
 </td>
