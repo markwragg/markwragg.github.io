@@ -1,5 +1,5 @@
 ---
-title: Learning Python via PowerShell — A turn to the dark side?
+title: Learning Python via PowerShell
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/vader-emperor.jpg"
