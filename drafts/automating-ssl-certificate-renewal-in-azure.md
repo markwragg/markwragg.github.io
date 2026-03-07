@@ -1,5 +1,5 @@
 ---
-title: Automating SSL certificate renewal in Azure
+title: The end is nigh! Automate your SSL certificate renewal in Azure
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2026/browser-padlock.webp"
