@@ -20,10 +20,10 @@ In this blog post we'll explore some of the different areas of Azure that utilis
 
 The reduction of the maximum valid lifetime of public SSL is being implemented in the following phases:
 
--*Until March 14th 2026:* Max 398 days (This is/was effectively 13 months, and has been the standard since September 2020)
-- *From March 15th 2026:* Max 200 days
-- *From March 15th 2027:* Max 100 days
-- *From March 15th 2029:* Max 47 days
+-**Until March 14th 2026:** Max 398 days (This is/was effectively 13 months, and has been the standard since September 2020)
+- **From March 15th 2026:** Max 200 days
+- **From March 15th 2027:** Max 100 days
+- **From March 15th 2029:** Max 47 days
 
 This means that by 2029 SSL certificates will need to be renewed nearly _8 times per year_. What's also worth noting is that if you renew your SSL certificates before the March 14th 2026 deadline (and get the maximum 398 days), there will be no value in renewing those certificates again until after October 2026, as you'll otherwise get a certificate with a shorter validity than you already have.
 
