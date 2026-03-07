@@ -20,7 +20,7 @@ In this blog post we'll explore some of the different areas of Azure that utilis
 
 The reduction of the maximum valid lifetime of public SSL is being implemented in the following phases:
 
--**Until March 14th 2026:** Max 398 days (This is/was effectively 13 months, and has been the standard since September 2020)
+- **Until March 14th 2026:** Max 398 days (This is/was effectively 13 months, and has been the standard since September 2020)
 - **From March 15th 2026:** Max 200 days
 - **From March 15th 2027:** Max 100 days
 - **From March 15th 2029:** Max 47 days
