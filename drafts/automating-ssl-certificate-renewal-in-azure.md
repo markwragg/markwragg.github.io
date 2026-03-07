@@ -2,8 +2,8 @@
 title: Automating SSL certificate renewal in Azure
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2026/padlock-fence.jpg"
-  teaser: "/content/images/2026/padlock-fence.jpg"
+  overlay_image: "/content/images/2026/browser-padlock.avif"
+  teaser: "/content/images/2026/browser-padlock.avif"
 date: '2026-02-15 12:00:00'
 tags:
 - azure
@@ -29,5 +29,5 @@ This means that by 2029 SSL certificates will need to be renewed nearly 8 times 
 
  ![The end is nigh cartoon](/content/images/2026/the-end-is-nigh.png){: .align-center}
 
-<center>_The end of annual SSL certificate renewals is nigh!_</center>
+
 
