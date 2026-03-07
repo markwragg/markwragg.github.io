@@ -29,5 +29,5 @@ This means that by 2029 SSL certificates will need to be renewed nearly 8 times 
 
  ![The end is nigh cartoon](/content/images/2026/the-end-is-nigh.png){: .align-center}
 
-_The end of annual SSL certificate renewals is nigh!_{: .align-center}
+<center>_The end of annual SSL certificate renewals is nigh!_</center>
 
