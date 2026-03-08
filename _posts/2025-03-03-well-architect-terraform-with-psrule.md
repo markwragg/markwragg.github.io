@@ -14,7 +14,7 @@ tags:
   - powershell
 ---
 
-This blog post is part of the [Azure Spring Clean 2025](https://learn.microsoft.com/en-us/azure/well-architected/) community event, promoting well-managed Azure tenants. In last year's Azure Spring Clean, [Dan Rios blogged about using PSRule for Bicep code](https://rios.engineer/azure-spring-clean-azure-best-practice-for-bicep-with-psrule/). The focus of this blog post is on how you can use PSRule to validate Azure resources deployed via [Terraform by HashiCorp](https://www.terraform.io/).
+This blog post is part of the [Azure Spring Clean 2025](https://www.azurespringclean.com/) virtual community event, promoting well-managed Azure tenants. In last year's Azure Spring Clean, [Dan Rios blogged about using PSRule for Bicep code](https://rios.engineer/azure-spring-clean-azure-best-practice-for-bicep-with-psrule/). The focus of this blog post is on how you can use PSRule to validate Azure resources deployed via [Terraform by HashiCorp](https://www.terraform.io/).
 
 > Many DevOps tools were gifted to the Engineers, who above all else, desired automation. For within these tools was bound the strength and will to govern the Cloud.
 > But they were all of them deceived, for another tool was made.
