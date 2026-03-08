@@ -67,7 +67,7 @@ When you use one of the partnered CA (Certificate Authority) providers, Key Vaul
 
 You can deploy a Key Vault via Bicep as follows:
 
-```bicep
+```Bicep
 param location string = resourceGroup().location
 param keyVaultName string = 'kv-example'
 
@@ -95,7 +95,7 @@ If you upload the certificate directly to App Service, you will need to modify t
 
 Here's an example of how you might configure an App Service to use a Key Vault certificate via Bicep:
 
-```bicep
+```Bicep
 param location string = resourceGroup().location
 param appName string = 'myapp-${uniqueString(resourceGroup().id)}'
 param keyVaultName string = 'kv-example'
@@ -155,7 +155,7 @@ Similar to App Service, you can implement a TLS certificate in Application Gatew
 
 Here's an example of how you might configure an Application Gateway to use a certificate from a Key Vault via Bicep:
 
-```bicep
+```Bicep
 param location string = resourceGroup().location
 param appGwName string = 'agw-example'
 param keyVaultName string = 'kv-example'
