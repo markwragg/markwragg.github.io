@@ -67,7 +67,7 @@ When you use one of the partnered CA (Certificate Authority) providers, Key Vaul
 
 You can deploy a Key Vault via Bicep as follows:
 
-```Bicep
+```bash
 param location string = resourceGroup().location
 param keyVaultName string = 'kv-example'
 
@@ -91,11 +91,11 @@ Azure App Service allows you to create a [free managed TLS certificate](https://
 
 > Note when targetting the certificate in Key Vault you must use the non-version specific URL. Doing so will ensure it always pulls the latest certificate.
 
-If you upload the certificate directly to App Service, you will need to modify the certificate in the App Service config, either via the Portal, or via infrastructure code such as ARM or Bicep. Managing the certificate in Key Vault decouples the management of the certificate from the configuration of the resource.
+If you upload the certificate directly to App Service, you will need to modify the certificate in the App Service config, either via the Portal, or via infrastructure code such as ARM or bash. Managing the certificate in Key Vault decouples the management of the certificate from the configuration of the resource.
 
 Here's an example of how you might configure an App Service to use a Key Vault certificate via Bicep:
 
-```Bicep
+```bash
 param location string = resourceGroup().location
 param appName string = 'myapp-${uniqueString(resourceGroup().id)}'
 param keyVaultName string = 'kv-example'
@@ -155,7 +155,7 @@ Similar to App Service, you can implement a TLS certificate in Application Gatew
 
 Here's an example of how you might configure an Application Gateway to use a certificate from a Key Vault via Bicep:
 
-```Bicep
+```bash
 param location string = resourceGroup().location
 param appGwName string = 'agw-example'
 param keyVaultName string = 'kv-example'
