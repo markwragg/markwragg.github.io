@@ -146,7 +146,7 @@ If you reference the certificate from Key Vault, you need to grant the App Servi
 
 Similar to App Service, you can implement a TLS certificate in Application Gateway by either configuring it directly on the resource, or via a Key Vault secret. As before, I recommend using a Key Vault to decouple management of the certificate from configuration of the resource.
 
-Here's an example of how you might configure an Application Gateway to use a certificate from a Key Vault via Bicep:
+Here's a partial example of how you might configure an Application Gateway to use a certificate from a Key Vault via Bicep:
 
 ```powershell
 param location string = resourceGroup().location
@@ -215,21 +215,7 @@ resource appGateway 'Microsoft.Network/applicationGateways@2023-05-01' = {
     ]
 
     httpListeners: [
-      {
-        name: 'httpsListener'
-        properties: {
-          frontendIPConfiguration: {
-            id: resourceId('Microsoft.Network/applicationGateways/frontendIPConfigurations', appGwName, 'frontendIp')
-          }
-          frontendPort: {
-            id: resourceId('Microsoft.Network/applicationGateways/frontendPorts', appGwName, 'httpsPort')
-          }
-          protocol: 'Https'
-          sslCertificate: {
-            id: resourceId('Microsoft.Network/applicationGateways/sslCertificates', appGwName, 'sslCertFromKV')
-          }
-        }
-      }
+      ..
     ]
   }
 }
