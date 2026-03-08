@@ -246,6 +246,6 @@ resource appGateway 'Microsoft.Network/applicationGateways@2023-05-01' = {
 If you're reading this in 2026, there's still a good amount of time to get a handle on your certificate management before the activity becomes a monthly task. When considering how to manage certificate in Azure, I recommend the following:
 
 - Audit your estate and ensure you have a good understanding of everywhere certificates are used
-- Use the fully managed services where permitted
+- Use the fully managed certificate services where possible
 - Centralise certificate management via Key Vault, and try and minimise the number of Key Vaults used to store certificates
 - Implement monitoring of certificates to ensure you catch expiring certificates before they become an outage
