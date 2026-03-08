@@ -223,7 +223,53 @@ resource appGateway 'Microsoft.Network/applicationGateways@2023-05-01' = {
 
 ### Front Door
 
+The pattern for Azure Front Door is very similar to App Service and App Gateway when referencing a certificate from a Key Vault. As before, the System Identity of the Front Door will require the `Key Vault Secrets User` role on the Key Vault.
 
+Here's a Bicep example for configuring Azure Front Door with a certificate from Key Vault:
+
+
+```powershell
+param profileName string = 'afd-profile'
+param keyVaultName string = 'kv-prod-network'
+param certName string = 'site-cert'
+param secretName string = 'site-cert-secret'
+
+resource kv 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
+  name: keyVaultName
+}
+
+resource afdProfile 'Microsoft.Cdn/profiles@2023-05-01' existing = {
+  name: profileName
+}
+
+resource afdSecret 'Microsoft.Cdn/profiles/secrets@2023-05-01' = {
+  name: '${afdProfile.name}/${secretName}'
+  properties: {
+    parameters: {
+      type: 'CustomerCertificate'
+      secretSource: {
+        id: kv.id
+      }
+      secretVersion: ''
+      secretName: certName
+    }
+  }
+}
+
+resource customDomain 'Microsoft.Cdn/profiles/customDomains@2023-05-01' = {
+  name: '${afdProfile.name}/mydomain'
+  properties: {
+    hostName: 'www.example.com'
+    tlsSettings: {
+      certificateType: 'CustomerCertificate'
+      minimumTlsVersion: 'TLS12'
+      secret: {
+        id: afdSecret.id
+      }
+    }
+  }
+}
+```
 
 ### AKS Ingress
 
