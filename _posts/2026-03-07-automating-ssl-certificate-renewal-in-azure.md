@@ -67,7 +67,7 @@ When you use one of the partnered CA (Certificate Authority) providers, Key Vaul
 
 You can deploy a Key Vault via Bicep as follows:
 
-```bash
+```powershell
 param location string = resourceGroup().location
 param keyVaultName string = 'kv-example'
 
@@ -91,14 +91,14 @@ Azure App Service allows you to create a [free managed TLS certificate](https://
 
 > Note when targetting the certificate in Key Vault you must use the non-version specific URL. Doing so will ensure it always pulls the latest certificate.
 
-If you upload the certificate directly to App Service, you will need to modify the certificate in the App Service config, either via the Portal, or via infrastructure code such as ARM or bash. Managing the certificate in Key Vault decouples the management of the certificate from the configuration of the resource.
+If you upload the certificate directly to App Service, you will need to modify the certificate in the App Service config, either via the Portal, or via infrastructure code such as ARM or Bicep. Managing the certificate in Key Vault decouples the management of the certificate from the configuration of the resource.
 
 Here's an example of how you might configure an App Service to use a Key Vault certificate via Bicep:
 
-```bash
+```powershell
 param location string = resourceGroup().location
 param appName string = 'myapp-${uniqueString(resourceGroup().id)}'
-param keyVaultName string = 'kv-example'
+param kvName string = 'kv-example'
 param certName string = 'mySslCert'
 param customHostname string = 'www.mycustomdomain.com'
 
@@ -109,6 +109,10 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
     name: 'P1v2'
     tier: 'PremiumV2'
   }
+}
+
+resource kv 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
+  name: kvName
 }
 
 resource webApp 'Microsoft.Web/sites@2023-01-01' = {
@@ -123,26 +127,13 @@ resource webApp 'Microsoft.Web/sites@2023-01-01' = {
   }
 }
 
-resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
-  name: keyVaultName
-}
-
 resource certificate 'Microsoft.Web/certificates@2023-01-01' = {
   name: certName
   location: location
   properties: {
-    keyVaultId: keyVault.id
+    keyVaultId: kv.id
     keyVaultSecretName: certName
     serverFarmId: appServicePlan.id
-  }
-}
-
-resource hostnameBinding 'Microsoft.Web/sites/hostNameBindings@2023-01-01' = {
-  name: '${webApp.name}/${customHostname}'
-  properties: {
-    hostNameType: 'Verified'
-    sslState: 'SniEnabled'
-    thumbprint: certificate.properties.thumbprint
   }
 }
 ```
@@ -155,7 +146,7 @@ Similar to App Service, you can implement a TLS certificate in Application Gatew
 
 Here's an example of how you might configure an Application Gateway to use a certificate from a Key Vault via Bicep:
 
-```bash
+```powershell
 param location string = resourceGroup().location
 param appGwName string = 'agw-example'
 param keyVaultName string = 'kv-example'
