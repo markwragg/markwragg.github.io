@@ -273,7 +273,71 @@ resource customDomain 'Microsoft.Cdn/profiles/customDomains@2023-05-01' = {
 
 ### AKS Ingress
 
+For Azure Kubernetes Service, you can also reference a certificate from a Key Vault. However there's slight additional complexity here in that AKS cannot read from the vault directly. Instead you need to install the CSI Driver in Kubernetes, so that it can then read from the Key Vault and implement the certificate as a Kubernetes TLS secret. Once again using the System Assigned Identity of AKS is recommended for granting access to the Key Vault certificate via the `Key Vault Secrets User` role.
 
+The CSI Driver can be installed via Helm:
+
+```bash
+helm repo add csi-secrets-store-provider-azure https://azure.github.io/secrets-store-csi-driver-provider-azure/charts
+helm install csi csi-secrets-store-provider-azure/csi-secrets-store-provider-azure
+```
+
+And then within the Kubernetes config you define a SecretProviderClass:
+
+```yaml
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: tls-cert-provider
+spec:
+  provider: azure
+  parameters:
+    keyvaultName: kv-prod-network
+    objects: |
+      array:
+        - |
+          objectName: site-cert
+          objectType: secret
+    tenantId: <tenant-id>
+```
+
+And sync the secret to Kubernetes:
+
+```yaml
+secretObjects:
+- secretName: ingress-tls
+  type: kubernetes.io/tls
+  data:
+  - objectName: site-cert
+    key: tls.key
+  - objectName: site-cert
+    key: tls.crt
+```
+
+Finally you configure the Ingress:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+spec:
+  tls:
+  - hosts:
+    - www.example.com
+    secretName: ingress-tls
+  rules:
+  - host: www.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webapp
+            port:
+              number: 80
+```
 
 ### API Management
 
