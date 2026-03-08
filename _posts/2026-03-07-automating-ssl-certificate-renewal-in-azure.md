@@ -65,6 +65,26 @@ When you upload a certificate into Key Vault, it imports various properties incl
 
 When you use one of the partnered CA (Certificate Authority) providers, Key Vault refers to this as using an [Integrated CA](https://learn.microsoft.com/en-us/azure/key-vault/certificates/how-to-integrate-certificate-authority) and you can configure auto renewal.
 
+You can deploy a Key Vault via Bicep as follows:
+
+```bicep
+param location string = resourceGroup().location
+param keyVaultName string = 'kv-example'
+
+resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
+  name: keyVaultName
+  location: location
+  properties: {
+    tenantId: subscription().tenantId
+    sku: {
+      family: 'A'
+      name: 'standard'
+    }
+    enableRbacAuthorization: true
+  }
+}
+```
+
 ### App Service
 
 Azure App Service allows you to create a [free managed TLS certificate](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate) (provided by Digicert), which is then fully managed by the App Service and automatically renewed prior to expiry. If you instead provide your own TLS certificate, you can either upload this directly into App Service, or import it from a Key Vault. The latter is recommended, as its then easier (per the above) to monitor and manage your certificate. When you update the certificate entry in Key Vault, App Service automatically syncs the new version with 24 hours and without downtime. You can also trigger a manual sync within App Service.
@@ -73,14 +93,12 @@ Azure App Service allows you to create a [free managed TLS certificate](https://
 
 If you upload the certificate directly to App Service, you will need to modify the certificate in the App Service config, either via the Portal, or via infrastructure code such as ARM or Bicep. Managing the certificate in Key Vault decouples the management of the certificate from the configuration of the resource.
 
-If you reference the certificate from Key Vault, you need to grant the App Service permission to read the certificate via the `Key Vault Secrets User` role. The simplest way to grant this is to configure the App Service to have a System Assigned Identity and then grant this Identity this permission on the Key Vault.
-
 Here's an example of how you might configure an App Service to use a Key Vault certificate via Bicep:
 
 ```bicep
 param location string = resourceGroup().location
 param appName string = 'myapp-${uniqueString(resourceGroup().id)}'
-param keyVaultName string = 'kv-${uniqueString(resourceGroup().id)}'
+param keyVaultName string = 'kv-example'
 param certName string = 'mySslCert'
 param customHostname string = 'www.mycustomdomain.com'
 
@@ -105,17 +123,8 @@ resource webApp 'Microsoft.Web/sites@2023-01-01' = {
   }
 }
 
-resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
+resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: keyVaultName
-  location: location
-  properties: {
-    tenantId: subscription().tenantId
-    sku: {
-      family: 'A'
-      name: 'standard'
-    }
-    enableRbacAuthorization: true
-  }
 }
 
 resource certificate 'Microsoft.Web/certificates@2023-01-01' = {
@@ -138,9 +147,100 @@ resource hostnameBinding 'Microsoft.Web/sites/hostNameBindings@2023-01-01' = {
 }
 ```
 
+If you reference the certificate from Key Vault, you need to grant the App Service permission to read the certificate via the `Key Vault Secrets User` role. The simplest way to grant this is to configure the App Service to have a System Assigned Identity and then grant this Identity this permission on the Key Vault.
+
 ### Application Gateway
 
-Similar to App Service, you can implement a TLS certificate in Application Gateway by either configuring it directly on the resource, or via a Key Vault secret.
+Similar to App Service, you can implement a TLS certificate in Application Gateway by either configuring it directly on the resource, or via a Key Vault secret. As before, I recommend using a Key Vault to decouple management of the certificate from configuration of the resource.
+
+Here's an example of how you might configure an Application Gateway to use a certificate from a Key Vault via Bicep:
+
+```bicep
+param location string = resourceGroup().location
+param appGwName string = 'agw-example'
+param keyVaultName string = 'kv-example'
+param certSecretName string = 'appgw-cert'
+param vnetName string = 'agw-vnet'
+param subnetName string = 'agw-subnet'
+
+resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
+  name: keyVaultName
+}
+
+resource appGateway 'Microsoft.Network/applicationGateways@2023-05-01' = {
+  name: appGwName
+  location: location
+  identity: {
+    type: 'UserAssigned'
+  }
+
+  properties: {
+    sku: {
+      name: 'Standard_v2'
+      tier: 'Standard_v2'
+      capacity: 2
+    }
+
+    gatewayIPConfigurations: [
+      {
+        name: 'gwIpConfig'
+        properties: {
+          subnet: {
+            id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, subnetName)
+          }
+        }
+      }
+    ]
+
+    frontendIPConfigurations: [
+      {
+        name: 'frontendIp'
+        properties: {
+          publicIPAddress: {
+            id: resourceId('Microsoft.Network/publicIPAddresses', 'agw-pip')
+          }
+        }
+      }
+    ]
+
+    frontendPorts: [
+      {
+        name: 'httpsPort'
+        properties: {
+          port: 443
+        }
+      }
+    ]
+
+    sslCertificates: [
+      {
+        name: 'sslCertFromKV'
+        properties: {
+          keyVaultSecretId: 'https://${kvName}.vault.azure.net/secrets/${certSecretName}'
+        }
+      }
+    ]
+
+    httpListeners: [
+      {
+        name: 'httpsListener'
+        properties: {
+          frontendIPConfiguration: {
+            id: resourceId('Microsoft.Network/applicationGateways/frontendIPConfigurations', appGwName, 'frontendIp')
+          }
+          frontendPort: {
+            id: resourceId('Microsoft.Network/applicationGateways/frontendPorts', appGwName, 'httpsPort')
+          }
+          protocol: 'Https'
+          sslCertificate: {
+            id: resourceId('Microsoft.Network/applicationGateways/sslCertificates', appGwName, 'sslCertFromKV')
+          }
+        }
+      }
+    ]
+  }
+}
+```
 
 ### Front Door
 
