@@ -14,7 +14,7 @@ tags:
 draft: true
 ---
 
-This blog post is part of the [Azure Spring Clean 2026](https://www.azurespringclean.com/) virtual community event, promoting well-managed Azure tenants.
+> This blog post is part of the [Azure Spring Clean 2026](https://www.azurespringclean.com/) virtual community event, promoting well-managed Azure tenants.
 
 The end of (annual SSL/TLS Certificate renewals) is nigh! The maximum validity of SSL/TLS certificates is being [significantly reduced over the next few years](https://www.digicert.com/blog/tls-certificate-lifetimes-will-officially-reduce-to-47-days), so there's never been a better time to automate your certificate management. In Azure TLS certificates can be used in lots of different places, some of which are easier to manage than others, and for some services you may already have a degree of automation in place. But by 2029 TLS certificates will have a maximum lifetime of 47 days, so automation will be essential to ensure you can continue to keep services running without disruption and significant overhead on the team (or teams) that maintain your infrastructure.
 
@@ -37,7 +37,6 @@ If this isn't something you've thought much about up to now, a good first step w
 - AKS Ingress
 - API Management
 - Virtual Machines (VMs) or ScaleSets (VMSS) running webserver technologies such as IIS, NGINX or Apache Tomcat
-- Service Fabric
 
 > Note: This is not an exhaustive list.
 
@@ -341,21 +340,104 @@ spec:
 
 ### API Management
 
+API Management is similar to the other services in that you can upload a TLS certificate to it directly, or reference one in an Azure Key Vault. Once again the latter is the recommendation, for the same reasons as previously stated: you separate the maintenance of the TLS certificate from the configuration of the resource. Again the API Management resource needs permission to read the certificate from the Key Vault, which can be implemented by configuring it with a System Assigned Identity and then giving that the `KeyVault Secrets Reader` role on the Key Vault.
 
+When you update the certificate in the KeyVault API Management should detect the change within 4 hours and then apply it within 20 minutes. As with the other resources, it is important to reference the Key Vault secret for the certificate without a specific version, so that it always retrieves the latest.
+
+```powershell
+param apimName string
+param location string = resourceGroup().location
+param gatewayHostname string
+param keyVaultSecretId string
+
+resource apim 'Microsoft.ApiManagement/service@2023-05-01-preview' existing = {
+  name: apimName
+}
+
+resource apimCustomDomain 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
+  name: apim.name
+  location: location
+
+  properties: {
+    hostnameConfigurations: [
+      {
+        type: 'Proxy'
+        hostName: gatewayHostname
+
+        keyVaultId: keyVaultSecretId
+
+        defaultSslBinding: false
+        negotiateClientCertificate: false
+      }
+    ]
+  }
+}
+```
 
 ### Virtual Machines or ScaleSets
 
+You can often avoid having TLS certificates on VMs at all, by terminating TLS earlier in the network such as at an Application Gateway, Front Door or Load Balancer. However if you have a need to configure a TLS certificate on a Virtual Machine or ScaleSet there are a couple of good options.
 
+One approach is to use the [Azure Key Vault VM Extension](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-windows). This gives you a very similar pattern as with the other resources mentioned earlier. You reference the non-version specific URL of the certificate's secret. The extension polls at a specified interval for changes to this secret, and when a new version is detected it downloads the certificate and installs it into the certificate store location of your choice. Here's a Bicep example for a Windows VM (a similar configuration can be used for [Linux VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-linux)):
 
-### Service Fabric
+```powershell
+resource kvExtension 'Microsoft.Compute/virtualMachines/extensions@2023-09-01' = {
+  name: '${vm.name}/KeyVaultForWindows'
+  location: resourceGroup().location
 
+  properties: {
+    publisher: 'Microsoft.Azure.KeyVault'
+    type: 'KeyVaultForWindows'
+    typeHandlerVersion: '3.0'
+    autoUpgradeMinorVersion: true
 
+    settings: {
+      secretsManagementSettings: {
+        pollingIntervalInS: '3600'
+        requireInitialSync: true
+        observedCertificates: [
+          {
+            url: 'https://my-keyvault.vault.azure.net/secrets/my-cert'
+            certificateStoreName: 'My'
+            certificateStoreLocation: 'LocalMachine'
+          }
+        ]
+      }
+    }
+  }
+
+  dependsOn: [
+    vm
+  ]
+}
+```
+
+If you're using IIS, it can be configured to automatically rebind when a new certificate is detected.
+
+Another approach is to use the [certbot](https://certbot.eff.org/) tool mentioned earlier. This can be installed via `apt`:
+
+```bash
+sudo apt update
+sudo apt install certbot python3-certbot-nginx -y
+```
+
+And then called as follows:
+
+```bash
+sudo certbot --nginx -d app.example.com
+```
+
+This:
+
+- Validates domain ownership
+- Generates a certificate
+- Updates Nginx configuration automatically.
 
 ## Summary
 
 If you're reading this in 2026, there's still a good amount of time to get a handle on your certificate management before the activity becomes a monthly task. When considering how to manage certificate in Azure, I recommend the following:
 
-- Audit your estate and ensure you have a good understanding of everywhere certificates are used
-- Use the fully managed certificate services where possible
-- Centralise certificate management via Key Vault, and try and minimise the number of Key Vaults used to store certificates
-- Implement monitoring of certificates to ensure you catch expiring certificates before they become an outage
+- Audit your estate and ensure you have a good understanding of everywhere certificates are used.
+- Use the fully managed certificate services where possible.
+- Centralise certificate management via Key Vault, and consider minimising the number of Key Vaults used to store certificates, which reduces the number of places certificates need to be updated (if you are not able to use autorenew). You might consider a KeyVault per environment stage for example (Dev -> Staging -> Production) that is then shared by each of the resources in that stage.
+- Implement monitoring of certificates to ensure you catch expiring certificates before they become an outage.
