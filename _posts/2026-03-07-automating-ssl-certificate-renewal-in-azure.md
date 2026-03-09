@@ -439,7 +439,7 @@ Then you can setup a cron job to perform automatic renewal:
 echo "0 0,12 * * * root /opt/certbot/bin/python -c 'import random; import time; time.sleep(random.random() * 3600)' && sudo certbot renew -q" | sudo tee -a /etc/crontab > /dev/null
 ```
 
-There are more detailed [instructions on the official website](https://certbot.eff.org/instructions).
+There are more detailed [instructions on the official website](https://certbot.eff.org/instructions) for a variety of Operating Systems.
 
 
 ## Summary
@@ -447,6 +447,6 @@ There are more detailed [instructions on the official website](https://certbot.e
 If you're reading this in 2026, there's still a good amount of time to get a handle on your certificate management before the activity becomes a monthly task. When considering how to manage certificate in Azure, I recommend the following:
 
 - Audit your estate and ensure you have a good understanding of everywhere certificates are used.
-- Use the fully managed certificate services where possible.
-- Centralise certificate management via Key Vault, and consider minimising the number of Key Vaults used to store certificates, which reduces the number of places certificates need to be updated (if you are not able to use autorenew). You might consider a KeyVault per environment stage for example (Dev -> Staging -> Production) that is then shared by each of the resources in that stage.
+- Use the fully managed certificate services and automatic renewal where possible.
+- Centralise certificate management via Key Vault, and consider minimising the number of Key Vaults used to store certificates, which reduces the number of places certificates need to be updated (if you are not able to use auto-renew). You might consider a KeyVault per environment stage for example (Dev -> Staging -> Production) that is then shared by each of the resources in that stage.
 - Implement monitoring of certificates to ensure you catch expiring certificates before they become an outage.
