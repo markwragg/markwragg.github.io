@@ -40,7 +40,7 @@ If this isn't something you've thought much about up to now, a good first step w
 
 > Note: This is not an exhaustive list.
 
-Automating the generation of your certificates will depend on your certificate provider. There is a standard protocol for certificate renewal automation called [ACME](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment) (Automated Certificate Management Environment) and a number of tools that can be implemented to automate the process with a variety of providers (including Lets Encrypt, which provides free public TLS certificates). Some certificate providers are offering their own automation platforms, but you could also consider one or more of these tools:
+Automating the generation of your certificates will depend on your certificate provider. There is a standard protocol for certificate renewal automation called [ACME](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment) (Automated Certificate Management Environment) and a number of tools that can be implemented to automate the process with a variety of providers (including [Let's Encrypt](https://letsencrypt.org/), which provides free public TLS certificates). Some certificate providers are offering their own automation platforms, but you could also consider one or more of these tools:
 
 - [Posh-ACME](https://poshac.me/docs/v4/): A PowerShell module and ACME client to create publicly trusted TLS/TLS certificates from an ACME capable certificate authority such as Let's Encrypt.
 - [win-acme](https://www.win-acme.com/): A Windows-focused ACME client (WACS) that can be scripted to manage certificate renewal, particularly for IIS and Azure-hosted workloads.
