@@ -37,9 +37,12 @@ The end of (annual SSL/TLS Certificate renewals) is nigh! The maximum validity o
 In this blog post we'll explore some of the different areas of Azure that utilise TLS certificates and how you might consider automating them.
 
 </div>
+
 <div id="top_right_col" markdown="1">
 {% include toc icon="code" title="Contents" %}
 </div>
+
+<div>
 
 The reduction of the maximum valid lifetime of TLS certificates is being implemented in the following phases:
 
