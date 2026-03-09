@@ -91,13 +91,13 @@ You can do this relatively simply via PowerShell:
 
 ```powershell
 # Variables
-$vaultName = "my-keyvault"
-$certName  = "my-certificate"
-$pfxPath   = "C:\certs\mycert.pfx"
-$pfxPassword = ConvertTo-SecureString "PfxPasswordHere" -AsPlainText -Force
+$kv = "my-keyvault"
+$name  = "my-certificate"
+$pfx   = "C:\certs\mycert.pfx"
+$pw = ConvertTo-SecureString "PfxPasswordHere" -AsPlainText -Force
 
 # Import certificate
-Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName -FilePath $pfxPath -Password $pfxPassword
+Import-AzKeyVaultCertificate -VaultName $kv -Name $name -FilePath $pfx -Password $pw
 ```
 
 Ensure you use the same `Name` value when renewing the certificate and a new version will be uploaded to the existing entry in the Key Vault.
