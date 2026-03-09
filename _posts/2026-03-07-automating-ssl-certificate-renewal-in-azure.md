@@ -87,7 +87,7 @@ When you upload a certificate into Key Vault, it imports various properties incl
 
 When you use one of the partnered CA (Certificate Authority) providers, Key Vault refers to this as using an [Integrated CA](https://learn.microsoft.com/en-us/azure/key-vault/certificates/how-to-integrate-certificate-authority) and you can configure automatic renewal. If you're not using an Integrated CA, then you'll need to automate the process of retrieving a new certificate, and then upload that into Key Vault.
 
-You can do this relatively simply via PowerShell:
+You can do the latter pretty easily via PowerShell:
 
 ```powershell
 # Variables
