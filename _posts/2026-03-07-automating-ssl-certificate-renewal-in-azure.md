@@ -2,8 +2,8 @@
 title: Automating SSL/TLS certificate renewal in Azure
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2026/internet.jpg"
-  teaser: "/content/images/2026/internet.jpg"
+  overlay_image: "/content/images/2026/renew.jpg"
+  teaser: "/content/images/2026/renew.jpg"
 date: '2026-03-07 12:00:00'
 tags:
 - azure
@@ -88,7 +88,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
 
 ### App Service
 
-Azure App Service allows you to create a [free managed TLS certificate](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate) (provided by Digicert), which is then fully managed by the App Service and automatically renewed prior to expiry. If you instead provide your own TLS certificate, you can either upload this directly into App Service, or import it from a Key Vault. The latter is recommended, as its then easier (per the above) to monitor and manage your certificate. When you update the certificate entry in Key Vault, App Service automatically syncs the new version with 24 hours and without downtime. You can also trigger a manual sync within App Service.
+Azure App Service allows you to create a [free managed TLS certificate](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate) (provided by Digicert), which is then fully managed by the App Service and automatically renewed prior to expiry. If you instead provide your own TLS certificate, you can either upload this directly into App Service, or import it from a Key Vault. The latter is recommended, as its then easier (per the above) to monitor and manage your certificate. When you update the certificate entry in Key Vault, App Service automatically syncs the new version within 24 hours and without downtime. You can also trigger a manual sync in App Service.
 
 > Note when targetting the certificate in Key Vault you must use the non-version specific URL. Doing so will ensure it always pulls the latest certificate.
 
@@ -421,7 +421,7 @@ sudo apt update
 sudo apt install certbot python3-certbot-nginx -y
 ```
 
-And then called as follows:
+And then called as follows to perform an initial retrieval of the cert:
 
 ```bash
 sudo certbot --nginx -d app.example.com
@@ -432,6 +432,15 @@ This:
 - Validates domain ownership
 - Generates a certificate
 - Updates Nginx configuration automatically.
+
+Then you can setup a cron job to perform automatic renewal:
+
+```bash
+echo "0 0,12 * * * root /opt/certbot/bin/python -c 'import random; import time; time.sleep(random.random() * 3600)' && sudo certbot renew -q" | sudo tee -a /etc/crontab > /dev/null
+```
+
+There are more detailed [instructions on the official website](https://certbot.eff.org/instructions).
+
 
 ## Summary
 
