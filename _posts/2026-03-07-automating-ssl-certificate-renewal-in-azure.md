@@ -27,7 +27,7 @@ The reduction of the maximum valid lifetime of TLS certificates is being impleme
 - **From March 15th 2027:** Max 100 days (3 months + 1/4 of a 30-day month + 1 day)
 - **From March 15th 2029:** Max 47 days (31 days + 1/2 of a 30-day month + 1 day)
 
-This means that by 2029 TLS certificates will need to be renewed nearly _8 times per year_. What's also worth noting is that if you renew your TLS certificates before the March 14th 2026 deadline (and get the maximum 398 days), there will be no value in renewing those certificates again until after October 2026, as you'll otherwise get a certificate with a shorter validity than you already have.
+This means that by 2029 TLS certificates will need to be renewed nearly _8 times per year_ (or if you don't want to leave it until the last minute, more than likely: monthly). What's also worth noting is that if you renew your TLS certificates before the March 14th 2026 deadline (and get the maximum 398 days), there will be no value in renewing those certificates again until after October 2026, as you'll otherwise get a certificate with a shorter validity than you already have.
 
 If this isn't something you've thought much about up to now, a good first step would be to document everywhere in your infrastructure that currently uses TLS certificates. Some of the resource types to consider include:
 
@@ -40,7 +40,7 @@ If this isn't something you've thought much about up to now, a good first step w
 
 > Note: This is not an exhaustive list.
 
-Automating the generation of your certificates will depend on your certificate provider. There is a standard protocol for certificate renewal automation called [ACME](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment) (Automated Certificate Management Environment) and a number of tools that can be implemented to automate the process with a variety of providers (including Lets Encrypt, which provides free public TLS certificates). Tools include:
+Automating the generation of your certificates will depend on your certificate provider. There is a standard protocol for certificate renewal automation called [ACME](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment) (Automated Certificate Management Environment) and a number of tools that can be implemented to automate the process with a variety of providers (including Lets Encrypt, which provides free public TLS certificates). Some certificate providers are offering their own automation platforms, but you could also consider one or more of these tools:
 
 - [Posh-ACME](https://poshac.me/docs/v4/): A PowerShell module and ACME client to create publicly trusted TLS/TLS certificates from an ACME capable certificate authority such as Let's Encrypt.
 - [win-acme](https://www.win-acme.com/): A Windows-focused ACME client (WACS) that can be scripted to manage certificate renewal, particularly for IIS and Azure-hosted workloads.
