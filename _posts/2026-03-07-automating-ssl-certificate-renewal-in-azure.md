@@ -14,6 +14,20 @@ tags:
 draft: true
 ---
 
+<style type="text/css">
+  td { vertical-align: top; }
+
+  #top_left_col {
+    float:left;
+    width:72%;
+    padding-right: 30px;
+  }
+  #top_right_col {
+    float:right;
+    width:28%;
+  }
+</style>
+
 <div id="top_left_col" markdown="1">
 
 > This blog post is part of the [Azure Spring Clean 2026](https://www.azurespringclean.com/) virtual community event, promoting well-managed Azure tenants.
