@@ -91,10 +91,10 @@ You can do the latter pretty easily via PowerShell:
 
 ```powershell
 # Variables
-$kv = "my-keyvault"
-$name  = "my-certificate"
-$pfx   = "C:\certs\mycert.pfx"
-$pw = ConvertTo-SecureString "PfxPasswordHere" -AsPlainText -Force
+$kv   = "my-keyvault"
+$name = "my-certificate"
+$pfx  = "C:\certs\mycert.pfx"
+$pw   = ConvertTo-SecureString "PfxPasswordHere" -AsPlainText -Force
 
 # Import certificate
 Import-AzKeyVaultCertificate -VaultName $kv -Name $name -FilePath $pfx -Password $pw
