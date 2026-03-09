@@ -43,7 +43,7 @@ Automating the generation of your certificates will depend on your certificate p
 
 - [Posh-ACME](https://poshac.me/docs/v4/): A PowerShell module and ACME client to create publicly trusted TLS/TLS certificates from an ACME capable certificate authority such as Let's Encrypt.
 - [win-acme](https://www.win-acme.com/): A Windows-focused ACME client (WACS) that can be scripted to manage certificate renewal, particularly for IIS and Azure-hosted workloads.
-- [az-acme](https://azacme.dev/)): A specialized CLI designed to integrate ACME issuers (like Let's Encrypt) directly with Azure Key Vault, storing certificates and enabling auto-rotation.
+- [az-acme](https://azacme.dev/): A specialized CLI designed to integrate ACME issuers (like Let's Encrypt) directly with Azure Key Vault, storing certificates and enabling auto-rotation.
 - [EZCA](https://www.keytos.io/azure-pki): A dedicated Azure-native tool for automating certificate renewal across various Azure services, including support for Key Vault auto-rotation.
 - [Certbot](https://certbot.eff.org/): While general-purpose, Certbot can be used with hook scripts to renew certificates and push them to Azure resources.
 
