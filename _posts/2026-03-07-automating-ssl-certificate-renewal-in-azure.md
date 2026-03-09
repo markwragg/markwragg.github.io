@@ -37,6 +37,11 @@ If this isn't something you've thought much about up to now, a good first step w
 - AKS Ingress
 - API Management
 - Virtual Machines (VMs) or ScaleSets (VMSS) running webserver technologies such as IIS, NGINX or Apache Tomcat
+- Service Fabric
+- CDN
+- Traffic Manager
+- Container Apps / Instances
+- Event Grid
 
 > Note: This is not an exhaustive list.
 
