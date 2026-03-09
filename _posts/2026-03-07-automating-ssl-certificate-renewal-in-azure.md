@@ -59,7 +59,7 @@ Another tool worth considering is [haveibeenexpired.com](https://www.haveibeenex
 
 ![Have I Been Expired example output](/content/images/2026/haveibeenexpired.png){: .align-center}
 
-While these tools offer a variety of features, you don't necessarily need them. For most Azure resources, you just need to hook up to a Key Vault, and then have a process to renew the certificate within that, which can be relatively simple.
+While the certificate automation tools listed above offer a variety of features, you don't necessarily need them. For most Azure resources, you just need to hook up to a Key Vault, and then have a scheduled process in place to renew the certificate within that, which can be relatively simple.
 
 ### Azure Key Vault
 
