@@ -11,6 +11,7 @@ tags:
 - automation
 - deployment
 - bicep
+excerpt: "The maximum validity of SSL/TLS certificates is being significantly reduced over the next few years, so there’s never been a better time to automate your certificate management. In Azure TLS certificates can be used in lots of different places, some of which are easier to manage than others. By 2029 TLS certificates will have a maximum lifetime of 47 days, so automation will be essential to ensure you can continue to keep services running without disruption."
 ---
 
 > This blog post is part of the [Azure Spring Clean 2026](https://www.azurespringclean.com/) virtual community event, promoting well-managed Azure tenants.
