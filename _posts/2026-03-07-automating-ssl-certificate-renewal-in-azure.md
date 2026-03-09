@@ -57,6 +57,8 @@ These tools not only automate the request and retrieval of a certificate, but ca
 
 Another tool worth considering is [haveibeenexpired.com](https://www.haveibeenexpired.com/) which you can use to monitor your publicly accessible domains for expiring certificates. When you automate a process, you should also monitor it (trust, but verify).
 
+![Have I Been Expired example output](/content/images/2026/haveibeenexpired.png){: .align-center}
+
 While these tools offer a variety of features, you don't necessarily need them. For most Azure resources, you just need to hook up to a Key Vault, and then have a process to renew the certificate within that, which can be relatively simple.
 
 ### Azure Key Vault
