@@ -460,7 +460,7 @@ There are more detailed [instructions on the official website](https://certbot.e
 
 ## Summary
 
-If you're reading this in 2026, there's still a good amount of time to get a handle on your certificate management before the activity becomes a monthly task. When considering how to manage certificate in Azure, I recommend the following:
+If you're reading this in 2026, there's still a good amount of time to get a handle on your certificate management before the activity becomes a monthly task. When considering how to manage certificates in Azure, I recommend the following:
 
 - Audit your estate and ensure you have a good understanding of everywhere certificates are used.
 - Use the fully managed certificate services and automatic renewal where possible.
