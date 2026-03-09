@@ -2,8 +2,8 @@
 title: Automating SSL/TLS certificate renewal in Azure
 header:
   show_overlay_excerpt: false
-  overlay_image: "/content/images/2026/renew.jpg"
-  teaser: "/content/images/2026/renew.jpg"
+  overlay_image: "/content/images/2026/renewal.jpg"
+  teaser: "/content/images/2026/renewal.jpg"
 date: '2026-03-07 12:00:00'
 tags:
 - azure
