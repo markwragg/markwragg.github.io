@@ -10,8 +10,7 @@ tags:
 - certificates
 - automation
 - deployment
-- arm
-draft: true
+- bicep
 ---
 
 > This blog post is part of the [Azure Spring Clean 2026](https://www.azurespringclean.com/) virtual community event, promoting well-managed Azure tenants.
