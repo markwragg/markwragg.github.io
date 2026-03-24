@@ -47,7 +47,7 @@ If this isn't something you've thought much about up to now, a good first step w
 
 Automating the generation of your certificates will depend on your certificate provider. There is a standard protocol for certificate renewal automation called [ACME](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment) (Automated Certificate Management Environment) and a number of tools that can be implemented to automate the process with a variety of providers (including [Let's Encrypt](https://letsencrypt.org/), which provides free public TLS certificates). Some certificate providers are offering their own automation platforms, but you could also consider one or more of these tools:
 
-- [Posh-ACME](https://poshac.me/docs/v4/): A PowerShell module and ACME client to create publicly trusted TLS/TLS certificates from an ACME capable certificate authority such as Let's Encrypt.
+- [Posh-ACME](https://poshac.me/docs/v4/): A PowerShell module and ACME client to create publicly trusted SSL/TLS certificates from an ACME capable certificate authority such as Let's Encrypt.
 - [win-acme](https://www.win-acme.com/): A Windows-focused ACME client (WACS) that can be scripted to manage certificate renewal, particularly for IIS and Azure-hosted workloads.
 - [az-acme](https://azacme.dev/): A specialized CLI designed to integrate ACME issuers (like Let's Encrypt) directly with Azure Key Vault, storing certificates and enabling auto-rotation.
 - [EZCA](https://www.keytos.io/azure-pki): A dedicated Azure-native tool for automating certificate renewal across various Azure services, including support for Key Vault auto-rotation.
