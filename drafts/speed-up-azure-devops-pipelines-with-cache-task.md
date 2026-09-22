@@ -12,7 +12,7 @@ tags:
 draft: true
 ---
 
-I maintain a number of [PowerShell modules in GitHub](https://github.com/markwragg?tab=repositories&language=powershell), and use a relatively identical Azure DevOps pipeline to build, test and publish changes to the modules. While making some improvements to one of the modules recently, I noticed that an early step in the pipeline was taking a few minutes to run each time, and wondered if there might be a way to speed it up. I discovered Azure DevOps has a task called [Cache](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/cache-v2?view=azure-pipelines), which can be used for exactly this purpose. This blog post describes how my PowerShell build pipeline works, and how the Cache task reduced the time it took to run one of the tasks from around 3 minutes, to a few seconds.
+I maintain a number of [PowerShell modules in GitHub](https://github.com/markwragg?tab=repositories&language=powershell), and use an Azure DevOps pipeline to build, test and publish changes to the modules. While making some improvements to one of the modules recently, I noticed that an early step in the pipeline was taking a few minutes to run each time, and wondered if there might be a way to speed it up. I discovered Azure DevOps has a task called [Cache](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/cache-v2?view=azure-pipelines), which can be used for exactly this purpose. This blog post describes how my PowerShell build pipeline works, and how the Cache task reduced the time it took to run one of the tasks from around 3 minutes, to a few seconds.
 
 ### About pipeline caching
 
@@ -28,11 +28,19 @@ When you add the Cache task to a pipeline, two tasks actually execute during the
 
 Files in the cache automatically expire after 7 days, but every time you use the files in the cache this clock is reset. It is also worth noting that caches are scoped by Project, Pipeline and Branch, and there is a hierarchy. A feature branch can read/restore caches from a parent branch (e.g main) but it can only upload/overwrite for a cache key that belongs to its own branch. This prevents a rogue PR from potentially poisoning the cache.
 
+While the task itself uses Azure Storage, it's not using your Azure Storage. There's no cost to use the service (even when using the free tier of Azure DevOps), or limitation on the size of files you can store in the cache. The storage account itself is not directly exposed to you.
+
+Note also that it is not always guaranteed that using Caching will improve performance, and is very dependent on your specific scenario.
+
+> Caching is most effective when the time required to restore and save the cache is less than the time it takes to regenerate the files. However, in some cases, caching may not provide performance benefits and could even negatively impact build time. It's important to evaluate your specific scenario to determine whether caching is the right approach.
+>
+> -- https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching
+
 Read on below to see how this task benefited my specific use case.
 
 ### My pipeline
 
-My PowerShell pipeline was originally executed via a CI/CD tool called AppVeyor, and was borrowed from other members of the PowerShell community (I think predominantly [Warren Frame](https://bsky.app/profile/pscookiemonster.bsky.social). I decided some years ago to port the pipeline to Azure DevOps, partly as a learning exercise as it was becoming increasingly common in my day to day work. The structure of the pipeline didn't change much (and still hasn't), and works as follow:
+My PowerShell pipelines were originally executed via a CI/CD tool called [AppVeyor](https://www.appveyor.com/) (pre-dating Azure DevOps), and the original tasks/structure were borrowed from other giants of the PowerShell community (I think predominantly [Warren Frame](https://bsky.app/profile/pscookiemonster.bsky.social)). Later I decided to port the pipeline to Azure DevOps, partly as a learning exercise as it was becoming increasingly common in my day to day work. Following the port, the structure of the pipeline didn't change much (and still hasn't), and works as follow:
 
 - The pipeline executes automatically for any changes to the master branch, or for any PRs that would merge into master:
 
