@@ -72,7 +72,7 @@ pr:
       - master
 ```
 
-- Installs the [PSDepend](https://github.com/PowerShellOrg/PSDepend) PowerShell module, which is a PowerShell dependency handler. This takes a simple psd1 file as input, which contains a list of modules that the build pipeline depends on for other tasks, and installs those modules if they aren't already present. The modules my build pipeline depends on include:
+- It first installs the [PSDepend](https://github.com/PowerShellOrg/PSDepend) PowerShell module, which is a PowerShell dependency handler. This takes a simple psd1 file as input, which contains a list of modules that the build pipeline depends on for other tasks, and installs those modules if they aren't already present. The modules my build pipeline depends on include:
   - BuildHelpers
   - Pester
   - PlatyPS
