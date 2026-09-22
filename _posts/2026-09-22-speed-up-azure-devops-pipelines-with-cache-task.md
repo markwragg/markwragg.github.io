@@ -4,7 +4,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2026/rev-counter.jpg"
   teaser: "/content/images/2026/rev-counter.jpg"
-date: '2026-09-22 11:30:00'
+date: '2026-09-22 11:00:00'
 tags:
 - azuredevops
 - caching
