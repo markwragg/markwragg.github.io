@@ -43,7 +43,7 @@ To ensure a certain level of discernment, the list has the following rules for c
 
 Although the list is very new, I was concerned that it could become outdated / stale very easily (particularly as/when my interest might drift elsewhere). Links can break, active repos can get archived, modules can become incompatible or stop being maintained. To gate against this, four GitHub Actions workflows run on a schedule (and on push/PR) to catch this automatically:
 
-![GitHub Actions workflows output for awesome-powershell-modules repo](content/images/2026/awesome-powershell-modules-workflows.png)
+![GitHub Actions workflows output for awesome-powershell-modules repo](/content/images/2026/awesome-powershell-modules-workflows.png)
 
 - **`awesome-lint.yml`** - runs `npx awesome-lint` on push/PR to enforce the awesome-list conventions (formatting, alphabetical order, description style).
 - **`link-check.yml`** - runs [lychee](https://github.com/lycheeverse/lychee-action) weekly against README.md to find dead links, with its own cache to avoid re-checking everything every run.
@@ -58,7 +58,7 @@ The initial list was curated with AI assistance. To start with, there were a few
 
 To make this a routine task, I had Claude add it as another GitHub Workflow Action, named [New Modules Check](https://github.com/markwragg/awesome-powershell-modules/actions/workflows/new-modules-check.yml).
 
-![Awesome powershell modules new module check](content/images/2026/awesome-powershell-modules-new-module-check.png)
+![Awesome powershell modules new module check](/content/images/2026/awesome-powershell-modules-new-module-check.png)
 
 This does the following:
 
@@ -73,7 +73,7 @@ Initially, this just listed the new modules in a markdown table output on the jo
 The GitHub Action workflow `new-modules-check.yml` runs weekly (or can be run manually):
 
 1. Runs `Find-NewGalleryModules.ps1` and writes the results to the job summary as a markdown table *and* to `candidates.json`.
-2. If there are candidates, calls [`anthropics/claude-code-action@v1`](https://github.com/anthropics/claude-code-action) with a scoped tool allow-list (`Read,Edit,WebFetch,Bash(git:*),Bash(gh:*),Bash(date:*)` - notably no unrestricted shell) and a prompt that:
+2. If there are candidates, calls [`anthropics/claude-code-action@v1`](https://github.com/anthropics/claude-code-action) with a scoped tool allow-list (no unrestricted shell) and a prompt that:
    - Gives Claude the same inclusion criteria as human contributors get in `CONTRIBUTING.md` (actively maintained, single clear purpose, documented, not a near-duplicate of something already listed).
    - Asks it to look at each candidate's project/Gallery links (and source repo) and decide include/exclude with one concise reason each.
    - For includes: insert into the correct existing category, alphabetically, matching the exact `- [Name](url) - Description.` format and tone.
