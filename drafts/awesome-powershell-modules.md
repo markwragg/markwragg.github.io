@@ -1,5 +1,5 @@
 ---
-title: Building an Awesome List for PowerShell Modules, with Help from AI
+title: Building an Awesome List for PowerShell Modules, with Help from AI 🤖
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2026/powershell-modules-banner.jpg"
