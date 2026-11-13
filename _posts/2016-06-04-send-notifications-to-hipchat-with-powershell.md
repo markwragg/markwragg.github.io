@@ -31,7 +31,7 @@ Before you can make use of the function you'll need two things from Hipchat: the
 
 **To get an API token:**
 
-*Beware that the script uses version 2 of the API, and you cannot use version 1 API tokens. The version 1 API tokens were global, where as version 2 tokens are specifically created for each individual room.* 
+*Beware that the script uses version 2 of the API, and you cannot use version 1 API tokens. The version 1 API tokens were global, whereas version 2 tokens are specifically created for each individual room.* 
 
 1. Within the room's page (per the above steps) navigate to "Tokens".
 2. Complete the "Create a new token" form. The "Label" you choose will appear with each notification, so you may want to use it to describe the source activity of the notification.
@@ -143,7 +143,7 @@ If any error has occurred, we report it to the console and if retry has been set
         $Retrycount++
     }
 ```
-If we haven't successfully delivered after the maximum retries we inform the user via the console and `return $false`. This is is important as it allows logic to be built around the function in the calling script to determine if it was successful (and to perhaps fall back to email notification if it was not).
+If we haven't successfully delivered after the maximum retries we inform the user via the console and `return $false`. This is important as it allows logic to be built around the function in the calling script to determine if it was successful (and to perhaps fall back to email notification if it was not).
 
 Note the below lines don't get executed when we're successful as the earlier `return $true` ends the script immediately.
 ```    
@@ -159,5 +159,5 @@ Your use cases will vary depending on what suits your environment. It's a good i
 Here's some automations that we've embedded notifications in to:
 
 - **Windows updates:** We use a script in our environment that triggers Windows updates (rather than directly by Windows) because it allows us to also temporarily pause monitoring. A HipChat notification lets us see exactly when each server has rebooted, so if there is a negative effect we immediately know why.
-- **Software customisations:** Some of our software is customised via a standard installer and our Centralised Operations team can schedule these installations around when customer's want them to occur. We've added notifications that tell us when an installation has been scheduled and then that sends or a red or green notification after the installation reporting failure or success.
+- **Software customisations:** Some of our software is customised via a standard installer and our Centralised Operations team can schedule these installations around when customer's want them to occur. We've added notifications that tell us when an installation has been scheduled and then that sends either a red or green notification after the installation reporting failure or success.
 - **Storage vMotions:** It's occasionally necessary to relocate multiple Virtual Machines between datastores. To ensure this doesn't cause disruption we have a script (thanks to [Sam Martin](http://sammart.in) that moves a list of VMs one at a time (saving us having to trigger each move manually). To monitor the progress of this each move drops a notification to Hipchat.

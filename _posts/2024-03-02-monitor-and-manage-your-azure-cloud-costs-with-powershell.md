@@ -38,7 +38,7 @@ The AzCostTools module helps perform monthly reviews by:
 - Comparing those months to the previous ones (or to a previous month of your choice by configuring an offset).
 - Calculating the cost difference and change percentage
 - Charting the daily cost, so you have a basic view of how costs fluctuate
-- Retrieves any budgets you have configured and indicates where you've been within/over budget
+- Retrieving any budgets you have configured and indicating where you've been within/over budget
 - Identifying the most expensive services, by type
 
 Per step #1 (Understand your costs - use the built-in tools), AzCostTools is not intended as a replacement for the existing cost management tools that are in the Azure Portal. I strongly advocate their use, and there's several default views that can give you quick and valuable insight. My personal favourite is the daily cost view, granulated by Resource Group so that I can drill into where the most expensive resources are. But if you're responsible for more than one tenant and/or multiple subscriptions, you may find AzCostTools works well to automate the reporting of those costs (both individually and in total). Another weakness of the built-in Cost Management interface is it only seems to be able to show you the data from the last 12 months. If you wanted to compare your costs for the last few months to those same months from a year prior (which might be a reasonable thing to do if your costs fluctuate seasonally), it's not very helpful. However the `Get-AzConsumptionUsage` cmdlet does return data from more than 12 months ago, and so AzCostTools can do this comparison for you.
@@ -144,7 +144,7 @@ This is best experienced with `PSparklines` installed of course, but again it wo
 
 The tool then breaks down the costs by service type, creating a chart with different colours for each type, and again summarising the most/least expensive services and their cost. It will do this for up to 15 service types (after which we sort of ran out of console colours).
 
-If more than one subscription is in the cost data, the cmdlet will end with a total of cost for all subscriptions and another chart showing most to least expensive. This is a little slow to produce (its largely down to the sparkline charts which take a few seconds each to generate):
+If more than one subscription is in the cost data, the cmdlet will end with a total of cost for all subscriptions and another chart showing most to least expensive. This is a little slow to produce (it's largely down to the sparkline charts which take a few seconds each to generate):
 
 ![Show-CostAnalysis generates charts and tables for a set of returned cost data](/content/images/2024/Show-CostAnalysis.gif)
 

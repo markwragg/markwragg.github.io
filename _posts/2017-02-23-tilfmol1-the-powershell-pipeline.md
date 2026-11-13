@@ -65,8 +65,8 @@ In the previous example, you can see that in `get-service` both `-name` and `-co
 
 In the past, I might have done this with a ForEach-Object loop, say something like this:
 ```
-$ Servers = Get-Content 'servers.txt'
-$ Servers | ForEach-Object {
+$Servers = Get-Content 'servers.txt'
+$Servers | ForEach-Object {
     Get-Service -ComputerName $_
 }
 ```

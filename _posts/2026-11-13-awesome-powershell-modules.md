@@ -31,20 +31,20 @@ I had a quick search before I started and discovered a couple of pre-existing Po
 - [https://codeberg.org/janikvonrotz/awesome-powershell](https://codeberg.org/janikvonrotz/awesome-powershell)
 - [https://github.com/luke-beep/awesome-powershell](https://github.com/luke-beep/awesome-powershell)
 
-However both were general PowerShell lists, which included modules along with other useful resources like blogs, books, podcasts etc, and didn't look to be too actively maintained. I wanted to create something that was specifically about PowerShell modules, to give the community a new resource to find not only the most well known/used tools, but some of the hidden gems as well.
+However both were general PowerShell lists, which included modules along with other useful resources like blogs, books, podcasts etc., and didn't look to be too actively maintained. I wanted to create something that was specifically about PowerShell modules, to give the community a new resource to find not only the most well known / used tools, but some of the hidden gems as well.
 
-The PowerShell Gallery (at time of writing) has 17,084 unique packages, and while you can search it directly, it's not always obvious what a package does, or whether it is well maintained/working. An awesome list helps with this by adding a layer of human recommendation / curation. Like a museum, or art gallery, the idea is to showcase awesomeness.
+The PowerShell Gallery (at time of writing) has 17,084 unique packages, and while you can search it directly, it's not always obvious what a package does, or whether it is well maintained / working. An awesome list helps with this by adding a layer of human recommendation / curation. Like a museum, or art gallery, the idea is to showcase awesomeness.
 
-To ensure a certain level of discernment, the list has the following rules for contributions:
+To ensure a certain level of discernment, my list has the following rules for contributions:
 
-- All modules must be free and open source. It doesn't exist to advertise commercial products. It does however include free/open source modules that interact with paid tools, but if the module itself is a paid tool, or exists only to unlock a paid tool, then it is not permitted.
-- Modules should have existed for at least 30 days, prior to inclusion. I know from my own experience that newly published modules are often still under development.
-- Modules must not be archived, deprecated or unmaintained for a long period (unless it's simply because they're considered feature complete).
+- All modules must be free and open source. It doesn't exist to advertise commercial products. It does however include free / open source modules that interact with paid tools, but the module itself should not be a paid tool (or exist solely to unlock a paid tool).
+- Modules should have existed for at least 30 days, prior to inclusion. I know from my own experience that newly published modules are often still under regular development in the early days, so I want a cooling off period to account for this.
+- Modules must not be archived, deprecated or unmaintained for a long period (unless it's simply because they're considered feature complete). I'm a little loose with this rule because there are some modules on the list that I (and many people) use and haven't been maintained for quite a while. Their general importance in the community forgives their lack of maintenance.
 - Modules should be relatively unique in their functionality vs other modules on the list. If someone submits a module that is a better alternative to an existing one, it should replace it.
 
 ### Keeping the list current with GitHub Actions
 
-Although the list is very new, I was concerned that it could become outdated / stale very easily (particularly as/when my interest might drift elsewhere). Links can break, active repos can get archived, modules can become incompatible or stop being maintained. To gate against this, four GitHub Actions workflows run on a schedule (and on push/PR) to catch this automatically:
+Although the list is very new, I was concerned that it could become outdated / stale very easily (particularly as / when my interest might drift elsewhere). Links can break, active repos can get archived, modules can become incompatible or stop being maintained. To gate against this, four GitHub Actions workflows run on a schedule (and on push / PR) to catch this automatically:
 
 ![GitHub Actions workflows output for awesome-powershell-modules repo](/content/images/2026/awesome-powershell-modules-workflows.png){: .align-center}
 

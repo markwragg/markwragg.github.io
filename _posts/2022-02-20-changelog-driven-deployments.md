@@ -12,7 +12,7 @@ tags:
 - github
 ---
 
-A [changelog](https://keepachangelog.com/en/1.0.0/) is a useful addition to any project, as it provides users and contributors with a summary of notable changes between each release. One way to ensure you always update your changelog as part of any new release is by making it part of the the automated deployment process. This blog post describes how I've implemented changelog driven deployments for the PowerShell modules I maintain in GitHub.
+A [changelog](https://keepachangelog.com/en/1.0.0/) is a useful addition to any project, as it provides users and contributors with a summary of notable changes between each release. One way to ensure you always update your changelog as part of any new release is by making it part of the automated deployment process. This blog post describes how I've implemented changelog driven deployments for the PowerShell modules I maintain in GitHub.
 
 My PowerShell modules are built and deployed using a set of scripts that perform the following tasks whenever a PR is raised or a commit is made to the Master branch:
 

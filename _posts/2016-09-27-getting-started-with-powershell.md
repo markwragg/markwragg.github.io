@@ -31,7 +31,7 @@ This promotes some essential best practices that will make your scripts more rob
 
 This is worth printing and keeping nearby when coding as a handy reference guide to the basic constructs and conventions.
 
-[How to Install Windows 2016 TP5](How to Install Windows 2016 TP5) (Blog Post)
+[How to Install Windows 2016 TP5](http://wragg.io/installing-windows-2016-technical-preview-5-tp5/) (Blog Post)
 
 > This blog post (by me :) ) takes you through how to road test Windows Server 2016 Technical Preview 5 using VMWare Player as a desktop hypervisor. Note that you'll need to do this on a machine with a fair amount of spare RAM.
 While this isn't strictly a Powershell resource, having a server VM to play around with is useful when learning Powershell.

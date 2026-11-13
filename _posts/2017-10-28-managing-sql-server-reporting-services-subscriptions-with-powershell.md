@@ -154,7 +154,7 @@ You can generate a number of different schedule types (these same options are av
 - Once: Runs once at a specified date/time.
 - Minute: repeats every X minutes.
 - Daily: repeats every X days.
-- Weekly: repeats every X weeks and you an optionaly specity DaysOfWeek to make it repeat only on specified named days of the week.
+- Weekly: repeats every X weeks and you can optionally specify DaysOfWeek to make it repeat only on specified named days of the week.
 - Monthly: repeats every month on the specified days (which is a string where you can provide specific dates or a range, e.g 1,3,5,10-15). You can also optionally specify the months this is valid for (e.g January,June,October) rather than every month.
 - MonthlyDayOfWeek: repeats every month on a specific week of the month (e.g First, Second, Third, Last). You can also optionally specify the Days of the Week.
 

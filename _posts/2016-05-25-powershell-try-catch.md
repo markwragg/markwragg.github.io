@@ -83,7 +83,7 @@ It's worth stating, because you might expect a **terminating** error to stop the
 
 **#5: You can specify multiple catch blocks to handle different exceptions**
 
-You're not limited to a single Catch block following a Try, you can specific multiple blocks for different exceptions. For example:
+You're not limited to a single Catch block following a Try, you can specify multiple blocks for different exceptions. For example:
 
 ```
 Try{

@@ -10,7 +10,7 @@ tags:
 ---
 This is the fourth and final part of a [short series of posts about things I discovered by reading the excellent Learn PowerShell in a Month of Lunches](http://wragg.io/tilfmol-things-i-learnt-from-learn-powershell-in-a-month-of-lunches/) book (recently released in 3rd edition) as a not quite beginner.
 
-This post focuses on things I learnt about PowerShell jobs, which is a feature I'd never used but could see being very useful. PowerShell is by nature, single threaded. However jobs allow you to multitask by pushing one or more commands in to the background thereby allowing them to run sequentially. 
+This post focuses on things I learnt about PowerShell jobs, which is a feature I'd never used but could see being very useful. PowerShell is by nature, single threaded. However jobs allow you to multitask by pushing one or more commands in to the background thereby allowing them to run concurrently. 
 
 ## Local Jobs
 
@@ -22,7 +22,7 @@ Explicitly naming the `-ScriptBlock` parameter is optional as it is positional. 
 
 ![](/content/images/2017/06/PowerShell-Start-job-Example.png)
 
-Which is a listing of the job object that was created. Your job is now running in the background and to check on it's progress you use `Get-Job`. This will list all jobs that exist within the current session and their status (exactly the same as shown above). You can also request a specific job by passing a name or ID.
+Which is a listing of the job object that was created. Your job is now running in the background and to check on its progress you use `Get-Job`. This will list all jobs that exist within the current session and their status (exactly the same as shown above). You can also request a specific job by passing a name or ID.
 
 To retrieve the results of a job you use `Receive-Job <id>`. You usually want to do this when the job is complete (as indicated by `Get-Job`) but there's nothing to stop you doing it while it's in progress and you'd see any output being produced that you would see had you run it interactively.
 

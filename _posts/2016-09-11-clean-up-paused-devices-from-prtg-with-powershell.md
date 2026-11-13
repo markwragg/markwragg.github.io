@@ -80,12 +80,12 @@ I actually ended up with 3 functions and here's why:
 
 1. I obviously needed a `Get-PRTGPausedDevices` function to do the grunt work of querying the PRTG API, filtering the results and returning that as a Powershell object
 2. I needed a very simple `Remove-PRTGDevices` function that I could pass the results to and trigger the removal from PRTG (I even descoped the "Paused" part at this point and figured this function could  be simplified to just remove anything you want from PRTG). But it occurred to me it still made sense to have..
-3. A `Remove-PRTGPausedDevices` function that removed Paused devices, but that could also be used in isolation to also do the get/filtering part per the first function. The reason this made sense to me is because (for example) you can use the `Remove-Item` cmdlet on it's own to delete files. You don't have to use `Get-ChildItem` and pipe the results to it. But you can do that. So what I wanted was a similar function, that could be used on it's own via parameters (per my original script) but that could also accept pipeline input from my Get-PRTGPausedDevices function or from any other source that might be suitable in the future.
+3. A `Remove-PRTGPausedDevices` function that removed Paused devices, but that could also be used in isolation to also do the get/filtering part per the first function. The reason this made sense to me is because (for example) you can use the `Remove-Item` cmdlet on its own to delete files. You don't have to use `Get-ChildItem` and pipe the results to it. But you can do that. So what I wanted was a similar function, that could be used on its own via parameters (per my original script) but that could also accept pipeline input from my Get-PRTGPausedDevices function or from any other source that might be suitable in the future.
 
 # PRTG paused devices module
 Here's the 3 functions described above packaged as a module. To use them, simply download the file, load it with:
 ```
-Import-Module prtgPausedDevices.psml
+Import-Module prtgPausedDevices.psm1
 ```
 and then execute the above listed cmdlet names.
 <script src="https://gist.github.com/markwragg/cd9fd02ad539fb5dd4adfa6add0909bc.js"></script>

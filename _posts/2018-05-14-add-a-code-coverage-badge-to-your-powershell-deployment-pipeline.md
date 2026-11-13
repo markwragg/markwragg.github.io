@@ -125,7 +125,7 @@ You might also have noticed in the code above that I am using Git to commit any 
 
 ![Code coverage badge example](/content/images/2018/05/Code-Coverage-Badge-Example.png)
 
-*-- In this example the badge is red because the coverage is less than 60%, as I specified in the `Update-CodeCoveragePercent` function. Between 75% and 89% it would be Orange, 90% and above it would be Green. Obviously you can set your own colour/score preferences.*
+*-- In this example the badge is red because the coverage is less than 60%, as I specified in the `Update-CodeCoveragePercent` function. Between 60% and 74% it would be Orange, between 75% and 89% it would be Yellow, and 90% and above it would be Green. Obviously you can set your own colour/score preferences.*
 
 In the future you may be able to replace/augment much of the above with https://codecov.io, which is a code coverage reporting service for Github projects. To use CodeCov you need to be able to upload a code coverage report from which CodeCov  generates you a micro-site with detailed information about the code coverage of your project, as well as then a link to a badge you can put in your readme.md. 
 

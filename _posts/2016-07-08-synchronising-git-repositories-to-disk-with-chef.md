@@ -37,7 +37,7 @@ If any of the above is new to you I also strongly recommend you read [The Releas
 
 **Why use chef to sync git repos?**
 
-Our environment currently lacks a package management/code deployment solution such as [AppVeyor](http://www.appveyor/com) or [Jenkins](https://jenkins.io/) for continuous integration. But we have started to experiment with Chef for configuration management. We are at various levels of maturity with Chef for our products and we're just starting to look at ways to leverage it for our infrastructure. As a result it was a quick-win to use it for this task until we're ready to implement a more suitable solution.
+Our environment currently lacks a package management/code deployment solution such as [AppVeyor](http://www.appveyor.com) or [Jenkins](https://jenkins.io/) for continuous integration. But we have started to experiment with Chef for configuration management. We are at various levels of maturity with Chef for our products and we're just starting to look at ways to leverage it for our infrastructure. As a result it was a quick-win to use it for this task until we're ready to implement a more suitable solution.
 
 ### How it works
 If you'd like to view the source code and/or reuse this cookbook, you can find it in Git here:
@@ -45,7 +45,7 @@ If you'd like to view the source code and/or reuse this cookbook, you can find i
 
 **Usage**
 
-This cookbook is intended to run in a production environment in order to synchronise the master branches of one or more repositories so that when changes are approved and merged they are imminently and automatically promoted to Production. 
+This cookbook is intended to run in a production environment in order to synchronise the master branches of one or more repositories so that when changes are approved and merged they are imminently and automatically promoted to Production.
 
 However, as you can configure it to sync any branch you define to any location it could have various other uses.
 
@@ -115,12 +115,12 @@ C:\Chef\ **attributes.json**
 	"git-to-disk": {
 		"rootpath": "\\\\yourdomain.local\\code\\"
 	}
-		
+
 }
 ```
 **Download the required Cookbooks:**
 
-You'll now need to download the git-to-disk cookbook and it's dependencies. It requires the git::windows recipe and the chef-client::default recipe, but those each have dependencies on other cookbooks also. As a result the list is quite extensive. 
+You'll now need to download the git-to-disk cookbook and its dependencies. It requires the `git::windows` recipe and the `chef-client::default` recipe, but those each have dependencies on other cookbooks also. As a result the list is quite extensive.
 
 Download or [Clone](https://git-scm.com/docs/git-clone) each of the following to **C:\Chef\Cookbooks** (or to whatever you have specified as your cookbook_path in client.rb):
 
@@ -141,15 +141,15 @@ Download or [Clone](https://git-scm.com/docs/git-clone) each of the following to
 
 Ensure the directory exists where you want to clone the repositories to (C:\Software\Stash by default). Then to kick off the first run of Chef:
 
-1. Open a **Powershell** or cmd window. 
+1. Open a **Powershell** or cmd window.
 - Navigate to  to **C:\Chef\\**.
 - Execute **Chef-Client**.
 
 ![Chef-Client run of Chef-GitSync](/content/images/2016/06/Chef-Client-Git-Sync1.png)
 
-After synchronising the cookbooks, Chef will perform the desired actions. It will check if Chef Client is running as a service, and if it is not will install a service for it. This will then run Chef-Client every 1800 seconds (by default).   
+After synchronising the cookbooks, Chef will perform the desired actions. It will check if Chef Client is running as a service, and if it is not will install a service for it. This will then run Chef-Client every 1800 seconds (by default).
 
-If a Git Client is not already installed, one will be installed. Git is an obvious dependency as it allows it to clone and pull updates from the repositories, but by having Chef install this it means that if someone were to uninstall Git, Chef would reinstall it automatically on its next run - correcting the desired state: 
+If a Git Client is not already installed, one will be installed. Git is an obvious dependency as it allows it to clone and pull updates from the repositories, but by having Chef install this it means that if someone were to uninstall Git, Chef would reinstall it automatically on its next run - correcting the desired state:
 
 ![](/content/images/2016/06/Chef-Client-Git-Sync2.png)
 

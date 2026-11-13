@@ -44,7 +44,7 @@ Start-Sleep 2
 This is most useful when your script needs to wait for a predetermined amount of time before proceeding and you want to show the user how long they have left to wait. To do this use the `-SecondsRemaining` switch. For example:
 
 ```language-powershell
-For ($i=5; $i -gt 1; $i–-) {
+For ($i=5; $i -gt 1; $i--) {
     Write-Progress -Activity "Launching rocket" -SecondsRemaining $i
     Start-Sleep 1
 }

@@ -4,7 +4,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2025/vader-emperor.jpg"
   teaser: "/content/images/2025/vader-emperor.jpg"
-date: "2025-05-17 09:00:00"
+date: "2025-05-18 09:00:00"
 tags:
   - powershell
   - python
@@ -538,6 +538,10 @@ print(len(basket))
 ```plaintext
 3
 ```
+
+</div>
+</td>
+</tr>
 
 <tr>
 <td>Add an item to an array</td>
@@ -1981,7 +1985,7 @@ function emptyFunction {}
 <div markdown="1">
 
 ```python
-def emptyFunction:
+def emptyFunction():
   pass
 ```
 
@@ -2209,8 +2213,9 @@ Alice: £120.00
 
 ```powershell
 # Save this in a file called MyModule.ps1
-function greeting($name):
+function greeting($name) {
   Write-Host "Hello, $name"
+}
 
 # In your main file
 Import-Module MyModule.ps1

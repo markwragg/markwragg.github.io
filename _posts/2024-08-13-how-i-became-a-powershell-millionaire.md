@@ -177,7 +177,7 @@ The version in the PowerShell Gallery (and on GitHub) is just a basic framework 
 
 [CurrencyConverter](https://github.com/markwragg/PowerShell-CurrencyConverter) is the newest module in this list. It actually began life as part of AzCostTools, where I wanted to be able to convert Azure costs into an alternative currency (as sometimes they're billed in a currency that is not your own). I realised this was probably [useful functionality in its own right](https://wragg.io/Perform-currency-conversion-with-PowerShell/) and there didn't seem to be a recent module in the gallery that could do the same. One of the appealing things about my module is that it uses a backend service that has an open API, so there's no need to register an account / generate a key. This caused some confusion on Reddit when I shared it as people thought I'd just hard coded my own key into the tool but this is not the case.
 
-**Should you use it?** Yes! It should work fine as long as the API it wraps continues to exist. I also added crypto currency conversion recently at the request of someone who raised an issue on it's GitHub project. Beware though that for traditional currencies the exchange rates only update daily.
+**Should you use it?** Yes! It should work fine as long as the API it wraps continues to exist. I also added crypto currency conversion recently at the request of someone who raised an issue on its GitHub project. Beware though that for traditional currencies the exchange rates only update daily.
 
 ### Lumos
 
@@ -207,13 +207,13 @@ If you want to read more about it the original blog is [here](https://wragg.io/t
 - **Last updated:** 08 Mar 2023
 - **Download count:** 14898
 
-Linux has a Watch command and Windows doesn't which was frankly unacceptable. [Watch](https://github.com/markwragg/PowerShell-Watch) allows you to [run a command (or script block) continuously until the output changes](https://wragg.io/watch-for-changes-with-powershell/). It's useful if you're waiting for something to occur, or want to catch something in the act (like a process starting, or terminating). Ultimately all we're really doing here is wrapping some code in a `while` loop and comparing it's output to the previous iteration. One of the coolest things about `Watch-Command` is that you can just pipe a string of commands to it. It then gets the full pipeline that proceeded it from `$MyInvocation` so it can loop those commands and watch for changes. You can also send it a script block, but you don't have to. This makes it pretty convenient to use.
+Linux has a Watch command and Windows doesn't which was frankly unacceptable. [Watch](https://github.com/markwragg/PowerShell-Watch) allows you to [run a command (or script block) continuously until the output changes](https://wragg.io/watch-for-changes-with-powershell/). It's useful if you're waiting for something to occur, or want to catch something in the act (like a process starting, or terminating). Ultimately all we're really doing here is wrapping some code in a `while` loop and comparing its output to the previous iteration. One of the coolest things about `Watch-Command` is that you can just pipe a string of commands to it. It then gets the full pipeline that proceeded it from `$MyInvocation` so it can loop those commands and watch for changes. You can also send it a script block, but you don't have to. This makes it pretty convenient to use.
 
 ```powershell
 Get-Service | Select Name,Status | Watch-Command
 ```
 
-**Should you use it?** Yes! It still works as far as I know. I don't use it in earnest but every now and again I have some need to quickly monitor something for change and I remember it exists. And 14,865 other people apparently did too.
+**Should you use it?** Yes! It still works as far as I know. I don't use it in earnest but every now and again I have some need to quickly monitor something for change and I remember it exists. And 14,898 other people apparently did too.
 
 ### HashCopy
 
@@ -243,7 +243,7 @@ The Subnet module has 3 commands, `Get-Subnet` calculates details of a specified
 - **Last updated:** 06 May 2023
 - **Download count:** 468667
 
-And finally, with a horrifying 468,659 downloads and counting is [Influx](https://github.com/markwragg/PowerShell-Influx). Guess what? I had a need to write some metrics into Influx (which is a time-series database that I heartily recommend, particularly if you pair it with Grafana), using the API directly was a little clunky, and so I did something I'd ~never~ done before and turned to PowerShell. The Influx module makes writing statistics into an Influx database pretty simple. And I guess lots of other people thought so too. 
+And finally, with a horrifying 468,667 downloads and counting is [Influx](https://github.com/markwragg/PowerShell-Influx). Guess what? I had a need to write some metrics into Influx (which is a time-series database that I heartily recommend, particularly if you pair it with Grafana), using the API directly was a little clunky, and so I did something I'd ~never~ done before and turned to PowerShell. The Influx module makes writing statistics into an Influx database pretty simple. And I guess lots of other people thought so too. 
 
 Read the original blog post [here](https://wragg.io/windows-based-grafana-analytics-platform-via-influxdb-and-powershell/).
 

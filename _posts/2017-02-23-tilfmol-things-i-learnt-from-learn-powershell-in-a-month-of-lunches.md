@@ -14,9 +14,9 @@ I got started with PowerShell thanks to the encouragement and enthusiasm of a [f
 
 When I meet people who are new to PowerShell and they ask me to advise them on [resources to help them get started](http://wragg.io/getting-started-with-powershell/) I often mention the [Learn PowerShell in a Month of Lunches](https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition) book (which recently released as a 3rd edition) mostly because I've seen it recommended by others in the community. However I personally had not read it and that seemed.. well.. wrong.
 
-Equally it may seem a little bizarre that I read it now, but what I found was doing so helped me to confirm some things I knew (which has given me more confidence when attempting to explain them to others) and has clarified some things I was murky about. It also taught me a few things I didn't know at all and I was surprised (and impressed) by the depth and inclusion of some topics which I didn't expect in a book (I always assumed is) aimed at beginners.
+Equally it may seem a little bizarre that I read it now, but what I found was doing so helped me to confirm some things I knew (which has given me more confidence when attempting to explain them to others) and has clarified some things I was murky about. It also taught me a few things I didn't know at all and I was surprised (and impressed) by the depth and inclusion of some topics which I didn't expect in a book that (I always assumed) is aimed at beginners.
 
-*-- When I put together the original list of topics I wanted to cover (see below)  I decided it was too long for a single blog post. I also found that they fell in to four broad topics and so to make things more specific for future googlers, each major topic is getting a blog post of it's own which I will link to when they are ready.*
+*-- When I put together the original list of topics I wanted to cover (see below)  I decided it was too long for a single blog post. I also found that they fell in to four broad topics and so to make things more specific for future googlers, each major topic is getting a blog post of its own which I will link to when they are ready.*
 
 Without further ado, here are some things I learnt from reading Learn PowerShell in a Month of Lunches (#TILFMOL):
 

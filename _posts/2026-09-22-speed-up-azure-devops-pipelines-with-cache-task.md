@@ -10,7 +10,7 @@ tags:
 - caching
 - pipelines
 - powershell
-excerpt: "Azure DevOps pipelines can benefit from using the Cache task to quickly store and retrieve dependencies. This can significantly reduce execution time for pipelines that are executed repeatedly within a 7 day period. This blog posts details how the task was added to a PowerShell module build pipeline to reduce the installation of pipeline dependencies from 3 minutes to 4 seconds."
+excerpt: "Azure DevOps pipelines can benefit from using the Cache task to quickly store and retrieve dependencies. This can significantly reduce execution time for pipelines that are executed repeatedly within a 7 day period. This blog post details how the task was added to a PowerShell module build pipeline to reduce the installation of pipeline dependencies from 3 minutes to 4 seconds."
 ---
 
 I maintain a number of [PowerShell modules in GitHub](https://github.com/markwragg?tab=repositories&language=powershell), and use an Azure DevOps pipeline to build, test and publish changes to the modules. While making some improvements to one of the modules recently, I noticed that an early step in the pipeline was taking a few minutes to run each time, and wondered if there might be a way to speed it up. I discovered Azure DevOps has a task called [Cache](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/cache-v2?view=azure-pipelines), which can be used for exactly this purpose. This blog post describes how my PowerShell build pipeline works, and how the Cache task reduced the time it took to run one of the tasks from around 3 minutes, to a few seconds.
@@ -163,7 +163,7 @@ pr:
 
 ### The performance issue
 
-The two longest running tasks in the pipeline were the Install Dependencies task, which as described above, needed to install specific versions of 6 different PowerShell modules, and the Test task, which executes the Pester tests (which varies for each module depending on how many test there are to execute).
+The two longest running tasks in the pipeline were the Install Dependencies task, which as described above, needed to install specific versions of 6 different PowerShell modules, and the Test task, which executes the Pester tests (which varies for each module depending on how many tests there are to execute).
 
 Due to the multiple calls to the PowerShell Gallery, the install dependencies task was taking around 3 minutes:
 
@@ -227,5 +227,5 @@ The post-job task once again executes, but terminates quickly as the cache is al
 
 ## Conclusion
 
-The Azure DevOps Cache task is a useful feature for improving pipeline speeds, particularly when handling dependencies, and for pipelines that may be run frequently within a 7 day window. There's no cost or limitation to using it, and its available for Free tier users of Azure DevOps.
+The Azure DevOps Cache task is a useful feature for improving pipeline speeds, particularly when handling dependencies, and for pipelines that may be run frequently within a 7 day window. There's no cost or limitation to using it, and it's available for Free tier users of Azure DevOps.
 

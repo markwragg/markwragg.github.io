@@ -31,7 +31,7 @@ Source: [MSDN: Hyper-V Containers](https://msdn.microsoft.com/en-us/virtualizati
 
 *-- In summary, a Hyper-V container is more isolated. Containers are like living in a gated community, but a Hyper-V Container also lives in a cave in the woods.*
 
-As I've noted previously, I suspect [the Hyper-V feature on Windows 8/10 may support nested virtualisation](http://www.altaro.com/hyper-v/nested-virtualization-hyper-v-windows-server-2016/), but as i'm currently driving Windows 7 that wasn't an option for me, so instead I set up my Virtual Machine using VMWare Workstation 12 Player. 
+As I've noted previously, I suspect [the Hyper-V feature on Windows 8/10 may support nested virtualisation](http://www.altaro.com/hyper-v/nested-virtualization-hyper-v-windows-server-2016/), but as i'm currently driving Windows 7 that wasn't an option for me, so instead I set up my Virtual Machine using VMWare Workstation 12 Player.
 
 If you haven't yet installed Windows Server 2016 [see my previous post on how I went about it](http://wragg.io/installing-windows-2016-technical-preview-5-tp5/) and [this post for a little more detail on basic setup if you want to use Server Core](http://wragg.io/installing-windows-server-2016-tp5-server-core).
 
@@ -45,13 +45,13 @@ There's a little more to doing this than just installing the Containers feature 
 
 Log in to your machine and run `Powershell`. We're going to deploy to an existing system, so we should use the "Existing System" part of the guide. First you can download the Powershell script by executing this command:
 
-````language-powershell
+```powershell
 wget -uri https://aka.ms/tp5/Install-ContainerHost -OutFile C:\Install-ContainerHost.ps1
 ```
 
 And then this to configure the system to host Hyper-V and Windows Containers:
 
-```language-powershell
+```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass C:\Install-ContainerHost.ps1 -HyperV
 ```
 
@@ -84,7 +84,7 @@ If you've configured your Container Host to run Hyper-V containers, you should n
 
 Create a directory named c:\share\en-us. If you're working in Server Core you can do this with Powershell by executing:
 
-```language-powershell
+```powershell
 New-Item -Type Directory c:\share\en-us
 ```
 
@@ -92,7 +92,7 @@ New-Item -Type Directory c:\share\en-us
 
 **Ensure you have the Server 2016 TP5 ISO media still mounted to a CD Drive as D:\\.** Then copy the IIS package files to your container host by executing:
 
-```language-powershell
+```powershell
 Copy-Item D:\NanoServer\Packages\Microsoft-NanoServer-IIS-Package.cab C:\share
 Copy-Item D:\NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package_en-us.cab C:\share\en-us
 ```
@@ -137,7 +137,7 @@ Per the quickstart guide:
 
 Execute this:
 
-```language-powershell
+```powershell
 docker run --name iisnanobase -it -p 80:80 -v c:\share:c:\iisinstall --isolation=hyperv nanoserver cmd
 ```
 
@@ -178,19 +178,19 @@ net start w3svc
 
 ![](/content/images/2016/05/server-2016-hyperv-container-configure-image.png)
 
-*-- What's a continer?*
+*-- What's a container?*
 
 Execute `ipconfig` to get the IP address of your *container*, then run Internet Explorer on your Container Host to check IIS is serving content on that IP address. If (like me) your Container Host is server core, IE will not be an option. Instead, open a cmd prompt back on your container host (you can use CTRL+ALT+DEL > Task Manager to do this without exiting from the cmd shell of your container), run `Powershell` and execute:
 
-```language-powershell
-invoke-webrequest <your ipaddress> -usebasicparsing 
+```powershell
+invoke-webrequest <your ipaddress> -usebasicparsing
 ```
 
 ![](/content/images/2016/05/server-2016-container-iis-web-response.png)
 
 **5. Commit your configured container to the local repository**
 
-You can now commit your configured container to the local image repository, so that each time you want to start it it's preconfigured in this way. Before you can do this the container needs to be in a stopped state. 
+You can now commit your configured container to the local image repository, so that each time you want to start it it's preconfigured in this way. Before you can do this the container needs to be in a stopped state.
 
 Enter `exit` in the cmd shell of your running container. This will return it to a stopped state, as you can see by entering `docker info`.
 
@@ -205,12 +205,12 @@ docker images
 
 ![](/content/images/2016/05/2016-server-docker-commit-image.png)
 
-```
 And you can start your container running again (if you wish) by entering:
 
+```
 docker start iisnanobase
 ```
-*-- I had an issue getting this to work until I rebooted. Its not clear whether this was an issue with my virtual environment or a bug in TP5.*
+*-- I had an issue getting this to work until I rebooted. It's not clear whether this was an issue with my virtual environment or a bug in TP5.*
 
 You can see your running containers with `docker ps` (include the -a switch to see all containers, including those not running).
 

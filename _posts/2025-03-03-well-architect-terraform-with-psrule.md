@@ -29,7 +29,7 @@ I suspect it was something like that anyway.
 
 > "A rules engine geared towards testing Infrastructure as Code (IaC). Rules you write or import perform static analysis on IaC artifacts such as: templates, manifests, pipelines, and workflows."
 
-The idea is that you (or Microsoft, the community, the Council of Elrond) define rules for how your infrastructure should be configured and PSRule (executed as part of your development process) confirms those constraints are being followed. Infrastructure code is often complex, and can be developed by multiple individuals or teams over time. PSRule can act as a guard rail to ensure the infrastructure requirements of your organisation are being followed, or used to evaluated the quality of existing infrastructure.
+The idea is that you (or Microsoft, the community, the Council of Elrond) define rules for how your infrastructure should be configured and PSRule (executed as part of your development process) confirms those constraints are being followed. Infrastructure code is often complex, and can be developed by multiple individuals or teams over time. PSRule can act as a guard rail to ensure the infrastructure requirements of your organisation are being followed, or used to evaluate the quality of existing infrastructure.
 
 Obviously developing these rules is itself a timely endeavour, but PSRule has done the heavy lifting for you by providing various pre-built rules based on best practice guidance such as the [Azure Well-architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/). PSRule is extensible, so you choose which existing rules you want to use, and customise them (and/or develop your own rules) to meet your requirements.
 
@@ -98,7 +98,7 @@ Further properties in the object that are useful include:
 - Ref — This is the unique reference number for the rule. You can use this or the rule name to get to the relevant [reference page](https://azure.github.io/PSRule.Rules.Azure/en/rules/) which has more detail explaining the rule and sometimes examples of how to address it.
 - Reason — This is useful to get more specific detail of the violation, particularly if it relates to one or more sub-resources.
 
-You also might want to export the results for some further/offline analysis and PSRule makes this easy with it's `-OutputPath` parameter, along with `-OutputFormat` that can be used to output to various formats such as CSV, JSON, Markdown, YAML and NUnit3.
+You also might want to export the results for some further/offline analysis and PSRule makes this easy with its `-OutputPath` parameter, along with `-OutputFormat` that can be used to output to various formats such as CSV, JSON, Markdown, YAML and NUnit3.
 
 There are some other switches on the command that are worth exploring, one of which is `-As Summary` which simply returns a table showing for each rule how many resources passed and failed:
 

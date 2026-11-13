@@ -38,7 +38,7 @@ Here's how those parameters look without organising them in to sets:
 Param (
      [switch]$Random,
      [int]$Min = 1,
-     [int]$Max = (Invoke-RestMethod http://xkcd.com/info.0.json").num,        
+     [int]$Max = (Invoke-RestMethod "http://xkcd.com/info.0.json").num,        
      [int]$Newest,
      [switch]$Download, 
      [string]$Path = $PWD,

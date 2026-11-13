@@ -12,7 +12,7 @@ This post contains a PowerShell tool-making scorecard: a series of short questio
 
 > By "tool-making" I am referring the concept of creating one or more PowerShell functions that are intended to be used by end users in the same way as any other built-in (or 3rd party) cmdlet that you might use. Some of the questions below don't necessarily apply for private/helper type functions that can (and often should) be much more simplistic.
 
-The idea for this scorecard was inspired by several others i've seen, notably the [Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/) which is a scorecard for Developers to evaluate the maturity of a workplace, as well as the [Operations Report Card](https://gist.github.com/markwragg/c6542459244e02ce231d3e58d5d31284) which similarly can be used to assess the operational sophistication of an Ops team.
+The idea for this scorecard was inspired by several others I've seen, notably the [Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/) which is a scorecard for Developers to evaluate the maturity of a workplace, as well as the [Operations Report Card](https://gist.github.com/markwragg/c6542459244e02ce231d3e58d5d31284) which similarly can be used to assess the operational sophistication of an Ops team.
 
 I also recently read the excellent [PowerShell Toolmaking in a Month of Lunches](https://www.amazon.co.uk/gp/product/1617291161/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1617291161&linkCode=as2&tag=exsite0a-21&linkId=a9836e9a1ffc6c11df0158003580775c) book which recommends following a number of these best  practices. There's also a great list on [this blog post](https://blogs.technet.microsoft.com/pstips/2014/06/17/powershell-scripting-best-practices/) which while a few years old is still very relevant. If you want a very detailed guide I recommend reading the [The PowerShell Best Practices and Style Guide in GitHub](https://github.com/PoshCode/PowerShellPracticeAndStyle). There are lots other sources of PowerShell best practice on the web, and the items below are far from an exhaustive list but (I hope) represent a good starting point. 
 
@@ -154,7 +154,7 @@ Ensuring that you've followed the PowerShell standard of naming your function us
 
 **2. Is the code coverage 100%?**
 
-Pester has a `-CodeCoverage` switch that allows you to see exactly what part of your code is covered by your existing tests. Getting this to 100% still isn't a guarantee that your code doesn't have bugs but its better than anything less.
+Pester has a `-CodeCoverage` switch that allows you to see exactly what part of your code is covered by your existing tests. Getting this to 100% still isn't a guarantee that your code doesn't have bugs but it's better than anything less.
 
 **3. Does a check with [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer) pass?**
 
@@ -174,7 +174,7 @@ If you've written a tool that others might find useful or you want to distribute
 
 **7. Is the module automatically published after a successful run of the CI pipeline?**
 
-Per the above, a CI pipeline should also publich the module to the appropriate package management tool so that this isn't a manual process. This should only occur if all your tests have passed.
+Per the above, a CI pipeline should also publish the module to the appropriate package management tool so that this isn't a manual process. This should only occur if all your tests have passed.
 
 **8. Is there a readme.md, Wiki and/or other documentation?**
 
@@ -192,7 +192,7 @@ Generally (but not exclusively) using `Write-Host` is considered bad practice be
 
 ![](/content/images/2018/01/PowerShell-Core-Get-Alias.jpg)
 
-PSScriptAnalyzer will complain if you do this also (unless you suppress the relevant rule). Its considered an anti-pattern because aliases are less explicit to anyone reading your code. Generally you should only use aliases at the console to shorten your typing, but when writing a script you should always use the full cmdlet names.
+PSScriptAnalyzer will complain if you do this also (unless you suppress the relevant rule). It's considered an anti-pattern because aliases are less explicit to anyone reading your code. Generally you should only use aliases at the console to shorten your typing, but when writing a script you should always use the full cmdlet names.
 
 **3. Are there any non-meaningful variable names? e.g `$s` `$c`**
 

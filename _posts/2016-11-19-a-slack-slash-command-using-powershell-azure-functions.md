@@ -87,7 +87,7 @@ $requestBody = ConvertFrom-StringData -StringData $requestBody
 *As an aside, if you want to see for yourself what Slack submits to the Function, you can simply turn it around and send it back by doing the following:*
 
 ```
-$requestBody = Get-Content $req -Raw`
+$requestBody = Get-Content $req -Raw
 Out-File -Encoding Ascii -FilePath $res -inputObject $requestBody
 ```
 *Here's an example of the response of doing that as seen in Slack:*

@@ -223,11 +223,11 @@ variable "enable_udp_listener" {
 ```
 While you could just modify `variables.tf` to change these, a better option is to create a `terraform.tfvars` file. Again, Terraform will discover this automatically where it exists and any variables you define in it will populate variables or override the default values. For example, If I put this in a `terraform.tfvars` file:
 ```
-admin_password = "MyPassword1234!
+admin_password = "MyPassword1234!"
 grafana_port = 80
 enable_rdp = true
 ```
-It won't have to prompt me for an admin_password, it would use Port 80 for Grafana and it would add a AWS security rule that allows me to RDP to the server (disabled by default).
+It won't have to prompt me for an admin_password, it would use Port 80 for Grafana and it would add an AWS security rule that allows me to RDP to the server (disabled by default).
 
 Note that if you'd already done a deployment with the defaults, then decided to set the above variables via a `terraform.tfvars` file and ran `Terraform Apply`, Terraform would make minimal changes to the AWS security group/rules (to enable RDP), but it would also show you that it has to destroy and recreate the AWS instance (it will say "forces new resource") because in order to change the admin password and Grafana port on the server it knows it has to change the `user_data` which is only applied when the resource is first deployed:
 

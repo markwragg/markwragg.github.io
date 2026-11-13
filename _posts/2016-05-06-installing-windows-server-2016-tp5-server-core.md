@@ -29,7 +29,7 @@ And after setting a password and signing in, here:
 
 **2. Install Updates**
 
-You should first ensure you install the [Cumulative Update for TP5](**http://**). The release notes state its important to do this before installing any Roles or Features or bugs will occur (and you can't just install it later).  There's a handy tool to do server configuration and updates from the command-line. 
+You should first ensure you install the Cumulative Update for TP5. The release notes state it's important to do this before installing any Roles or Features or bugs will occur (and you can't just install it later).  There's a handy tool to do server configuration and updates from the command-line. 
 
 Simply enter `sconfig` to access this interface:
 

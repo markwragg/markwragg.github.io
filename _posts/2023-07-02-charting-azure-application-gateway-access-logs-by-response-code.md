@@ -21,7 +21,7 @@ AzureDiagnostics
 | render columnchart
 ```
 
-But this didn't generate the chart I expected, instead creating one that looked this this (with two values, `count_` and `httpStatus_d`):
+But this didn't generate the chart I expected, instead creating one that looked like this (with two values, `count_` and `httpStatus_d`):
 
 ![log analytics azure app gateway chart grouped by http status not working](/content/images/2023/07/loganalytics-httpstatus1.png)
 
