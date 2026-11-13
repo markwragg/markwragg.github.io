@@ -1,5 +1,5 @@
 ---
-title: Curating an Awesome List of PowerShell modules, with AI assistance and GitHub workflows
+title: Curating an Awesome List of PowerShell modules, with AI assisted GitHub workflows
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2026/powershell-modules-banner.jpg"
