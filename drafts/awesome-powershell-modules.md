@@ -25,8 +25,8 @@ Awesome lists are generally very easy to create, you just write your list in Mar
 
 I had a quick search before I started and discovered a couple of pre-existing PowerShell awesome lists:
 
-- https://codeberg.org/janikvonrotz/awesome-powershell
-- https://github.com/luke-beep/awesome-powershell
+- [https://codeberg.org/janikvonrotz/awesome-powershell](https://codeberg.org/janikvonrotz/awesome-powershell)
+- [https://github.com/luke-beep/awesome-powershell](https://github.com/luke-beep/awesome-powershell)
 
 However both were general PowerShell lists, which included modules along with other useful resources like blogs, books, podcasts etc, and didn't look to be too actively maintained. I wanted to create something that was specifically about PowerShell modules, to give the community a new resource to find not only the most well known/used tools, but some of the hidden gems as well.
 
