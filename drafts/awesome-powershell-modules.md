@@ -13,40 +13,64 @@ tags:
 draft: true
 ---
 
-<!-- TODO: header image - no image currently saved under content/images/2026 for this post. -->
+I recently published [awesome-powershell-modules](https://github.com/markwragg/awesome-powershell-modules) to GitHub, a curated ["awesome list"](https://github.com/sindresorhus/awesome) of PowerShell modules covering package management, testing, automation, security, cloud administration and more. This blog post covers why I built it, how the repo's GitHub Actions pipelines keep it from going stale, and how I've integrated Claude to help review and triage new module submissions each week.
 
+### What is an awesome list?
 
-I recently created [awesome-powershell-modules](https://github.com/markwragg/awesome-powershell-modules), a curated ["awesome list"](https://github.com/sindresorhus/awesome) of PowerShell modules covering package management, testing, automation, security, cloud administration and more. This blog post covers why I built it, how the repo's GitHub Actions pipelines keep it from going stale, and how I've started using Claude to help review and triage new module submissions each week.
+An awesome list is a _"a community-curated collection of the best resources, tools, libraries, frameworks, and guides dedicated to a specific topic"_. The idea isn't to list everything for a specific topic, but try to curate a list of truly "awesome" resources (which as a British person, is not a word i'm _that_ comfortable with overly using). The concept of an awesome list has been around for a while, but was popularised/standardised by [Sindre Sorhus](https://github.com/sindresorhus) in 2014, and he maintains the de facto [list of lists](https://github.com/sindresorhus/awesome).
 
-### Why another list?
+Awesome lists are generally very easy to create, you just write your list in Markdown, as a Readme.md published in a Github repo (or other public location). Generally the preference is to organise the resources into categories, link to their source, and provide a short description that explains why they are awesome.
 
-- The PowerShell Gallery has thousands of modules of wildly varying quality/maintenance - hard to know what's worth reaching for first.
-- Goal: a curated, opinionated, actively-maintained list rather than an exhaustive index.
-- Link to the repo / README badges (Lint Check, Repo Check, Link Check) and the categorisation (20 categories from Package & Dependency Management through to Fun & Novelty).
-- `CONTRIBUTING.md` sets the bar for entries: must be free/open source, actively maintained, documented, at least 30 days old, alphabetically ordered within its category, terse factual descriptions (no "A" / "An", no marketing language).
+### Why create a new list?
 
-### Keeping the list honest with GitHub Actions
+I had a quick search before I started and discovered a couple of pre-existing PowerShell awesome lists:
 
-An awesome list rots quickly - links break, repos get archived, modules stop being maintained. Four workflows run on a schedule (and on push/PR) to catch this automatically:
+- https://codeberg.org/janikvonrotz/awesome-powershell
+- https://github.com/luke-beep/awesome-powershell
+
+However both were general PowerShell lists, which included modules along with other useful resources like blogs, books, podcasts etc, and didn't look to be too actively maintained. I wanted to create something that was specifically about PowerShell modules, to give the community a new resource to find not only the most well known/used tools, but some of the hidden gems as well.
+
+The PowerShell Gallery (at time of writing) has 17,084 unique packages, and while you can search it directly, it's not always obvious what a package does, or whether it is well maintained/working. An awesome list helps with this by adding a layer of human recommendation / curation. Like a museum, or art gallery, the idea is to showcase awesomeness.
+
+To ensure a certain level of discernment, the list has the following rules for contributions:
+
+- All modules must be free and open source. It doesn't exist to advertise commercial products. It does however include free/open source modules that interact with paid tools, but if the module itself is a paid tool, or exists only to unlock a paid tool, then it is not permitted.
+- Modules should have existed for at least 30 days, prior to inclusion. I know from my own experience that newly published modules are often still under development.
+- Modules must not be archived, deprecated or unmaintained for a long period (unless it's simply because they're considered feature complete).
+- Modules should be relatively unique in their functionality vs other modules on the list. If someone submits a module that is a better alternative to an existing one, it should replace it.
+
+### Keeping the list current with GitHub Actions
+
+Although the list is very new, I was concerned that it could become outdated / stale very easily (particularly as/when my interest might drift elsewhere). Links can break, active repos can get archived, modules can become incompatible or stop being maintained. To gate against this, four GitHub Actions workflows run on a schedule (and on push/PR) to catch this automatically:
+
+![GitHub Actions workflows output for awesome-powershell-modules repo](content/images/2026/awesome-powershell-modules-workflows.png)
 
 - **`awesome-lint.yml`** - runs `npx awesome-lint` on push/PR to enforce the awesome-list conventions (formatting, alphabetical order, description style).
 - **`link-check.yml`** - runs [lychee](https://github.com/lycheeverse/lychee-action) weekly against README.md to find dead links, with its own cache to avoid re-checking everything every run.
-- **`archived-check.yml`** - runs `Test-ArchivedRepos.ps1` weekly, which extracts every `github.com/<owner>/<repo>` link from README.md and checks the GitHub API for `archived: true`. Has an `-ExcludeRepo` escape hatch for repos archived deliberately (e.g. `PowerShell/SecretManagement`, archived by the PowerShell team as "feature complete" rather than abandoned).
-- **`stale-check.yml`** - runs `Test-StaleRepos.ps1` weekly, flagging any linked repo with no push in over 5 years (configurable), emitting `::warning::` annotations so they surface in the Actions UI.
-
-Include a snippet of one of these scripts (`Test-ArchivedRepos.ps1` is the simplest) and a screenshot of the Actions tab / a workflow summary.
+- **`archived-check.yml`** - runs [Test-ArchivedRepos.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Test-ArchivedRepos.ps1) weekly, which extracts every `github.com/<owner>/<repo>` link from README.md and checks the GitHub API for `archived: true`. This has an `-ExcludeRepo` switch for repos archived deliberately (e.g. `PowerShell/SecretManagement`, archived by the PowerShell team as "feature complete" rather than abandoned).
+- **`stale-check.yml`** - runs `Test-StaleRepos.ps1` weekly, flagging any linked repo with no push in over 5 years (configurable), emitting `::warning::` annotations so they surface in the Actions UI. This doesn't automatically exclude a module from the list, but highlights ones worth reviewing.
 
 ### Discovering new modules automatically
 
-- `scripts/Find-NewGalleryModules.ps1` queries the PowerShell Gallery's OData feed directly (not `Find-Module`/PSResourceGet) for speed, looking for modules whose **first-ever** version was published 30-37 days ago.
-- Why a window and not "brand new": gives a module a few weeks to prove it isn't abandoned on day two, while still catching it within the next weekly run.
-- Explain the "broad net then confirm" approach: a cheap single filter query catches any version created in the window (so a module that's since shipped newer versions doesn't dodge the window), then a couple of small follow-up requests per *new* candidate confirm the module's earliest version actually falls inside it, and fetch its current stable release metadata.
+The idea of an awesome list is that the wider community contributes to the ongoing maintenance (and I hope people do). However, I also wanted to make sure that I was regularly looking for new modules, and didn't want this to be a manual chore, as there may be [100s of new modules published each week](https://jdhitsolutions.com/blog/github/8999/hey-psgallery-whats-new/).
+
+The initial list was curated with AI assistance. To start with, there were a few modules that I had used regularly for many years, some as part of my PowerShell build pipelines, others as day to day tools in the terminal. I also wanted to showcase some of my own modules, so took the opportunity to add my [nepo babies](https://en.wikipedia.org/wiki/Nepo_baby). I also took recommendations from the other awesome lists I noted above. Following this, I used Claude Code to do a scan of some well known community resources to find modules they had mentioned over the years. I had it review the RSS feed of [The PowerShell Podcast](https://powershellpodcast.podbean.com/), [PowerShell Weekly newsletter](https://psweekly.dowst.dev/) and [PowerShell.news](https://www.powershell.news/) site. These weren't all known to me, so I leaned on Claude to help me understand their purpose, and where they were unique or superior to existing items on the list. Claude was great for this, as it was able to quickly summarise what each module did, review its code for any security concerns, and consider whether it was new, unique and awesome enough to join the list. The ultimate decision still falls to me, but Claude took the heavy lifting out of understanding a large number of modules.
+
+To make this a routine task, I had Claude add it as another GitHub Workflow Action, named [New Modules Check](https://github.com/markwragg/awesome-powershell-modules/actions/workflows/new-modules-check.yml).
+
+![Awesome powershell modules new module check](content/images/2026/awesome-powershell-modules-new-module-check.png)
+
+This does the following:
+
+- [scripts/Find-NewGalleryModules.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Find-NewGalleryModules.ps1) queries the PowerShell Gallery's OData feed, looking for modules whose **first-ever** version was published 30-37 days ago (to comply with my "must have existed for 30 days" rule).
+  - This was actually a little finicky, as the gallery returns the latest publish date of modules by default, so we have to further filter to find the genuinely new ones, and to ensure we don't miss ones that are getting updated more than every 30 days.
 - Already-listed modules are excluded first (by normalised name and by Gallery ID parsed out of existing README links), so that lookup cost is only paid for genuinely new candidates.
-- Worth showing the OData `$filter` query as a code snippet - it's a nice example of talking to the Gallery without any module dependency at all.
+
+Initially, this just listed the new modules in a markdown table output on the job. It still does this, but it now also goes a step further:
 
 ### Letting Claude triage the candidates
 
-This is the interesting bit. `new-modules-check.yml` runs weekly (and on `workflow_dispatch`):
+The GitHub Action workflow `new-modules-check.yml` runs weekly (or can be run manually):
 
 1. Runs `Find-NewGalleryModules.ps1` and writes the results to the job summary as a markdown table *and* to `candidates.json`.
 2. If there are candidates, calls [`anthropics/claude-code-action@v1`](https://github.com/anthropics/claude-code-action) with a scoped tool allow-list (`Read,Edit,WebFetch,Bash(git:*),Bash(gh:*),Bash(date:*)` - notably no unrestricted shell) and a prompt that:
