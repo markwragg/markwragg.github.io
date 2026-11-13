@@ -13,7 +13,7 @@ tags:
 draft: true
 ---
 
-I recently published [awesome-powershell-modules](https://github.com/markwragg/awesome-powershell-modules) to GitHub, a curated ["awesome list"](https://github.com/sindresorhus/awesome) of PowerShell modules covering package management, testing, automation, security, cloud administration and more. This blog post covers why I built it, how the repo's GitHub Actions pipelines keep it from going stale, and how I've integrated Claude to help review and triage new module submissions each week.
+I recently published [awesome-powershell-modules](https://github.com/markwragg/awesome-powershell-modules) to GitHub, a curated ["awesome list"](https://github.com/sindresorhus/awesome) of PowerShell modules covering package management, testing, automation, security, cloud administration and more. This blog post covers why I created it, how the repo's GitHub Actions pipelines keep it from going stale, and how I've integrated Claude to help review and triage new module submissions each week.
 
 ### What is an awesome list?
 
@@ -82,8 +82,6 @@ The GitHub Action workflow `new-modules-check.yml` runs weekly (or can be run ma
    - If nothing was a good fit: skip the PR entirely and just append the reasoning to the job summary - avoids opening noise PRs just to say "no".
 3. Explicitly never pushes to `main` - the model's only path to changing the list is a PR, which I still review and merge myself.
 
-### A real example
-
 The first run opened [PR #1](https://github.com/markwragg/awesome-powershell-modules/pull/1) against ~51 candidates found in the Gallery:
 
 - Added **PSZoxide** and **PWRSWriteColorEX**, each with a one-line justification.
@@ -97,11 +95,25 @@ The first run opened [PR #1](https://github.com/markwragg/awesome-powershell-mod
 
 ### Reflections
 
+This was my first experience incorporating an LLM into an automation pipeline. Some reflections include:
+
 - Treat the AI like any other contributor: least-privilege tool access, output constrained to a PR for review, not direct write access to `main`.
-- Giving it the *same written criteria* as human contributors (reusing `CONTRIBUTING.md` language in the prompt) kept its decisions consistent with how I'd have judged them myself.
-- The weekly cadence means I'm no longer manually trawling new Gallery listings - I just review a PR (or nothing, most weeks).
-- Caveats to mention: still reviewing every PR before merge, occasional judgement calls I might disagree with, cost of running the action.
+- Give it the *same written criteria* as human contributors (reusing `CONTRIBUTING.md` language in the prompt) to keep its decisions consistent with how I'd judge them myself.
+- Use scripts for the scriptable bits: I don't want the LLM to be generating a solution for querying the gallery on every run, which could then end up being inconsistent as well as wasteful.
+- Keep the human in the loop: Awesome lists are supposed to be human curated, and we don't want to lose that by overly relying on AI input.
 
 ### Conclusion
 
-- Link back to the repo and README, and to `CONTRIBUTING.md` for anyone wanting to suggest a module (human-submitted PRs go through the same lint/link/archive checks).
+While I am hopeful that PowerShell community members (new and old) find this is a useful resource, it wasn't an entirely selfless act (not least because its a surreptitious way to advertise some of my own modules). I've already found some great new modules to add to my tool chest through the process.
+
+![No such thing as a selfless act](/content/images/2026/selfless-act.png)
+
+Some of my favourite new discoveries include:
+
+- [ConsoleMonster](https://github.com/EvotecIT/ConsoleMonster#readme) - This beast of a module can be used to create incredible looking dashboards directly in the terminal, but just by simply running `Enable-ConsoleFormatting` it also transforms your every day output, making things like Format-Table output much prettier.
+- [TerminalGlyphs](https://github.com/marr-cloud/TerminalGlyphs#readme) - Adds icons/colors to files and folders in `Get-ChildItem`. This is a reimplementation of `Terminal-Icons` and fixed an issue that was occurring when you had multiple tab/sessions, so replaced it on the list as a superior option.
+- [PSZoxide](https://github.com/InfiniteRoomLabs/PSZoxide#readme) - A PowerShell clone of zoxide, which I'd not heard of, but is a "smarter cd". Instead of using `cd` you use `z` to navigate a path, and it retains a history which means next time you can use a subset of the path to return of the same place.
+
+
+
+
