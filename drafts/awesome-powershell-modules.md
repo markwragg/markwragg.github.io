@@ -43,7 +43,7 @@ To ensure a certain level of discernment, the list has the following rules for c
 
 Although the list is very new, I was concerned that it could become outdated / stale very easily (particularly as/when my interest might drift elsewhere). Links can break, active repos can get archived, modules can become incompatible or stop being maintained. To gate against this, four GitHub Actions workflows run on a schedule (and on push/PR) to catch this automatically:
 
-![GitHub Actions workflows output for awesome-powershell-modules repo](/content/images/2026/awesome-powershell-modules-workflows.png)
+![GitHub Actions workflows output for awesome-powershell-modules repo](/content/images/2026/awesome-powershell-modules-workflows.png){: .align-center}
 
 - **`awesome-lint.yml`** - runs `npx awesome-lint` on push/PR to enforce the awesome-list conventions (formatting, alphabetical order, description style).
 - **`link-check.yml`** - runs [lychee](https://github.com/lycheeverse/lychee-action) weekly against README.md to find dead links, with its own cache to avoid re-checking everything every run.
@@ -58,7 +58,7 @@ The initial list was curated with AI assistance. To start with, there were a few
 
 To make this a routine task, I had Claude add it as another GitHub Workflow Action, named [New Modules Check](https://github.com/markwragg/awesome-powershell-modules/actions/workflows/new-modules-check.yml).
 
-![Awesome powershell modules new module check](/content/images/2026/awesome-powershell-modules-new-module-check.png)
+![Awesome powershell modules new module check](/content/images/2026/awesome-powershell-modules-new-module-check.png){: .align-center}
 
 This does the following:
 
@@ -110,7 +110,7 @@ This was my first experience incorporating an LLM into an automation pipeline. S
 
 While I am hopeful that PowerShell community members (new and old) find this is a useful resource, it wasn't an entirely selfless act (not least because its a surreptitious way to advertise some of my own modules). I've already found some great new modules to add to my tool chest through the process.
 
-![No such thing as a selfless act](/content/images/2026/selfless-act.jpg)
+![No such thing as a selfless act](/content/images/2026/selfless-act.jpg){: .align-center}
 
 Some of my favourite new discoveries include:
 
