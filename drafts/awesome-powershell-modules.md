@@ -13,7 +13,9 @@ tags:
 draft: true
 ---
 
-I recently published [awesome-powershell-modules](https://github.com/markwragg/awesome-powershell-modules) to GitHub, a curated ["awesome list"](https://github.com/sindresorhus/awesome) of PowerShell modules covering package management, testing, automation, security, cloud administration and more. This blog post covers why I created it, how the repo's GitHub Actions pipelines keep it from going stale, and how I've integrated Claude to help review and triage new module submissions each week.
+I recently published an [awesome-powershell-modules](https://github.com/markwragg/awesome-powershell-modules) list to GitHub, a curated ["awesome list"](https://github.com/sindresorhus/awesome) of PowerShell modules covering package management, testing, automation, security, cloud administration and more. This blog post covers why I created it, how the repo's GitHub Actions pipelines keep it from going stale, and how I've integrated Claude to help review and triage new module submissions each week.
+
+![awesome-powershell-modules readme](/content/images/2026/awesome-powershell-modules.png)
 
 ### What is an awesome list?
 
