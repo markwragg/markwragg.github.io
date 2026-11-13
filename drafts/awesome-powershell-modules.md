@@ -108,7 +108,7 @@ This was my first experience incorporating an LLM into an automation pipeline. S
 
 ### Conclusion
 
-While I am hopeful that PowerShell community members (new and old) find this is a useful resource, it wasn't an entirely selfless act (not least because its a surreptitious way to advertise some of my own modules). I've already found some great new modules to add to my tool chest through the process.
+While I am hopeful that PowerShell community members (new and old) find this is a useful resource, it wasn't an entirely selfless act (not least because it's a surreptitious way to advertise some of my own modules). I've already found some great new modules to add to my tool chest through the process.
 
 ![No such thing as a selfless act](/content/images/2026/selfless-act.jpg){: .align-center}
 
@@ -118,6 +118,4 @@ Some of my favourite new discoveries include:
 - [TerminalGlyphs](https://github.com/marr-cloud/TerminalGlyphs#readme) - Adds icons/colors to files and folders in `Get-ChildItem`. As mentioned above, this is a reimplementation of `Terminal-Icons` and fixed an issue that was occurring when you had multiple tab/sessions, so replaced it on the list as a superior option.
 - [PSZoxide](https://github.com/InfiniteRoomLabs/PSZoxide#readme) - A PowerShell clone of zoxide, which I'd not heard of, but is a "smarter cd". Instead of using `cd` you use `z` to navigate a path, and it retains a history which means next time you can use a subset of the path to return to the same place.
 
-
-
-
+If you have any suggestions for modules to add to the list, please let me know. You can either raise an [Issue](https://github.com/markwragg/awesome-powershell-modules/issues) (if you're not confident with GitHub) or a [PR](https://github.com/markwragg/awesome-powershell-modules/pulls). Please review the [CONTRIBUTING.md](https://github.com/markwragg/awesome-powershell-modules/blob/main/CONTRIBUTING.md) guide for more details.
