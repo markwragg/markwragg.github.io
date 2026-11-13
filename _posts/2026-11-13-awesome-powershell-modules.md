@@ -4,13 +4,14 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2026/powershell-modules-banner.jpg"
   teaser: "/content/images/2026/powershell-modules-banner.jpg"
+date: '2026-11-13 09:00:00'
 tags:
 - powershell
 - github-actions
 - ai
 - claude
 - automation
-draft: true
+excerpt: "I recently published awesome-powershell-modules, a curated \"awesome list\" of PowerShell modules, to GitHub. This blog post covers why I created it, how GitHub Actions workflows keep it from going stale, and how I've integrated Claude to help discover, review and triage new module submissions each week."
 ---
 
 I recently published an [awesome-powershell-modules](https://github.com/markwragg/awesome-powershell-modules) list to GitHub, a curated ["awesome list"](https://github.com/sindresorhus/awesome) of PowerShell modules covering package management, testing, automation, security, cloud administration and more. This blog post covers why I created it, how the repo's GitHub Actions pipelines keep it from going stale, and how I've integrated Claude to help review and triage new module submissions each week.
