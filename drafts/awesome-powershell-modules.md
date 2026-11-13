@@ -17,9 +17,9 @@ I recently published [awesome-powershell-modules](https://github.com/markwragg/a
 
 ### What is an awesome list?
 
-An awesome list is a _"a community-curated collection of the best resources, tools, libraries, frameworks, and guides dedicated to a specific topic"_. The idea isn't to list everything for a specific topic, but try to curate a list of truly "awesome" resources (which as a British person, is not a word i'm _that_ comfortable with overly using). The concept of an awesome list has been around for a while, but was popularised/standardised by [Sindre Sorhus](https://github.com/sindresorhus) in 2014, and he maintains the de facto [list of lists](https://github.com/sindresorhus/awesome).
+An awesome list is a _"a community-curated collection of the best resources, tools, libraries, frameworks, and guides dedicated to a specific topic"_. The idea isn't to list everything for a specific topic, but try to curate a list of truly "awesome" resources (which as a British person, is not a word I'm _that_ comfortable with overly using). The concept of an awesome list has been around for a while, but was popularised/standardised by [Sindre Sorhus](https://github.com/sindresorhus) in 2014, and he maintains the de facto [list of lists](https://github.com/sindresorhus/awesome).
 
-Awesome lists are generally very easy to create, you just write your list in Markdown, as a Readme.md published in a Github repo (or other public location). Generally the preference is to organise the resources into categories, link to their source, and provide a short description that explains why they are awesome.
+Awesome lists are generally very easy to create, you just write your list in Markdown, as a `README.md` published in a GitHub repo (or other public location). Generally the preference is to organise the resources into categories, link to their source, and provide a short description that explains why they are awesome.
 
 ### Why create a new list?
 
@@ -48,7 +48,7 @@ Although the list is very new, I was concerned that it could become outdated / s
 - **`awesome-lint.yml`** - runs `npx awesome-lint` on push/PR to enforce the awesome-list conventions (formatting, alphabetical order, description style).
 - **`link-check.yml`** - runs [lychee](https://github.com/lycheeverse/lychee-action) weekly against README.md to find dead links, with its own cache to avoid re-checking everything every run.
 - **`archived-check.yml`** - runs [Test-ArchivedRepos.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Test-ArchivedRepos.ps1) weekly, which extracts every `github.com/<owner>/<repo>` link from README.md and checks the GitHub API for `archived: true`. This has an `-ExcludeRepo` switch for repos archived deliberately (e.g. `PowerShell/SecretManagement`, archived by the PowerShell team as "feature complete" rather than abandoned).
-- **`stale-check.yml`** - runs `Test-StaleRepos.ps1` weekly, flagging any linked repo with no push in over 5 years (configurable), emitting `::warning::` annotations so they surface in the Actions UI. This doesn't automatically exclude a module from the list, but highlights ones worth reviewing.
+- **`stale-check.yml`** - runs [Test-StaleRepos.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Test-StaleRepos.ps1) weekly, flagging any linked repo with no push in over 5 years (configurable), emitting `::warning::` annotations so they surface in the Actions UI. This doesn't automatically exclude a module from the list, but highlights ones worth reviewing.
 
 ### Discovering new modules automatically
 
@@ -87,7 +87,7 @@ The first run opened [PR #1](https://github.com/markwragg/awesome-powershell-mod
 - Adding **PSZoxide** and **PWRSWriteColorEX**, each with a one-line justification.
 - Excluding the rest with specific, varied reasoning - e.g. recognising a family of 9 `IdentityCommand.*` vendor SDK modules as "same family, too new to judge" rather than listing each individually, spotting `TerminalGlyphs` as a near-duplicate of the already-listed Terminal-Icons, and rejecting internal/plumbing modules (`NSP.RepoTools`, `Boyles.PowerShell.Core`) that aren't general-purpose.
 
-I think human reviewed the PR, and didn't entirely agree. `PWRSWriteColorEX` was a Rust re-implementation of `PSWriteColorEX`, that itself overlapped with an existing list entry `PSWriteColor`, so I dropped it from the PR. `TerminalGlyphps` was a near duplicate of `Terminal-Icons`, but fixed a significant bug from it, due it no longer being maintained. It was therefore a better alternative, and I added it to the list as a replacement.
+I then human-reviewed the PR, and didn't entirely agree. `PWRSWriteColorEX` was a Rust re-implementation of `PSWriteColorEX`, that itself overlapped with an existing list entry `PSWriteColor`, so I dropped it from the PR. `TerminalGlyphs` was a near duplicate of `Terminal-Icons`, but fixed a significant bug from it, due to it no longer being maintained. It was therefore a better alternative, and I added it to the list as a replacement.
 
 While it wasn't perfect, it still added a lot of value so I'm intrigued to see what it suggests in the weeks to come.
 
@@ -115,8 +115,8 @@ While I am hopeful that PowerShell community members (new and old) find this is 
 Some of my favourite new discoveries include:
 
 - [ConsoleMonster](https://github.com/EvotecIT/ConsoleMonster#readme) - This beast of a module can be used to create incredible looking dashboards directly in the terminal, but just by simply running `Enable-ConsoleFormatting` it also transforms your every day output, making things like Format-Table output much prettier.
-- [TerminalGlyphs](https://github.com/marr-cloud/TerminalGlyphs#readme) - Adds icons/colors to files and folders in `Get-ChildItem`. This is a reimplementation of `Terminal-Icons` and fixed an issue that was occurring when you had multiple tab/sessions, so replaced it on the list as a superior option.
-- [PSZoxide](https://github.com/InfiniteRoomLabs/PSZoxide#readme) - A PowerShell clone of zoxide, which I'd not heard of, but is a "smarter cd". Instead of using `cd` you use `z` to navigate a path, and it retains a history which means next time you can use a subset of the path to return of the same place.
+- [TerminalGlyphs](https://github.com/marr-cloud/TerminalGlyphs#readme) - Adds icons/colors to files and folders in `Get-ChildItem`. As mentioned above, this is a reimplementation of `Terminal-Icons` and fixed an issue that was occurring when you had multiple tab/sessions, so replaced it on the list as a superior option.
+- [PSZoxide](https://github.com/InfiniteRoomLabs/PSZoxide#readme) - A PowerShell clone of zoxide, which I'd not heard of, but is a "smarter cd". Instead of using `cd` you use `z` to navigate a path, and it retains a history which means next time you can use a subset of the path to return to the same place.
 
 
 
