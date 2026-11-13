@@ -82,22 +82,26 @@ The GitHub Action workflow `new-modules-check.yml` runs weekly (or can be run ma
    - If nothing was a good fit: skip the PR entirely and just append the reasoning to the job summary - avoids opening noise PRs just to say "no".
 3. Explicitly never pushes to `main` - the model's only path to changing the list is a PR, which I still review and merge myself.
 
-The first run opened [PR #1](https://github.com/markwragg/awesome-powershell-modules/pull/1) against ~51 candidates found in the Gallery:
+The first run opened [PR #1](https://github.com/markwragg/awesome-powershell-modules/pull/1) against ~51 candidates found in the Gallery, and suggested:
 
-- Added **PSZoxide** and **PWRSWriteColorEX**, each with a one-line justification.
-- Excluded the rest with specific, varied reasoning - e.g. recognising a family of 9 `IdentityCommand.*` vendor SDK modules as "same family, too new to judge" rather than listing each individually, spotting `TerminalGlyphs` as a near-duplicate of the already-listed Terminal-Icons, and rejecting internal/plumbing modules (`NSP.RepoTools`, `Boyles.PowerShell.Core`) that aren't general-purpose.
-- Worth pulling 4-5 of the more interesting exclusion reasons into the post verbatim as examples of the judgement calls it's making beyond simple keyword matching.
-- Screenshot the PR / Actions run.
+- Adding **PSZoxide** and **PWRSWriteColorEX**, each with a one-line justification.
+- Excluding the rest with specific, varied reasoning - e.g. recognising a family of 9 `IdentityCommand.*` vendor SDK modules as "same family, too new to judge" rather than listing each individually, spotting `TerminalGlyphs` as a near-duplicate of the already-listed Terminal-Icons, and rejecting internal/plumbing modules (`NSP.RepoTools`, `Boyles.PowerShell.Core`) that aren't general-purpose.
+
+I think human reviewed the PR, and didn't entirely agree. `PWRSWriteColorEX` was a Rust re-implementation of `PSWriteColorEX`, that itself overlapped with an existing list entry `PSWriteColor`, so I dropped it from the PR. `TerminalGlyphps` was a near duplicate of `Terminal-Icons`, but fixed a significant bug from it, due it no longer being maintained. It was therefore a better alternative, and I added it to the list as a replacement.
+
+While it wasn't perfect, it still added a lot of value so I'm intrigued to see what it suggests in the weeks to come.
 
 ### Scripts for visibility into the list itself
 
-- `Get-ModuleAuthor.ps1` / `Get-ModuleDetails.ps1` - not part of the pipeline, but handy for sanity-checking the list: who are the most prolific authors on it, what are the real download counts, etc. Maybe a table of top authors as of writing.
+In addition to the above, I added a couple of scripts to the repo that you can use to query the list itself. Several of the modules on the list come from the same author, so I was interested to know who was the most prolific, you can find that out via [Get-ModuleAuthor.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Get-ModuleAuthor.ps1).
+
+Then I thought it might be interesting to be able to list all of the modules on the list as PowerShell objects, along with their download counts. [Get-ModuleDetails.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Get-ModuleDetails.ps1) lets you do that.
 
 ### Reflections
 
 This was my first experience incorporating an LLM into an automation pipeline. Some reflections include:
 
-- Treat the AI like any other contributor: least-privilege tool access, output constrained to a PR for review, not direct write access to `main`.
+- Treat the AI like any other contributor: least-privilege tool access, output constrained to a PR for review, no direct write access to `main`.
 - Give it the *same written criteria* as human contributors (reusing `CONTRIBUTING.md` language in the prompt) to keep its decisions consistent with how I'd judge them myself.
 - Use scripts for the scriptable bits: I don't want the LLM to be generating a solution for querying the gallery on every run, which could then end up being inconsistent as well as wasteful.
 - Keep the human in the loop: Awesome lists are supposed to be human curated, and we don't want to lose that by overly relying on AI input.
@@ -106,7 +110,7 @@ This was my first experience incorporating an LLM into an automation pipeline. S
 
 While I am hopeful that PowerShell community members (new and old) find this is a useful resource, it wasn't an entirely selfless act (not least because its a surreptitious way to advertise some of my own modules). I've already found some great new modules to add to my tool chest through the process.
 
-![No such thing as a selfless act](/content/images/2026/selfless-act.png)
+![No such thing as a selfless act](/content/images/2026/selfless-act.jpg)
 
 Some of my favourite new discoveries include:
 
