@@ -77,6 +77,7 @@ Initially, this just listed the new modules in a markdown table output on the jo
 
 The GitHub Action workflow `new-modules-check.yml` runs weekly at midnight every Monday (or can be run manually):
 
+{% raw %}
 ```yaml
 name: New Modules Check
 on:
@@ -173,6 +174,7 @@ jobs:
             $GITHUB_STEP_SUMMARY listing each candidate and your exclusion reasoning.
 
 ```
+{% endraw %}
 
 1. The execution of `Find-NewGalleryModules.ps1` writes the results to the job summary as a markdown table *and* to `candidates.json`.
 2. If there are candidates, calls [`anthropics/claude-code-action@v1`](https://github.com/anthropics/claude-code-action) with a scoped tool allow-list `--allowedTools` (no unrestricted shell) and `--permission-mode default` so that any tool call outside of the explicit allow list is denied outright. It then executes a prompt that:
