@@ -199,9 +199,13 @@ While it wasn't perfect, it still added a lot of value so I'm intrigued to see w
 
 ### Scripts for visibility into the list itself
 
-In addition to the above, I added a couple of scripts to the repo that you can use to query the list itself. Several of the modules on the list come from the same author, so I was interested to know who was the most prolific, you can find that out via [Get-ModuleAuthor.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Get-ModuleAuthor.ps1).
+In addition to the above, I added a couple of scripts to the repo that you can use to query the list itself. Several of the modules on the list come from the same author, so I was interested to know who was the most prolific, you can find that out via [Get-ModuleAuthor.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Get-ModuleAuthor.ps1):
 
-Then I thought it might be interesting to be able to list all of the modules on the list as PowerShell objects, along with their download counts. [Get-ModuleDetails.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Get-ModuleDetails.ps1) lets you do that.
+![Get-ModuleAuthor example usage](/content/images/2026/get-moduleauthor.png){: .align-center}
+
+Then I thought it might be interesting to be able to list all of the modules on the list as PowerShell objects, along with their download counts. [Get-ModuleDetails.ps1](https://github.com/markwragg/awesome-powershell-modules/blob/main/scripts/Get-ModuleDetails.ps1) lets you do that:
+
+![Get-ModuleDetails example usage](/content/images/2026/get-moduledetails.png){: .align-center}
 
 ### Reflections
 
