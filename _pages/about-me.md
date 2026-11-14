@@ -16,6 +16,7 @@ I am particularly passionate about PowerShell and have spoken twice at [PSDay.UK
 
 #### Public Speaking
 
+- [Automate build testing & deployment of your Pwsh modules cross platform with Azure DevOps](https://www.youtube.com/watch?v=x5LXjIPEflU) *-- PSConf.eu Minicon 2026*
 - [The PowerShell Podcast E109 Cloud Chronicles: Mark Wragg's Journey in DevOps](https://www.youtube.com/watch?v=AEl6FQXTAEY) *-- Recorded March 2024*
 - [Measure all the things with Influx, Grafana and PowerShell](https://www.youtube.com/watch?v=V7PYt9tWFw8) *-- PSDay Birmingham 2019*
 - [Mastering PowerShell Testing with Pester](https://www.youtube.com/watch?v=BbOiQCgDDR8&feature=youtu.be) *-- PSDay London 2018*
@@ -32,11 +33,13 @@ I also made voluntary contributions to the following books, which raised funds f
 
 I maintain a number of Open Source code repositories for tools that I've developed that I felt could be useful to the wider community. You can find those in my profile on [GitHub](https://github.com/markwragg). Some that are particularly popular include:
 
+- [PowerShell-Subnet](https://github.com/markwragg/PowerShell-Subnet) *-- A PowerShell module for cmdlets related to network subnet calculations*
 - [PowerShell-Influx](https://github.com/markwragg/PowerShell-Influx) *-- a PowerShell module for sending metrics into the time-series platform Influx.*
+- [Watch](https://github.com/markwragg/PowerShell-Watch) *-- A PowerShell Watch-Command cmdlet for repeatedly running a command or block of code until a change in the output occurs.*
 - [Test-ActiveDirectory](https://github.com/markwragg/Test-ActiveDirectory) *-- a set of Pester tests for validating the health of a deployment of Active Directory.*
 - [PowerShell-SlackBot](https://github.com/markwragg/Powershell-SlackBot) *-- a PowerShell module for hosting a chat bot for Slack using PowerShell and TCP Sockets. The chat bot can then be configured to listen to and respond to specific messages and run PowerShell commands that are initiated from within a chat window.*
 
-If you have any other burning questions about me, feel free to get in touch! :)
+If you have any other burning questions about me, feel free to get in touch, here or via [LinkedIn](https://www.linkedin.com/in/mwragg) :)
 
 
 
