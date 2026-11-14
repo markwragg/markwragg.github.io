@@ -20,7 +20,7 @@ I recently published an [awesome-powershell-modules](https://github.com/markwrag
 
 ### What is an awesome list?
 
-An awesome list is a _"a community-curated collection of the best resources, tools, libraries, frameworks, and guides dedicated to a specific topic"_. The idea isn't to list everything for a specific topic, but to curate a list of truly "awesome" resources (which as a British person, is not a word I'm _that_ comfortable with overly using). The concept of an awesome list has been around for a while, but was popularised / standardised by [Sindre Sorhus](https://github.com/sindresorhus) in 2014, and he maintains the de facto [list of lists](https://github.com/sindresorhus/awesome).
+An awesome list is _"a community-curated collection of the best resources, tools, libraries, frameworks, and guides dedicated to a specific topic"_. The idea isn't to list everything for a specific topic, but to curate a list of truly "awesome" resources (which as a British person, is not a word I'm _that_ comfortable with overly using). The concept of an awesome list has been around for a while, but was popularised / standardised by [Sindre Sorhus](https://github.com/sindresorhus) in 2014, and he maintains the de facto [list of lists](https://github.com/sindresorhus/awesome).
 
 Awesome lists are generally very easy to create, you just write your list in Markdown, as a `README.md` published in a GitHub repo (or other public location). The preference is to organise the resources into categories, link to their source, and provide a short description that explains why they are awesome.
 
@@ -33,7 +33,7 @@ I had a quick search before I started and discovered a couple of pre-existing Po
 
 However both were general PowerShell lists, which included modules along with other useful resources like blogs, books, podcasts etc., and didn't look to be too actively maintained. I wanted to create something that was specifically about PowerShell modules, to give the community a new resource to find not only the most well known / used tools, but some of the hidden gems as well.
 
-The PowerShell Gallery (at time of writing) has 17,084 unique packages, and while you can search it directly, it's not always obvious what a package does, or whether it is well maintained / working. An awesome list helps with this by adding a layer of human recommendation / curation. Like a museum, or art gallery, the idea is to showcase awesomeness.
+The PowerShell Gallery (at time of writing) has 17,084 unique packages, and while you can search it directly, it's not always obvious what a package does, or whether it is well maintained / working. An awesome list helps with this by adding a layer of human recommendation / curation. Like a museum or art gallery, the idea is to showcase awesomeness.
 
 To ensure a certain level of discernment, my list has the following rules for contributions:
 
@@ -73,10 +73,107 @@ Initially, this just listed the new modules in a markdown table output on the jo
 
 ### Letting Claude triage the candidates
 
-The GitHub Action workflow `new-modules-check.yml` runs weekly (or can be run manually):
+The GitHub Action workflow `new-modules-check.yml` runs weekly at midnight every Monday (or can be run manually):
 
-1. Runs `Find-NewGalleryModules.ps1` and writes the results to the job summary as a markdown table *and* to `candidates.json`.
-2. If there are candidates, calls [`anthropics/claude-code-action@v1`](https://github.com/anthropics/claude-code-action) with a scoped tool allow-list (no unrestricted shell) and a prompt that:
+```yaml
+name: New Modules Check
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  find-new-modules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Find new gallery modules
+        id: find
+        shell: pwsh
+        run: |
+          $results = ./scripts/Find-NewGalleryModules.ps1
+
+          "## New PowerShell Gallery Modules" >> $env:GITHUB_STEP_SUMMARY
+          "" >> $env:GITHUB_STEP_SUMMARY
+
+          if (-not $results) {
+            "No new modules found 30-37 days old that aren't already in README.md." >> $env:GITHUB_STEP_SUMMARY
+            "has_results=false" >> $env:GITHUB_OUTPUT
+            return
+          }
+
+          "Modules published 30-37 days ago that aren't already in README.md, for review as candidates to add:" >> $env:GITHUB_STEP_SUMMARY
+          "" >> $env:GITHUB_STEP_SUMMARY
+          "| Module | Gallery | Author | Published | Downloads |" >> $env:GITHUB_STEP_SUMMARY
+          "|---|---|---|---|---|" >> $env:GITHUB_STEP_SUMMARY
+
+          foreach ($module in $results) {
+            $name = $module.Name -replace '\|', '\|'
+            $author = $module.Author -replace '\|', '\|'
+            "| [$name]($($module.ProjectUrl)) | [Gallery]($($module.GalleryUrl)) | $author | $($module.Published.ToString('yyyy-MM-dd')) | $($module.Downloads) |" >> $env:GITHUB_STEP_SUMMARY
+          }
+
+          $results | ConvertTo-Json -Depth 4 | Out-File -FilePath candidates.json -Encoding utf8
+          "has_results=true" >> $env:GITHUB_OUTPUT
+
+      - name: Review candidates with Claude and open a PR
+        if: steps.find.outputs.has_results == 'true'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --allowedTools "Read,Edit,WebFetch,Bash(git:*),Bash(gh:*),Bash(date:*)"
+            --permission-mode default
+          prompt: |
+            REPO: ${{ github.repository }}
+
+            candidates.json (in the repo root) lists PowerShell modules first published to
+            the PowerShell Gallery 30-37 days ago that are not currently listed in README.md.
+            Each entry has: Name, ProjectUrl, GalleryUrl, Author, FirstPublished, Published,
+            Downloads, Description.
+
+            For every candidate:
+            1. Look at its ProjectUrl / GalleryUrl (and the module's source repo, if linked)
+               to judge whether it's a good fit for this curated "awesome list": actively
+               maintained, has a clear single purpose, reasonable documentation, and isn't a
+               near-duplicate of a module already in README.md.
+            2. Decide "include" or "exclude" and write one concise sentence explaining why.
+
+            For every candidate you decide to include:
+            - Add it to README.md under the single most appropriate existing category
+              (see the "## Contents" list and the section headings below it). Keep entries
+              within that category in alphabetical order by module name, matching the
+              existing format exactly: `- [Name](ProjectUrl) - Description.`
+            - Write the description in the same terse, factual style as the surrounding
+              entries (what the module does, not marketing language). Do not invent a new
+              category - pick the closest existing one. Do not reorder or otherwise edit
+              unrelated entries.
+
+            Do not add candidates you decide to exclude, and don't modify anything else in
+            the repo.
+
+            If you add at least one module to README.md:
+            - Create a new branch named `new-modules/<today in YYYY-MM-DD>` (append `-2`,
+              `-3`, etc. if that branch already exists).
+            - Commit the README.md change with message "Add new candidate module(s) to README".
+            - Push the branch and open a pull request against the repository's default
+              branch with `gh pr create`.
+            - The PR body must list every candidate from candidates.json, grouped under
+              "### Added" and "### Not added" headings, each as a bullet with the module
+              name and your one-sentence reasoning.
+
+            If you decide none of the candidates are a good fit, do not create a branch,
+            commit, or PR. Instead append a "## Candidate Module Review" section to
+            $GITHUB_STEP_SUMMARY listing each candidate and your exclusion reasoning.
+
+```
+
+1. The execution of `Find-NewGalleryModules.ps1` writes the results to the job summary as a markdown table *and* to `candidates.json`.
+2. If there are candidates, calls [`anthropics/claude-code-action@v1`](https://github.com/anthropics/claude-code-action) with a scoped tool allow-list `--allowedTools` (no unrestricted shell) and `--permission-mode default` so that any tool call outside of the explicit allow list is denied outright. It then executes a prompt that:
    - Gives Claude the same inclusion criteria as human contributors get in `CONTRIBUTING.md` (actively maintained, single clear purpose, documented, not a near-duplicate of something already listed).
    - Asks it to look at each candidate's project/Gallery links (and source repo) and decide include/exclude with one concise reason each.
    - For includes: insert into the correct existing category, alphabetically, matching the exact `- [Name](url) - Description.` format and tone.
@@ -84,6 +181,8 @@ The GitHub Action workflow `new-modules-check.yml` runs weekly (or can be run ma
    - If anything was added: create a branch named `new-modules/<date>`, commit, push, and open a PR with `gh pr create`, with a body listing every candidate under "### Added" / "### Not added" headings.
    - If nothing was a good fit: skip the PR entirely and just append the reasoning to the job summary - avoids opening noise PRs just to say "no".
 3. Explicitly never pushes to `main` - the model's only path to changing the list is a PR, which I still review and merge myself.
+
+I'm using my existing Claude Pro subscription, so the repo has a secret named `CLAUDE_CODE_OAUTH_TOKEN` which allows the pipeline to authenticate to Claude.
 
 The first run opened [PR #1](https://github.com/markwragg/awesome-powershell-modules/pull/1) against ~51 candidates found in the Gallery, and suggested:
 
