@@ -22,7 +22,7 @@ I recently published an [awesome-powershell-modules](https://github.com/markwrag
 
 An awesome list is a _"a community-curated collection of the best resources, tools, libraries, frameworks, and guides dedicated to a specific topic"_. The idea isn't to list everything for a specific topic, but to curate a list of truly "awesome" resources (which as a British person, is not a word I'm _that_ comfortable with overly using). The concept of an awesome list has been around for a while, but was popularised / standardised by [Sindre Sorhus](https://github.com/sindresorhus) in 2014, and he maintains the de facto [list of lists](https://github.com/sindresorhus/awesome).
 
-Awesome lists are generally very easy to create, you just write your list in Markdown, as a `README.md` published in a GitHub repo (or other public location). Generally the preference is to organise the resources into categories, link to their source, and provide a short description that explains why they are awesome.
+Awesome lists are generally very easy to create, you just write your list in Markdown, as a `README.md` published in a GitHub repo (or other public location). The preference is to organise the resources into categories, link to their source, and provide a short description that explains why they are awesome.
 
 ### Why create a new list?
 
