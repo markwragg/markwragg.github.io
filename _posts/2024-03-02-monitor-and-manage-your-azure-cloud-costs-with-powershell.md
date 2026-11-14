@@ -146,7 +146,10 @@ The tool then breaks down the costs by service type, creating a chart with diffe
 
 If more than one subscription is in the cost data, the cmdlet will end with a total of cost for all subscriptions and another chart showing most to least expensive. This is a little slow to produce (it's largely down to the sparkline charts which take a few seconds each to generate):
 
-![Show-CostAnalysis generates charts and tables for a set of returned cost data](/content/images/2024/Show-CostAnalysis.gif)
+<video autoplay loop muted playsinline poster="/content/images/2024/Show-CostAnalysis-poster.jpg" style="width:100%;" aria-label="Show-CostAnalysis generates charts and tables for a set of returned cost data">
+  <source src="/content/images/2024/Show-CostAnalysis.webm" type="video/webm">
+  <source src="/content/images/2024/Show-CostAnalysis.mp4" type="video/mp4">
+</video>
 
 There's a couple of parameters on `Show-CostAnalysis`: you can again customise the size of the charts returned by specifying `-SparkLineSize`. The default is 3. But perhaps more usefully, you can also specify `-ConvertToCurrency` with a 3-letter currency code if you'd like the cost values returned to be converted to a different currency. Sometimes Azure costs are billed in a currency that is not your own and it may be more informative to view them in your local currency. For example:
 
