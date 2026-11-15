@@ -1,0 +1,74 @@
+---
+title: 20 Years of PowerShell
+header:
+  show_overlay_excerpt: false
+  overlay_image: "/content/images/2026/balloons.jpg"
+  teaser: "/content/images/2026/balloons.jpg"
+date: '2026-11-14 09:00:00'
+tags:
+- powershell
+- career
+- reflection
+excerpt: "PowerShell 1.0 shipped on 14 November 2006. Twenty years on to the day, I look back at how it's shaped the way I work, the career it built, and the community around it."
+---
+
+<!--
+SCAFFOLD NOTES (delete this comment block before publishing):
+- Today, 14 Nov 2026, is exactly 20 years since PowerShell 1.0 shipped (14 Nov 2006). That's the hook.
+- Sections marked with *(...)* are prompts for you to replace with your own story - don't leave them in.
+- The version history table is factual and safe to keep/trim/correct, it's not part of the personal narrative.
+- Pick/record a header image - something like an old terminal next to a modern one, or a "then vs now" screenshot of your own scripts.
+-->
+
+Twenty years ago today, on 14 November 2006, Microsoft shipped PowerShell 1.0 as a downloadable add-on for Windows XP and Server 2003. It wasn't bundled with the OS, it wasn't fast, and most of the Windows admin world was still living in `.bat` files and VBScript. Two decades later it's hard to imagine doing my job without it.
+
+This post is a personal one. Less "here's a technique" and more a look back at how a scripting language ended up being the backbone of my career.
+
+### Life before PowerShell
+
+*(Your reflection here - e.g. what were you using day to day before PowerShell existed or before you adopted it: VBScript, batch files, cmd.exe, manual GUI work? What was your job at the time?)*
+
+### How I found it
+
+*(When did you first encounter PowerShell - v1, v2, v3? Was it a specific problem that pushed you to it, a colleague, a course? What was the "aha" moment that hooked you - pipelines, objects instead of text, remoting?)*
+
+### A (very abridged) version history
+
+A rough timeline of the releases that mark out the eras I've lived through with it - adjust/trim to the versions that actually meant something to you:
+
+| Version | Shipped | Notable for me |
+|---|---|---|
+| 1.0 | Nov 2006 | *(your note)* |
+| 2.0 | Oct 2009 (Win7 / Server 2008 R2) | Remoting, modules, ISE |
+| 3.0 | Sep 2012 (Win8 / Server 2012) | Workflows, scheduled jobs |
+| 4.0 | Oct 2013 (Win8.1 / Server 2012 R2) | Desired State Configuration |
+| 5.0 / 5.1 | 2016 (Win10 / Server 2016) | Classes, PowerShellGet, the Gallery |
+| 6.0 "Core" | Jan 2018 | Open source, cross-platform, .NET Core |
+| 7.0 | Mar 2020 | .NET Core 3.1, Windows compatibility layer |
+| 7.2 LTS | Nov 2021 | |
+| 7.4 LTS | Nov 2023 | |
+| 7.5 | 2025 | |
+
+### The jobs it shaped
+
+*(Walk through 2-3 roles/projects where PowerShell was the differentiator - the automate-yourself-a-promotion story, the AD/infra admin years, the move into DevOps/cloud. You've already written pieces of this - e.g. your [automate yourself a better job](/automate-yourself-a-better-job-with-powershell/) and [PowerShell millionaire](/how-i-became-a-powershell-millionaire/) posts have raw material to pull from and link back to.)*
+
+### Publishing, community, and the Gallery
+
+*(Your module history is already quantified in the millionaire post - pull a couple of the most meaningful numbers/stories forward here rather than repeating all of it. Also: MVP status if applicable, conferences, the PowerShell Podcast, user groups, Twitter/Bluesky - whatever built your sense of "this is a community, not just a tool".)*
+
+### Open source and the cross-platform shift
+
+*(Your take on the v6 "Core" rewrite - open-sourcing, Linux/Mac support, the DevOps/cloud era it enabled for you specifically - Azure, Terraform, pipelines.)*
+
+### What changed in how I think
+
+*(The bigger lesson - e.g. pipelines/objects changing how you reason about data, or automation-first thinking changing how you approach any repetitive task, scripting as a default reflex rather than a specialist skill.)*
+
+### The next 20 years
+
+*(Where you think it goes from here - AI-assisted scripting, agents calling PowerShell, your own recent experiments like the [awesome-powershell-modules](/building-a-self-maintaining-awesome-list-with-github-actions-and-claude/) project. Close on something personal rather than a prediction.)*
+
+---
+
+*(Closing line/image - your usual sign-off.)*
