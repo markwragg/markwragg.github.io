@@ -22,6 +22,8 @@ SCAFFOLD NOTES (delete this comment block before publishing):
 
 Twenty years ago today, on 14 November 2006, Microsoft shipped PowerShell 1.0 as a downloadable add-on for Windows XP and Server 2003. It wasn't bundled with the OS, it wasn't fast, and most of the Windows admin world was still living in `.bat` files and VBScript. Two decades later it's hard to imagine doing my job without it.
 
+[Jeffrey Snover](https://en.wikipedia.org/wiki/Jeffrey_Snover) is rightly credited as the creator of PowerShell - he wrote the original "Monad Manifesto" back in 2002 that proposed an object-based shell for Windows, and spent years fighting internal resistance at Microsoft to get it built. But Snover himself has always been quick to deflect sole credit: *"People give me too much credit for PowerShell. PowerShell is great because we had a series of rockstar engineers add their awesomeness to the project,"* he's said, specifically calling out people like Bruce Payette (co-designer of the language itself) among the team who actually built it. I was reminded of this watching [the 20th anniversary celebration](https://www.youtube.com/watch?v=P_unk_59wWs) yesterday, where Snover was keen to credit Kenneth Hansen, PowerShell's long-time Lead Program Manager, who's been there since close to the start and co-hosted the 10th anniversary celebration with Snover back in 2016 too. It's a nice reminder that even the tools we think of as one person's vision are almost always a team effort underneath.
+
 This post is a personal one. Less "here's a technique" and more a look back at how a scripting language ended up being the backbone of my career.
 
 ### Life before PowerShell
