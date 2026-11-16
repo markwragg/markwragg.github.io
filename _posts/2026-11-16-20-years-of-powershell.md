@@ -28,7 +28,7 @@ Once you come to appreciate the object pipeline nature of PowerShell it's hard n
 >
 > -- Jeffrey Snover, [An Interview With PowerShell Inventor Jeffrey Snover](https://hackernoon.com/an-interview-with-powershell-inventor-jeffrey-snover) (HackerNoon, December 2021)
 
-Jeffrey often specifically calls out individuals like [Bruce Payette](https://github.com/brucepay) (co-designer of the language itself) among the team who actually built it. I was reminded of this watching the 20th anniversary celebration (embedded below) on LinkedIn, where Snover was once again keen to credit the work of others, including Kenneth Hansen, a long-time member of the PowerShell team, who co-hosted the 10th anniversary celebration with Snover back in 2016 too.
+Jeffrey often specifically calls out individuals like [Bruce Payette](https://github.com/brucepay) (co-designer of the language itself) among the team who actually built it. I was reminded of this watching the 20th anniversary celebration (embedded below) on LinkedIn, where Snover was once again keen to credit the work of others, including Kenneth Hansen, a long-time member of the PowerShell team, who co-hosted the 10th anniversary celebration back in 2016 too.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/P_unk_59wWs" title="PowerShell 20th Anniversary Celebration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
