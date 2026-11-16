@@ -16,11 +16,11 @@ I recently attended a 20th Anniversary celebration of PowerShell, hosted by [Hei
 
 ![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.jpg){: .align-center}
 
-Once you come to appreciate the object pipeline nature of PowerShell it's hard not to love. And there's a lot to be said for it being both a CLI and scripting language. I saw someone describe it recently as being akin to working permanently in debug mode, because of how easy it is to inspect variables as you go along. Part of it's endearing versatility is that you can use it as easily to write a complex script, as get a quick answer from a terminal.
+Once you come to appreciate the object pipeline nature of PowerShell it's hard not to love. And there's a lot to be said for it being both a CLI and scripting language. I saw someone describe it recently as being akin to working permanently in debug mode, because of how easy it is to inspect variables as you go along. Part of its endearing versatility is that you can use it as easily to write a complex script, as get a quick answer from a terminal.
 
-[Jeffrey Snover](https://en.wikipedia.org/wiki/Jeffrey_Snover) is typically credited as the creator of PowerShell. He wrote the original "[Monad Manifesto](https://devblogs.microsoft.com/powershell/monad-manifesto-the-origin-of-windows-powershell/)" back in 2002 that proposed an object-based shell for Windows, and spent years fighting internal resistance at Microsoft to get it built. But he has always been quick to deflect sole credit:
+[Jeffrey Snover](https://en.wikipedia.org/wiki/Jeffrey_Snover) is typically credited as the creator of PowerShell. He wrote the original "[Monad Manifesto](https://devblogs.microsoft.com/powershell/monad-manifesto-the-origin-of-windows-powershell/)" back in 2002 that proposed an object-based shell for Windows. He then spent years fighting internal resistance at Microsoft to get it built. But he has always been quick to deflect sole credit:
 
-> "People give me too much credit for PowerShell. PowerShell is great because we had a series of rockstar engineers add their awesomeness to the project"
+> "People give me too much credit for PowerShell. PowerShell is great because we had a series of rockstar engineers add their awesomeness to the project."
 >
 > -- Jeffrey Snover, [An Interview With PowerShell Inventor Jeffrey Snover](https://hackernoon.com/an-interview-with-powershell-inventor-jeffrey-snover) (HackerNoon, December 2021)
 
@@ -52,9 +52,9 @@ PowerShell has gone through many iterations, improving each time. It has current
 
 ### How it shaped my career
 
-My early experience with PowerShell was to use it as a force multiplier, via [PSRemoting](https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands). I was actually in a managerial role at the time, but had been promoted from an engineering role and was still fairly hands on. I often found myself needing to audit our VMWare VM estate (that was around 300 VMs), to answer questions. PowerShell was great for this. I'd have a CSV file with my list of VMs, extracted from Active Directory, and a `ForEach` loop would connect to each of them using my AD credentials to gather some intel.
+My early experience with PowerShell was to use it as a force multiplier, via [PSRemoting](https://learn.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands). I was actually in a managerial role at the time, but had been promoted from an engineering role and was still fairly hands on. I often found myself needing to audit our VMware VM estate (that was around 300 VMs), to answer questions. PowerShell was great for this. I'd have a CSV file with my list of VMs, extracted from Active Directory, and a `ForEach` loop would connect to each of them using my AD credentials to gather some intel.
 
-Once comfortable with the language I was encouraged to look at [Pester](https://pester.dev), which was becoming the defacto PowerShell testing framework. I was a little resistant at first, because it felt like a whole new set of terminology to learn (I didn't understand why my scripts started with `$SUT` or what that was supposed to mean. It was "System Under Test" I believe). Once I had got my head around the concept, I once again fell in love. As someone that came from an Operations background, the idea of testing code with other code was very new to me. But I quickly came to appreciate the power of it, particularly when paired with things like source control and CI/CD pipelines. However another great use I found for Pester early on was to do Infrastructure / Application validation checks. At the time we had a very manual list of checks that we'd do after a deployment or change, and writing a Pester script to automate these added a very useful quality gate to my team's work.
+Once comfortable with the language I was encouraged to look at [Pester](https://pester.dev), which was becoming the de facto PowerShell testing framework. I was a little resistant at first, because it felt like a whole new set of terminology to learn (I didn't understand why my scripts started with `$SUT` or what that was supposed to mean. It was "System Under Test" I believe). Once I had got my head around the concept, I once again fell in love. As someone that came from an Operations background, the idea of testing code with other code was very new to me. But I quickly came to appreciate the power of it, particularly when paired with things like source control and CI/CD pipelines. However another great use I found for Pester early on was to do Infrastructure / Application validation checks. At the time we had a very manual list of checks that we'd do after a deployment or change, and writing a Pester script to automate these added a very useful quality gate to my team's work.
 
 ### Publishing, community, and the Gallery
 
@@ -62,13 +62,17 @@ As I covered in a [previous blog post](https://wragg.io/how-i-became-a-powershel
 
 I recently started an [awesome list of PowerShell modules](https://github.com/markwragg/awesome-powershell-modules) to aid in the discovery of my favourite of these. With a gallery that populous it can be hard to know where to start, and there's some fantastic well known and lesser known tools in there. If you have any ideas for modules to include in the list (your own, or others) please do let me know or raise a PR. The list is intended to be partly self maintaining, as [I blogged about previously](https://wragg.io/awesome-powershell-modules/), by using Claude to do a weekly assessment of modules published in the last 30 - 37 days and consider them for inclusion. The final decision still rests with a human maintainer.
 
+Like a lot of people, so much of my work has come about by standing on the shoulders of giants. I learnt so much from powerhouses in the community such as [Richard Siddaway](https://richardspowershellblog.wordpress.com) and [Warren Frame](https://ramblingcookiemonster.github.io) on how to write good PowerShell, build pipelines and automation. Books such as [Learn PowerShell in a Month of Lunches](https://www.manning.com/books/learn-powershell-in-a-month-of-lunches) were also a great help in getting started. I've dipped in and out of the [PowerShell Discord](https://discord.gg/powershell) / Slack account, but have found it to always be a welcoming community. It was a pleasure to be a guest on [The PowerShell Podcast](https://pdq.com/resources/the-powershell-podcast/ep-109-cloud-chronicles-mark-wraggs-journey-in-devops), and speak at a [Southampton PowerShell Usergroup](https://www.meetup.com/PowerShell-Southampton), as well as [PSDay.UK](https://psday.uk) and more recently [PSConf.eu's Minicon](https://psconf.eu). At every one of these events I met enthusiastic people just keen to help others succeed.
+
 ### Open source and the cross-platform shift
 
 The shift to PowerShell Core was another unexpected turn in PowerShell's journey, but one I've come to greatly appreciate. For a number of years I worked from a Macbook Air, so it was great to be able to natively continue to work with PowerShell. And knowing that I can write automation that can be run on Windows, MacOS and Linux is incredibly powerful. Particularly when it comes to managing resources in the cloud, both locally and via pipelines.
 
 ### The next 20 years
 
-I hope that PowerShell continues to be the powerhouse tool it has come to be. With AI and LLMs you can certainly write more PowerShell more quickly than ever before. I think it will continue to be an important tool for new and existing users alike, particularly because of it's easy to read / understand nature. Here's to the next 20 years.
+I hope that PowerShell continues to be the powerhouse tool it has come to be. With AI and LLMs you can certainly write more PowerShell more quickly than ever before. I think it will continue to be an important tool for new and existing users alike, particularly because of its easy to read / understand nature. I also hope the PowerShell community continues to be the warm and inclusive place I've found it to be.
+
+Here's to the next 20 years.
 
 ---
 
