@@ -17,6 +17,9 @@ I wasn't unfamiliar with scripting at the time, having written things in QBasic 
 
 ![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.jpg){: .align-center}
 
+*Why so blue PowerShell? You're still young.*
+{: .text-center}
+
 Once you come to appreciate the object pipeline nature of PowerShell it's hard not to love. And there's a lot to be said for it being both a CLI and scripting language. I saw someone describe it recently as being akin to working permanently in debug mode, because of how easy it is to inspect variables as you go along. Part of its endearing versatility is that you can use it as easily to write a complex script, as get a quick answer from a terminal.
 
 [Jeffrey Snover](https://en.wikipedia.org/wiki/Jeffrey_Snover) is typically credited as the creator of PowerShell. He wrote the original "[Monad Manifesto](https://devblogs.microsoft.com/powershell/monad-manifesto-the-origin-of-windows-powershell/)" back in 2002 that proposed an object-based shell for Windows. He then spent years fighting internal resistance at Microsoft to get it built. But he has always been quick to deflect sole credit:
