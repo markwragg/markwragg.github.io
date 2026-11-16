@@ -32,6 +32,8 @@ Jeffrey often specifically calls out individuals like [Bruce Payette](https://gi
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/P_unk_59wWs" title="PowerShell 20th Anniversary Celebration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### Design choices
+
 I don't know exactly who to credit, but there were certainly some great design choices made right from the beginning of PowerShell:
 
 - **Cmdlets:** Naming the "commands" cmdlets, gave them a unique moniker that then made them easy to Google.
