@@ -36,8 +36,8 @@ Jeffrey often specifically calls out individuals like [Bruce Payette](https://gi
 
 I don't know exactly who to credit, but there were certainly some great design choices made right from the beginning of PowerShell:
 
-- **Cmdlets:** Naming the "commands" cmdlets, gave them a unique moniker that then made them easy to Google.
-- **Verb-noun:** The Verb-Noun structure for cmdlets, while some might find clunky, often makes your scripts very easy to parse by a layman, almost as if written in English.
+- **Cmdlets:** Naming the "commands" cmdlets, gave them a unique moniker that then made them easy to Google, and differentiated them from other languages.
+- **Verb-noun:** The Verb-Noun structure for cmdlets, while some might find clunky, often makes your scripts very easy to pars And then there's always aliases if you do want a shorter command.
 - **Objects and the Pipeline:** exposing results as little databases that you can query and manipulate, and being able to chain commands together by passing those objects down a pipeline can make even the most complete beginner feel like a power user.
 
 ### A (very abridged) version history
