@@ -15,7 +15,7 @@ I recently attended a [20th Anniversary celebration of PowerShell](https://www.l
 
 I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
 
-![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.jpg){: .align-center}
+![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.png){: .align-center}
 
 *Why so blue PowerShell? You're still young.*
 {: .text-center}
