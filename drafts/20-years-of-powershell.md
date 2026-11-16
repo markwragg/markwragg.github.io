@@ -4,7 +4,7 @@ header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2026/balloons.jpg"
   teaser: "/content/images/2026/balloons.jpg"
-date: '2026-11-14 09:00:00'
+date: '2026-11-16 09:00:00'
 tags:
 - powershell
 - career
@@ -68,7 +68,7 @@ The shift to PowerShell Core was another unexpected turn in PowerShell's journey
 
 ### The next 20 years
 
-I hope that PowerShell continues to be the powerhouse tool it has come to be. With AI and LLMs you can certainly write more PowerShell more quickly than ever before. I think it will continue to be an important tool for new and existing users alike, particularly because of it's easy to read / understand nature.
+I hope that PowerShell continues to be the powerhouse tool it has come to be. With AI and LLMs you can certainly write more PowerShell more quickly than ever before. I think it will continue to be an important tool for new and existing users alike, particularly because of it's easy to read / understand nature. Here's to the next 20 years.
 
 ---
 
