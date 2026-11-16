@@ -1,5 +1,5 @@
 ---
-title: 20 Years of PowerShell
+title: Celebrating 20 Years of PowerShell
 header:
   show_overlay_excerpt: false
   overlay_image: "/content/images/2026/balloons.jpg"
@@ -9,10 +9,10 @@ tags:
 - powershell
 - career
 - reflection
-excerpt: "PowerShell 1.0 shipped on 14 November 2006. Twenty years on to the day, I look back at how it's shaped the way I work, my career, and the community around it."
+excerpt: "PowerShell 1.0 shipped on 14 November 2006. Twenty years on, I look back at how it's shaped the way I work, my career, and the community around it."
 ---
 
-I recently attended a [20th Anniversary celebration of PowerShell](https://www.linkedin.com/events/powershell20-oneideathatchanged7516902171808907264/theater/), hosted by [Heiko Brenn](https://www.linkedin.com/in/heikobrenn/). I haven't been using PowerShell since day one, but was encouraged by a colleague to use it around 2013, and have adored it ever since. I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
+I recently attended a [20th Anniversary celebration of PowerShell](https://www.linkedin.com/events/powershell20-oneideathatchanged7516902171808907264/theater/), hosted by [Heiko Brenn](https://www.linkedin.com/in/heikobrenn/). I wasn't a day one adopter of PowerShell, but I think I was first encouraged by a colleague to use it around 2013, and have been smitten it ever since. I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
 
 ![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.jpg){: .align-center}
 
@@ -24,14 +24,14 @@ Once you come to appreciate the object pipeline nature of PowerShell it's hard n
 >
 > -- Jeffrey Snover, [An Interview With PowerShell Inventor Jeffrey Snover](https://hackernoon.com/an-interview-with-powershell-inventor-jeffrey-snover) (HackerNoon, December 2021)
 
- Jeffrey often specifically calls out individuals like [Bruce Payette](https://github.com/brucepay) (co-designer of the language itself) among the team who actually built it. I was reminded of this watching the 20th anniversary celebration (embedded below) on LinkedIn, where Snover was once again keen to credit the work of others, including Kenneth Hansen, a long-time member of the PowerShell team, who co-hosted the 10th anniversary celebration with Snover back in 2016 too.
+Jeffrey often specifically calls out individuals like [Bruce Payette](https://github.com/brucepay) (co-designer of the language itself) among the team who actually built it. I was reminded of this watching the 20th anniversary celebration (embedded below) on LinkedIn, where Snover was once again keen to credit the work of others, including Kenneth Hansen, a long-time member of the PowerShell team, who co-hosted the 10th anniversary celebration with Snover back in 2016 too.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/P_unk_59wWs" title="PowerShell 20th Anniversary Celebration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ### A (very abridged) version history
 
-PowerShell has gone through many iterations, improving each time. It has currently branched into two major versions, Windows PowerShell 5.1 (largely considered feature complete, but still maintained for bugs/security issues and bundled with Windows Operating systems), and PowerShell Core (now version 7) that is built on .NET Core, and enabled PowerShell to be cross-platform. Here's a quick summary of the major versions:
+PowerShell has gone through many iterations, improving each time. It has currently branched into two major versions, Windows PowerShell 5.1 (largely considered feature complete, but still maintained for bugs/security issues and bundled with Windows operating systems), and PowerShell Core (now known just as version 7) that is built on .NET Core, and enabled PowerShell to be cross-platform. Here's a quick summary of the major versions:
 
 | Version | Shipped | Notable changes |
 |---|---|---|
@@ -56,15 +56,13 @@ My early experience with PowerShell was to use it as a force multiplier, via [PS
 
 Once comfortable with the language I was encouraged to look at [Pester](https://pester.dev), which was becoming the de facto PowerShell testing framework. I was a little resistant at first, because it felt like a whole new set of terminology to learn (I didn't understand why my scripts started with `$SUT` or what that was supposed to mean. It was "System Under Test" I believe). Once I had got my head around the concept, I once again fell in love. As someone that came from an Operations background, the idea of testing code with other code was very new to me. But I quickly came to appreciate the power of it, particularly when paired with things like source control and CI/CD pipelines. However another great use I found for Pester early on was to do Infrastructure / Application validation checks. At the time we had a very manual list of checks that we'd do after a deployment or change, and writing a Pester script to automate these added a very useful quality gate to my team's work.
 
-The shift to PowerShell Core was another unexpected turn in PowerShell's journey, but one I've come to greatly appreciate. For a number of years I worked from a Macbook Air, so it was great to be able to natively continue to work with PowerShell. And knowing that I can write automation that can be run on Windows, MacOS and Linux is incredibly powerful. Particularly when it comes to managing resources in the cloud, both locally and via pipelines.
-
 ### Publishing, community, and the Gallery
 
 As I covered in a [previous blog post](https://wragg.io/how-i-became-a-powershell-millionaire/), I have a number of PowerShell modules published in the [PowerShell Gallery](https://www.powershellgallery.com/profiles/markwragg). This was another learning curve for me, the idea of packaging up cmdlets into a module and putting them somewhere other people could then use was quite intimidating. But I soon came to discover that the process is actually very simple. Thankfully others did too, and PowerShell now benefits from a vibrant community, who have published over 17,000 modules to the gallery and counting.
 
 I recently started an [awesome list of PowerShell modules](https://github.com/markwragg/awesome-powershell-modules) to aid in the discovery of my favourite of these. With a gallery that populous it can be hard to know where to start, and there's some fantastic well known and lesser known tools in there. If you have any ideas for modules to include in the list (your own, or others) please do let me know or raise a PR. The list is intended to be partly self maintaining, as [I blogged about previously](https://wragg.io/awesome-powershell-modules/), by using Claude to do a weekly assessment of modules published in the last 30 - 37 days and consider them for inclusion. The final decision still rests with a human maintainer.
 
-Like a lot of people, so much of my work has come about by standing on the shoulders of giants. I learnt so much from powerhouses in the community such as [Richard Siddaway](https://richardspowershellblog.wordpress.com) and [Warren Frame](https://ramblingcookiemonster.github.io) on how to write good PowerShell, build pipelines and automation. Books such as [Learn PowerShell in a Month of Lunches](https://www.manning.com/books/learn-powershell-in-a-month-of-lunches) were also a great help in getting started. I've dipped in and out of the [PowerShell Discord](https://discord.gg/powershell) / Slack account, but have found it to always be a welcoming community. It was a pleasure to be a guest on [The PowerShell Podcast](https://pdq.com/resources/the-powershell-podcast/ep-109-cloud-chronicles-mark-wraggs-journey-in-devops), and speak at a [Southampton PowerShell Usergroup](https://www.meetup.com/PowerShell-Southampton), as well as [PSDay.UK](https://psday.uk) and more recently [PSConf.eu's Minicon](https://psconf.eu). At every one of these events I met enthusiastic people just keen to help others succeed.
+Like a lot of people, so much of my work has come about by standing on the shoulders of giants. I learnt so much from powerhouses in the community such as [Richard Siddaway](https://richardspowershellblog.wordpress.com) and [Warren Frame](https://ramblingcookiemonster.github.io) on how to write good PowerShell, build pipelines and automation. Books such as [Learn PowerShell in a Month of Lunches](https://www.manning.com/books/learn-powershell-in-a-month-of-lunches) were also a great help in getting started. I've dipped in and out of the [PowerShell Discord](https://discord.gg/powershell) / Slack account, but have found it to always be a welcoming community. It was a pleasure to be a guest on [The PowerShell Podcast](https://pdq.com/resources/the-powershell-podcast/ep-109-cloud-chronicles-mark-wraggs-journey-in-devops), and speak at the [Southampton PowerShell Usergroup](https://www.meetup.com/PowerShell-Southampton), as well as PSDay.UK in [2018](https://www.youtube.com/watch?v=BbOiQCgDDR8) and [2019](https://www.youtube.com/watch?v=V7PYt9tWFw8) and more recently [PSConf.eu's MiniCon](https://www.youtube.com/watch?v=x5LXjIPEflU). At every one of these events I met enthusiastic people just keen to help others succeed.
 
 ### The next 20 years
 
