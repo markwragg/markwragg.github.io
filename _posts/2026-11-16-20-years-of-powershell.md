@@ -15,10 +15,10 @@ I recently attended a [20th Anniversary celebration of PowerShell](https://www.l
 
 I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
 
-![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.jpg){: .align-center}
-
-*Why so blue PowerShell? You're still young.*
-{: .text-center}
+<figure class="align-center">
+  <img src="/content/images/2026/Windows_powershell_1.0.jpg" alt="Windows PowerShell 1.0">
+  <figcaption>Why so blue PowerShell? You're still young.</figcaption>
+</figure>
 
 Once you come to appreciate the object pipeline nature of PowerShell it's hard not to love. And there's a lot to be said for it being both a CLI and scripting language. I saw someone describe it recently as being akin to working permanently in debug mode, because of how easy it is to inspect variables as you go along. Part of its endearing versatility is that you can use it as easily to write a complex script, as get a quick answer from a terminal.
 
