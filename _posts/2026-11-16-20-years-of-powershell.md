@@ -9,10 +9,11 @@ tags:
 - powershell
 - career
 - reflection
-excerpt: "PowerShell 1.0 shipped on 14 November 2006. Twenty years on, I look back at how it's shaped the way I work, my career, and the community around it."
 ---
 
-I recently attended a [20th Anniversary celebration of PowerShell](https://www.linkedin.com/events/powershell20-oneideathatchanged7516902171808907264/theater/), hosted by [Heiko Brenn](https://www.linkedin.com/in/heikobrenn/). I wasn't a day one adopter of PowerShell, but I think I was first encouraged by a colleague to use it around 2013, and have been smitten ever since. I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
+I recently attended a [20th Anniversary celebration of PowerShell](https://www.linkedin.com/events/powershell20-oneideathatchanged7516902171808907264/theater/), hosted by [Heiko Brenn](https://www.linkedin.com/in/heikobrenn/). I wasn't a day one adopter of PowerShell, but I think I was first encouraged by a colleague to use it around 2013, and have been smitten ever since.
+
+I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
 
 ![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.jpg){: .align-center}
 
