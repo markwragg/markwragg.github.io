@@ -127,9 +127,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: |
-            --allowedTools "Read,Edit,WebFetch,Bash(git:*),Bash(gh:*),Bash(date:*)"
+            --allowedTools "Read,Edit,WebFetch,Bash(git checkout:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(git branch:*),Bash(git status:*),Bash(git diff:*),Bash(gh pr create:*),Bash(date:*)"
             --permission-mode default
           prompt: |
             REPO: ${{ github.repository }}
