@@ -12,7 +12,7 @@ tags:
 excerpt: "PowerShell 1.0 shipped on 14 November 2006. Twenty years on to the day, I look back at how it's shaped the way I work, my career, and the community around it."
 ---
 
-I recently attended a 20th Anniversary celebration of PowerShell. I haven't been using PowerShell since day one, but was encouraged by a colleague to use it around 2013, and have adored it ever since. I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
+I recently attended a 20th Anniversary celebration of PowerShell, hosted by [Heiko Brenn](https://www.linkedin.com/in/heikobrenn/). I haven't been using PowerShell since day one, but was encouraged by a colleague to use it around 2013, and have adored it ever since. I wasn't unfamiliar with scripting at the time, having written things in QBasic when I was a kid, and later Visual Basic and VBScript in college and once I was in the world of work. But I must confess, I was initially resistant to picking up something new. However (like many in the community) it didn't take me long to get hooked.
 
 ![Windows PowerShell 1.0](/content/images/2026/Windows_powershell_1.0.jpg){: .align-center}
 
