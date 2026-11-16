@@ -20,7 +20,7 @@ I wasn't unfamiliar with scripting at the time, having written things in QBasic 
 *Why so blue PowerShell? You're still young.*
 {: .text-center}
 
-Once you come to appreciate the object pipeline nature of PowerShell it's hard not to love. And there's a lot to be said for it being both a CLI and scripting language. I saw someone describe it recently as being akin to working permanently in debug mode, because of how easy it is to inspect variables as you go along. Part of its endearing versatility is that you can use it as easily to write a complex script, as get a quick answer from a terminal.
+Once you come to appreciate the object pipeline nature of PowerShell it's hard not to love. And there's a lot to be said for it being both a CLI and scripting language. I saw someone describe it recently as being akin to working permanently in debug mode, because of how easy it is to inspect variables and outputs in the terminal as you go along. Certainly part of its endearing versatility is that you can use it as easily to write a complex script, as get a quick answer from a terminal.
 
 [Jeffrey Snover](https://en.wikipedia.org/wiki/Jeffrey_Snover) is typically credited as the creator of PowerShell. He wrote the original "[Monad Manifesto](https://devblogs.microsoft.com/powershell/monad-manifesto-the-origin-of-windows-powershell/)" back in 2002 that proposed an object-based shell for Windows. He then spent years fighting internal resistance at Microsoft to get it built. But he has always been quick to deflect sole credit:
 
@@ -32,6 +32,11 @@ Jeffrey often specifically calls out individuals like [Bruce Payette](https://gi
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/P_unk_59wWs" title="PowerShell 20th Anniversary Celebration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+I don't know exactly who to credit, but there were certainly some great design choices made right from the beginning of PowerShell:
+
+- **Cmdlets:** Naming the "commands" cmdlets, gave them a unique moniker that then made them easy to Google.
+- **Verb-noun:** The Verb-Noun structure for cmdlets, while some might find clunky, often makes your scripts very easy to parse by a layman, almost as if written in English.
+- **Objects and the Pipeline:** exposing results as little databases that you can query and manipulate, and being able to chain commands together by passing those objects down a pipeline can make even the most complete beginner feel like a power user.
 
 ### A (very abridged) version history
 
