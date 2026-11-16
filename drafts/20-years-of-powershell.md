@@ -24,7 +24,7 @@ Once you come to appreciate the object pipeline nature of PowerShell it's hard n
 >
 > -- Jeffrey Snover, [An Interview With PowerShell Inventor Jeffrey Snover](https://hackernoon.com/an-interview-with-powershell-inventor-jeffrey-snover) (HackerNoon, December 2021)
 
- Jeffrey often specifically calls out individuals like [Bruce Payette](https://github.com/brucepay) (co-designer of the language itself) among the team who actually built it. I was reminded of this watching the 20th anniversary celebration (embedded below) on LinkedIn yesterday, where Snover was once again keen to credit the work of others, including Kenneth Hansen, PowerShell's long-time Lead Program Manager, who's been there since close to the start and co-hosted the 10th anniversary celebration with Snover back in 2016 too.
+ Jeffrey often specifically calls out individuals like [Bruce Payette](https://github.com/brucepay) (co-designer of the language itself) among the team who actually built it. I was reminded of this watching the 20th anniversary celebration (embedded below) on LinkedIn, where Snover was once again keen to credit the work of others, including Kenneth Hansen, a long-time member of the PowerShell team, who co-hosted the 10th anniversary celebration with Snover back in 2016 too.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/P_unk_59wWs" title="PowerShell 20th Anniversary Celebration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -39,16 +39,16 @@ PowerShell has gone through many iterations, improving each time. It has current
 | 2.0 | Oct 2009 (Win7 / Server 2008 R2) | Remoting, modules, ISE |
 | 3.0 | Sep 2012 (Win8 / Server 2012) | Workflows, scheduled jobs |
 | 4.0 | Oct 2013 (Win8.1 / Server 2012 R2) | Desired State Configuration |
-| 5.0 / 5.1 | 2016 (Win10 / Server 2016) | Classes, PowerShellGet, the Gallery |
+| 5.0 / 5.1 | 2016 (Server 2016) | Classes, PowerShellGet, the Gallery |
 | 6.0 "Core" | Jan 2018 | Open source, cross-platform, .NET Core |
 | 7.0 | Mar 2020 | .NET Core 3.1, Windows compatibility layer, ternary operator, `&&` / `\|\|` pipeline chains, `ForEach-Object -Parallel` |
-| 7.1 | Jan 2021 | .NET 5, concise error view introduced (experimental) |
-| 7.2 LTS | Nov 2021 | Concise error view on by default, `$PSStyle` for ANSI/colour output, Secrets management went GA |
+| 7.1 | Nov 2020 | .NET 5 |
+| 7.2 LTS | Nov 2021 | Concise error view on by default, `$PSStyle` for ANSI/colour output |
 | 7.3 | Nov 2022 | .NET 7, official Windows ARM64 support, native command argument passing improvements |
 | 7.4 LTS | Nov 2023 | .NET 8, `$PSNativeCommandUseErrorActionPreference` - native command failures can now respect `$ErrorActionPreference` |
 | 7.5 | Jan 2025 | .NET 9, array/pipeline cmdlet refinements |
 | 7.6 LTS | Mar 2026 | .NET 10 LTS, replaced `BinaryFormatter` with a secure implementation (fixing `Out-GridView`), tab-completion fixes |
-| 7.7 (STS) | Nov 2026 | .NET 11, security hardening (Constrained Language Mode, implicit remoting), `New-TemporaryDirectory`, time-sortable v7 GUIDs by default |
+| 7.7 (STS) | Nov 2026 | .NET 11, security hardening (Constrained Language Mode, implicit remoting), `New-TemporaryDirectory` |
 
 ### How it shaped my career
 
@@ -64,7 +64,7 @@ I recently started an [awesome list of PowerShell modules](https://github.com/ma
 
 ### Open source and the cross-platform shift
 
-The shift to PowerShell Core was another unexpected turn in PowerShell's journey, but one I greatly appreciate. For a number of years I worked from a Macbook Air, so it was great to be able to natively continue to work with PowerShell. And knowing that I can write automation that can be run on Windows, MacOS and Linux is incredibly powerful. Particularly when it comes to managing resources in the cloud.
+The shift to PowerShell Core was another unexpected turn in PowerShell's journey, but one I've come to greatly appreciate. For a number of years I worked from a Macbook Air, so it was great to be able to natively continue to work with PowerShell. And knowing that I can write automation that can be run on Windows, MacOS and Linux is incredibly powerful. Particularly when it comes to managing resources in the cloud, both locally and via pipelines.
 
 ### The next 20 years
 
