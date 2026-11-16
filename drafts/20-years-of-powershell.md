@@ -20,7 +20,9 @@ Once you come to appreciate the object pipeline nature of PowerShell it's hard n
 
 [Jeffrey Snover](https://en.wikipedia.org/wiki/Jeffrey_Snover) is typically credited as the creator of PowerShell. He wrote the original "[Monad Manifesto](https://devblogs.microsoft.com/powershell/monad-manifesto-the-origin-of-windows-powershell/)" back in 2002 that proposed an object-based shell for Windows, and spent years fighting internal resistance at Microsoft to get it built. But he has always been quick to deflect sole credit:
 
-> "People give me too much credit for PowerShell. PowerShell is great because we had a series of rockstar engineers add their awesomeness to the project,"
+> "People give me too much credit for PowerShell. PowerShell is great because we had a series of rockstar engineers add their awesomeness to the project"
+>
+> -- Jeffrey Snover, [An Interview With PowerShell Inventor Jeffrey Snover](https://hackernoon.com/an-interview-with-powershell-inventor-jeffrey-snover) (HackerNoon, December 2021)
 
  Jeffrey often specifically calls out individuals like [Bruce Payette](https://github.com/brucepay) (co-designer of the language itself) among the team who actually built it. I was reminded of this watching the 20th anniversary celebration (embedded below) on LinkedIn yesterday, where Snover was once again keen to credit the work of others, including Kenneth Hansen, PowerShell's long-time Lead Program Manager, who's been there since close to the start and co-hosted the 10th anniversary celebration with Snover back in 2016 too.
 
